@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PTT 股市戰情室 | 價值投資雷達</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <div class="container glass-panel">
+        <header>
+            <h1><span class="gradient-text">PTT 股市戰情室</span></h1>
+            <p class="subtitle">即時盤中/盤後閒聊 - 低估候選與防洗版雷達</p>
+            <p class="update-time" id="update-time">最後更新時間：載入中...</p>
+        </header>
+
+        <section class="chart-section">
+            <h2 class="section-title">綜合低估分數 Top 10</h2>
+            <div class="chart-container">
+                <canvas id="scoreChart"></canvas>
+            </div>
+        </section>
+
+        <section class="data-section">
+            <h2 class="section-title">股票雷達分析細節</h2>
+            <div class="cards-grid" id="cards-grid">
+                <!-- Cards will be injected by JS -->
+            </div>
+        </section>
+    </div>
+
+    <!-- PapaParse for CSV parsing -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

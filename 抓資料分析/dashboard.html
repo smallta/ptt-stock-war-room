@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PTT Stock Radar</title>
+  <style>
+    :root {
+      --bg: #f5f7fa;
+      --ink: #182533;
+      --muted: #64748b;
+      --line: #d8e0ea;
+      --panel: #ffffff;
+      --accent: #0f766e;
+      --accent-2: #b45309;
+      --danger: #b42318;
+      --shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, "Microsoft JhengHei", "PingFang TC", sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+    }
+
+    header {
+      background: #12323a;
+      color: #fff;
+      padding: 24px clamp(16px, 4vw, 42px);
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    h1 {
+      font-size: clamp(24px, 4vw, 38px);
+      margin-bottom: 8px;
+      letter-spacing: 0;
+    }
+
+    header p {
+      max-width: 880px;
+      margin-bottom: 0;
+      color: #dbeafe;
+      line-height: 1.6;
+    }
+
+    main {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 22px clamp(12px, 3vw, 28px) 40px;
+    }
+
+    .toolbar {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto auto;
+      gap: 10px;
+      align-items: center;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px;
+      box-shadow: var(--shadow);
+    }
+
+    input, button {
+      min-height: 42px;
+      border-radius: 6px;
+      border: 1px solid var(--line);
+      font: inherit;
+    }
+
+    input {
+      width: 100%;
+      padding: 0 12px;
+      color: var(--ink);
+    }
+
+    button {
+      padding: 0 14px;
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    button.secondary {
+      background: #fff;
+      color: var(--accent);
+    }
+
+    button:disabled {
+      opacity: 0.6;
+      cursor: progress;
+    }
+
+    .status {
+      margin: 14px 0;
+      min-height: 22px;
+      color: var(--muted);
+    }
+
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin: 16px 0;
+    }
+
+    .card, .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .card {
+      padding: 16px;
+      min-height: 104px;
+    }
+
+    .label {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .value {
+      font-size: 30px;
+      font-weight: 800;
+      margin-top: 8px;
+    }
+
+    .sub {
+      color: var(--muted);
+      margin-top: 6px;
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .panel {
+      padding: 18px;
+      margin-top: 14px;
+    }
+
+    .panel-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .panel-head h2 {
+      font-size: 19px;
+      margin-bottom: 0;
+    }
+
+    .chart {
+      display: grid;
+      gap: 9px;
+    }
+
+    .bar-row {
+      display: grid;
+      grid-template-columns: 72px minmax(0, 1fr) 70px;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+    }
+
+    .bar-track {
+      height: 24px;
+      background: #e8edf3;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    .bar {
+      height: 100%;
+      min-width: 2px;
+      background: var(--accent);
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    table {
+      width: 100%;
+      min-width: 1420px;
+      border-collapse: collapse;
+      background: #fff;
+    }
+
+    th, td {
+      padding: 10px;
+      border-bottom: 1px solid #e6ebf1;
+      text-align: left;
+      vertical-align: top;
+      font-size: 14px;
+    }
+
+    th {
+      background: #edf2f7;
+      color: #334155;
+      font-size: 13px;
+    }
+
+    .score {
+      font-weight: 800;
+      color: var(--accent);
+    }
+
+    .risk {
+      color: var(--danger);
+      font-size: 13px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid #bfd7d4;
+      color: #0f766e;
+      background: #ecfdf5;
+      border-radius: 999px;
+      padding: 3px 8px;
+      margin: 2px 4px 2px 0;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    details {
+      max-width: 420px;
+    }
+
+    summary {
+      cursor: pointer;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .quote {
+      margin: 8px 0 0;
+      color: #334155;
+      line-height: 1.45;
+      border-left: 3px solid #cbd5e1;
+      padding-left: 8px;
+    }
+
+    .method {
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    a { color: #0969da; }
+
+    @media (max-width: 860px) {
+      .toolbar { grid-template-columns: 1fr; }
+      .summary { grid-template-columns: 1fr 1fr; }
+      .panel-head { display: block; }
+      .bar-row { grid-template-columns: 58px minmax(0, 1fr) 58px; }
+    }
+
+    @media (max-width: 520px) {
+      .summary { grid-template-columns: 1fr; }
+      .value { font-size: 26px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>PTT Stock Radar</h1>
+    <p>貼上 PTT 股票板文章網址，快速整理盤後閒聊中的股票提及、情緒、低估線索和風險旗標。這是一個研究雷達，不是買賣建議。</p>
+  </header>
+
+  <main>
+    <section class="toolbar">
+      <input id="urlInput" placeholder="貼上 PTT 股票板文章網址，例如 https://www.ptt.cc/bbs/Stock/M....html">
+      <button id="analyzeBtn">分析網址</button>
+      <button id="latestBtn" class="secondary">找最新盤後閒聊</button>
+    </section>
+
+    <div id="status" class="status">本機服務啟動後即可使用。</div>
+
+    <section class="summary" id="summary" hidden>
+      <div class="card">
+        <div class="label">留言數</div>
+        <div class="value" id="commentsMetric">0</div>
+        <div class="sub">推、噓與箭頭合計</div>
+      </div>
+      <div class="card">
+        <div class="label">股票候選</div>
+        <div class="value" id="stockMetric">0</div>
+        <div class="sub">從留言中的四碼代號辨識</div>
+      </div>
+      <div class="card">
+        <div class="label">推 / 噓</div>
+        <div class="value" id="pushBooMetric">0 / 0</div>
+        <div class="sub">作為討論氣氛參考</div>
+      </div>
+      <div class="card">
+        <div class="label">最佳分數</div>
+        <div class="value" id="topMetric">-</div>
+        <div class="sub" id="topSub">尚未分析</div>
+      </div>
+    </section>
+
+    <section class="panel" id="sourcePanel" hidden>
+      <div class="panel-head">
+        <h2>來源</h2>
+        <span class="label" id="generatedAt"></span>
+      </div>
+      <div id="sourceText"></div>
+    </section>
+
+    <section class="panel" id="chartPanel" hidden>
+      <div class="panel-head">
+        <h2>低估候選分數 Top 10</h2>
+        <span class="label">高分代表值得再查基本面，不代表真的低估</span>
+      </div>
+      <div class="chart" id="chart"></div>
+    </section>
+
+    <section class="panel" id="tablePanel" hidden>
+      <div class="panel-head">
+        <h2>股票雷達清單</h2>
+        <span class="label" id="rowCount"></span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>代號</th>
+              <th>名稱</th>
+              <th>研究分類</th>
+              <th>收盤價</th>
+              <th>本益比</th>
+              <th>股淨比</th>
+              <th>殖利率</th>
+              <th>估值線索</th>
+              <th>低估分數</th>
+              <th>參考等級</th>
+              <th>ID 集中度</th>
+              <th>提及</th>
+              <th>帳號數</th>
+              <th>提及 ID</th>
+              <th>情緒</th>
+              <th>低估線索</th>
+              <th>炒作詞</th>
+              <th>風險</th>
+              <th>下一步查核</th>
+              <th>留言摘錄</th>
+            </tr>
+          </thead>
+          <tbody id="stockRows"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel method">
+      <h2>方法</h2>
+      <p>目前 MVP 只使用 PTT Web 版文章與留言。低估候選分數 = 提及數*2 + 不同帳號數*3 + 正向詞*2 + 低估詞*5 - 負面詞*1.5 - 炒作詞*2。</p>
+      <p>下一階段可以接 TWSE/TPEX、月營收、EPS、本益比、股價淨值比和殖利率，讓「鄉民雷達」變成「討論熱度 + 基本面驗證」的投資研究儀表板。</p>
+    </section>
+  </main>
+
+  <script>
+    const $ = (id) => document.getElementById(id);
+    const status = $("status");
+    const analyzeBtn = $("analyzeBtn");
+    const latestBtn = $("latestBtn");
+    const urlInput = $("urlInput");
+
+    function setBusy(isBusy, message) {
+      analyzeBtn.disabled = isBusy;
+      latestBtn.disabled = isBusy;
+      status.textContent = message;
+    }
+
+    function escapeHtml(value) {
+      return String(value ?? "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;");
+    }
+
+    async function analyze(url) {
+      setBusy(true, "抓取與分析中...");
+      try {
+        const response = await fetch(`/api/analyze?url=${encodeURIComponent(url)}`);
+        const data = await response.json();
+        if (!response.ok || data.error) throw new Error(data.error || "分析失敗");
+        render(data);
+        setBusy(false, "分析完成。");
+      } catch (error) {
+        setBusy(false, error.message || String(error));
+      }
+    }
+
+    function render(data) {
+      $("summary").hidden = false;
+      $("sourcePanel").hidden = false;
+      $("chartPanel").hidden = false;
+      $("tablePanel").hidden = false;
+
+      $("commentsMetric").textContent = data.totals.comments;
+      $("stockMetric").textContent = data.totals.stockCount;
+      $("pushBooMetric").textContent = `${data.totals.push} / ${data.totals.boo}`;
+      $("topMetric").textContent = data.stocks[0] ? data.stocks[0].code : "-";
+      $("topSub").textContent = data.stocks[0] ? `參考 ${data.stocks[0].referenceLevel} · 分數 ${data.stocks[0].undervaluedScore}` : "沒有找到股票代號";
+      $("generatedAt").textContent = new Date(data.generatedAt).toLocaleString();
+      $("sourceText").innerHTML = `
+        <strong>${escapeHtml(data.source.title || "PTT 文章")}</strong><br>
+        <a href="${escapeHtml(data.source.url)}" target="_blank" rel="noreferrer">${escapeHtml(data.source.url)}</a>
+        <div class="sub">${escapeHtml(data.source.author || "")} ${escapeHtml(data.source.date || "")}</div>
+      `;
+
+      const top = data.stocks.slice(0, 10);
+      const maxScore = Math.max(...top.map((item) => item.undervaluedScore), 1);
+      $("chart").innerHTML = top.map((item) => {
+        const width = Math.max(2, Math.round((item.undervaluedScore / maxScore) * 100));
+        return `
+          <div class="bar-row">
+            <strong>${escapeHtml(item.code)}</strong>
+            <div class="bar-track"><div class="bar" style="width:${width}%"></div></div>
+            <span>${item.undervaluedScore}</span>
+          </div>
+        `;
+      }).join("") || "<div class='sub'>沒有可顯示的股票候選。</div>";
+
+      $("rowCount").textContent = `${data.stocks.length} 檔`;
+      $("stockRows").innerHTML = data.stocks.map((item) => {
+        const valuationWarnings = item.valuationWarnings || [];
+        const risks = [...item.riskFlags, ...valuationWarnings].length ? [...item.riskFlags, ...valuationWarnings].join("、") : "無";
+        const cheapFlags = item.cheapFlags && item.cheapFlags.length ? item.cheapFlags.map((flag) => `<span class="chip">${escapeHtml(flag)}</span>`).join("") : "-";
+        const checks = item.nextChecks.map((check) => `<div class="quote">${escapeHtml(check)}</div>`).join("");
+        const evidence = item.evidence.map((entry) => `
+          <div class="quote">${escapeHtml(entry.tag)} ${escapeHtml(entry.user)}：${escapeHtml(entry.text)}</div>
+        `).join("");
+        return `
+          <tr>
+            <td><strong>${escapeHtml(item.code)}</strong></td>
+            <td>${escapeHtml(item.name || "")}<div class="sub">${escapeHtml(item.market || "")}</div></td>
+            <td><span class="chip">${escapeHtml(item.researchBucket || "一般觀察")}</span></td>
+            <td>${formatNumber(item.price)}</td>
+            <td>${formatNumber(item.pe)}</td>
+            <td>${formatNumber(item.pb)}</td>
+            <td>${formatNumber(item.dividendYield)}%</td>
+            <td>${cheapFlags}</td>
+            <td class="score">${item.undervaluedScore}</td>
+            <td><span class="chip">${escapeHtml(item.referenceLevel)} (${item.referenceScore})</span></td>
+            <td>${Math.round(item.concentrationRatio * 100)}%</td>
+            <td>${item.mentions}</td>
+            <td>${item.uniqueUsers}</td>
+            <td>${item.userBreakdown.map((entry) => `<span class="chip">${escapeHtml(entry.user)} (${entry.mentions})</span>`).join("")}</td>
+            <td>${item.sentiment}</td>
+            <td>${item.undervaluedSignals}</td>
+            <td>${item.hypeSignals}</td>
+            <td class="risk">${escapeHtml(risks)}</td>
+            <td>${checks}</td>
+            <td>
+              <details>
+                <summary>查看摘錄</summary>
+                ${evidence || "<div class='sub'>無摘錄</div>"}
+              </details>
+            </td>
+          </tr>
+        `;
+      }).join("") || "<tr><td colspan='19'>沒有找到股票代號。</td></tr>";
+    }
+
+    function formatNumber(value) {
+      if (value === null || value === undefined) return "-";
+      const number = Number(value);
+      if (!Number.isFinite(number)) return "-";
+      return number.toFixed(2).replace(/\\.00$/, "");
+    }
+
+    analyzeBtn.addEventListener("click", () => {
+      const url = urlInput.value.trim();
+      if (!url) {
+        status.textContent = "請先貼上 PTT 文章網址。";
+        return;
+      }
+      analyze(url);
+    });
+
+    latestBtn.addEventListener("click", async () => {
+      setBusy(true, "搜尋最新盤後閒聊...");
+      try {
+        const response = await fetch("/api/latest?keyword=" + encodeURIComponent("盤後閒聊"));
+        const data = await response.json();
+        if (!response.ok || data.error) throw new Error(data.error || "找不到文章");
+        urlInput.value = data.href;
+        await analyze(data.href);
+      } catch (error) {
+        setBusy(false, error.message || String(error));
+      }
+    });
+  </script>
+</body>
+</html>
