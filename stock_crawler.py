@@ -2,13 +2,16 @@ import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 import re
+import json
+import time
 
 # PTT Stock Board configuration
 PTT_URL = "https://www.ptt.cc"
 STOCK_BOARD_URL = f"{PTT_URL}/bbs/Stock/index.html"
 HEADERS = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36"
 }
+COOKIES = {"over18": "1"}
 
 CUSTOM_NICKNAMES = {
     "發哥": "聯發科 (2454)", "公公": "鴻海 (2317)", "海公公": "鴻海 (2317)",
@@ -21,7 +24,8 @@ CUSTOM_NICKNAMES = {
     "台G": "台積電 (2330)", "gg": "台積電 (2330)", "GG": "台積電 (2330)",
     "紅茶店": "宏達電 (2498)", "三雄": "航運股", "皮衣男": "NVIDIA概念股",
     "老黃": "NVIDIA概念股", "AI妖股": "緯創 (3231)", "緯老軟": "緯軟 (4953)",
-    "大G": "大立光 (3008)", "星宇": "星宇航空 (2646)"
+    "大G": "大立光 (3008)", "星宇": "星宇航空 (2646)",
+    "大力光": "大立光 (3008)", "大力": "大立光 (3008)", "大立光": "大立光 (3008)"
 }
 
 POSITIVE_WORDS = ["低估", "便宜", "超跌", "打底", "轉強", "轉機", "突破", "成長", "利多", "買", "加碼", "看好", "殖利率", "配息", "營收", "獲利", "噴", "賺", "舒服"]
@@ -29,39 +33,87 @@ NEGATIVE_WORDS = ["高估", "太貴", "套", "爛", "跌", "崩", "利空", "賣
 UNDERVALUED_WORDS = ["低估", "便宜", "本益比低", "淨值比低", "殖利率", "配息", "超跌", "價值", "被錯殺", "低基期"]
 HYPE_WORDS = ["噴", "飆", "妖", "歐印", "all in", "ALL IN", "無腦", "上車", "嘎", "火箭", "目標價"]
 FUNDAMENTAL_WORDS = ["營收", "法說", "毛利", "財報", "EPS", "展望", "盈餘", "配息", "殖利率", "基本面", "淨利"]
+PANIC_WORDS = ["畢業", "停損", "斷頭", "違約", "抬出場", "救命", "砍在最低", "腰斬", "痛失", "賣在最低", "爆開", "慘", "崩", "套", "丸子", "輸光", "救我"]
+
+EVENT_RULES = {
+    "法說": "法說會", "注意": "注意股", "處置": "處置股", "違約": "違約交割",
+    "庫藏": "庫藏股", "除權": "除權息", "除息": "除權息", "營收": "營收揭曉",
+    "財報": "財報發布", "CoWoS": "CoWoS概念", "CPO": "CPO矽光子",
+    "漲停鎖死": "漲停鎖死", "鎖漲停": "漲停鎖死", "漲停板": "漲停板",
+    "跌停鎖死": "跌停鎖死", "鎖跌停": "跌停鎖死", "跌停板": "跌停板"
+}
+
+FOREIGN_WORDS = ["外資", "小麥", "外資買", "外資賣", "外資倒"]
+TRUST_WORDS = ["投信", "大哥買", "大哥賣", "投信買", "投信賣", "作帳", "結帳"]
+
+def safe_get(url, is_json=False):
+    for attempt in range(3):
+        try:
+            res = requests.get(url, headers=HEADERS, cookies=COOKIES, timeout=10)
+            if res.status_code == 200:
+                return res.json() if is_json else res.text
+        except Exception as e:
+            time.sleep(0.5)
+    return {} if is_json else ""
 
 def get_stocks():
     print("Fetching Stock lists and valuations...")
     stocks = {}
     valuations = {}
+    price_data = {}
     
-    # TWSE Prices
-    try:
-        r = requests.get("https://openapi.twse.com.tw/v1/exchangeReport/STOCK_DAY_ALL", timeout=10)
-        for i in r.json():
-            if len(i.get("Code", "")) == 4:
-                stocks[i["Code"]] = i["Name"]
-    except Exception as e: print("TWSE Price Error:", e)
+    # TWSE Prices & Change
+    data = safe_get("https://openapi.twse.com.tw/v1/exchangeReport/STOCK_DAY_ALL", is_json=True)
+    if isinstance(data, list):
+        for i in data:
+            code = i.get("Code", "")
+            if len(code) == 4:
+                stocks[code] = i["Name"]
+                close_p = i.get("ClosingPrice", "-")
+                chg_raw = i.get("Change", "0")
+                try:
+                    c_val = float(close_p.replace(",", ""))
+                    chg_val = float(chg_raw.replace(",", ""))
+                    prev = c_val - chg_val
+                    pct = (chg_val / prev * 100) if prev > 0 else 0
+                    chg_str = f"+{chg_val:.2f}" if chg_val > 0 else f"{chg_val:.2f}"
+                    pct_str = f"+{pct:.2f}%" if pct > 0 else f"{pct:.2f}%"
+                except:
+                    chg_str = "-"
+                    pct_str = "-"
+                price_data[code] = {"Price": close_p, "Change": chg_str, "ChangePercent": pct_str}
 
-    # TPEx Prices
-    try:
-        r = requests.get("https://www.tpex.org.tw/openapi/v1/tpex_mainboard_daily_close_quotes", timeout=10)
-        for i in r.json():
-            if len(i.get("SecuritiesCompanyCode", "")) == 4:
-                stocks[i["SecuritiesCompanyCode"]] = i["CompanyName"]
-    except Exception as e: print("TPEx Price Error:", e)
+    # TPEx Prices & Change
+    data = safe_get("https://www.tpex.org.tw/openapi/v1/tpex_mainboard_daily_close_quotes", is_json=True)
+    if isinstance(data, list):
+        for i in data:
+            code = i.get("SecuritiesCompanyCode", "")
+            if len(code) == 4:
+                stocks[code] = i["CompanyName"]
+                close_p = i.get("Close", "-")
+                chg_raw = i.get("Change", "0")
+                try:
+                    c_val = float(close_p.replace(",", ""))
+                    chg_val = float(chg_raw.replace(",", ""))
+                    prev = c_val - chg_val
+                    pct = (chg_val / prev * 100) if prev > 0 else 0
+                    chg_str = f"+{chg_val:.2f}" if chg_val > 0 else f"{chg_val:.2f}"
+                    pct_str = f"+{pct:.2f}%" if pct > 0 else f"{pct:.2f}%"
+                except:
+                    chg_str = "-"
+                    pct_str = "-"
+                price_data[code] = {"Price": close_p, "Change": chg_str, "ChangePercent": pct_str}
 
     # TWSE Valuations
-    try:
-        r = requests.get("https://openapi.twse.com.tw/v1/exchangeReport/BWIBBU_ALL", timeout=10)
-        for i in r.json():
+    data = safe_get("https://openapi.twse.com.tw/v1/exchangeReport/BWIBBU_ALL", is_json=True)
+    if isinstance(data, list):
+        for i in data:
             if len(i.get("Code", "")) == 4:
                 valuations[i["Code"]] = {
                     "PE": i.get("PEratio", "-"),
                     "Yield": i.get("DividendYield", "-"),
                     "PB": i.get("PBratio", "-")
                 }
-    except Exception as e: print("TWSE Val Error:", e)
 
     # Sectors (TWSE)
     sectors = {}
@@ -74,43 +126,196 @@ def get_stocks():
         "27": "通信網路業", "28": "電子零組件業", "29": "電子通路業", "30": "資訊服務業",
         "31": "其他電子業", "32": "文化創意業", "33": "農業科技業", "34": "電子商務業", "35": "綠能環保"
     }
-    try:
-        r = requests.get("https://openapi.twse.com.tw/v1/opendata/t187ap03_L", timeout=10)
-        for i in r.json():
+    data = safe_get("https://openapi.twse.com.tw/v1/opendata/t187ap03_L", is_json=True)
+    if isinstance(data, list):
+        for i in data:
             if len(i.get("公司代號", "")) == 4:
                 code = i.get("產業別", "")
                 sectors[i["公司代號"]] = twse_sector_map.get(code, code if code else "其他")
-    except Exception as e: print("TWSE Sector Error:", e)
-    
-    # Fallback common sectors
-    fallback_sectors = {
-        "2330": "半導體業", "2454": "半導體業", "2303": "半導體業",
-        "2603": "航運業", "2609": "航運業", "2615": "航運業",
-        "2317": "其他電子業", "3231": "電腦及週邊設備業", "2382": "電腦及週邊設備業"
-    }
-    for k, v in fallback_sectors.items():
-        if k not in sectors or sectors[k] in ("其他", ""): sectors[k] = v
 
     # TPEx Valuations
-    try:
-        r = requests.get("https://www.tpex.org.tw/openapi/v1/tpex_mainboard_peratio_analysis", timeout=10)
-        for i in r.json():
+    data = safe_get("https://www.tpex.org.tw/openapi/v1/tpex_mainboard_peratio_analysis", is_json=True)
+    if isinstance(data, list):
+        for i in data:
             if len(i.get("SecuritiesCompanyCode", "")) == 4:
                 valuations[i["SecuritiesCompanyCode"]] = {
                     "PE": i.get("PriceEarningRatio", "-"),
                     "PB": i.get("PriceBookRatio", "-"),
                     "Yield": i.get("YieldRatio", "-")
                 }
-    except Exception as e: print("TPEx Val Error:", e)
 
-    return stocks, valuations, sectors
+    return stocks, valuations, sectors, price_data
+
+def get_institutional_amount():
+    amt_data = {
+        "Foreign": {"buy": "-", "sell": "-", "net": "-"},
+        "Trust": {"buy": "-", "sell": "-", "net": "-"},
+        "Dealer": {"buy": "-", "sell": "-", "net": "-", "self_net": "-", "hedge_net": "-"},
+        "Total": {"buy": "-", "sell": "-", "net": "-"}
+    }
+    try:
+        url = "https://www.twse.com.tw/rwd/zh/fund/BFI82U?response=json"
+        res = safe_get(url, is_json=True)
+        if isinstance(res, dict) and res.get("data"):
+            dealer_buy = 0.0
+            dealer_sell = 0.0
+            dealer_net = 0.0
+            self_net = 0.0
+            hedge_net = 0.0
+            
+            for row in res["data"]:
+                name = row[0]
+                b_val = float(row[1].replace(",", "")) / 1e8
+                s_val = float(row[2].replace(",", "")) / 1e8
+                n_val = float(row[3].replace(",", "")) / 1e8
+                
+                b_str = f"{b_val:.2f}億"
+                s_str = f"{s_val:.2f}億"
+                n_str = f"+{n_val:.2f}億" if n_val > 0 else f"{n_val:.2f}億"
+                
+                if "外資及陸資" in name:
+                    amt_data["Foreign"] = {"buy": b_str, "sell": s_str, "net": n_str}
+                elif "投信" in name:
+                    amt_data["Trust"] = {"buy": b_str, "sell": s_str, "net": n_str}
+                elif "自行買賣" in name:
+                    dealer_buy += b_val
+                    dealer_sell += s_val
+                    dealer_net += n_val
+                    self_net = n_val
+                elif "避險" in name:
+                    dealer_buy += b_val
+                    dealer_sell += s_val
+                    dealer_net += n_val
+                    hedge_net = n_val
+                elif "合計" in name:
+                    amt_data["Total"] = {"buy": b_str, "sell": s_str, "net": n_str}
+                    
+            d_n_str = f"+{dealer_net:.2f}億" if dealer_net > 0 else f"{dealer_net:.2f}億"
+            self_n_str = f"+{self_net:.2f}億" if self_net > 0 else f"{self_net:.2f}億"
+            hedge_n_str = f"+{hedge_net:.2f}億" if hedge_net > 0 else f"{hedge_net:.2f}億"
+            
+            amt_data["Dealer"] = {
+                "buy": f"{dealer_buy:.2f}億",
+                "sell": f"{dealer_sell:.2f}億",
+                "net": d_n_str,
+                "self_net": self_n_str,
+                "hedge_net": hedge_n_str
+            }
+    except Exception as e:
+        print(f"Error fetching institutional amounts: {e}")
+    return amt_data
+
+def get_institutional_data():
+    inst_data = {}
+    summary = {
+        "ForeignBuyCount": 0, "ForeignSellCount": 0, "ForeignTotalNet": 0, "ForeignTopBuy": [],
+        "TrustBuyCount": 0, "TrustSellCount": 0, "TrustTotalNet": 0, "TrustTopBuy": [],
+        "Amounts": get_institutional_amount()
+    }
+    try:
+        url = "https://www.twse.com.tw/rwd/zh/fund/T86?response=json&selectType=ALLBUT0999"
+        res = safe_get(url, is_json=True)
+        if isinstance(res, dict):
+            data = res.get("data", [])
+            f_buy, f_sell, f_tot = 0, 0, 0
+            t_buy, t_sell, t_tot = 0, 0, 0
+            f_list, t_list = [], []
+            
+            for row in data:
+                code = row[0].strip()
+                name = row[1].strip()
+                if len(code) == 4:
+                    try:
+                        foreign_net = int(row[4].replace(",", "")) // 1000
+                        trust_net = int(row[10].replace(",", "")) // 1000
+                        dealer_net = int(row[11].replace(",", "")) // 1000
+                        total_net = int(row[18].replace(",", "")) // 1000
+                        
+                        inst_data[code] = {
+                            "ForeignNet": foreign_net,
+                            "TrustNet": trust_net,
+                            "DealerNet": dealer_net,
+                            "TotalNet": total_net
+                        }
+                        
+                        f_tot += foreign_net
+                        t_tot += trust_net
+                        
+                        if foreign_net > 0: f_buy += 1
+                        elif foreign_net < 0: f_sell += 1
+                        
+                        if trust_net > 0: t_buy += 1
+                        elif trust_net < 0: t_sell += 1
+                        
+                        f_list.append({"name": name, "code": code, "net": foreign_net})
+                        t_list.append({"name": name, "code": code, "net": trust_net})
+                    except:
+                        pass
+                        
+            summary["ForeignBuyCount"] = f_buy
+            summary["ForeignSellCount"] = f_sell
+            summary["ForeignTotalNet"] = f_tot
+            summary["ForeignTopBuy"] = sorted(f_list, key=lambda x: x["net"], reverse=True)[:3]
+            
+            summary["TrustBuyCount"] = t_buy
+            summary["TrustSellCount"] = t_sell
+            summary["TrustTotalNet"] = t_tot
+            summary["TrustTopBuy"] = sorted(t_list, key=lambda x: x["net"], reverse=True)[:3]
+    except Exception as e:
+        print(f"Error fetching institutional data: {e}")
+    return inst_data, summary
+
+def get_taiex_info():
+    try:
+        url = "https://openapi.twse.com.tw/v1/exchangeReport/FMTQIK"
+        data = safe_get(url, is_json=True)
+        if isinstance(data, list) and len(data) > 0:
+            last = data[-1]
+            taiex_val = float(last.get("TAIEX", "0").replace(",", ""))
+            change_val = float(last.get("Change", "0").replace(",", ""))
+            prev = taiex_val - change_val
+            pct = (change_val / prev * 100) if prev > 0 else 0
+            
+            chg_str = f"+{change_val:.2f}" if change_val > 0 else f"{change_val:.2f}"
+            pct_str = f"+{pct:.2f}%" if pct > 0 else f"{pct:.2f}%"
+            return {
+                "TAIEX": f"{taiex_val:,.2f}",
+                "Change": chg_str,
+                "ChangePercent": pct_str,
+                "Date": last.get("Date", "")
+            }
+    except Exception as e:
+        print(f"Error fetching TAIEX: {e}")
+    return {"TAIEX": "-", "Change": "-", "ChangePercent": "-"}
+
+def get_taiex_intraday_trend():
+    trend = {}
+    try:
+        url = "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_INDEX?response=json"
+        res = safe_get(url, is_json=True)
+        if isinstance(res, dict) and res.get("data"):
+            raw_data = res["data"]
+            tp = {}
+            for row in raw_data:
+                if len(row[0]) >= 5:
+                    tp[row[0][:5]] = float(row[1].replace(",", ""))
+            trend = {
+                "早盤開盤": tp.get("09:30", tp.get("09:00", 0)),
+                "盤中震盪": tp.get("11:30", tp.get("11:00", 0)),
+                "尾盤收盤": tp.get("13:30", tp.get("13:00", 0)),
+                "盤後夜間": tp.get("13:30", 0)
+            }
+    except Exception as e:
+        print(f"Error fetching TAIEX intraday trend: {e}")
+    return trend
 
 def find_chat_urls():
     chat_urls = []
     current_url = STOCK_BOARD_URL
-    for _ in range(3):
-        res = requests.get(current_url, headers=HEADERS)
-        soup = BeautifulSoup(res.text, "html.parser")
+    for _ in range(20):
+        html = safe_get(current_url)
+        if not html: break
+        soup = BeautifulSoup(html, "html.parser")
         for entry in soup.find_all("div", class_="r-ent"):
             title_tag = entry.find("div", class_="title").find("a")
             if title_tag and ("盤中閒聊" in title_tag.text or "盤後閒聊" in title_tag.text):
@@ -120,75 +325,135 @@ def find_chat_urls():
             current_url = PTT_URL + paging.find_all("a")[1]["href"]
         else:
             break
-    return list(set(chat_urls))
+        time.sleep(0.05)
+    # Preserve newest-first order
+    return list(dict.fromkeys(chat_urls))
 
 def crawl_comments(url):
-    res = requests.get(url, headers=HEADERS)
-    soup = BeautifulSoup(res.text, "html.parser")
+    html = safe_get(url)
+    if not html: return []
+    soup = BeautifulSoup(html, "html.parser")
     comments = []
     for push in soup.find_all("div", class_="push"):
         uid_tag = push.find("span", class_=lambda c: c and "push-userid" in c)
         content_tag = push.find("span", class_="push-content")
+        time_tag = push.find("span", class_="push-ipdatetime")
         if uid_tag and content_tag:
             comments.append({
                 "user": uid_tag.text.strip(),
-                "content": content_tag.text.lstrip(": ")
+                "content": content_tag.text.lstrip(": "),
+                "time": time_tag.text.strip() if time_tag else ""
             })
     return comments
 
-def analyze(comments, stocks, valuations, sectors):
+def parse_time_slot(time_str):
+    if not time_str: return "盤後夜間"
+    match = re.search(r'(\d{2}):(\d{2})', time_str)
+    if not match: return "盤後夜間"
+    hour = int(match.group(1))
+    minute = int(match.group(2))
+    total_min = hour * 60 + minute
+    
+    if 540 <= total_min <= 630: # 09:00 - 10:30
+        return "早盤開盤"
+    elif 630 < total_min <= 780: # 10:30 - 13:00
+        return "盤中震盪"
+    elif 780 < total_min <= 870: # 13:00 - 14:30
+        return "尾盤收盤"
+    else:
+        return "盤後夜間"
+
+def analyze(comments, stocks, valuations, sectors, price_data, inst_data, inst_summary):
     stats = {}
     code_pattern = re.compile(r'\b\d{4}\b')
     name_to_code = {v: k for k, v in stocks.items()}
+    price_pattern = re.compile(r'(?:上看|目標|站上|停損|關卡|進場|目標價|買在|賣在|看)\s*(\d{3,5})|(\d{3,5})\s*(?:元|塊|上看|目標)')
     
     global_pos = 0
     global_neg = 0
     global_und = 0
     global_hyp = 0
+    global_panic = 0
+    
+    foreign_pos, foreign_neg = 0, 0
+    trust_pos, trust_neg = 0, 0
+    
+    timeline_stats = {
+        "早盤開盤": {"Pos": 0, "Neg": 0},
+        "盤中震盪": {"Pos": 0, "Neg": 0},
+        "尾盤收盤": {"Pos": 0, "Neg": 0},
+        "盤後夜間": {"Pos": 0, "Neg": 0}
+    }
     
     for c in comments:
         user = c["user"]
         text = c["content"]
+        time_slot = parse_time_slot(c.get("time", ""))
         
         matched = set()
         for code in code_pattern.findall(text):
             if code in stocks: matched.add(f"{stocks[code]} ({code})")
         for name, code in name_to_code.items():
+            if len(name) <= 2:
+                if name == "大立" and ("大立光" in text or "大力光" in text or "大力" in text):
+                    continue
+                if name == "長榮" and ("長榮航" in text or "長榮航空" in text):
+                    continue
             if name in text: matched.add(f"{name} ({code})")
         for nick, full in CUSTOM_NICKNAMES.items():
             if nick in text: matched.add(full)
             
         if not matched: continue
         
-        def count_with_negation(words, text, is_negative_word=False):
-            count = 0
-            for w in words:
-                idx = text.find(w)
-                while idx != -1:
-                    preceding = text[max(0, idx-2):idx]
-                    has_neg = any(n in preceding for n in ["不", "沒", "未"])
-                    
-                    if has_neg:
-                        if is_negative_word:
-                            pass # "不跌" -> not negative
-                        else:
-                            pass # "不噴" -> not positive
-                    else:
-                        count += 1
-                    idx = text.find(w, idx + len(w))
-            return count
+        def count_words(words, text):
+            return sum(1 for w in words if w in text)
 
-        pos = count_with_negation(POSITIVE_WORDS, text)
-        neg = count_with_negation(NEGATIVE_WORDS, text, True)
-        und = count_with_negation(UNDERVALUED_WORDS, text)
-        hyp = count_with_negation(HYPE_WORDS, text)
-        fund = count_with_negation(FUNDAMENTAL_WORDS, text)
+        pos = count_words(POSITIVE_WORDS, text)
+        neg = count_words(NEGATIVE_WORDS, text)
+        und = count_words(UNDERVALUED_WORDS, text)
+        hyp = count_words(HYPE_WORDS, text)
+        fund = count_words(FUNDAMENTAL_WORDS, text)
+        panic = count_words(PANIC_WORDS, text)
         
-        # Add to global sentiment
         global_pos += pos
         global_neg += neg
         global_und += und
         global_hyp += hyp
+        global_panic += panic
+        
+        timeline_stats[time_slot]["Pos"] += pos
+        timeline_stats[time_slot]["Neg"] += neg
+        
+        if any(w in text for w in FOREIGN_WORDS):
+            if pos > neg: foreign_pos += 1
+            elif neg > pos: foreign_neg += 1
+        if any(w in text for w in TRUST_WORDS):
+            if pos > neg: trust_pos += 1
+            elif neg > pos: trust_neg += 1
+            
+        prices = []
+        for p in price_pattern.findall(text):
+            val = p[0] or p[1]
+            if val:
+                num = int(val)
+                if 10 <= num <= 4000:
+                    prices.append(num)
+                    
+        events = set()
+        for kw, tag in EVENT_RULES.items():
+            if kw in text:
+                idx = text.find(kw)
+                preceding = text[max(0, idx-3):idx]
+                following = text[idx+len(kw):min(len(text), idx+len(kw)+3)]
+                
+                # Filter out hypothetical or negative statements like "會漲停嗎", "沒漲停", "不漲停", "假漲停"
+                if any(n in preceding for n in ["不", "沒", "未", "假", "想", "會", "能", "希望"]):
+                    if tag in ("漲停鎖死", "跌停鎖死", "違約交割", "漲停板", "跌停板"):
+                        continue
+                if any(n in following for n in ["嗎", "呢", "吧", "算嗎", "假"]):
+                    if tag in ("漲停鎖死", "跌停鎖死", "違約交割", "漲停板", "跌停板"):
+                        continue
+                events.add(tag)
         
         for key in matched:
             if "分析師" in key or "航運股" in key or "面板" in key: continue
@@ -199,8 +464,8 @@ def analyze(comments, stocks, valuations, sectors):
             if key not in stats:
                 stats[key] = {
                     "Code": code, "Mentions": 0, "Users": set(), "UserCounts": {},
-                    "Pos": 0, "Neg": 0, "Und": 0, "Hyp": 0, "Fund": 0,
-                    "Keywords": {}, "Comments": []
+                    "Pos": 0, "Neg": 0, "Und": 0, "Hyp": 0, "Fund": 0, "Panic": 0,
+                    "TargetPrices": [], "Events": set(), "Keywords": {}, "Comments": []
                 }
                 
             st = stats[key]
@@ -212,15 +477,16 @@ def analyze(comments, stocks, valuations, sectors):
             st["Und"] += und
             st["Hyp"] += hyp
             st["Fund"] += fund
+            st["Panic"] += panic
+            st["TargetPrices"].extend(prices)
+            st["Events"].update(events)
             
-            # Track exact keywords
             for w in POSITIVE_WORDS + NEGATIVE_WORDS + UNDERVALUED_WORDS + HYPE_WORDS + FUNDAMENTAL_WORDS:
                 if w in text:
                     st["Keywords"][w] = st["Keywords"].get(w, 0) + 1
                     
-            # Keep up to 15 latest comments for context
-            if len(st["Comments"]) < 15:
-                st["Comments"].append({"user": user, "text": text})
+            if len(st["Comments"]) < 25:
+                st["Comments"].append({"user": user, "text": text, "time": c.get("time", "")})
 
     results = []
     for key, data in stats.items():
@@ -228,7 +494,6 @@ def analyze(comments, stocks, valuations, sectors):
         top_user_mentions = max(data["UserCounts"].values()) if data["UserCounts"] else 0
         concentration = top_user_mentions / data["Mentions"] if data["Mentions"] > 0 else 0
         
-        # Cap mentions per user to prevent spam
         capped_mentions = sum(min(count, 3) for count in data["UserCounts"].values())
         
         score = (capped_mentions * 2 + unique_users * 3 + data["Pos"] * 2 + 
@@ -236,23 +501,42 @@ def analyze(comments, stocks, valuations, sectors):
                  
         val = valuations.get(data["Code"], {})
         sector = sectors.get(data["Code"], "其他")
+        p_info = price_data.get(data["Code"], {})
+        inst = inst_data.get(data["Code"], {})
+        
+        avg_target = "-"
+        if data["TargetPrices"]:
+            avg_target = str(int(sum(data["TargetPrices"]) / len(data["TargetPrices"])))
+            
+        sorted_kw = sorted(data["Keywords"].items(), key=lambda x: x[1], reverse=True)[:5]
+        top_keywords = [k for k, v in sorted_kw]
         
         risk = []
         if data["Hyp"] >= 2: risk.append("炒作詞多")
         if concentration >= 0.5 and data["Mentions"] >= 3: risk.append("集中度高(防洗版)")
         if data["Neg"] > data["Pos"]: risk.append("偏負面")
+        if data["Panic"] >= 2: risk.append("恐慌恐慌")
         
         results.append({
             "Stock": key,
             "Code": data["Code"],
             "Sector": sector,
             "Score": round(score, 1),
+            "Price": p_info.get("Price", "-"),
+            "Change": p_info.get("Change", "-"),
+            "ChangePercent": p_info.get("ChangePercent", "-"),
+            "ForeignNet": inst.get("ForeignNet", "-"),
+            "TrustNet": inst.get("TrustNet", "-"),
+            "TotalNet": inst.get("TotalNet", "-"),
             "Mentions": data["Mentions"],
             "UniqueUsers": unique_users,
             "PE": val.get("PE", "-"),
             "PB": val.get("PB", "-"),
             "Yield": val.get("Yield", "-"),
             "Concentration": f"{int(concentration*100)}%",
+            "AvgTargetPrice": avg_target,
+            "Events": list(data["Events"]),
+            "TopKeywords": top_keywords,
             "Risk": "、".join(risk) if risk else "無",
             "Keywords": data["Keywords"],
             "Comments": data["Comments"]
@@ -260,15 +544,13 @@ def analyze(comments, stocks, valuations, sectors):
         
     sorted_results = sorted(results, key=lambda x: x["Score"], reverse=True)
     
-    # Calculate Fear & Greed Index
     total_greed = global_pos + global_hyp
     total_fear = global_neg + global_und
-    if total_greed + total_fear == 0:
-        fear_greed_index = 50
-    else:
-        fear_greed_index = int((total_greed / (total_greed + total_fear)) * 100)
-        
-    # Aggregate by Sector
+    fear_greed_index = 50 if (total_greed + total_fear == 0) else int((total_greed / (total_greed + total_fear)) * 100)
+    
+    base_panic_ratio = (global_panic / max(1, global_pos + global_neg + global_panic))
+    panic_index = min(100, max(5, int(base_panic_ratio * 300 + (global_panic * 0.4))))
+    
     sector_stats = {}
     for r in sorted_results:
         s = r["Sector"]
@@ -282,7 +564,7 @@ def analyze(comments, stocks, valuations, sectors):
             
     sector_rotation = []
     for s, data in sector_stats.items():
-        if s == "其他" and len(sector_stats) > 1: continue # Skip if possible
+        if s == "其他" and len(sector_stats) > 1: continue
         sector_rotation.append({
             "Sector": s,
             "Mentions": data["Mentions"],
@@ -291,30 +573,36 @@ def analyze(comments, stocks, valuations, sectors):
         })
     sector_rotation = sorted(sector_rotation, key=lambda x: x["Mentions"], reverse=True)[:5]
     
-    # Generate Rule-based AI Summary
     summary_parts = []
     if fear_greed_index >= 70:
         summary_parts.append(f"🔥 市場情緒目前處於【極度貪婪】({fear_greed_index}分)，多數鄉民強力看好後市，請留意追高與大盤反轉風險。")
-    elif fear_greed_index >= 55:
-        summary_parts.append(f"📈 市場情緒目前【偏向樂觀】({fear_greed_index}分)，散戶做多意願較高。")
     elif fear_greed_index <= 30:
         summary_parts.append(f"❄️ 市場情緒目前處於【極度恐懼】({fear_greed_index}分)，恐慌與停損言論激增，可留意超跌後的地板反彈契機。")
-    elif fear_greed_index <= 45:
-        summary_parts.append(f"📉 市場情緒目前【偏向悲觀】({fear_greed_index}分)，散戶信心不足，觀望氣氛濃厚。")
     else:
         summary_parts.append(f"⚖️ 市場情緒目前【中立震盪】({fear_greed_index}分)，多空雙方力道均衡。")
+        
+    if panic_index >= 60:
+        summary_parts.append(f"🚨 警報：絕望/畢業指數偏高({panic_index}分)，散戶停損潮湧現！")
         
     if sector_rotation:
         top_sector = sector_rotation[0]
         top_stocks = "、".join(top_sector["TopStocks"])
         summary_parts.append(f"資金與討論度高度集中在【{top_sector['Sector']}】，其中以 {top_stocks} 最受矚目。")
-        if len(sector_rotation) > 1:
-            second_sector = sector_rotation[1]
-            summary_parts.append(f"另外，【{second_sector['Sector']}】也出現了明顯的輪動跡象。")
-            
+        
+    taiex_info = get_taiex_info()
+    taiex_trend = get_taiex_intraday_trend()
     market_data = {
         "FearGreedIndex": fear_greed_index,
+        "PanicIndex": panic_index,
         "TotalCommentsParsed": len(comments),
+        "TAIEXSummary": taiex_info,
+        "TAIEXIntradayTrend": taiex_trend,
+        "RealInstitutionalStats": inst_summary,
+        "InstitutionalSentiment": {
+            "ForeignBullish": foreign_pos, "ForeignBearish": foreign_neg,
+            "TrustBullish": trust_pos, "TrustBearish": trust_neg
+        },
+        "TimelineSentiment": timeline_stats,
         "SectorRotation": sector_rotation,
         "MarketSummary": " ".join(summary_parts)
     }
@@ -327,25 +615,53 @@ def main():
     print(f"Found {len(urls)} chat articles.")
     
     all_comments = []
-    for url in urls:
-        all_comments.extend(crawl_comments(url))
+    for u in urls:
+        all_comments.extend(crawl_comments(u))
         
-    stocks, valuations, sectors = get_stocks()
-    res, market_data = analyze(all_comments, stocks, valuations, sectors)
+    stocks, valuations, sectors, price_data = get_stocks()
+    inst_data, inst_summary = get_institutional_data()
+    res, market_data = analyze(all_comments, stocks, valuations, sectors, price_data, inst_data, inst_summary)
     
-    # Separate CSV data and JSON detail data
-    csv_data = [{k: v for k, v in r.items() if k not in ("Keywords", "Comments", "Code")} for r in res]
+    csv_data = [{k: (", ".join(v) if isinstance(v, list) else v) for k, v in r.items() if k not in ("Keywords", "Comments", "Code")} for r in res]
     df = pd.DataFrame(csv_data)
     df.to_csv("hot_stocks_sentiment.csv", index=False, encoding="utf-8-sig")
     
-    import json
     with open("detail_data.json", "w", encoding="utf-8") as f:
         json.dump({r["Stock"]: {"Keywords": r["Keywords"], "Comments": r["Comments"]} for r in res}, f, ensure_ascii=False, indent=2)
         
     with open("market_data.json", "w", encoding="utf-8") as f:
         json.dump(market_data, f, ensure_ascii=False, indent=2)
         
-    print("✅ 分析完成，已存至 hot_stocks_sentiment.csv, detail_data.json 與 market_data.json")
+    # 7-Day History Snapshot
+    import os
+    today_str = time.strftime("%Y-%m-%d")
+    history_file = "history_data.json"
+    history = {}
+    if os.path.exists(history_file):
+        try:
+            with open(history_file, "r", encoding="utf-8") as f:
+                history = json.load(f)
+        except: pass
+        
+    today_snapshot = {r["Stock"]: {"Score": r["Score"], "Mentions": r["Mentions"]} for r in res[:40]}
+    history[today_str] = today_snapshot
+    dates = sorted(history.keys())[-7:]
+    history = {d: history[d] for d in dates}
+    
+    with open(history_file, "w", encoding="utf-8") as f:
+        json.dump(history, f, ensure_ascii=False, indent=2)
+        
+    # Generate dashboard/data.js for zero-server local opening
+    detail_dict = {r["Stock"]: {"Keywords": r["Keywords"], "Comments": r["Comments"]} for r in res}
+    data_js_content = f"""window.MARKET_DATA = {json.dumps(market_data, ensure_ascii=False)};
+window.HOT_STOCKS_DATA = {json.dumps(csv_data, ensure_ascii=False)};
+window.DETAIL_DATA = {json.dumps(detail_dict, ensure_ascii=False)};
+window.HISTORY_DATA = {json.dumps(history, ensure_ascii=False)};
+"""
+    with open("dashboard/data.js", "w", encoding="utf-8") as f:
+        f.write(data_js_content)
+
+    print("✅ 分析完成！已同步產生數據與 7 天歷程至 dashboard/data.js。")
 
 if __name__ == "__main__":
     main()

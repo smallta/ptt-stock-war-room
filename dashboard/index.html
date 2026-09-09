@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PTT 股市戰情室 | 價值投資雷達</title>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>PTT 股市戰情室 | 全功能進階雷達</title>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
     <!-- Chart.js -->
@@ -19,27 +22,125 @@
     <div class="container glass-panel">
         <header>
             <h1><span class="gradient-text">PTT 股市戰情室</span></h1>
-            <p class="subtitle">即時盤中/盤後閒聊 - 低估候選與防洗版雷達</p>
+            <p class="subtitle">盤中/盤後全方位情報：目標價、事件Tag、籌碼風向與絕望反向指標</p>
             <p class="update-time" id="update-time">最後更新時間：載入中...</p>
+            <div class="scraped-info-badge" id="scraped-info-badge">📊 已解析：載入中...</div>
         </header>
 
-        <section class="chart-section">
-            <h2 class="section-title">綜合低估分數 Top 10</h2>
-            <div class="chart-container">
-                <canvas id="scoreChart"></canvas>
+        <!-- Summary & Indicators Banner -->
+        <section class="summary-banner" id="market-summary-box">
+            <div class="summary-text" id="market-summary-text">載入即時市場總結中...</div>
+        </section>
+
+        <section class="overview-grid">
+            <!-- Panic Meter Card -->
+            <div class="overview-card">
+                <div class="overview-header">
+                    <span class="overview-icon">🚨</span>
+                    <span class="overview-title">絕望/畢業反向指標</span>
+                </div>
+                <div class="meter-box">
+                    <div class="meter-bar-bg">
+                        <div class="meter-bar-fill" id="panic-fill" style="width: 0%;"></div>
+                    </div>
+                    <div class="meter-value-text" id="panic-val">0 分</div>
+                </div>
+                <p class="overview-desc">專門統計停損/畢業/斷頭詞彙。分數極高時通常代表散戶拋售淨化，為短線地板反彈訊號。</p>
+            </div>
+
+            <!-- Institutional Chips Card -->
+            <div class="overview-card">
+                <div class="overview-header">
+                    <span class="overview-icon">🏛️</span>
+                    <span class="overview-title">三大法人真實籌碼明細 (證交所日報)</span>
+                </div>
+                <div class="chips-flex">
+                    <div class="chip-item">
+                        <div class="chip-name">外資 (買/賣/買賣超)</div>
+                        <div class="chip-sentiment" id="foreign-sentiment">載入中...</div>
+                    </div>
+                    <div class="chip-item">
+                        <div class="chip-name">投信 (買/賣/買賣超)</div>
+                        <div class="chip-sentiment" id="trust-sentiment">載入中...</div>
+                    </div>
+                    <div class="chip-item">
+                        <div class="chip-name">自營商 (自行/避險)</div>
+                        <div class="chip-sentiment" id="dealer-sentiment">載入中...</div>
+                    </div>
+                    <div class="chip-item">
+                        <div class="chip-name">三大法人合計</div>
+                        <div class="chip-sentiment" id="total-inst-sentiment">載入中...</div>
+                    </div>
+                </div>
+                <p class="overview-desc" id="inst-stats-desc">證交所官方盤後法人實際買賣金額明細與大買布局標的。</p>
             </div>
         </section>
 
+        <!-- Charts Section -->
+        <section class="charts-grid-layout">
+            <div class="chart-box">
+                <h2 class="section-title">綜合低估分數 Top 10</h2>
+                <div class="chart-container">
+                    <canvas id="scoreChart"></canvas>
+                </div>
+            </div>
+            <div class="chart-box">
+                <div class="chart-title-header">
+                    <h2 class="section-title">盤中時間軸情緒轉折</h2>
+                    <div class="taiex-badge" id="taiex-badge">📈 大盤載入中...</div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="timelineChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stock Cards Section -->
         <section class="data-section">
-            <h2 class="section-title">股票雷達分析細節</h2>
+            <div class="cards-section-header">
+                <h2 class="section-title">個股綜合分析與情報 Tag (點擊卡片查看推文明細與趨勢)</h2>
+                <div class="filter-controls-row">
+                    <input type="text" id="stock-search-input" placeholder="🔍 搜尋股票代號或名稱 (例: 2330, 大立光)..." class="search-input">
+                    <select id="sector-filter-select" class="sector-select">
+                        <option value="ALL">🌐 全部產業類別</option>
+                    </select>
+                </div>
+            </div>
             <div class="cards-grid" id="cards-grid">
-                <!-- Cards will be injected by JS -->
+                <!-- Stock cards dynamically injected -->
             </div>
         </section>
     </div>
 
+    <!-- Comments Modal Overlay -->
+    <div class="modal-overlay" id="comments-modal">
+        <div class="modal-content glass-panel">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modal-stock-name">股票名稱</h3>
+                <button class="modal-close-btn" id="modal-close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="stock-history-box" id="stock-history-box" style="display:none; margin-bottom: 20px;">
+                    <div class="modal-section-label">📈 個股 7 天熱度與聲量歷史趨勢：</div>
+                    <div style="height: 160px; width: 100%;">
+                        <canvas id="stockHistoryChart"></canvas>
+                    </div>
+                </div>
+                <div class="modal-section-label">💬 鄉民即時推文摘錄：</div>
+                <div class="comments-list" id="modal-comments-list">
+                    <!-- Comments injected here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- PapaParse for CSV parsing -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
-    <script src="app.js"></script>
+    <script>
+        // Dynamic cache busting
+        const ts = new Date().getTime();
+        document.write('<script src="data.js?v=' + ts + '"><\/script>');
+        document.write('<script src="app.js?v=' + ts + '"><\/script>');
+    </script>
 </body>
 </html>
