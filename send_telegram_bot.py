@@ -2,8 +2,8 @@ import os
 import requests
 
 # Telegram Bot configurations
-BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "")
-CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "")
+BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "8837287745:AAGq7-ZQKt_PwzowODDbpc4pzdDhoyfcw1k")
+CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "1815627011")
 
 def send_digest():
     if not os.path.exists("tg_digest_report.txt"):
