@@ -346,6 +346,37 @@ def crawl_comments(url):
             })
     return comments
 
+def crawl_telegram_chat():
+    print("Fetching Telegram Chat Channel (t.me/s/ptt_stock_follow_chat)...")
+    comments = []
+    try:
+        url = "https://t.me/s/ptt_stock_follow_chat"
+        html = safe_get(url)
+        if html:
+            soup = BeautifulSoup(html, "html.parser")
+            msgs = soup.find_all("div", class_="js-message_text")
+            for m in msgs:
+                text = m.text.strip()
+                if "：" in text:
+                    parts = text.split("：", 1)
+                    user_str = parts[0].strip().replace("\n", " ")
+                    content_str = parts[1].strip()
+                    comments.append({
+                        "user": f"📱 [TG] {user_str}",
+                        "content": content_str,
+                        "time": "TG即時推播"
+                    })
+                else:
+                    comments.append({
+                        "user": "📱 [TG推播]",
+                        "content": text,
+                        "time": "TG即時推播"
+                    })
+    except Exception as e:
+        print(f"Error crawling Telegram channel: {e}")
+    print(f"Found {len(comments)} messages from Telegram.")
+    return comments
+
 def parse_time_slot(time_str):
     if not time_str: return "盤後夜間"
     match = re.search(r'(\d{2}):(\d{2})', time_str)
@@ -609,6 +640,40 @@ def analyze(comments, stocks, valuations, sectors, price_data, inst_data, inst_s
         
     return sorted_results, market_data
 
+def generate_tg_digest(results, market_data):
+    today = time.strftime("%Y-%m-%d")
+    taiex = market_data.get("TAIEXSummary", {})
+    inst_amt = market_data.get("RealInstitutionalStats", {}).get("Amounts", {})
+    
+    f_amt = inst_amt.get("Foreign", {}).get("net", "-")
+    t_amt = inst_amt.get("Trust", {}).get("net", "-")
+    d_amt = inst_amt.get("Dealer", {}).get("net", "-")
+    tot_amt = inst_amt.get("Total", {}).get("net", "-")
+    
+    lines = [
+        f"📊 【PTT 戰情室 · 今日盤後情報總結】 ({today})\n",
+        f"📈 今日大盤加權指數：{taiex.get('TAIEX', '-')} 點 ({taiex.get('Change', '-')} / {taiex.get('ChangePercent', '-')})",
+        f"🚨 絕望/畢業反向指標：{market_data.get('PanicIndex', 0)} 分\n",
+        "🏛️ 三大法人買賣金額 (證交所官方)：",
+        f"- 外資：{f_amt} ｜ 投信：{t_amt} ｜ 自營商：{d_amt}",
+        f"- 三大法人合計：{tot_amt}\n",
+        "🔥 鄉民熱門焦點標的 Top 5："
+    ]
+    
+    for idx, r in enumerate(results[:5], 1):
+        chg_icon = "🔴" if str(r.get("Change", "")).startswith("+") else ("🟢" if str(r.get("Change", "")).startswith("-") else "⚪")
+        lines.append(f"{idx}. {r['Stock']} | 評分 {r['Score']}")
+        lines.append(f"   收盤: ${r['Price']} {chg_icon} ({r['ChangePercent']}) | 外資: {r['ForeignNet']}張 | 投信: {r['TrustNet']}張")
+        lines.append(f"   情報Tag: {r['Risk']}\n")
+        
+    lines.append(f"💡 戰情總結：{market_data.get('MarketSummary', '')}")
+    lines.append("\n👉 查看完整視覺化儀表板: http://localhost:8520/dashboard/index.html")
+    
+    digest_text = "\n".join(lines)
+    with open("tg_digest_report.txt", "w", encoding="utf-8") as f:
+        f.write(digest_text)
+    return digest_text
+
 def main():
     print("Fetching Chat URLs...")
     urls = find_chat_urls()
@@ -618,9 +683,14 @@ def main():
     for u in urls:
         all_comments.extend(crawl_comments(u))
         
+    tg_comments = crawl_telegram_chat()
+    all_comments.extend(tg_comments)
+        
     stocks, valuations, sectors, price_data = get_stocks()
     inst_data, inst_summary = get_institutional_data()
     res, market_data = analyze(all_comments, stocks, valuations, sectors, price_data, inst_data, inst_summary)
+    
+    generate_tg_digest(res, market_data)
     
     csv_data = [{k: (", ".join(v) if isinstance(v, list) else v) for k, v in r.items() if k not in ("Keywords", "Comments", "Code")} for r in res]
     df = pd.DataFrame(csv_data)

@@ -1,7 +1,8 @@
 #!/bin/bash
-echo "🚀 正在為您自動抓取 PTT 股市最新數據..."
+echo "🚀 正在為您自動抓取 PTT 股板與 Telegram 最新數據..."
 cd "/Users/Sephiroth/Desktop/爬文"
 python3 stock_crawler.py
+python3 send_telegram_bot.py
 
 echo "🌐 啟動戰情室伺服器..."
 pkill -f server.py || true
