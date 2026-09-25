@@ -430,6 +430,34 @@ def analyze(comments, stocks, valuations, sectors, price_data, inst_data, inst_s
                     continue
                 if name == "長榮" and ("長榮航" in text or "長榮航空" in text):
                     continue
+                if name == "聯發" and ("聯發科" in text or "發哥" in text):
+                    continue
+                if name == "幸福" and not any(k in text for k in ["1108", "水泥", "幸福水泥", "幸福股", "買幸福", "賣幸福", "幸福1108"]):
+                    continue
+                if name == "第一" and not any(k in text for k in ["2892", "2706", "第一金", "第一店", "買第一", "賣第一"]):
+                    continue
+                if name == "世界" and not any(k in text for k in ["5347", "世界先進", "晶圓", "代工", "買世界", "賣世界"]):
+                    continue
+                if name == "大量" and not any(k in text for k in ["3167", "大量科技", "買大量", "賣大量"]):
+                    continue
+                if name == "統一" and any(k in text for k in ["統一發票", "統一編號", "統一回答", "統一說明", "統一發布", "統一標準", "統一整理", "統一規定"]) and not any(k in text for k in ["1216", "2855", "統一超", "統一金", "統一證", "買統一", "賣統一", "統一企業"]):
+                    continue
+                if name == "冠軍" and any(k in text for k in ["總冠軍", "世界冠軍", "拿冠軍", "冠軍賽", "衛冕冠軍"]) and not any(k in text for k in ["1806", "冠軍建", "買冠軍", "賣冠軍"]):
+                    continue
+                if name == "大同" and any(k in text for k in ["大同小異", "世界大同", "大同區"]) and not any(k in text for k in ["2371", "大同股", "買大同", "賣大同", "大同電"]):
+                    continue
+                if name == "巨大" and not any(k in text for k in ["9921", "捷安特", "自行車", "巨大股", "買巨大", "賣巨大"]):
+                    continue
+                if name == "全家" and any(k in text for k in ["全家大小", "全家人", "全家福", "祝全家", "全家平安"]) and not any(k in text for k in ["5903", "超商", "便利商店", "全家超商", "買全家", "賣全家"]):
+                    continue
+                if name == "世紀" and any(k in text for k in ["21世紀", "本世紀", "世紀大災難", "世紀帝國", "世紀之戰"]) and not any(k in text for k in ["5314", "9958", "世紀鋼", "買世紀", "賣世紀"]):
+                    continue
+                if name == "新興" and any(k in text for k in ["新興市場", "新興國家", "新興產業", "新興科技"]) and not any(k in text for k in ["2605", "新興航", "買新興", "賣新興"]):
+                    continue
+                if name == "陸海" and any(k in text for k in ["陸海空", "陸海運"]) and not any(k in text for k in ["5603", "買陸海", "賣陸海"]):
+                    continue
+                if name == "有益" and any(k in text for k in ["有益健康", "有益無害", "相當有益", "大有益"]) and not any(k in text for k in ["9962", "買有益", "賣有益"]):
+                    continue
             if name in text: matched.add(f"{name} ({code})")
         for nick, full in CUSTOM_NICKNAMES.items():
             if nick in text: matched.add(full)
