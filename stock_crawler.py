@@ -15,6 +15,22 @@ COOKIES = {"over18": "1"}
 
 import os
 
+# Telegram Channels list (可自訂新增多個公開 Telegram 頻道)
+TELEGRAM_CHANNELS = ["ptt_stock_follow_chat"]
+
+# 熱門概念題材成分股清單 (用於族群集體暴漲/重挫監控)
+HOT_THEMES = {
+    "💡 CPO矽光子": ["3450", "6442", "3081", "3163", "4979", "3363", "6451", "6213"],
+    "⚡ CoWoS先進封裝": ["3131", "3583", "6187", "6640", "3680", "1560", "2330"],
+    "🤖 AI伺服器/散熱": ["2382", "3231", "2376", "6669", "3017", "3324", "2421", "2356"],
+    "🔌 重電與綠能": ["1519", "1503", "1513", "1514", "6806", "3708"],
+    "🦾 機器人概念": ["2359", "4566", "6188", "4562", "8374", "4576"],
+    "🚢 貨櫃航運": ["2603", "2609", "2615"],
+    "✈️ 航空雙雄": ["2610", "2618", "2646"],
+    "🏦 金控指標": ["2881", "2882", "2891", "2886", "2884", "2892"],
+    "📱 IC設計": ["2454", "3034", "2379", "3443", "3661", "6526"]
+}
+
 CUSTOM_NICKNAMES = {
     "發哥": "聯發科 (2454)", "公公": "鴻海 (2317)", "海公公": "鴻海 (2317)",
     "肉鬆": "廣達 (2382)", "二哥": "聯電 (2303)", "神山": "台積電 (2330)",
@@ -448,34 +464,41 @@ def crawl_comments(url):
     return comments
 
 def crawl_telegram_chat():
-    print("Fetching Telegram Chat Channel (t.me/s/ptt_stock_follow_chat)...")
+    channels_str = os.environ.get("TELEGRAM_CHANNELS", "")
+    ch_list = [c.strip().lstrip("@") for c in channels_str.split(",") if c.strip()] if channels_str else TELEGRAM_CHANNELS
+    if "ptt_stock_follow_chat" not in ch_list:
+        ch_list.insert(0, "ptt_stock_follow_chat")
+        
     comments = []
-    try:
-        url = "https://t.me/s/ptt_stock_follow_chat"
-        html = safe_get(url)
-        if html:
-            soup = BeautifulSoup(html, "html.parser")
-            msgs = soup.find_all("div", class_="js-message_text")
-            for m in msgs:
-                text = m.text.strip()
-                if "：" in text:
-                    parts = text.split("：", 1)
-                    user_str = parts[0].strip().replace("\n", " ")
-                    content_str = parts[1].strip()
-                    comments.append({
-                        "user": f"📱 [TG] {user_str}",
-                        "content": content_str,
-                        "time": "TG即時推播"
-                    })
-                else:
-                    comments.append({
-                        "user": "📱 [TG推播]",
-                        "content": text,
-                        "time": "TG即時推播"
-                    })
-    except Exception as e:
-        print(f"Error crawling Telegram channel: {e}")
-    print(f"Found {len(comments)} messages from Telegram.")
+    for ch in ch_list:
+        print(f"Fetching Telegram Channel: t.me/s/{ch}...")
+        try:
+            url = f"https://t.me/s/{ch}"
+            html = safe_get(url)
+            if html:
+                soup = BeautifulSoup(html, "html.parser")
+                msgs = soup.find_all("div", class_="js-message_text")
+                for m in msgs:
+                    text = m.text.strip()
+                    if "：" in text:
+                        parts = text.split("：", 1)
+                        user_str = parts[0].strip().replace("\n", " ")
+                        content_str = parts[1].strip()
+                        comments.append({
+                            "user": f"📱 [{ch}] {user_str}",
+                            "content": content_str,
+                            "time": "TG即時推播"
+                        })
+                    else:
+                        comments.append({
+                            "user": f"📱 [{ch}]",
+                            "content": text,
+                            "time": "TG即時推播"
+                        })
+        except Exception as e:
+            print(f"Error crawling Telegram channel {ch}: {e}")
+            
+    print(f"Gathered {len(comments)} messages from {len(ch_list)} Telegram channel(s).")
     return comments
 
 def parse_time_slot(time_str):
@@ -797,6 +820,83 @@ def analyze(comments, stocks, valuations, sectors, price_data, inst_data, inst_s
         top_stocks = "、".join(top_sector["TopStocks"])
         summary_parts.append(f"資金與討論度高度集中在【{top_sector['Sector']}】，其中以 {top_stocks} 最受矚目。")
         
+    # Theme & Sector Momentum Alert Engine (族群與熱門概念題材異動監控)
+    theme_stats = []
+    sector_alerts = []
+    for theme_name, codes in HOT_THEMES.items():
+        theme_pcts = []
+        theme_mentions = 0
+        up_cnt, down_cnt, limit_up_cnt, limit_down_cnt = 0, 0, 0, 0
+        top_constituents = []
+        for code in codes:
+            p_inf = price_data.get(code, {})
+            chg_pct_str = p_inf.get("ChangePercent", "-")
+            stock_name = stocks.get(code, code)
+            try:
+                pct_val = float(chg_pct_str.replace("%", "").replace("+", ""))
+                theme_pcts.append(pct_val)
+                if pct_val > 0: up_cnt += 1
+                elif pct_val < 0: down_cnt += 1
+                if pct_val >= 9.5: limit_up_cnt += 1
+                elif pct_val <= -9.5: limit_down_cnt += 1
+                top_constituents.append({
+                    "stock": f"{stock_name} ({code})",
+                    "price": p_inf.get("Price", "-"),
+                    "changePercent": chg_pct_str,
+                    "pct_val": pct_val
+                })
+            except:
+                pass
+            
+            st_key = f"{stock_name} ({code})"
+            if st_key in stats:
+                theme_mentions += stats[st_key]["Mentions"]
+                
+        avg_pct = round(sum(theme_pcts) / len(theme_pcts), 2) if theme_pcts else 0.0
+        avg_pct_str = f"+{avg_pct:.2f}%" if avg_pct > 0 else f"{avg_pct:.2f}%"
+        
+        alert_tag = "⚖️ 平穩震盪"
+        if avg_pct >= 2.0 or limit_up_cnt >= 1:
+            alert_tag = "🚀 族群齊揚強攻"
+            sector_alerts.append({
+                "theme": theme_name,
+                "type": "surge",
+                "avgChange": avg_pct_str,
+                "alert": alert_tag,
+                "topStocks": [f"{s['stock']}: ${s['price']} ({s['changePercent']})" for s in sorted(top_constituents, key=lambda x: x["pct_val"], reverse=True)[:3]]
+            })
+        elif avg_pct <= -1.8 or limit_down_cnt >= 1:
+            alert_tag = "💥 族群重挫跳水"
+            sector_alerts.append({
+                "theme": theme_name,
+                "type": "drop",
+                "avgChange": avg_pct_str,
+                "alert": alert_tag,
+                "topStocks": [f"{s['stock']}: ${s['price']} ({s['changePercent']})" for s in sorted(top_constituents, key=lambda x: x["pct_val"])[:3]]
+            })
+        elif theme_mentions >= 20:
+            alert_tag = "🔥 資金社群熱議"
+            sector_alerts.append({
+                "theme": theme_name,
+                "type": "hot",
+                "avgChange": avg_pct_str,
+                "alert": alert_tag,
+                "topStocks": [f"{s['stock']}: ${s['price']} ({s['changePercent']})" for s in top_constituents[:3]]
+            })
+            
+        theme_stats.append({
+            "Theme": theme_name,
+            "AvgChange": avg_pct_str,
+            "AvgChangeVal": avg_pct,
+            "Alert": alert_tag,
+            "UpCount": up_cnt,
+            "DownCount": down_cnt,
+            "Mentions": theme_mentions,
+            "TopStocks": [f"{s['stock']} ({s['changePercent']})" for s in sorted(top_constituents, key=lambda x: x["pct_val"], reverse=True)[:3]]
+        })
+        
+    theme_stats = sorted(theme_stats, key=lambda x: x["AvgChangeVal"], reverse=True)
+    
     taiex_info = get_taiex_info()
     taiex_trend = get_taiex_intraday_trend()
     
@@ -808,6 +908,8 @@ def analyze(comments, stocks, valuations, sectors, price_data, inst_data, inst_s
         "TAIEXIntradayTrend": taiex_trend,
         "RealInstitutionalStats": inst_summary,
         "MarginSummary": margin_summary,
+        "SectorAlerts": sector_alerts,
+        "ThemeStats": theme_stats,
         "InstitutionalSentiment": {
             "ForeignBullish": foreign_pos, "ForeignBearish": foreign_neg,
             "TrustBullish": trust_pos, "TrustBearish": trust_neg
@@ -828,6 +930,7 @@ def generate_tg_digest(results, market_data):
     taiex = market_data.get("TAIEXSummary", {})
     inst_amt = market_data.get("RealInstitutionalStats", {}).get("Amounts", {})
     margin_s = market_data.get("MarginSummary", {})
+    sector_alerts = market_data.get("SectorAlerts", [])
     
     f_amt = inst_amt.get("Foreign", {}).get("net", "-")
     t_amt = inst_amt.get("Trust", {}).get("net", "-")
@@ -841,7 +944,7 @@ def generate_tg_digest(results, market_data):
     m_shares_str = f"{m_shares:+d}張" if isinstance(m_shares, int) else str(m_shares)
     s_shares_str = f"{s_shares:+d}張" if isinstance(s_shares, int) else str(s_shares)
     
-    gh_pages_url = os.environ.get("GITHUB_PAGES_URL", "http://localhost:8520/dashboard/index.html")
+    gh_pages_url = os.environ.get("GITHUB_PAGES_URL", "https://smallta.github.io/ptt-stock-war-room/")
     
     lines = [
         f"📊 【PTT 戰情室 · 今日盤後情報總結】 ({today})\n",
@@ -852,9 +955,15 @@ def generate_tg_digest(results, market_data):
         f"- 三大法人合計：{tot_amt}",
         f"- 信用交易融資：{m_bal} (增減 {m_diff} / {m_shares_str})",
         f"- 信用交易融券：增減 {s_shares_str}\n",
-        "🔥 鄉民熱門焦點標的與籌碼對抗訊號 Top 5："
     ]
     
+    if sector_alerts:
+        lines.append("🚨 【今日焦點族群異動警報】")
+        for sa in sector_alerts:
+            lines.append(f"- {sa['theme']} 【{sa['alert']} · 平均 {sa['avgChange']}】")
+            lines.append(f"  指標成分股: {', '.join(sa['topStocks'])}\n")
+            
+    lines.append("🔥 鄉民熱門焦點標的與籌碼對抗訊號 Top 5：")
     for idx, r in enumerate(results[:5], 1):
         chg_icon = "🔴" if str(r.get("Change", "")).startswith("+") else ("🟢" if str(r.get("Change", "")).startswith("-") else "⚪")
         m_diff_val = r.get('MarginDiff', '-')

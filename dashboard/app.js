@@ -126,6 +126,37 @@ function renderMarketOverview(market) {
             aiEl.innerText = market.AISummary;
         }
     }
+    if (market.ThemeStats && market.ThemeStats.length > 0) {
+        const grid = document.getElementById('theme-alerts-grid');
+        const section = document.getElementById('theme-alerts-section');
+        if (grid && section) {
+            section.style.display = 'block';
+            grid.innerHTML = '';
+            market.ThemeStats.slice(0, 6).forEach(theme => {
+                const isUp = String(theme.AvgChange).startsWith('+');
+                const isDown = String(theme.AvgChange).startsWith('-');
+                const badgeClass = isUp ? 'up' : (isDown ? 'down' : '');
+                
+                let cardType = 'hot';
+                if (theme.Alert && (theme.Alert.includes('齊揚') || theme.Alert.includes('大漲') || theme.Alert.includes('強攻'))) cardType = 'surge';
+                else if (theme.Alert && (theme.Alert.includes('重挫') || theme.Alert.includes('跳水'))) cardType = 'drop';
+                
+                const card = document.createElement('div');
+                card.className = `theme-alert-card ${cardType}`;
+                card.innerHTML = `
+                    <div class="theme-card-top">
+                        <span class="theme-title">${theme.Theme}</span>
+                        <span class="theme-avg-badge ${badgeClass}">${theme.AvgChange}</span>
+                    </div>
+                    <div class="theme-tag-badge">${theme.Alert} ｜ 📈上漲 ${theme.UpCount}檔 ｜ 📉下跌 ${theme.DownCount}檔</div>
+                    <div class="theme-constituents">
+                        <b>焦點成分股：</b>${theme.TopStocks ? theme.TopStocks.join('、') : '-'}
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+    }
 }
 
 function renderScoreChart(data) {
