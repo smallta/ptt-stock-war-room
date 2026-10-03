@@ -233,3 +233,167 @@ h1 { font-size: 2.8rem; font-weight: 800; margin-bottom: 8px; }
 }
 .comment-user { font-weight: 700; color: #60a5fa; margin-bottom: 3px; font-size: 0.85rem; }
 .comment-text { color: #f1f5f9; word-break: break-word; }
+
+/* ==========================================================================
+   Responsive Mobile Optimizations (解決手機版破版問題)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .container {
+        margin: 10px auto;
+        padding: 16px;
+        border-radius: 16px;
+        width: 96%;
+    }
+    
+    header {
+        margin-bottom: 20px;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    .subtitle {
+        font-size: 0.9rem;
+    }
+    
+    .summary-banner {
+        padding: 12px 15px;
+        margin-bottom: 20px;
+    }
+    
+    .summary-text {
+        font-size: 0.9rem;
+    }
+    
+    /* Overview Cards Stack Vertically */
+    .overview-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        margin-bottom: 25px;
+    }
+    
+    .overview-card {
+        padding: 15px;
+    }
+    
+    /* Institutional & Margin Chips: 2x2 grid on mobile instead of 1x4 */
+    .chips-flex {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+    
+    .chip-item {
+        padding: 8px 6px;
+    }
+    
+    .chip-name {
+        font-size: 0.75rem;
+    }
+    
+    .chip-sentiment {
+        font-size: 0.85rem;
+    }
+    
+    /* Charts Grid Stack Vertically */
+    .charts-grid-layout {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin-bottom: 25px;
+    }
+    
+    .chart-box {
+        padding: 15px;
+    }
+    
+    .chart-container {
+        height: 240px;
+    }
+    
+    .section-title {
+        font-size: 1.1rem;
+    }
+    
+    .chart-title-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    
+    /* Controls: Search and filter full width */
+    .cards-section-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+    
+    .filter-controls-row {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        gap: 8px;
+    }
+    
+    .search-input {
+        width: 100%;
+        font-size: 0.85rem;
+    }
+    
+    .sector-select {
+        width: 100%;
+        font-size: 0.85rem;
+    }
+    
+    /* Stock Cards: 1 column on mobile */
+    .cards-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .stock-card {
+        padding: 15px;
+    }
+    
+    .stock-name {
+        font-size: 1.15rem;
+    }
+    
+    .price-change-box, .inst-buy-sell-box {
+        font-size: 0.78rem;
+        flex-wrap: wrap;
+        gap: 4px;
+        padding: 6px 10px;
+    }
+    
+    .metrics-grid {
+        gap: 5px;
+    }
+    
+    .metric-value {
+        font-size: 0.95rem;
+    }
+    
+    .modal-content {
+        width: 95%;
+        padding: 18px;
+        max-height: 85vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .chips-flex {
+        grid-template-columns: 1fr 1fr;
+        gap: 6px;
+    }
+    .chip-sentiment {
+        font-size: 0.8rem;
+    }
+    .fundamentals {
+        gap: 4px;
+    }
+    .fun-chip {
+        font-size: 0.72rem;
+        padding: 4px 0;
+    }
+}
