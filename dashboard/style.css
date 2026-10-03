@@ -175,6 +175,29 @@ h1 { font-size: 2.8rem; font-weight: 800; margin-bottom: 8px; }
 .keywords-row { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 12px; }
 .kw-chip { background: rgba(255, 255, 255, 0.06); color: #cbd5e1; font-size: 0.75rem; padding: 2px 7px; border-radius: 12px; }
 
+.ai-summary-content {
+    background: rgba(255, 255, 255, 0.03); border-radius: 10px; padding: 12px 15px;
+    font-size: 0.88rem; line-height: 1.6; color: #e2e8f0; white-space: pre-line;
+    border-left: 3px solid #8b5cf6;
+}
+
+.chip-signal-badge {
+    background: rgba(139, 92, 246, 0.15); border: 1px solid rgba(139, 92, 246, 0.3);
+    color: #d8b4fe; padding: 6px 10px; border-radius: 8px; font-size: 0.82rem; font-weight: 700;
+    margin-bottom: 10px; text-align: center;
+}
+.chip-signal-badge.bullish { background: rgba(16, 185, 129, 0.15); border-color: rgba(16, 185, 129, 0.3); color: #6ee7b7; }
+.chip-signal-badge.bearish { background: rgba(239, 68, 68, 0.15); border-color: rgba(239, 68, 68, 0.3); color: #fca5a5; }
+.chip-signal-badge.warning { background: rgba(245, 158, 11, 0.15); border-color: rgba(245, 158, 11, 0.3); color: #fde68a; }
+
+.sentiment-bar-wrapper {
+    display: flex; height: 6px; border-radius: 4px; overflow: hidden; background: rgba(255,255,255,0.05);
+    margin-bottom: 12px;
+}
+.sent-bar-pos { background: #ef4444; }
+.sent-bar-neg { background: #10b981; }
+.sent-bar-sarcasm { background: #8b5cf6; }
+
 .view-comments-btn {
     width: 100%; text-align: center; padding: 8px; background: rgba(59, 130, 246, 0.15);
     color: #60a5fa; border-radius: 8px; font-size: 0.85rem; font-weight: 600;

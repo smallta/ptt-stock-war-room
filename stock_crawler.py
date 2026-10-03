@@ -13,6 +13,8 @@ HEADERS = {
 }
 COOKIES = {"over18": "1"}
 
+import os
+
 CUSTOM_NICKNAMES = {
     "發哥": "聯發科 (2454)", "公公": "鴻海 (2317)", "海公公": "鴻海 (2317)",
     "肉鬆": "廣達 (2382)", "二哥": "聯電 (2303)", "神山": "台積電 (2330)",
@@ -34,6 +36,7 @@ UNDERVALUED_WORDS = ["低估", "便宜", "本益比低", "淨值比低", "殖利
 HYPE_WORDS = ["噴", "飆", "妖", "歐印", "all in", "ALL IN", "無腦", "上車", "嘎", "火箭", "目標價"]
 FUNDAMENTAL_WORDS = ["營收", "法說", "毛利", "財報", "EPS", "展望", "盈餘", "配息", "殖利率", "基本面", "淨利"]
 PANIC_WORDS = ["畢業", "停損", "斷頭", "違約", "抬出場", "救命", "砍在最低", "腰斬", "痛失", "賣在最低", "爆開", "慘", "崩", "套", "丸子", "輸光", "救我"]
+SARCASM_WORDS = ["穩了", "送分題", "利多出盡", "多蛙", "空蛙", "這波送錢", "感謝主力", "救命", "丸子", "99", "越爛越噴", "出貨文", "倒給散戶", "少年股神", "哲哲", "老蘇", "這檔沒救了", "主力在洗盤"]
 
 EVENT_RULES = {
     "法說": "法說會", "注意": "注意股", "處置": "處置股", "違約": "違約交割",
@@ -265,6 +268,104 @@ def get_institutional_data():
         print(f"Error fetching institutional data: {e}")
     return inst_data, summary
 
+def get_margin_data():
+    print("Fetching Margin Trading data (MI_MARGN)...")
+    margin_stock_data = {}
+    summary = {
+        "MarginBalance": "-", "MarginDiff": "-", "MarginSharesDiff": 0, "ShortSharesDiff": 0
+    }
+    try:
+        url = "https://www.twse.com.tw/rwd/zh/marginTrading/MI_MARGN?response=json&selectType=ALL"
+        res = safe_get(url, is_json=True)
+        if isinstance(res, dict) and "tables" in res:
+            # Table 0: Credit Summary
+            if len(res["tables"]) > 0 and "data" in res["tables"][0]:
+                t0 = res["tables"][0]["data"]
+                if len(t0) >= 3:
+                    try:
+                        m_today = float(t0[2][5].replace(",", "")) / 100000  # 仟元 -> 億元
+                        m_prev = float(t0[2][4].replace(",", "")) / 100000
+                        m_diff = m_today - m_prev
+                        summary["MarginBalance"] = f"{m_today:.2f}億"
+                        summary["MarginDiff"] = f"+{m_diff:.2f}億" if m_diff > 0 else f"{m_diff:.2f}億"
+                        
+                        m_s_diff = int(t0[0][5].replace(",", "")) - int(t0[0][4].replace(",", ""))
+                        s_s_diff = int(t0[1][5].replace(",", "")) - int(t0[1][4].replace(",", ""))
+                        summary["MarginSharesDiff"] = m_s_diff
+                        summary["ShortSharesDiff"] = s_s_diff
+                    except Exception as e:
+                        print(f"Error parsing margin summary: {e}")
+            
+            # Table 1: Individual stocks
+            if len(res["tables"]) > 1 and "data" in res["tables"][1]:
+                t1 = res["tables"][1]["data"]
+                for row in t1:
+                    code = row[0].strip()
+                    if len(code) == 4:
+                        try:
+                            m_diff = int(row[6].replace(",", "")) - int(row[5].replace(",", ""))
+                            m_bal = row[6].strip()
+                            s_diff = int(row[12].replace(",", "")) - int(row[11].replace(",", ""))
+                            s_bal = row[12].strip()
+                            margin_stock_data[code] = {
+                                "MarginDiff": m_diff,
+                                "MarginBalance": m_bal,
+                                "ShortDiff": s_diff,
+                                "ShortBalance": s_bal
+                            }
+                        except Exception:
+                            continue
+    except Exception as e:
+        print(f"Error fetching margin data: {e}")
+    return margin_stock_data, summary
+
+def get_ai_market_summary(results, market_data, taiex_info):
+    api_key = os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")
+    if not api_key:
+        # High quality rule-based AI heuristic fallback
+        fg_idx = market_data.get("FearGreedIndex", 50)
+        panic_idx = market_data.get("PanicIndex", 0)
+        tot_net = market_data.get("RealInstitutionalStats", {}).get("Amounts", {}).get("Total", {}).get("net", "-")
+        m_diff = market_data.get("MarginSummary", {}).get("MarginDiff", "-")
+        
+        lines = [
+            f"🤖 【社群情緒風向】：目前社群恐懼貪婪指數為 {fg_idx} 分，絕望反向指數為 {panic_idx} 分。鄉民整體討論偏向{'狂熱追價' if fg_idx>=70 else ('謹慎觀望' if fg_idx>=40 else '恐慌拋售')}。",
+            f"📊 【籌碼與浮額對抗】：三大法人今日合計買賣超 {tot_net}，信用交易融資增減 {m_diff}。需持續留意籌碼集中度高的族群是否出現大戶倒貨。",
+            f"🎯 【焦點個股動態】：討論熱度最高之標的為 {results[0]['Stock'] if results else '台股龍頭'}，其籌碼訊號顯示為「{results[0].get('ChipSignal', '動向平衡') if results else '籌碼平衡'}」，建議搭配支撐壓力審慎操作。"
+        ]
+        return "\n".join(lines)
+        
+    try:
+        top_stocks_summary = []
+        for r in results[:8]:
+            top_stocks_summary.append(
+                f"- {r['Stock']} (收盤${r.get('Price','-')}, 漲跌{r.get('ChangePercent','-')}): 散戶提及{r.get('Mentions',0)}次, 外資{r.get('ForeignNet','-')}張, 投信{r.get('TrustNet','-')}張, 融資{r.get('MarginDiff','-')}張, 鄉民標籤: {', '.join(r.get('TopKeywords',[])[:3])}, 籌碼訊號: {r.get('ChipSignal','')}"
+            )
+        prompt = f"""你是一位資深台灣股市量化與社群心理分析專家。請分析今日 PTT 股版、Telegram 社群鄉民情緒與證交所官方籌碼數據：
+大盤指數：{taiex_info.get('TAIEX', '-')} 點 ({taiex_info.get('ChangePercent', '-')})
+絕望/停損指標：{market_data.get('PanicIndex', 0)} 分
+三大法人買賣超合計：{market_data.get('RealInstitutionalStats', {}).get('Amounts', {}).get('Total', {}).get('net', '-')}
+信用交易融資增減：{market_data.get('MarginSummary', {}).get('MarginDiff', '-')}
+
+熱門焦點個股與籌碼：
+{chr(10).join(top_stocks_summary)}
+
+請輸出精簡專業的 3 點「AI 盤勢與社群情緒深度解讀」（包含散戶心理/反串、主力籌碼對抗、潛在風險/機會）："""
+        
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={api_key}"
+        payload = {
+            "contents": [{"parts": [{"text": prompt}]}],
+            "generationConfig": {"temperature": 0.3, "maxOutputTokens": 400}
+        }
+        res = requests.post(url, json=payload, timeout=10)
+        if res.status_code == 200:
+            res_json = res.json()
+            ai_text = res_json.get("candidates", [{}])[0].get("content", {}).get("parts", [{}])[0].get("text", "")
+            return ai_text.strip()
+    except Exception as e:
+        print(f"AI Summary Error: {e}")
+    return None
+
 def get_taiex_info():
     try:
         url = "https://openapi.twse.com.tw/v1/exchangeReport/FMTQIK"
@@ -394,7 +495,7 @@ def parse_time_slot(time_str):
     else:
         return "盤後夜間"
 
-def analyze(comments, stocks, valuations, sectors, price_data, inst_data, inst_summary):
+def analyze(comments, stocks, valuations, sectors, price_data, inst_data, inst_summary, margin_data, margin_summary):
     stats = {}
     code_pattern = re.compile(r'\b\d{4}\b')
     name_to_code = {v: k for k, v in stocks.items()}
@@ -405,6 +506,7 @@ def analyze(comments, stocks, valuations, sectors, price_data, inst_data, inst_s
     global_und = 0
     global_hyp = 0
     global_panic = 0
+    global_sarcasm = 0
     
     foreign_pos, foreign_neg = 0, 0
     trust_pos, trust_neg = 0, 0
@@ -473,12 +575,14 @@ def analyze(comments, stocks, valuations, sectors, price_data, inst_data, inst_s
         hyp = count_words(HYPE_WORDS, text)
         fund = count_words(FUNDAMENTAL_WORDS, text)
         panic = count_words(PANIC_WORDS, text)
+        sarcasm = count_words(SARCASM_WORDS, text)
         
         global_pos += pos
         global_neg += neg
         global_und += und
         global_hyp += hyp
         global_panic += panic
+        global_sarcasm += sarcasm
         
         timeline_stats[time_slot]["Pos"] += pos
         timeline_stats[time_slot]["Neg"] += neg
@@ -523,7 +627,7 @@ def analyze(comments, stocks, valuations, sectors, price_data, inst_data, inst_s
             if key not in stats:
                 stats[key] = {
                     "Code": code, "Mentions": 0, "Users": set(), "UserCounts": {},
-                    "Pos": 0, "Neg": 0, "Und": 0, "Hyp": 0, "Fund": 0, "Panic": 0,
+                    "Pos": 0, "Neg": 0, "Und": 0, "Hyp": 0, "Fund": 0, "Panic": 0, "Sarcasm": 0,
                     "TargetPrices": [], "Events": set(), "Keywords": {}, "Comments": []
                 }
                 
@@ -537,10 +641,11 @@ def analyze(comments, stocks, valuations, sectors, price_data, inst_data, inst_s
             st["Hyp"] += hyp
             st["Fund"] += fund
             st["Panic"] += panic
+            st["Sarcasm"] += sarcasm
             st["TargetPrices"].extend(prices)
             st["Events"].update(events)
             
-            for w in POSITIVE_WORDS + NEGATIVE_WORDS + UNDERVALUED_WORDS + HYPE_WORDS + FUNDAMENTAL_WORDS:
+            for w in POSITIVE_WORDS + NEGATIVE_WORDS + UNDERVALUED_WORDS + HYPE_WORDS + FUNDAMENTAL_WORDS + SARCASM_WORDS:
                 if w in text:
                     st["Keywords"][w] = st["Keywords"].get(w, 0) + 1
                     
@@ -562,6 +667,7 @@ def analyze(comments, stocks, valuations, sectors, price_data, inst_data, inst_s
         sector = sectors.get(data["Code"], "其他")
         p_info = price_data.get(data["Code"], {})
         inst = inst_data.get(data["Code"], {})
+        m_info = margin_data.get(data["Code"], {})
         
         avg_target = "-"
         if data["TargetPrices"]:
@@ -575,6 +681,41 @@ def analyze(comments, stocks, valuations, sectors, price_data, inst_data, inst_s
         if concentration >= 0.5 and data["Mentions"] >= 3: risk.append("集中度高(防洗版)")
         if data["Neg"] > data["Pos"]: risk.append("偏負面")
         if data["Panic"] >= 2: risk.append("恐慌恐慌")
+        if data["Sarcasm"] >= 2: risk.append("反串/迷因熱議")
+        
+        f_net = inst.get("ForeignNet", "-")
+        t_net = inst.get("TrustNet", "-")
+        m_diff = m_info.get("MarginDiff", "-")
+        s_diff = m_info.get("ShortDiff", "-")
+        
+        # Chip Signal Engine (散戶情緒 vs 主力法人 & 融資券對抗訊號)
+        chip_signal = "⚖️ 散戶與法人動向平衡"
+        try:
+            fn = int(f_net) if f_net != "-" else 0
+            tn = int(t_net) if t_net != "-" else 0
+            md = int(m_diff) if m_diff != "-" else 0
+            
+            if fn > 500 and tn > 0 and data["Neg"] >= data["Pos"]:
+                chip_signal = "🟢 土洋合買 ✕ 散戶看空 (潛在軋空強多)"
+            elif fn < -1500 and data["Pos"] > data["Neg"]:
+                chip_signal = "🔴 外資大出貨 ✕ 散戶追高 (散戶套牢警報)"
+            elif md > 800 and data["Pos"] > data["Neg"]:
+                chip_signal = "⚠️ 融資暴增 ✕ 散戶狂熱 (籌碼過熱浮額多)"
+            elif md < -300 and fn > 300:
+                chip_signal = "💎 融資大減 ✕ 外資回補 (洗盤吸籌完畢)"
+            elif fn > 1000 and tn > 200:
+                chip_signal = "🔥 土洋法人同步重押"
+            elif fn < -1000 and tn < -200:
+                chip_signal = "❄️ 土洋法人雙向提款"
+            elif data["Sarcasm"] >= 3:
+                chip_signal = "🎭 鄉民反串迷因狂熱"
+        except Exception:
+            pass
+            
+        tot_sent = max(1, data["Pos"] + data["Neg"] + data["Sarcasm"])
+        pos_pct = int((data["Pos"] / tot_sent) * 100)
+        neg_pct = int((data["Neg"] / tot_sent) * 100)
+        sarcasm_pct = int((data["Sarcasm"] / tot_sent) * 100)
         
         results.append({
             "Stock": key,
@@ -584,9 +725,17 @@ def analyze(comments, stocks, valuations, sectors, price_data, inst_data, inst_s
             "Price": p_info.get("Price", "-"),
             "Change": p_info.get("Change", "-"),
             "ChangePercent": p_info.get("ChangePercent", "-"),
-            "ForeignNet": inst.get("ForeignNet", "-"),
-            "TrustNet": inst.get("TrustNet", "-"),
+            "ForeignNet": f_net,
+            "TrustNet": t_net,
             "TotalNet": inst.get("TotalNet", "-"),
+            "MarginDiff": m_diff,
+            "MarginBalance": m_info.get("MarginBalance", "-"),
+            "ShortDiff": s_diff,
+            "ShortBalance": m_info.get("ShortBalance", "-"),
+            "ChipSignal": chip_signal,
+            "BullishRatio": f"{pos_pct}%",
+            "BearishRatio": f"{neg_pct}%",
+            "SarcasmRatio": f"{sarcasm_pct}%",
             "Mentions": data["Mentions"],
             "UniqueUsers": unique_users,
             "PE": val.get("PE", "-"),
@@ -650,6 +799,7 @@ def analyze(comments, stocks, valuations, sectors, price_data, inst_data, inst_s
         
     taiex_info = get_taiex_info()
     taiex_trend = get_taiex_intraday_trend()
+    
     market_data = {
         "FearGreedIndex": fear_greed_index,
         "PanicIndex": panic_index,
@@ -657,6 +807,7 @@ def analyze(comments, stocks, valuations, sectors, price_data, inst_data, inst_s
         "TAIEXSummary": taiex_info,
         "TAIEXIntradayTrend": taiex_trend,
         "RealInstitutionalStats": inst_summary,
+        "MarginSummary": margin_summary,
         "InstitutionalSentiment": {
             "ForeignBullish": foreign_pos, "ForeignBearish": foreign_neg,
             "TrustBullish": trust_pos, "TrustBearish": trust_neg
@@ -665,6 +816,10 @@ def analyze(comments, stocks, valuations, sectors, price_data, inst_data, inst_s
         "SectorRotation": sector_rotation,
         "MarketSummary": " ".join(summary_parts)
     }
+    
+    # Generate AI / Sarcasm Summary
+    ai_summary = get_ai_market_summary(sorted_results, market_data, taiex_info)
+    market_data["AISummary"] = ai_summary
         
     return sorted_results, market_data
 
@@ -672,34 +827,64 @@ def generate_tg_digest(results, market_data):
     today = time.strftime("%Y-%m-%d")
     taiex = market_data.get("TAIEXSummary", {})
     inst_amt = market_data.get("RealInstitutionalStats", {}).get("Amounts", {})
+    margin_s = market_data.get("MarginSummary", {})
     
     f_amt = inst_amt.get("Foreign", {}).get("net", "-")
     t_amt = inst_amt.get("Trust", {}).get("net", "-")
     d_amt = inst_amt.get("Dealer", {}).get("net", "-")
     tot_amt = inst_amt.get("Total", {}).get("net", "-")
     
+    m_bal = margin_s.get("MarginBalance", "-")
+    m_diff = margin_s.get("MarginDiff", "-")
+    m_shares = margin_s.get("MarginSharesDiff", 0)
+    s_shares = margin_s.get("ShortSharesDiff", 0)
+    m_shares_str = f"{m_shares:+d}張" if isinstance(m_shares, int) else str(m_shares)
+    s_shares_str = f"{s_shares:+d}張" if isinstance(s_shares, int) else str(s_shares)
+    
+    gh_pages_url = os.environ.get("GITHUB_PAGES_URL", "http://localhost:8520/dashboard/index.html")
+    
     lines = [
         f"📊 【PTT 戰情室 · 今日盤後情報總結】 ({today})\n",
         f"📈 今日大盤加權指數：{taiex.get('TAIEX', '-')} 點 ({taiex.get('Change', '-')} / {taiex.get('ChangePercent', '-')})",
-        f"🚨 絕望/畢業反向指標：{market_data.get('PanicIndex', 0)} 分\n",
+        f"🚨 絕望/畢業反向指標：{market_data.get('PanicIndex', 0)} 分 (越高代表散戶洗盤越乾淨)\n",
         "🏛️ 三大法人買賣金額 (證交所官方)：",
         f"- 外資：{f_amt} ｜ 投信：{t_amt} ｜ 自營商：{d_amt}",
-        f"- 三大法人合計：{tot_amt}\n",
-        "🔥 鄉民熱門焦點標的 Top 5："
+        f"- 三大法人合計：{tot_amt}",
+        f"- 信用交易融資：{m_bal} (增減 {m_diff} / {m_shares_str})",
+        f"- 信用交易融券：增減 {s_shares_str}\n",
+        "🔥 鄉民熱門焦點標的與籌碼對抗訊號 Top 5："
     ]
     
     for idx, r in enumerate(results[:5], 1):
         chg_icon = "🔴" if str(r.get("Change", "")).startswith("+") else ("🟢" if str(r.get("Change", "")).startswith("-") else "⚪")
+        m_diff_val = r.get('MarginDiff', '-')
+        m_diff_str = f"{m_diff_val:+d}張" if isinstance(m_diff_val, int) else f"{m_diff_val}張"
         lines.append(f"{idx}. {r['Stock']} | 評分 {r['Score']}")
-        lines.append(f"   收盤: ${r['Price']} {chg_icon} ({r['ChangePercent']}) | 外資: {r['ForeignNet']}張 | 投信: {r['TrustNet']}張")
+        lines.append(f"   收盤: ${r['Price']} {chg_icon} ({r['ChangePercent']}) | 外資: {r['ForeignNet']}張 | 投信: {r['TrustNet']}張 | 融資: {m_diff_str}")
+        lines.append(f"   籌碼訊號: {r.get('ChipSignal', '無')}")
         lines.append(f"   情報Tag: {r['Risk']}\n")
         
+    if market_data.get("AISummary"):
+        lines.append(f"🤖 【AI 深度情報解讀】：\n{market_data.get('AISummary')}\n")
+        
     lines.append(f"💡 戰情總結：{market_data.get('MarketSummary', '')}")
-    lines.append("\n👉 查看完整視覺化儀表板: http://localhost:8520/dashboard/index.html")
+    lines.append(f"\n👉 查看完整視覺化儀表板: {gh_pages_url}")
     
     digest_text = "\n".join(lines)
     with open("tg_digest_report.txt", "w", encoding="utf-8") as f:
         f.write(digest_text)
+        
+    # Auto-send if Telegram tokens are available
+    bot_token = os.environ.get("TELEGRAM_BOT_TOKEN") or "8837287745:AAGq7-ZQKt_PwzowODDbpc4pzdDhoyfcw1k"
+    chat_id = os.environ.get("TELEGRAM_CHAT_ID") or "1815627011"
+    if bot_token and chat_id:
+        try:
+            tg_url = f"https://api.telegram.org/bot{bot_token}/sendMessage"
+            requests.post(tg_url, json={"chat_id": chat_id, "text": digest_text}, timeout=10)
+            print("✅ 已自動推播最新戰情報告至 Telegram！")
+        except Exception as e:
+            print(f"⚠️ Telegram 自動推播略過: {e}")
+            
     return digest_text
 
 def main():
@@ -716,7 +901,9 @@ def main():
         
     stocks, valuations, sectors, price_data = get_stocks()
     inst_data, inst_summary = get_institutional_data()
-    res, market_data = analyze(all_comments, stocks, valuations, sectors, price_data, inst_data, inst_summary)
+    margin_data, margin_summary = get_margin_data()
+    
+    res, market_data = analyze(all_comments, stocks, valuations, sectors, price_data, inst_data, inst_summary, margin_data, margin_summary)
     
     generate_tg_digest(res, market_data)
     
@@ -731,7 +918,6 @@ def main():
         json.dump(market_data, f, ensure_ascii=False, indent=2)
         
     # 7-Day History Snapshot
-    import os
     today_str = time.strftime("%Y-%m-%d")
     history_file = "history_data.json"
     history = {}

@@ -98,6 +98,34 @@ function renderMarketOverview(market) {
             badgeEl.innerHTML = `📈 今日加權指數：${t.TAIEX} 點 ${icon} ${t.Change} (${t.ChangePercent})`;
         }
     }
+    if (market.MarginSummary) {
+        const m = market.MarginSummary;
+        const mBalEl = document.getElementById('margin-balance');
+        const mDiffEl = document.getElementById('margin-diff');
+        const mSharesEl = document.getElementById('margin-shares');
+        const sSharesEl = document.getElementById('short-shares');
+        
+        if (mBalEl) mBalEl.innerText = m.MarginBalance || '-';
+        if (mDiffEl) {
+            mDiffEl.innerText = m.MarginDiff || '-';
+            const isUp = String(m.MarginDiff).startsWith('+');
+            mDiffEl.style.color = isUp ? '#f87171' : '#4ade80';
+        }
+        if (mSharesEl) {
+            const val = m.MarginSharesDiff || 0;
+            mSharesEl.innerText = val > 0 ? `+${val.toLocaleString()}張` : `${val.toLocaleString()}張`;
+        }
+        if (sSharesEl) {
+            const val = m.ShortSharesDiff || 0;
+            sSharesEl.innerText = val > 0 ? `+${val.toLocaleString()}張` : `${val.toLocaleString()}張`;
+        }
+    }
+    if (market.AISummary) {
+        const aiEl = document.getElementById('ai-summary-content');
+        if (aiEl) {
+            aiEl.innerText = market.AISummary;
+        }
+    }
 }
 
 function renderScoreChart(data) {
@@ -298,6 +326,47 @@ function renderCards(data) {
             `;
         }
 
+        let chipSignalHtml = '';
+        if (stock.ChipSignal) {
+            let badgeClass = 'chip-signal-badge';
+            if (stock.ChipSignal.includes('🟢') || stock.ChipSignal.includes('💎') || stock.ChipSignal.includes('🔥')) badgeClass += ' bullish';
+            else if (stock.ChipSignal.includes('🔴') || stock.ChipSignal.includes('❄️')) badgeClass += ' bearish';
+            else if (stock.ChipSignal.includes('⚠️')) badgeClass += ' warning';
+            chipSignalHtml = `<div class="${badgeClass}">${stock.ChipSignal}</div>`;
+        }
+
+        let marginHtml = '';
+        if (stock.MarginDiff !== undefined && stock.MarginDiff !== '-') {
+            const md = Number(stock.MarginDiff);
+            const sd = Number(stock.ShortDiff);
+            const mdClass = md > 0 ? 'net-buy' : (md < 0 ? 'net-sell' : '');
+            const sdClass = sd > 0 ? 'net-buy' : (sd < 0 ? 'net-sell' : '');
+            const formatStr = (num) => (num > 0 ? `+${num.toLocaleString()}` : num.toLocaleString());
+            marginHtml = `
+                <div class="inst-buy-sell-box" style="margin-top: 6px;">
+                    <span>💳 融資/融券增減：</span>
+                    <span>資 <span class="inst-chip ${mdClass}">${formatStr(md)}張</span> | 券 <span class="inst-chip ${sdClass}">${formatStr(sd)}張</span></span>
+                </div>
+            `;
+        }
+
+        let sentBarHtml = '';
+        if (stock.BullishRatio && stock.BearishRatio) {
+            const pos = parseInt(stock.BullishRatio) || 0;
+            const neg = parseInt(stock.BearishRatio) || 0;
+            const sarc = parseInt(stock.SarcasmRatio) || 0;
+            sentBarHtml = `
+                <div style="font-size:0.75rem; color:#94a3b8; display:flex; justify-content:space-between; margin-bottom:4px; margin-top:8px;">
+                    <span style="color:#f87171;">多 ${pos}%</span><span style="color:#c4b5fd;">反串 ${sarc}%</span><span style="color:#4ade80;">空 ${neg}%</span>
+                </div>
+                <div class="sentiment-bar-wrapper">
+                    <div class="sent-bar-pos" style="width: ${pos}%;"></div>
+                    <div class="sent-bar-sarcasm" style="width: ${sarc}%;"></div>
+                    <div class="sent-bar-neg" style="width: ${neg}%;"></div>
+                </div>
+            `;
+        }
+
         const card = document.createElement('div');
         card.className = 'stock-card';
         card.onclick = () => openCommentsModal(stock.Stock);
@@ -306,8 +375,11 @@ function renderCards(data) {
                 <div class="stock-name">${stock.Stock}</div>
                 <div class="score-badge">分數 ${stock.Score}</div>
             </div>
+            ${chipSignalHtml}
             ${priceChangeHtml}
             ${instBuySellHtml}
+            ${marginHtml}
+            ${sentBarHtml}
             ${eventsHtml}
             ${targetHtml}
             ${riskHtml}
