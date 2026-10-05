@@ -1,11 +1,6 @@
 __pycache__/
 *.pid
 *.log
-hot_stocks.csv
-hot_stocks_sentiment.csv
-keyword_data.json
-detail_data.json
-market_data.json
 unmatched_comments.txt
 .DS_Store
 signal-dashboard/node_modules/
