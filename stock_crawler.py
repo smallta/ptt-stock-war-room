@@ -581,6 +581,26 @@ def analyze(comments, stocks, valuations, sectors, price_data, inst_data, inst_s
                     continue
                 if name == "陸海" and any(k in text for k in ["陸海空", "陸海運"]) and not any(k in text for k in ["5603", "買陸海", "賣陸海"]):
                     continue
+                if name == "無敵" and not any(k in text for k in ["8201", "無敵科", "無敵科技", "無敵股", "買無敵", "賣無敵"]):
+                    continue
+                if name == "安心" and not any(k in text for k in ["1259", "摩斯", "安心食品", "安心股", "買安心", "賣安心"]):
+                    continue
+                if name == "數字" and not any(k in text for k in ["5287", "數字科技", "591", "數字股", "買數字", "賣數字"]):
+                    continue
+                if name == "地球" and not any(k in text for k in ["1324", "地球膠帶", "地球股", "買地球", "賣地球"]):
+                    continue
+                if name == "三星" and (any(k in text for k in ["韓國", "samsung", "Samsung", "SAMSUNG", "良率", "晶圓", "HBM", "手機", "面板", "三爽"]) or not any(k in text for k in ["5007", "三星科技", "三星螺帽", "買三星", "賣三星"])):
+                    continue
+                if name == "聯合" and any(k in text for k in ["聯合國", "聯合報", "聯合聲明", "聯合陣線", "聯合稽查", "聯合壟斷"]) and not any(k in text for k in ["4129", "聯合骨科", "買聯合", "賣聯合"]):
+                    continue
+                if name == "進階" and not any(k in text for k in ["3118", "進階生技", "買進階", "賣進階"]):
+                    continue
+                if name == "全新" and any(k in text for k in ["全新推出", "全新概念", "全新的", "全新上市", "全新改版", "全新設計", "全新體驗"]) and not any(k in text for k in ["2455", "PA", "砷化鎵", "磊晶", "全新光電", "買全新", "賣全新"]):
+                    continue
+                if name == "大成" and "大成鋼" in text:
+                    continue
+                if name == "中華" and any(k in text for k in ["中華電", "中華隊", "中華民國", "中華航", "中華職棒", "中華電信"]):
+                    continue
                 if name == "有益" and any(k in text for k in ["有益健康", "有益無害", "相當有益", "大有益"]) and not any(k in text for k in ["9962", "買有益", "賣有益"]):
                     continue
             if name in text: matched.add(f"{name} ({code})")
