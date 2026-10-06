@@ -35,9 +35,9 @@
         "net": 12514
       }
     ],
-    "TrustBuyCount": 105,
-    "TrustSellCount": 149,
-    "TrustTotalNet": -82696,
+    "TrustBuyCount": 106,
+    "TrustSellCount": 148,
+    "TrustTotalNet": -88429,
     "TrustTopBuy": [
       {
         "name": "南亞",
@@ -45,26 +45,26 @@
         "net": 3486
       },
       {
+        "name": "華通",
+        "code": "2313",
+        "net": 3285
+      },
+      {
         "name": "金像電",
         "code": "2368",
         "net": 2644
-      },
-      {
-        "name": "台塑化",
-        "code": "6505",
-        "net": 2265
       }
     ],
     "Amounts": {
       "Foreign": {
-        "buy": "3571.60億",
-        "sell": "3638.17億",
+        "buy": "3613.69億",
+        "sell": "3680.26億",
         "net": "-66.57億"
       },
       "Trust": {
-        "buy": "208.73億",
-        "sell": "367.24億",
-        "net": "-158.51億"
+        "buy": "246.11億",
+        "sell": "388.75億",
+        "net": "-142.65億"
       },
       "Dealer": {
         "buy": "419.05億",
@@ -74,9 +74,9 @@
         "hedge_net": "-18.91億"
       },
       "Total": {
-        "buy": "4199.38億",
-        "sell": "4407.24億",
-        "net": "-207.87億"
+        "buy": "4278.84億",
+        "sell": "4470.85億",
+        "net": "-192.01億"
       }
     }
   },
@@ -90,23 +90,12 @@
     {
       "theme": "💡 CPO矽光子",
       "type": "surge",
-      "avgChange": "+4.12%",
+      "avgChange": "+0.49%",
       "alert": "🚀 族群齊揚強攻",
       "topStocks": [
         "聯茂 (6213): $751.00 (+9.96%)",
         "光聖 (6442): $1705.00 (+4.92%)",
         "聯鈞 (3450): $548.00 (+0.92%)"
-      ]
-    },
-    {
-      "theme": "⚡ CoWoS先進封裝",
-      "type": "surge",
-      "avgChange": "+2.88%",
-      "alert": "🚀 族群齊揚強攻",
-      "topStocks": [
-        "辛耘 (3583): $744.00 (+3.19%)",
-        "台積電 (2330): $2575.00 (+3.00%)",
-        "中砂 (1560): $1040.00 (+2.46%)"
       ]
     },
     {
@@ -134,20 +123,6 @@
   ],
   "ThemeStats": [
     {
-      "Theme": "💡 CPO矽光子",
-      "AvgChange": "+4.12%",
-      "AvgChangeVal": 4.12,
-      "Alert": "🚀 族群齊揚強攻",
-      "UpCount": 4,
-      "DownCount": 0,
-      "Mentions": 0,
-      "TopStocks": [
-        "聯茂 (6213) (+9.96%)",
-        "光聖 (6442) (+4.92%)",
-        "聯鈞 (3450) (+0.92%)"
-      ]
-    },
-    {
       "Theme": "📱 IC設計",
       "AvgChange": "+3.14%",
       "AvgChangeVal": 3.14,
@@ -162,26 +137,12 @@
       ]
     },
     {
-      "Theme": "⚡ CoWoS先進封裝",
-      "AvgChange": "+2.88%",
-      "AvgChangeVal": 2.88,
-      "Alert": "🚀 族群齊揚強攻",
-      "UpCount": 3,
-      "DownCount": 0,
-      "Mentions": 0,
-      "TopStocks": [
-        "辛耘 (3583) (+3.19%)",
-        "台積電 (2330) (+3.00%)",
-        "中砂 (1560) (+2.46%)"
-      ]
-    },
-    {
       "Theme": "🤖 AI伺服器/散熱",
-      "AvgChange": "+1.94%",
-      "AvgChangeVal": 1.94,
+      "AvgChange": "+1.54%",
+      "AvgChangeVal": 1.54,
       "Alert": "⚖️ 平穩震盪",
       "UpCount": 5,
-      "DownCount": 2,
+      "DownCount": 3,
       "Mentions": 0,
       "TopStocks": [
         "奇鋐 (3017) (+4.22%)",
@@ -190,17 +151,45 @@
       ]
     },
     {
-      "Theme": "🦾 機器人概念",
-      "AvgChange": "-0.08%",
-      "AvgChangeVal": -0.08,
+      "Theme": "⚡ CoWoS先進封裝",
+      "AvgChange": "+1.35%",
+      "AvgChangeVal": 1.35,
       "Alert": "⚖️ 平穩震盪",
-      "UpCount": 2,
+      "UpCount": 5,
+      "DownCount": 1,
+      "Mentions": 0,
+      "TopStocks": [
+        "辛耘 (3583) (+3.19%)",
+        "萬潤 (6187) (+3.02%)",
+        "台積電 (2330) (+3.00%)"
+      ]
+    },
+    {
+      "Theme": "💡 CPO矽光子",
+      "AvgChange": "+0.49%",
+      "AvgChangeVal": 0.49,
+      "Alert": "🚀 族群齊揚強攻",
+      "UpCount": 4,
+      "DownCount": 4,
+      "Mentions": 0,
+      "TopStocks": [
+        "聯茂 (6213) (+9.96%)",
+        "光聖 (6442) (+4.92%)",
+        "聯鈞 (3450) (+0.92%)"
+      ]
+    },
+    {
+      "Theme": "🦾 機器人概念",
+      "AvgChange": "-0.01%",
+      "AvgChangeVal": -0.01,
+      "Alert": "⚖️ 平穩震盪",
+      "UpCount": 3,
       "DownCount": 3,
       "Mentions": 0,
       "TopStocks": [
         "時碩工業 (4566) (+2.24%)",
         "大銀微系統 (4576) (+0.43%)",
-        "羅昇 (8374) (-0.90%)"
+        "廣明 (6188) (+0.32%)"
       ]
     },
     {
@@ -284,24 +273,7 @@
       "Neg": 0
     }
   },
-  "SectorRotation": [
-    {
-      "Sector": "半導體業",
-      "Mentions": 1,
-      "AvgScore": 8.0,
-      "TopStocks": [
-        "南亞科"
-      ]
-    },
-    {
-      "Sector": "塑膠工業",
-      "Mentions": 1,
-      "AvgScore": 8.0,
-      "TopStocks": [
-        "南亞"
-      ]
-    }
-  ],
-  "MarketSummary": "⚖️ 市場情緒目前【中立震盪】(50分)，多空雙方力道均衡。 資金與討論度高度集中在【半導體業】，其中以 南亞科 最受矚目。",
+  "SectorRotation": [],
+  "MarketSummary": "⚖️ 市場情緒目前【中立震盪】(50分)，多空雙方力道均衡。",
   "AISummary": null
 }
