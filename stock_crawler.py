@@ -4,16 +4,28 @@ import pandas as pd
 import re
 import json
 import time
+import os
+
+try:
+    from curl_cffi import requests as cffi_requests
+except ImportError:
+    try:
+        import subprocess, sys
+        subprocess.run([sys.executable, "-m", "pip", "install", "curl_cffi"], check=False, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        from curl_cffi import requests as cffi_requests
+    except Exception:
+        cffi_requests = None
 
 # PTT Stock Board configuration
 PTT_URL = "https://www.ptt.cc"
 STOCK_BOARD_URL = f"{PTT_URL}/bbs/Stock/index.html"
 HEADERS = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36"
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36",
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+    "Accept-Language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7",
+    "Referer": "https://www.ptt.cc/bbs/Stock/index.html",
 }
 COOKIES = {"over18": "1"}
-
-import os
 
 # Telegram Channels list (可自訂新增多個公開 Telegram 頻道)
 TELEGRAM_CHANNELS = ["ptt_stock_follow_chat"]
@@ -68,9 +80,14 @@ TRUST_WORDS = ["投信", "大哥買", "大哥賣", "投信買", "投信賣", "�
 def safe_get(url, is_json=False):
     for attempt in range(3):
         try:
-            res = requests.get(url, headers=HEADERS, cookies=COOKIES, timeout=10)
+            if cffi_requests and "ptt.cc" in url:
+                res = cffi_requests.get(url, headers=HEADERS, cookies=COOKIES, impersonate="chrome124", timeout=12)
+            else:
+                res = requests.get(url, headers=HEADERS, cookies=COOKIES, timeout=12)
             if res.status_code == 200:
                 return res.json() if is_json else res.text
+            elif res.status_code == 403:
+                print(f"[safe_get] 403 Forbidden for {url}")
         except Exception as e:
             time.sleep(0.5)
     return {} if is_json else ""
@@ -463,7 +480,7 @@ def crawl_comments(url):
             })
     return comments
 
-def crawl_telegram_chat():
+def crawl_telegram_chat(max_pages=30):
     channels_str = os.environ.get("TELEGRAM_CHANNELS", "")
     ch_list = [c.strip().lstrip("@") for c in channels_str.split(",") if c.strip()] if channels_str else TELEGRAM_CHANNELS
     if "ptt_stock_follow_chat" not in ch_list:
@@ -471,13 +488,16 @@ def crawl_telegram_chat():
         
     comments = []
     for ch in ch_list:
-        print(f"Fetching Telegram Channel: t.me/s/{ch}...")
-        try:
-            url = f"https://t.me/s/{ch}"
-            html = safe_get(url)
-            if html:
+        print(f"Fetching Telegram Channel: t.me/s/{ch} (up to {max_pages} pages)...")
+        before = None
+        for page in range(max_pages):
+            try:
+                url = f"https://t.me/s/{ch}?before={before}" if before else f"https://t.me/s/{ch}"
+                html = safe_get(url)
+                if not html: break
                 soup = BeautifulSoup(html, "html.parser")
                 msgs = soup.find_all("div", class_="js-message_text")
+                if not msgs: break
                 for m in msgs:
                     text = m.text.strip()
                     if "：" in text:
@@ -495,8 +515,15 @@ def crawl_telegram_chat():
                             "content": text,
                             "time": "TG即時推播"
                         })
-        except Exception as e:
-            print(f"Error crawling Telegram channel {ch}: {e}")
+                more = soup.find("a", class_="tme_messages_more")
+                if more and "data-before" in more.attrs:
+                    before = more["data-before"]
+                else:
+                    break
+                time.sleep(0.05)
+            except Exception as e:
+                print(f"Error crawling Telegram channel {ch} page {page}: {e}")
+                break
             
     print(f"Gathered {len(comments)} messages from {len(ch_list)} Telegram channel(s).")
     return comments
@@ -1036,43 +1063,46 @@ def main():
     
     generate_tg_digest(res, market_data)
     
-    csv_data = [{k: (", ".join(v) if isinstance(v, list) else v) for k, v in r.items() if k not in ("Keywords", "Comments", "Code")} for r in res]
-    df = pd.DataFrame(csv_data)
-    df.to_csv("hot_stocks_sentiment.csv", index=False, encoding="utf-8-sig")
-    
-    with open("detail_data.json", "w", encoding="utf-8") as f:
-        json.dump({r["Stock"]: {"Keywords": r["Keywords"], "Comments": r["Comments"]} for r in res}, f, ensure_ascii=False, indent=2)
+    if len(res) == 0:
+        print("⚠️ 警告：本次抓取未比對出熱門標的，啟動安全防護機制，保留前次完整標的與歷程數據！")
+    else:
+        csv_data = [{k: (", ".join(v) if isinstance(v, list) else v) for k, v in r.items() if k not in ("Keywords", "Comments", "Code")} for r in res]
+        df = pd.DataFrame(csv_data)
+        df.to_csv("hot_stocks_sentiment.csv", index=False, encoding="utf-8-sig")
         
-    with open("market_data.json", "w", encoding="utf-8") as f:
-        json.dump(market_data, f, ensure_ascii=False, indent=2)
+        with open("detail_data.json", "w", encoding="utf-8") as f:
+            json.dump({r["Stock"]: {"Keywords": r["Keywords"], "Comments": r["Comments"]} for r in res}, f, ensure_ascii=False, indent=2)
+            
+        # 7-Day History Snapshot
+        today_str = time.strftime("%Y-%m-%d")
+        history_file = "history_data.json"
+        history = {}
+        if os.path.exists(history_file):
+            try:
+                with open(history_file, "r", encoding="utf-8") as f:
+                    history = json.load(f)
+            except: pass
+            
+        today_snapshot = {r["Stock"]: {"Score": r["Score"], "Mentions": r["Mentions"]} for r in res[:40]}
+        history[today_str] = today_snapshot
+        dates = sorted(history.keys())[-7:]
+        history = {d: history[d] for d in dates}
         
-    # 7-Day History Snapshot
-    today_str = time.strftime("%Y-%m-%d")
-    history_file = "history_data.json"
-    history = {}
-    if os.path.exists(history_file):
-        try:
-            with open(history_file, "r", encoding="utf-8") as f:
-                history = json.load(f)
-        except: pass
-        
-    today_snapshot = {r["Stock"]: {"Score": r["Score"], "Mentions": r["Mentions"]} for r in res[:40]}
-    history[today_str] = today_snapshot
-    dates = sorted(history.keys())[-7:]
-    history = {d: history[d] for d in dates}
-    
-    with open(history_file, "w", encoding="utf-8") as f:
-        json.dump(history, f, ensure_ascii=False, indent=2)
-        
-    # Generate dashboard/data.js for zero-server local opening
-    detail_dict = {r["Stock"]: {"Keywords": r["Keywords"], "Comments": r["Comments"]} for r in res}
-    data_js_content = f"""window.MARKET_DATA = {json.dumps(market_data, ensure_ascii=False)};
+        with open(history_file, "w", encoding="utf-8") as f:
+            json.dump(history, f, ensure_ascii=False, indent=2)
+            
+        # Generate dashboard/data.js for zero-server local opening
+        detail_dict = {r["Stock"]: {"Keywords": r["Keywords"], "Comments": r["Comments"]} for r in res}
+        data_js_content = f"""window.MARKET_DATA = {json.dumps(market_data, ensure_ascii=False)};
 window.HOT_STOCKS_DATA = {json.dumps(csv_data, ensure_ascii=False)};
 window.DETAIL_DATA = {json.dumps(detail_dict, ensure_ascii=False)};
 window.HISTORY_DATA = {json.dumps(history, ensure_ascii=False)};
 """
-    with open("dashboard/data.js", "w", encoding="utf-8") as f:
-        f.write(data_js_content)
+        with open("dashboard/data.js", "w", encoding="utf-8") as f:
+            f.write(data_js_content)
+
+    with open("market_data.json", "w", encoding="utf-8") as f:
+        json.dump(market_data, f, ensure_ascii=False, indent=2)
 
     print("✅ 分析完成！已同步產生數據與 7 天歷程至 dashboard/data.js。")
 

@@ -1,7 +1,7 @@
 {
-  "FearGreedIndex": 50,
-  "PanicIndex": 5,
-  "TotalCommentsParsed": 20,
+  "FearGreedIndex": 61,
+  "PanicIndex": 64,
+  "TotalCommentsParsed": 18452,
   "TAIEXSummary": {
     "TAIEX": "49,712.04",
     "Change": "+1236.30",
@@ -81,10 +81,10 @@
     }
   },
   "MarginSummary": {
-    "MarginBalance": "6333.52億",
-    "MarginDiff": "-17.53億",
-    "MarginSharesDiff": 11495,
-    "ShortSharesDiff": -13528
+    "MarginBalance": "6376.57億",
+    "MarginDiff": "+43.05億",
+    "MarginSharesDiff": -52656,
+    "ShortSharesDiff": -3929
   },
   "SectorAlerts": [
     {
@@ -96,6 +96,28 @@
         "聯茂 (6213): $751.00 (+9.96%)",
         "光聖 (6442): $1705.00 (+4.92%)",
         "聯鈞 (3450): $548.00 (+0.92%)"
+      ]
+    },
+    {
+      "theme": "⚡ CoWoS先進封裝",
+      "type": "hot",
+      "avgChange": "+1.35%",
+      "alert": "🔥 資金社群熱議",
+      "topStocks": [
+        "弘塑 (3131): $2530.00 (0.00%)",
+        "辛耘 (3583): $744.00 (+3.19%)",
+        "萬潤 (6187): $1535.00 (+3.02%)"
+      ]
+    },
+    {
+      "theme": "🤖 AI伺服器/散熱",
+      "type": "hot",
+      "avgChange": "+1.54%",
+      "alert": "🔥 資金社群熱議",
+      "topStocks": [
+        "廣達 (2382): $331.00 (-0.30%)",
+        "緯創 (3231): $189.50 (+1.61%)",
+        "技嘉 (2376): $388.50 (+4.02%)"
       ]
     },
     {
@@ -129,7 +151,7 @@
       "Alert": "🚀 族群齊揚強攻",
       "UpCount": 6,
       "DownCount": 0,
-      "Mentions": 0,
+      "Mentions": 100,
       "TopStocks": [
         "創意 (3443) (+8.86%)",
         "聯發科 (2454) (+4.34%)",
@@ -140,10 +162,10 @@
       "Theme": "🤖 AI伺服器/散熱",
       "AvgChange": "+1.54%",
       "AvgChangeVal": 1.54,
-      "Alert": "⚖️ 平穩震盪",
+      "Alert": "🔥 資金社群熱議",
       "UpCount": 5,
       "DownCount": 3,
-      "Mentions": 0,
+      "Mentions": 33,
       "TopStocks": [
         "奇鋐 (3017) (+4.22%)",
         "技嘉 (2376) (+4.02%)",
@@ -154,10 +176,10 @@
       "Theme": "⚡ CoWoS先進封裝",
       "AvgChange": "+1.35%",
       "AvgChangeVal": 1.35,
-      "Alert": "⚖️ 平穩震盪",
+      "Alert": "🔥 資金社群熱議",
       "UpCount": 5,
       "DownCount": 1,
-      "Mentions": 0,
+      "Mentions": 622,
       "TopStocks": [
         "辛耘 (3583) (+3.19%)",
         "萬潤 (6187) (+3.02%)",
@@ -171,7 +193,7 @@
       "Alert": "🚀 族群齊揚強攻",
       "UpCount": 4,
       "DownCount": 4,
-      "Mentions": 0,
+      "Mentions": 110,
       "TopStocks": [
         "聯茂 (6213) (+9.96%)",
         "光聖 (6442) (+4.92%)",
@@ -185,7 +207,7 @@
       "Alert": "⚖️ 平穩震盪",
       "UpCount": 3,
       "DownCount": 3,
-      "Mentions": 0,
+      "Mentions": 1,
       "TopStocks": [
         "時碩工業 (4566) (+2.24%)",
         "大銀微系統 (4576) (+0.43%)",
@@ -199,7 +221,7 @@
       "Alert": "⚖️ 平穩震盪",
       "UpCount": 2,
       "DownCount": 3,
-      "Mentions": 0,
+      "Mentions": 9,
       "TopStocks": [
         "富邦金 (2881) (+1.00%)",
         "中信金 (2891) (+0.15%)",
@@ -213,7 +235,7 @@
       "Alert": "⚖️ 平穩震盪",
       "UpCount": 0,
       "DownCount": 3,
-      "Mentions": 0,
+      "Mentions": 4,
       "TopStocks": [
         "星宇航空 (2646) (-0.25%)",
         "長榮航 (2618) (-1.06%)",
@@ -241,7 +263,7 @@
       "Alert": "💥 族群重挫跳水",
       "UpCount": 0,
       "DownCount": 3,
-      "Mentions": 0,
+      "Mentions": 18,
       "TopStocks": [
         "陽明 (2609) (-1.68%)",
         "萬海 (2615) (-2.21%)",
@@ -250,30 +272,81 @@
     }
   ],
   "InstitutionalSentiment": {
-    "ForeignBullish": 0,
-    "ForeignBearish": 0,
-    "TrustBullish": 0,
-    "TrustBearish": 0
+    "ForeignBullish": 3,
+    "ForeignBearish": 2,
+    "TrustBullish": 2,
+    "TrustBearish": 2
   },
   "TimelineSentiment": {
     "早盤開盤": {
-      "Pos": 0,
-      "Neg": 0
+      "Pos": 155,
+      "Neg": 122
     },
     "盤中震盪": {
-      "Pos": 0,
-      "Neg": 0
+      "Pos": 4,
+      "Neg": 3
     },
     "尾盤收盤": {
-      "Pos": 0,
-      "Neg": 0
+      "Pos": 79,
+      "Neg": 107
     },
     "盤後夜間": {
-      "Pos": 0,
-      "Neg": 0
+      "Pos": 135,
+      "Neg": 96
     }
   },
-  "SectorRotation": [],
-  "MarketSummary": "⚖️ 市場情緒目前【中立震盪】(50分)，多空雙方力道均衡。",
-  "AISummary": null
+  "SectorRotation": [
+    {
+      "Sector": "半導體業",
+      "Mentions": 904,
+      "AvgScore": 98.1,
+      "TopStocks": [
+        "台積電",
+        "聯電",
+        "聯發科"
+      ]
+    },
+    {
+      "Sector": "光電業",
+      "Mentions": 340,
+      "AvgScore": 43.5,
+      "TopStocks": [
+        "友達",
+        "大立光",
+        "群創"
+      ]
+    },
+    {
+      "Sector": "電子零組件業",
+      "Mentions": 239,
+      "AvgScore": 36.8,
+      "TopStocks": [
+        "聯茂",
+        "台光電",
+        "華新科"
+      ]
+    },
+    {
+      "Sector": "塑膠工業",
+      "Mentions": 112,
+      "AvgScore": 79.0,
+      "TopStocks": [
+        "南亞",
+        "台塑",
+        "台化"
+      ]
+    },
+    {
+      "Sector": "其他電子業",
+      "Mentions": 75,
+      "AvgScore": 66.8,
+      "TopStocks": [
+        "鴻海",
+        "漢唐",
+        "尖點"
+      ]
+    }
+  ],
+  "MarketSummary": "⚖️ 市場情緒目前【中立震盪】(61分)，多空雙方力道均衡。 🚨 警報：絕望/畢業指數偏高(64分)，散戶停損潮湧現！ 資金與討論度高度集中在【半導體業】，其中以 台積電、聯電、聯發科 最受矚目。",
+  "AISummary": "🤖 【社群情緒風向】：目前社群恐懼貪婪指數為 61 分，絕望反向指數為 64 分。鄉民整體討論偏向謹慎觀望。\n📊 【籌碼與浮額對抗】：三大法人今日合計買賣超 -192.01億，信用交易融資增減 +43.05億。需持續留意籌碼集中度高的族群是否出現大戶倒貨。\n🎯 【焦點個股動態】：討論熱度最高之標的為 台積電 (2330)，其籌碼訊號顯示為「🔴 外資大出貨 ✕ 散戶追高 (散戶套牢警報)」，建議搭配支撐壓力審慎操作。"
 }
