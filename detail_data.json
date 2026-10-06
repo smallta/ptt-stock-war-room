@@ -1,10 +1,24 @@
 {
-  "台積電 (2330)": {
-    "Keywords": {},
+  "南亞科 (2408)": {
+    "Keywords": {
+      "法說": 1
+    },
     "Comments": [
       {
-        "user": "📱 [ptt_stock_follow_chat] 🟢 推 zergtide",
-        "text": "小兒 大哥都先走一步 鳩命啊",
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 showhere",
+        "text": "南亞科下週法說會~~週四是不是要卡位記憶體?",
+        "time": "TG即時推播"
+      }
+    ]
+  },
+  "南亞 (1303)": {
+    "Keywords": {
+      "法說": 1
+    },
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 showhere",
+        "text": "南亞科下週法說會~~週四是不是要卡位記憶體?",
         "time": "TG即時推播"
       }
     ]
