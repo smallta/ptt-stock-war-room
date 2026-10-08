@@ -98,26 +98,63 @@ def get_stocks():
     valuations = {}
     price_data = {}
     
-    # TWSE Prices & Change
-    data = safe_get("https://openapi.twse.com.tw/v1/exchangeReport/STOCK_DAY_ALL", is_json=True)
-    if isinstance(data, list):
-        for i in data:
-            code = i.get("Code", "")
-            if len(code) == 4:
-                stocks[code] = i["Name"]
-                close_p = i.get("ClosingPrice", "-")
-                chg_raw = i.get("Change", "0")
-                try:
-                    c_val = float(close_p.replace(",", ""))
-                    chg_val = float(chg_raw.replace(",", ""))
-                    prev = c_val - chg_val
-                    pct = (chg_val / prev * 100) if prev > 0 else 0
-                    chg_str = f"+{chg_val:.2f}" if chg_val > 0 else f"{chg_val:.2f}"
-                    pct_str = f"+{pct:.2f}%" if pct > 0 else f"{pct:.2f}%"
-                except:
-                    chg_str = "-"
-                    pct_str = "-"
-                price_data[code] = {"Price": close_p, "Change": chg_str, "ChangePercent": pct_str}
+    # 1. 優先從證交所官網即時個股行情取得 (避免 OpenAPI 延遲一天)
+    try:
+        twse_url = "https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?response=json&type=ALLBUT0999"
+        res = safe_get(twse_url, is_json=True)
+        if isinstance(res, dict) and res.get("tables"):
+            for t in res.get("tables", []):
+                fields = t.get("fields", [])
+                if fields and "證券代號" in fields:
+                    for row in t.get("data", []):
+                        code = row[0].strip()
+                        if len(code) == 4:
+                            name = row[1].strip()
+                            stocks[code] = name
+                            close_p = row[8].strip()
+                            sign_raw = row[9]
+                            sign = "-" if "-" in sign_raw else ("+" if "+" in sign_raw else "")
+                            chg_val = row[10].strip().replace(",", "")
+                            try:
+                                c_val = float(close_p.replace(",", ""))
+                                c_diff = float(chg_val)
+                                if sign == "-": c_diff = -c_diff
+                                prev = c_val - c_diff
+                                pct = (c_diff / prev * 100) if prev > 0 else 0
+                                chg_str = f"+{c_diff:.2f}" if c_diff > 0 else f"{c_diff:.2f}"
+                                pct_str = f"+{pct:.2f}%" if pct > 0 else f"{pct:.2f}%"
+                            except:
+                                chg_str = "-"
+                                pct_str = "-"
+                            price_data[code] = {"Price": close_p, "Change": chg_str, "ChangePercent": pct_str}
+                            pe_raw = row[15].strip().replace(",", "") if len(row) > 15 else "-"
+                            valuations[code] = {"PE": pe_raw if pe_raw != "0.00" else "-", "Yield": "-", "PB": "-"}
+            if len(stocks) > 0:
+                print(f"Successfully loaded {len(stocks)} TWSE stocks from official MI_INDEX.")
+    except Exception as e:
+        print(f"Error fetching TWSE MI_INDEX stocks: {e}")
+
+    # 備援：若官網未取得，則使用 OpenAPI
+    if not stocks:
+        data = safe_get("https://openapi.twse.com.tw/v1/exchangeReport/STOCK_DAY_ALL", is_json=True)
+        if isinstance(data, list):
+            for i in data:
+                code = i.get("Code", "")
+                if len(code) == 4:
+                    stocks[code] = i["Name"]
+                    close_p = i.get("ClosingPrice", "-")
+                    chg_raw = i.get("Change", "0")
+                    try:
+                        c_val = float(close_p.replace(",", ""))
+                        chg_val = float(chg_raw.replace(",", ""))
+                        prev = c_val - chg_val
+                        pct = (chg_val / prev * 100) if prev > 0 else 0
+                        chg_str = f"+{chg_val:.2f}" if chg_val > 0 else f"{chg_val:.2f}"
+                        pct_str = f"+{pct:.2f}%" if pct > 0 else f"{pct:.2f}%"
+                    except:
+                        chg_str = "-"
+                        pct_str = "-"
+                    price_data[code] = {"Price": close_p, "Change": chg_str, "ChangePercent": pct_str}
 
     # TPEx Prices & Change
     data = safe_get("https://www.tpex.org.tw/openapi/v1/tpex_mainboard_daily_close_quotes", is_json=True)
@@ -140,16 +177,18 @@ def get_stocks():
                     pct_str = "-"
                 price_data[code] = {"Price": close_p, "Change": chg_str, "ChangePercent": pct_str}
 
-    # TWSE Valuations
+    # TWSE Valuations (補充 Yield / PB)
     data = safe_get("https://openapi.twse.com.tw/v1/exchangeReport/BWIBBU_ALL", is_json=True)
     if isinstance(data, list):
         for i in data:
             if len(i.get("Code", "")) == 4:
-                valuations[i["Code"]] = {
-                    "PE": i.get("PEratio", "-"),
-                    "Yield": i.get("DividendYield", "-"),
-                    "PB": i.get("PBratio", "-")
-                }
+                code = i["Code"]
+                if code not in valuations:
+                    valuations[code] = {}
+                valuations[code]["Yield"] = i.get("DividendYield", valuations[code].get("Yield", "-"))
+                valuations[code]["PB"] = i.get("PBratio", valuations[code].get("PB", "-"))
+                if valuations[code].get("PE", "-") == "-":
+                    valuations[code]["PE"] = i.get("PEratio", "-")
 
     # Sectors (TWSE)
     sectors = {}
@@ -400,6 +439,31 @@ def get_ai_market_summary(results, market_data, taiex_info):
     return None
 
 def get_taiex_info():
+    # 1. 優先從證交所官網即時結算指數取得今日最新收盤 (避免 OpenAPI FMTQIK 延遲一天)
+    try:
+        url = "https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?response=json&type=IND"
+        res = safe_get(url, is_json=True)
+        if isinstance(res, dict) and res.get("tables"):
+            for t in res.get("tables", []):
+                for row in t.get("data", []):
+                    if len(row) >= 5 and "發行量加權股價指數" in str(row[0]):
+                        taiex_str = row[1].strip()
+                        sign = "-" if "-" in str(row[2]) else ("+" if "+" in str(row[2]) else "")
+                        chg_num = row[3].strip().replace(",", "")
+                        pct_num = row[4].strip().replace(",", "")
+                        chg_str = f"{sign}{chg_num}"
+                        pct_str = f"{sign}{abs(float(pct_num)):.2f}%" if pct_num else "-"
+                        print(f"Successfully loaded TAIEX from official MI_INDEX: {taiex_str} ({chg_str}, {pct_str})")
+                        return {
+                            "TAIEX": taiex_str,
+                            "Change": chg_str,
+                            "ChangePercent": pct_str,
+                            "Date": res.get("date", "")
+                        }
+    except Exception as e:
+        print(f"Error fetching real-time TAIEX from MI_INDEX: {e}")
+
+    # 2. 備援從 OpenAPI FMTQIK 讀取
     try:
         url = "https://openapi.twse.com.tw/v1/exchangeReport/FMTQIK"
         data = safe_get(url, is_json=True)
@@ -419,7 +483,7 @@ def get_taiex_info():
                 "Date": last.get("Date", "")
             }
     except Exception as e:
-        print(f"Error fetching TAIEX: {e}")
+        print(f"Error fetching TAIEX from FMTQIK: {e}")
     return {"TAIEX": "-", "Change": "-", "ChangePercent": "-"}
 
 def get_taiex_intraday_trend():
