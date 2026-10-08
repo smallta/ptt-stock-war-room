@@ -1,7 +1,7 @@
 {
-  "FearGreedIndex": 49,
-  "PanicIndex": 67,
-  "TotalCommentsParsed": 12505,
+  "FearGreedIndex": 20,
+  "PanicIndex": 76,
+  "TotalCommentsParsed": 600,
   "TAIEXSummary": {
     "TAIEX": "49,313.44",
     "Change": "-492.93",
@@ -97,28 +97,6 @@
         "聯鈞 (3450): $522.00 (-2.43%)",
         "華星光 (4979): $565.00 (-2.42%)"
       ]
-    },
-    {
-      "theme": "⚡ CoWoS先進封裝",
-      "type": "hot",
-      "avgChange": "-0.77%",
-      "alert": "🔥 資金社群熱議",
-      "topStocks": [
-        "弘塑 (3131): $2465.00 (+0.61%)",
-        "辛耘 (3583): $736.00 (-0.94%)",
-        "萬潤 (6187): $1525.00 (-0.65%)"
-      ]
-    },
-    {
-      "theme": "📱 IC設計",
-      "type": "hot",
-      "avgChange": "+0.48%",
-      "alert": "🔥 資金社群熱議",
-      "topStocks": [
-        "聯發科 (2454): $4,690.00 (-3.00%)",
-        "聯詠 (3034): $531.00 (+0.38%)",
-        "瑞昱 (2379): $749.00 (+1.08%)"
-      ]
     }
   ],
   "ThemeStats": [
@@ -126,10 +104,10 @@
       "Theme": "📱 IC設計",
       "AvgChange": "+0.48%",
       "AvgChangeVal": 0.48,
-      "Alert": "🔥 資金社群熱議",
+      "Alert": "⚖️ 平穩震盪",
       "UpCount": 4,
       "DownCount": 2,
-      "Mentions": 75,
+      "Mentions": 1,
       "TopStocks": [
         "世芯-KY (3661) (+3.70%)",
         "達發 (6526) (+1.91%)",
@@ -143,7 +121,7 @@
       "Alert": "⚖️ 平穩震盪",
       "UpCount": 1,
       "DownCount": 0,
-      "Mentions": 6,
+      "Mentions": 0,
       "TopStocks": [
         "陽明 (2609) (+1.02%)",
         "長榮 (2603) (0.00%)",
@@ -168,10 +146,10 @@
       "Theme": "⚡ CoWoS先進封裝",
       "AvgChange": "-0.77%",
       "AvgChangeVal": -0.77,
-      "Alert": "🔥 資金社群熱議",
+      "Alert": "⚖️ 平穩震盪",
       "UpCount": 2,
       "DownCount": 5,
-      "Mentions": 427,
+      "Mentions": 6,
       "TopStocks": [
         "家登 (3680) (+0.71%)",
         "弘塑 (3131) (+0.61%)",
@@ -185,7 +163,7 @@
       "Alert": "⚖️ 平穩震盪",
       "UpCount": 1,
       "DownCount": 6,
-      "Mentions": 18,
+      "Mentions": 0,
       "TopStocks": [
         "緯創 (3231) (+1.89%)",
         "緯穎 (6669) (0.00%)",
@@ -227,7 +205,7 @@
       "Alert": "⚖️ 平穩震盪",
       "UpCount": 0,
       "DownCount": 6,
-      "Mentions": 4,
+      "Mentions": 0,
       "TopStocks": [
         "第一金 (2892) (-0.64%)",
         "兆豐金 (2886) (-1.00%)",
@@ -241,7 +219,7 @@
       "Alert": "💥 族群重挫跳水",
       "UpCount": 1,
       "DownCount": 7,
-      "Mentions": 57,
+      "Mentions": 0,
       "TopStocks": [
         "聯茂 (6213) (+1.26%)",
         "訊芯-KY (6451) (-1.41%)",
@@ -252,119 +230,23 @@
   "ActionableLeaderboards": {
     "SmartMoney": [
       {
-        "Stock": "緯創 (3231)",
-        "Code": "3231",
-        "Price": "188.50",
-        "Change": "+3.50",
-        "ChangePercent": "+1.89%",
-        "ForeignNet": 15508,
-        "TrustNet": 872,
-        "TotalNet": 16705,
-        "MarginDiff": -4715,
-        "Mentions": 1,
-        "Score": 5,
-        "ChipSignal": "💎 融資退場 ✕ 法人吸籌 (洗盤完畢)",
-        "Tag": "資減+法人買",
-        "_sort": 30850
-      },
-      {
-        "Stock": "南茂 (8150)",
-        "Code": "8150",
-        "Price": "128.00",
-        "Change": "-0.50",
-        "ChangePercent": "-0.39%",
-        "ForeignNet": 1912,
-        "TrustNet": 24,
-        "TotalNet": 1697,
-        "MarginDiff": -3392,
-        "Mentions": 4,
-        "Score": 17,
-        "ChipSignal": "💎 融資退場 ✕ 法人吸籌 (洗盤完畢)",
-        "Tag": "資減+法人買",
-        "_sort": 11873
-      },
-      {
-        "Stock": "統一 (1216)",
-        "Code": "1216",
-        "Price": "75.60",
-        "Change": "+0.10",
-        "ChangePercent": "+0.13%",
-        "ForeignNet": 4818,
-        "TrustNet": 1911,
-        "TotalNet": 7116,
-        "MarginDiff": -343,
-        "Mentions": 1,
-        "Score": 5,
-        "ChipSignal": "💎 融資退場 ✕ 法人吸籌 (洗盤完畢)",
-        "Tag": "資減+法人買",
-        "_sort": 8145
-      },
-      {
-        "Stock": "陽明 (2609)",
-        "Code": "2609",
-        "Price": "59.70",
-        "Change": "+0.60",
-        "ChangePercent": "+1.02%",
-        "ForeignNet": 5245,
-        "TrustNet": -21,
-        "TotalNet": 5769,
-        "MarginDiff": -460,
-        "Mentions": 1,
-        "Score": 3,
-        "ChipSignal": "💎 融資退場 ✕ 法人吸籌 (洗盤完畢)",
-        "Tag": "資減+法人買",
-        "_sort": 7149
-      },
-      {
-        "Stock": "禾伸堂 (3026)",
-        "Code": "3026",
-        "Price": "877.00",
-        "Change": "+38.00",
-        "ChangePercent": "+4.53%",
-        "ForeignNet": 2745,
-        "TrustNet": 499,
-        "TotalNet": 3245,
-        "MarginDiff": -152,
-        "Mentions": 3,
-        "Score": 15,
-        "ChipSignal": "💎 融資退場 ✕ 法人吸籌 (洗盤完畢)",
-        "Tag": "資減+法人買",
-        "_sort": 3701
+        "Stock": "台積電 (2330)",
+        "Code": "2330",
+        "Price": "2,550.00",
+        "Change": "-35.00",
+        "ChangePercent": "-1.35%",
+        "ForeignNet": -12303,
+        "TrustNet": 792,
+        "TotalNet": -11001,
+        "MarginDiff": 1308,
+        "Mentions": 6,
+        "Score": 27,
+        "ChipSignal": "💣 外資大倒貨 ✕ 散戶融資接刀 (套牢警戒)",
+        "Tag": "散戶看空+法人買",
+        "_sort": -14925
       }
     ],
     "RetailTrap": [
-      {
-        "Stock": "群創 (3481)",
-        "Code": "3481",
-        "Price": "51.00",
-        "Change": "-1.50",
-        "ChangePercent": "-2.86%",
-        "ForeignNet": -20582,
-        "TrustNet": 18,
-        "TotalNet": -20853,
-        "MarginDiff": 3395,
-        "Mentions": 11,
-        "Score": 45,
-        "ChipSignal": "💣 外資大倒貨 ✕ 散戶融資接刀 (套牢警戒)",
-        "Tag": "外資倒貨+融資接刀",
-        "_sort": 31038
-      },
-      {
-        "Stock": "聯電 (2303)",
-        "Code": "2303",
-        "Price": "147.50",
-        "Change": "-1.00",
-        "ChangePercent": "-0.67%",
-        "ForeignNet": -19792,
-        "TrustNet": 1605,
-        "TotalNet": -19712,
-        "MarginDiff": 2664,
-        "Mentions": 85,
-        "Score": 317,
-        "ChipSignal": "💣 外資大倒貨 ✕ 散戶融資接刀 (套牢警戒)",
-        "Tag": "外資倒貨+融資接刀",
-        "_sort": 27704
-      },
       {
         "Stock": "鴻海 (2317)",
         "Code": "2317",
@@ -375,203 +257,115 @@
         "TrustNet": 147,
         "TotalNet": -25528,
         "MarginDiff": 145,
-        "Mentions": 71,
-        "Score": 296,
-        "ChipSignal": "🔴 外資大出貨 ✕ 散戶追高 (散戶套牢警報)",
+        "Mentions": 1,
+        "Score": 5,
+        "ChipSignal": "📉 法人主力偏空調節",
         "Tag": "外資倒貨+融資接刀",
         "_sort": 25963
       },
       {
-        "Stock": "力積電 (6770)",
-        "Code": "6770",
-        "Price": "72.20",
-        "Change": "-0.40",
-        "ChangePercent": "-0.55%",
-        "ForeignNet": -21679,
-        "TrustNet": 125,
-        "TotalNet": -23401,
-        "MarginDiff": 353,
-        "Mentions": 10,
-        "Score": 22,
+        "Stock": "台積電 (2330)",
+        "Code": "2330",
+        "Price": "2,550.00",
+        "Change": "-35.00",
+        "ChangePercent": "-1.35%",
+        "ForeignNet": -12303,
+        "TrustNet": 792,
+        "TotalNet": -11001,
+        "MarginDiff": 1308,
+        "Mentions": 6,
+        "Score": 27,
         "ChipSignal": "💣 外資大倒貨 ✕ 散戶融資接刀 (套牢警戒)",
         "Tag": "外資倒貨+融資接刀",
-        "_sort": 24460
+        "_sort": 14925
       },
       {
-        "Stock": "台玻 (1802)",
-        "Code": "1802",
-        "Price": "63.90",
-        "Change": "-1.80",
-        "ChangePercent": "-2.74%",
-        "ForeignNet": -7088,
-        "TrustNet": 121,
-        "TotalNet": -8923,
-        "MarginDiff": 5114,
+        "Stock": "聯發科 (2454)",
+        "Code": "2454",
+        "Price": "4,690.00",
+        "Change": "-145.00",
+        "ChangePercent": "-3.00%",
+        "ForeignNet": -3022,
+        "TrustNet": -158,
+        "TotalNet": -3268,
+        "MarginDiff": 77,
         "Mentions": 1,
-        "Score": 7,
-        "ChipSignal": "💣 外資大倒貨 ✕ 散戶融資接刀 (套牢警戒)",
+        "Score": 10,
+        "ChipSignal": "🔴 外資大出貨 ✕ 散戶追高 (散戶套牢警報)",
         "Tag": "外資倒貨+融資接刀",
-        "_sort": 24265
+        "_sort": 3499
       }
     ],
     "DarkHorse": [
       {
-        "Stock": "聯茂 (6213)",
-        "Code": "6213",
-        "Price": "806.00",
-        "Change": "+10.00",
-        "ChangePercent": "+1.26%",
-        "ForeignNet": 1086,
-        "TrustNet": -14,
-        "TotalNet": 1119,
-        "MarginDiff": -158,
-        "Mentions": 44,
-        "Score": 144,
-        "ChipSignal": "💎 融資退場 ✕ 法人吸籌 (洗盤完畢)",
-        "Tag": "聲量 44 則 · 法人+1119張",
-        "_sort": 164
-      },
-      {
-        "Stock": "台光電 (2383)",
-        "Code": "2383",
-        "Price": "6,000.00",
-        "Change": "+50.00",
-        "ChangePercent": "+0.84%",
-        "ForeignNet": -17,
-        "TrustNet": 59,
-        "TotalNet": 32,
-        "MarginDiff": 3,
-        "Mentions": 24,
-        "Score": 92,
-        "ChipSignal": "🎭 鄉民反串迷因狂熱",
-        "Tag": "聲量 24 則 · 法人+32張",
-        "_sort": 92
-      },
-      {
-        "Stock": "南亞科 (2408)",
-        "Code": "2408",
-        "Price": "532.00",
-        "Change": "+18.00",
-        "ChangePercent": "+3.50%",
-        "ForeignNet": 21773,
-        "TrustNet": 192,
-        "TotalNet": 22186,
-        "MarginDiff": 14,
-        "Mentions": 13,
-        "Score": 70,
-        "ChipSignal": "🔥 土洋法人同步重押",
-        "Tag": "聲量 13 則 · 法人+22186張",
-        "_sort": 90
-      },
-      {
-        "Stock": "台亞 (2340)",
-        "Code": "2340",
-        "Price": "52.90",
-        "Change": "+4.75",
-        "ChangePercent": "+9.87%",
-        "ForeignNet": 5006,
+        "Stock": "川寶 (1595)",
+        "Code": "1595",
+        "Price": "73.40",
+        "Change": "+1.10",
+        "ChangePercent": "+1.52%",
+        "ForeignNet": 0,
         "TrustNet": 0,
-        "TotalNet": 5254,
-        "MarginDiff": 2820,
-        "Mentions": 25,
-        "Score": 57,
-        "ChipSignal": "⚠️ 融資暴增 ✕ 散戶狂熱 (籌碼過熱浮額多)",
-        "Tag": "聲量 25 則 · 法人+5254張",
-        "_sort": 77
-      },
-      {
-        "Stock": "台塑 (1301)",
-        "Code": "1301",
-        "Price": "81.30",
-        "Change": "+5.90",
-        "ChangePercent": "+7.82%",
-        "ForeignNet": 14225,
-        "TrustNet": 13940,
-        "TotalNet": 27192,
-        "MarginDiff": 10542,
-        "Mentions": 9,
-        "Score": 42,
-        "ChipSignal": "🟢 法人逆勢買 ✕ 散戶看空 (潛在軋空強多)",
-        "Tag": "聲量 9 則 · 法人+27192張",
-        "_sort": 62
+        "TotalNet": 0,
+        "MarginDiff": 0,
+        "Mentions": 2,
+        "Score": 8,
+        "ChipSignal": "⚖️ 散戶與法人動向平衡",
+        "Tag": "聲量 2 則 · 強勢 +1.52%",
+        "_sort": 8
       }
     ]
   },
   "InstitutionalSentiment": {
     "ForeignBullish": 0,
-    "ForeignBearish": 1,
-    "TrustBullish": 1,
-    "TrustBearish": 2
+    "ForeignBearish": 0,
+    "TrustBullish": 0,
+    "TrustBearish": 0
   },
   "TimelineSentiment": {
     "早盤開盤": {
-      "Pos": 65,
-      "Neg": 86
+      "Pos": 0,
+      "Neg": 0
     },
     "盤中震盪": {
-      "Pos": 1,
-      "Neg": 1
+      "Pos": 0,
+      "Neg": 0
     },
     "尾盤收盤": {
-      "Pos": 55,
-      "Neg": 103
+      "Pos": 0,
+      "Neg": 0
     },
     "盤後夜間": {
-      "Pos": 79,
-      "Neg": 98
+      "Pos": 2,
+      "Neg": 7
     }
   },
   "SectorRotation": [
     {
       "Sector": "半導體業",
-      "Mentions": 679,
-      "AvgScore": 94.4,
+      "Mentions": 7,
+      "AvgScore": 18.5,
       "TopStocks": [
         "台積電",
-        "聯電",
         "聯發科"
       ]
     },
     {
-      "Sector": "電子零組件業",
-      "Mentions": 282,
-      "AvgScore": 44.0,
+      "Sector": "其他電子業",
+      "Mentions": 1,
+      "AvgScore": 5.0,
       "TopStocks": [
-        "川湖",
-        "聯茂",
-        "華新科"
-      ]
-    },
-    {
-      "Sector": "塑膠工業",
-      "Mentions": 127,
-      "AvgScore": 173.0,
-      "TopStocks": [
-        "南亞",
-        "台塑"
+        "鴻海"
       ]
     },
     {
       "Sector": "光電業",
-      "Mentions": 96,
-      "AvgScore": 30.8,
+      "Mentions": 1,
+      "AvgScore": 3.0,
       "TopStocks": [
-        "友達",
-        "大立光",
-        "群創"
-      ]
-    },
-    {
-      "Sector": "其他電子業",
-      "Mentions": 73,
-      "AvgScore": 102.7,
-      "TopStocks": [
-        "鴻海",
-        "致茂",
-        "盟立"
+        "大立光"
       ]
     }
   ],
-  "MarketSummary": "⚖️ 市場情緒目前【中立震盪】(49分)，多空雙方力道均衡。 🚨 警報：絕望/畢業指數偏高(67分)，散戶停損潮湧現！ 資金與討論度高度集中在【半導體業】，其中以 台積電、聯電、聯發科 最受矚目。",
-  "AISummary": "🤖 【社群情緒風向】：目前社群恐懼貪婪指數為 49 分，絕望反向指數為 67 分。鄉民整體討論偏向謹慎觀望。\n📊 【籌碼與浮額對抗】：三大法人今日合計買賣超 -915.75億，信用交易融資增減 +64.05億。需持續留意籌碼集中度高的族群是否出現大戶倒貨。\n🎯 【焦點個股動態】：討論熱度最高之標的為 台積電 (2330)，其籌碼訊號顯示為「💣 外資大倒貨 ✕ 散戶融資接刀 (套牢警戒)」，建議搭配支撐壓力審慎操作。"
+  "MarketSummary": "❄️ 市場情緒目前處於【極度恐懼】(20分)，恐慌與停損言論激增，可留意超跌後的地板反彈契機。 🚨 警報：絕望/畢業指數偏高(76分)，散戶停損潮湧現！ 資金與討論度高度集中在【半導體業】，其中以 台積電、聯發科 最受矚目。",
+  "AISummary": null
 }
