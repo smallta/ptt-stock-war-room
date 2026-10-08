@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
         detailDataCache = window.DETAIL_DATA;
     }
     if (window.HOT_STOCKS_DATA && window.HOT_STOCKS_DATA.length > 0) {
+        renderActionableLeaderboards(window.MARKET_DATA ? window.MARKET_DATA.ActionableLeaderboards : null, window.HOT_STOCKS_DATA);
         renderScoreChart(window.HOT_STOCKS_DATA);
         renderCards(window.HOT_STOCKS_DATA);
         initFilterControls(window.HOT_STOCKS_DATA);
@@ -26,6 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
             complete: function(results) {
                 const data = results.data.filter(row => row && row.Stock);
                 if(data.length > 0) {
+                    renderActionableLeaderboards(window.MARKET_DATA ? window.MARKET_DATA.ActionableLeaderboards : null, data);
                     renderScoreChart(data);
                     renderCards(data);
                     initFilterControls(data);
@@ -293,11 +295,125 @@ function renderTimelineChart(timelineData, taiexTrendData) {
     });
 }
 
+function renderActionableLeaderboards(boards, allStocks) {
+    const megaCaps = new Set(["2330", "2317", "2454", "2303", "2603", "2609", "2615", "2382", "3231", "2409", "3481", "0050", "0056", "00878", "00919", "00929", "00940"]);
+    const parseNum = (v) => {
+        if (v === undefined || v === null || v === '-') return 0;
+        const n = Number(String(v).replace(/,/g, '').replace('%', '').replace('+', ''));
+        return isNaN(n) ? 0 : n;
+    };
+    const extractCode = (s) => {
+        if (s.Code) return String(s.Code);
+        const m = String(s.Stock || '').match(/\((\d{4})\)/);
+        return m ? m[1] : '';
+    };
+
+    let smartMoney = boards && boards.SmartMoney ? boards.SmartMoney : [];
+    let retailTrap = boards && boards.RetailTrap ? boards.RetailTrap : [];
+    let darkHorse = boards && boards.DarkHorse ? boards.DarkHorse : [];
+
+    // Fallback computation from allStocks if boards not pre-computed
+    if ((!smartMoney.length && !retailTrap.length && !darkHorse.length) && allStocks && allStocks.length) {
+        allStocks.forEach(r => {
+            const fn = parseNum(r.ForeignNet);
+            const tn = parseNum(r.TrustNet);
+            const totN = r.TotalNet !== '-' && r.TotalNet !== undefined ? parseNum(r.TotalNet) : (fn + tn);
+            const md = parseNum(r.MarginDiff);
+            const posR = parseNum(r.BullishRatio);
+            const negR = parseNum(r.BearishRatio);
+            const chgP = parseNum(r.ChangePercent);
+            const code = extractCode(r);
+
+            const item = {
+                Stock: r.Stock,
+                Price: r.Price,
+                ChangePercent: r.ChangePercent,
+                TotalNet: totN,
+                MarginDiff: md,
+                Mentions: r.Mentions,
+                Score: r.Score
+            };
+
+            if ((totN > 100 || fn > 200 || tn > 50) && (md < 0 || negR >= posR)) {
+                const tag = md < -50 ? '資減+法人買' : ((fn > 0 && tn > 0) ? '土洋同買' : '散戶看空+法人買');
+                smartMoney.push({ ...item, Tag: tag, _sort: totN - md * 2 });
+            }
+            if ((totN < -200 || fn < -300) && (md > 50 || posR > negR)) {
+                const tag = md > 100 ? '外資倒貨+融資接刀' : '法人大賣+散戶追高';
+                retailTrap.push({ ...item, Tag: tag, _sort: md * 2 - totN });
+            }
+            if (!megaCaps.has(code) && r.Mentions >= 2 && (totN > 0 || chgP > 0)) {
+                const tag = totN > 0 ? `聲量 ${r.Mentions} 則 · 法人+${totN.toLocaleString()}張` : `聲量 ${r.Mentions} 則 · 強勢 ${r.ChangePercent}`;
+                darkHorse.push({ ...item, Tag: tag, _sort: r.Score + (totN > 200 ? 20 : 0) });
+            }
+        });
+        smartMoney.sort((a, b) => b._sort - a._sort);
+        retailTrap.sort((a, b) => b._sort - a._sort);
+        darkHorse.sort((a, b) => b._sort - a._sort);
+    }
+
+    const renderList = (elId, items, type) => {
+        const el = document.getElementById(elId);
+        if (!el) return;
+        if (!items || items.length === 0) {
+            el.innerHTML = '<div class="lb-empty">今日尚無明顯符合此極端背離條件之個股</div>';
+            return;
+        }
+        el.innerHTML = '';
+        items.slice(0, 5).forEach((s, idx) => {
+            const isUp = String(s.ChangePercent || '').startsWith('+');
+            const isDown = String(s.ChangePercent || '').startsWith('-');
+            const pClass = isUp ? 'up' : (isDown ? 'down' : '');
+            const fmtSigned = (n) => (n > 0 ? `+${Number(n).toLocaleString()}` : Number(n).toLocaleString());
+
+            let metaHtml = '';
+            if (type === 'horse') {
+                metaHtml = `<span class="lb-chip horse-chip">⚡ ${s.Tag || ''}</span>`;
+            } else {
+                const totClass = s.TotalNet > 0 ? 'net-buy' : (s.TotalNet < 0 ? 'net-sell' : '');
+                const mdClass = s.MarginDiff > 0 ? 'net-buy' : (s.MarginDiff < 0 ? 'net-sell' : '');
+                metaHtml = `
+                    <span>法人 <b class="inst-chip ${totClass}">${fmtSigned(s.TotalNet)}張</b></span>
+                    <span>融資 <b class="inst-chip ${mdClass}">${fmtSigned(s.MarginDiff)}張</b></span>
+                    <span class="lb-tag">${s.Tag || ''}</span>
+                `;
+            }
+
+            const row = document.createElement('div');
+            row.className = 'lb-item';
+            row.onclick = () => openCommentsModal(s.Stock);
+            row.innerHTML = `
+                <div class="lb-item-top">
+                    <span class="lb-rank">${idx + 1}</span>
+                    <span class="lb-stock-name">${s.Stock}</span>
+                    <span class="lb-price ${pClass}">$${s.Price} (${s.ChangePercent})</span>
+                </div>
+                <div class="lb-item-meta">${metaHtml}</div>
+            `;
+            el.appendChild(row);
+        });
+    };
+
+    renderList('board-smart-money', smartMoney, 'smart');
+    renderList('board-retail-trap', retailTrap, 'trap');
+    renderList('board-dark-horse', darkHorse, 'horse');
+}
+
 function renderCards(data) {
     const grid = document.getElementById('cards-grid');
     grid.innerHTML = '';
 
-    data.slice(0, 20).forEach(stock => {
+    const countBadge = document.getElementById('filtered-count-badge');
+    if (countBadge) {
+        countBadge.innerText = `符合條件：${data.length} 檔 (顯示前 ${Math.min(data.length, 48)} 檔)`;
+    }
+
+    if (data.length === 0) {
+        grid.innerHTML = '<div style="grid-column: 1 / -1; color:#94a3b8; text-align:center; padding:40px; background:rgba(30,41,59,0.45); border-radius:14px; border:1px dashed rgba(255,255,255,0.1);">🔍 在此策略或篩選條件下暫無符合的標的，請點擊上方「🔥 全部熱門標的」或切換其他策略按鈕。</div>';
+        return;
+    }
+
+    data.slice(0, 48).forEach(stock => {
         let riskHtml = '';
         if (stock.Risk && stock.Risk !== '無') {
             riskHtml = `<div class="risk-badge">⚠️ ${stock.Risk}</div>`;
@@ -445,7 +561,23 @@ let stockHistoryChartInstance = null;
 function initFilterControls(allData) {
     const searchInput = document.getElementById('stock-search-input');
     const sectorSelect = document.getElementById('sector-filter-select');
+    const sortSelect = document.getElementById('sort-by-select');
+    const tabBtns = document.querySelectorAll('.signal-tab-btn');
     if (!searchInput || !sectorSelect) return;
+
+    const megaCaps = new Set(["2330", "2317", "2454", "2303", "2603", "2609", "2615", "2382", "3231", "2409", "3481", "0050", "0056", "00878", "00919", "00929", "00940"]);
+    let currentSignal = 'ALL';
+
+    const parseNum = (v, fallback = 0) => {
+        if (v === undefined || v === null || v === '-') return fallback;
+        const n = Number(String(v).replace(/,/g, '').replace('%', '').replace('+', ''));
+        return isNaN(n) ? fallback : n;
+    };
+    const extractCode = (s) => {
+        if (s.Code) return String(s.Code);
+        const m = String(s.Stock || '').match(/\((\d{4})\)/);
+        return m ? m[1] : '';
+    };
 
     // Populate sector dropdown
     const sectors = Array.from(new Set(allData.map(d => d.Sector).filter(Boolean)));
@@ -460,16 +592,67 @@ function initFilterControls(allData) {
     const applyFilter = () => {
         const query = searchInput.value.trim().toLowerCase();
         const selectedSector = sectorSelect.value;
-        const filtered = allData.filter(d => {
+        const sortBy = sortSelect ? sortSelect.value : 'score_desc';
+
+        let filtered = allData.filter(d => {
             const matchesQuery = !query || d.Stock.toLowerCase().includes(query) || (d.Code && String(d.Code).includes(query));
             const matchesSector = (selectedSector === 'ALL') || (d.Sector === selectedSector);
-            return matchesQuery && matchesSector;
+            if (!matchesQuery || !matchesSector) return false;
+
+            if (currentSignal === 'ALL') return true;
+
+            const fn = parseNum(d.ForeignNet);
+            const tn = parseNum(d.TrustNet);
+            const totN = d.TotalNet !== '-' && d.TotalNet !== undefined ? parseNum(d.TotalNet) : (fn + tn);
+            const md = parseNum(d.MarginDiff);
+            const posR = parseNum(d.BullishRatio);
+            const negR = parseNum(d.BearishRatio);
+            const chgP = parseNum(d.ChangePercent);
+            const code = extractCode(d);
+            const sig = String(d.ChipSignal || '');
+
+            if (currentSignal === 'SMART_MONEY') {
+                return ((totN > 50 || fn > 100 || tn > 30) && (md <= 0 || negR >= posR)) || sig.includes('💎') || sig.includes('🔥');
+            }
+            if (currentSignal === 'CONTRARIAN') {
+                return (negR >= posR && (totN > 0 || chgP > 0)) || sig.includes('🟢');
+            }
+            if (currentSignal === 'RETAIL_TRAP') {
+                return ((totN < -100 || fn < -200) && (md > 30 || posR > negR)) || sig.includes('💣') || sig.includes('🔴') || sig.includes('⚠️');
+            }
+            if (currentSignal === 'DARK_HORSE') {
+                return !megaCaps.has(code) && d.Mentions >= 2 && (totN > 0 || chgP > 0);
+            }
+            return true;
         });
+
+        // Apply multi-dimension sorting
+        filtered.sort((a, b) => {
+            if (sortBy === 'total_inst_desc') return parseNum(b.TotalNet, -999999) - parseNum(a.TotalNet, -999999);
+            if (sortBy === 'foreign_desc') return parseNum(b.ForeignNet, -999999) - parseNum(a.ForeignNet, -999999);
+            if (sortBy === 'trust_desc') return parseNum(b.TrustNet, -999999) - parseNum(a.TrustNet, -999999);
+            if (sortBy === 'margin_asc') return parseNum(a.MarginDiff, 999999) - parseNum(b.MarginDiff, 999999);
+            if (sortBy === 'margin_desc') return parseNum(b.MarginDiff, -999999) - parseNum(a.MarginDiff, -999999);
+            if (sortBy === 'chg_desc') return parseNum(b.ChangePercent, -999) - parseNum(a.ChangePercent, -999);
+            if (sortBy === 'chg_asc') return parseNum(a.ChangePercent, 999) - parseNum(b.ChangePercent, 999);
+            return (b.Score || 0) - (a.Score || 0);
+        });
+
         renderCards(filtered);
     };
 
     searchInput.addEventListener('input', applyFilter);
     sectorSelect.addEventListener('change', applyFilter);
+    if (sortSelect) sortSelect.addEventListener('change', applyFilter);
+
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            tabBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            currentSignal = btn.getAttribute('data-signal') || 'ALL';
+            applyFilter();
+        });
+    });
 }
 
 function openCommentsModal(stockName) {

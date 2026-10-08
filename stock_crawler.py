@@ -827,20 +827,27 @@ def analyze(comments, stocks, valuations, sectors, price_data, inst_data, inst_s
         try:
             fn = int(f_net) if f_net != "-" else 0
             tn = int(t_net) if t_net != "-" else 0
+            tot_n = int(inst.get("TotalNet", 0)) if inst.get("TotalNet", "-") != "-" else (fn + tn)
             md = int(m_diff) if m_diff != "-" else 0
             
-            if fn > 500 and tn > 0 and data["Neg"] >= data["Pos"]:
-                chip_signal = "🟢 土洋合買 ✕ 散戶看空 (潛在軋空強多)"
-            elif fn < -1500 and data["Pos"] > data["Neg"]:
-                chip_signal = "🔴 外資大出貨 ✕ 散戶追高 (散戶套牢警報)"
-            elif md > 800 and data["Pos"] > data["Neg"]:
-                chip_signal = "⚠️ 融資暴增 ✕ 散戶狂熱 (籌碼過熱浮額多)"
-            elif md < -300 and fn > 300:
-                chip_signal = "💎 融資大減 ✕ 外資回補 (洗盤吸籌完畢)"
-            elif fn > 1000 and tn > 200:
+            if (tot_n > 300 or fn > 300 or tn > 100) and md < -100:
+                chip_signal = "💎 融資退場 ✕ 法人吸籌 (洗盤完畢)"
+            elif (tot_n > 300 or (fn > 200 and tn > 0)) and data["Neg"] >= data["Pos"]:
+                chip_signal = "🟢 法人逆勢買 ✕ 散戶看空 (潛在軋空強多)"
+            elif fn > 800 and tn > 100:
                 chip_signal = "🔥 土洋法人同步重押"
-            elif fn < -1000 and tn < -200:
+            elif (fn < -800 or tot_n < -800) and md > 150:
+                chip_signal = "💣 外資大倒貨 ✕ 散戶融資接刀 (套牢警戒)"
+            elif (fn < -1000 or tot_n < -1000) and data["Pos"] > data["Neg"]:
+                chip_signal = "🔴 外資大出貨 ✕ 散戶追高 (散戶套牢警報)"
+            elif md > 500 and (tot_n < 0 or data["Pos"] > data["Neg"]):
+                chip_signal = "⚠️ 融資暴增 ✕ 散戶狂熱 (籌碼過熱浮額多)"
+            elif fn < -800 and tn < -100:
                 chip_signal = "❄️ 土洋法人雙向提款"
+            elif tot_n > 500:
+                chip_signal = "📈 法人主力偏多布局"
+            elif tot_n < -500:
+                chip_signal = "📉 法人主力偏空調節"
             elif data["Sarcasm"] >= 3:
                 chip_signal = "🎭 鄉民反串迷因狂熱"
         except Exception:
@@ -1011,6 +1018,58 @@ def analyze(comments, stocks, valuations, sectors, price_data, inst_data, inst_s
     taiex_info = get_taiex_info()
     taiex_trend = get_taiex_intraday_trend()
     
+    # Build Actionable Leaderboards (實戰多空龍虎榜：主力吃貨 vs 散戶接刀 vs 非權值黑馬)
+    mega_caps = {"2330", "2317", "2454", "2303", "2603", "2609", "2615", "2382", "3231", "2409", "3481", "0050", "0056", "00878", "00919", "00929", "00940"}
+    smart_money_candidates = []
+    retail_trap_candidates = []
+    dark_horse_candidates = []
+    
+    for r in sorted_results:
+        try:
+            fn = int(r["ForeignNet"]) if r["ForeignNet"] != "-" else 0
+            tn = int(r["TrustNet"]) if r["TrustNet"] != "-" else 0
+            tot_n = int(r["TotalNet"]) if r["TotalNet"] != "-" else (fn + tn)
+            md = int(r["MarginDiff"]) if r["MarginDiff"] != "-" else 0
+            pos_r = int(str(r["BullishRatio"]).replace("%", "") or 0)
+            neg_r = int(str(r["BearishRatio"]).replace("%", "") or 0)
+            chg_p = float(str(r["ChangePercent"]).replace("%", "").replace("+", "") or 0)
+        except Exception:
+            fn, tn, tot_n, md, pos_r, neg_r, chg_p = 0, 0, 0, 0, 0, 0, 0.0
+            
+        item_brief = {
+            "Stock": r["Stock"],
+            "Code": r["Code"],
+            "Price": r["Price"],
+            "Change": r["Change"],
+            "ChangePercent": r["ChangePercent"],
+            "ForeignNet": fn,
+            "TrustNet": tn,
+            "TotalNet": tot_n,
+            "MarginDiff": md,
+            "Mentions": r["Mentions"],
+            "Score": r["Score"],
+            "ChipSignal": r["ChipSignal"]
+        }
+        
+        is_etf = str(r["Code"]).startswith("00")
+        
+        # 1. 💎 主力吸籌／散戶下車 (非ETF + 法人買超 + 融資減少 或 散戶看空)
+        if not is_etf and (tot_n > 100 or fn > 200 or tn > 50) and (md < 0 or neg_r > pos_r):
+            tag = "資減+法人買" if md < -50 else ("土洋同買" if (fn > 0 and tn > 0) else "散戶看空+法人買")
+            smart_money_candidates.append({**item_brief, "Tag": tag, "_sort": tot_n - md * 3})
+        # 2. 💣 主力出貨／散戶接刀 (非ETF + 法人大賣 + 融資逆勢增加接刀)
+        if not is_etf and (tot_n < -300 or fn < -500) and md > 50:
+            tag = "外資倒貨+融資接刀" if fn < -500 else "法人出貨+散戶擴資"
+            retail_trap_candidates.append({**item_brief, "Tag": tag, "_sort": md * 3 - tot_n})
+        # 3. ⚡ 非權值 · 聲量黑馬 (排除萬年大型權值股與ETF，抓出討論度高且有買盤或漲勢的中小型股)
+        if not is_etf and r["Code"] not in mega_caps and r["Mentions"] >= 2 and (tot_n > 0 or chg_p > 0):
+            tag = f"聲量 {r['Mentions']} 則 · 法人+{tot_n}張" if tot_n > 0 else f"聲量 {r['Mentions']} 則 · 強勢 {r['ChangePercent']}"
+            dark_horse_candidates.append({**item_brief, "Tag": tag, "_sort": r["Score"] + (20 if tot_n > 200 else 0)})
+            
+    smart_money_list = sorted(smart_money_candidates, key=lambda x: x["_sort"], reverse=True)[:5]
+    retail_trap_list = sorted(retail_trap_candidates, key=lambda x: x["_sort"], reverse=True)[:5]
+    dark_horse_list = sorted(dark_horse_candidates, key=lambda x: x["_sort"], reverse=True)[:5]
+    
     market_data = {
         "FearGreedIndex": fear_greed_index,
         "PanicIndex": panic_index,
@@ -1021,6 +1080,11 @@ def analyze(comments, stocks, valuations, sectors, price_data, inst_data, inst_s
         "MarginSummary": margin_summary,
         "SectorAlerts": sector_alerts,
         "ThemeStats": theme_stats,
+        "ActionableLeaderboards": {
+            "SmartMoney": smart_money_list,
+            "RetailTrap": retail_trap_list,
+            "DarkHorse": dark_horse_list
+        },
         "InstitutionalSentiment": {
             "ForeignBullish": foreign_pos, "ForeignBearish": foreign_neg,
             "TrustBullish": trust_pos, "TrustBearish": trust_neg
@@ -1042,6 +1106,7 @@ def generate_tg_digest(results, market_data):
     inst_amt = market_data.get("RealInstitutionalStats", {}).get("Amounts", {})
     margin_s = market_data.get("MarginSummary", {})
     sector_alerts = market_data.get("SectorAlerts", [])
+    boards = market_data.get("ActionableLeaderboards", {})
     
     f_amt = inst_amt.get("Foreign", {}).get("net", "-")
     t_amt = inst_amt.get("Trust", {}).get("net", "-")
@@ -1058,7 +1123,7 @@ def generate_tg_digest(results, market_data):
     gh_pages_url = os.environ.get("GITHUB_PAGES_URL", "https://smallta.github.io/ptt-stock-war-room/")
     
     lines = [
-        f"📊 【PTT 戰情室 · 今日盤後情報總結】 ({today})\n",
+        f"📊 【PTT 戰情室 · 今日盤後實戰情報】 ({today})\n",
         f"📈 今日大盤加權指數：{taiex.get('TAIEX', '-')} 點 ({taiex.get('Change', '-')} / {taiex.get('ChangePercent', '-')})",
         f"🚨 絕望/畢業反向指標：{market_data.get('PanicIndex', 0)} 分 (越高代表散戶洗盤越乾淨)\n",
         "🏛️ 三大法人買賣金額 (證交所官方)：",
@@ -1068,13 +1133,36 @@ def generate_tg_digest(results, market_data):
         f"- 信用交易融券：增減 {s_shares_str}\n",
     ]
     
+    # 實戰選股訊號榜
+    sm_list = boards.get("SmartMoney", [])
+    rt_list = boards.get("RetailTrap", [])
+    dh_list = boards.get("DarkHorse", [])
+    
+    if sm_list:
+        lines.append("💎 【主力吸籌／散戶下車】黃金訊號 Top 3：")
+        for s in sm_list[:3]:
+            lines.append(f"  • {s['Stock']} ${s['Price']} ({s['ChangePercent']}) | 法人:{s['TotalNet']:+d}張 | 融資:{s['MarginDiff']:+d}張 [{s['Tag']}]")
+        lines.append("")
+        
+    if rt_list:
+        lines.append("💣 【主力倒貨／散戶接刀】高危警戒 Top 3：")
+        for s in rt_list[:3]:
+            lines.append(f"  • {s['Stock']} ${s['Price']} ({s['ChangePercent']}) | 法人:{s['TotalNet']:+d}張 | 融資:{s['MarginDiff']:+d}張 [{s['Tag']}]")
+        lines.append("")
+        
+    if dh_list:
+        lines.append("⚡ 【非權值 · 聲量突圍黑馬】Top 3：")
+        for s in dh_list[:3]:
+            lines.append(f"  • {s['Stock']} ${s['Price']} ({s['ChangePercent']}) | {s['Tag']}")
+        lines.append("")
+    
     if sector_alerts:
         lines.append("🚨 【今日焦點族群異動警報】")
         for sa in sector_alerts:
             lines.append(f"- {sa['theme']} 【{sa['alert']} · 平均 {sa['avgChange']}】")
             lines.append(f"  指標成分股: {', '.join(sa['topStocks'])}\n")
             
-    lines.append("🔥 鄉民熱門焦點標的與籌碼對抗訊號 Top 5：")
+    lines.append("🔥 鄉民熱門討論總榜 Top 5：")
     for idx, r in enumerate(results[:5], 1):
         chg_icon = "🔴" if str(r.get("Change", "")).startswith("+") else ("🟢" if str(r.get("Change", "")).startswith("-") else "⚪")
         m_diff_val = r.get('MarginDiff', '-')

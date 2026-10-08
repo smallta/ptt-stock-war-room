@@ -165,17 +165,77 @@
             </div>
         </section>
 
+        <!-- Actionable Leaderboards Section (實戰多空對抗龍虎榜) -->
+        <section class="leaderboards-section" id="leaderboards-section" style="margin-bottom: 28px;">
+            <div class="theme-alerts-header" style="margin-bottom: 14px;">
+                <span class="overview-icon">🏆</span>
+                <span class="overview-title">今日實戰籌碼多空對抗龍虎榜 (點擊個股可直接看推文與趨勢)</span>
+            </div>
+            <div class="leaderboards-grid">
+                <div class="leaderboard-card smart-money-board">
+                    <div class="leaderboard-header">
+                        <span class="lb-title">💎 主力吸籌／散戶下車榜</span>
+                        <span class="lb-sub">法人逆勢買 ✕ 融資退場或鄉民看空</span>
+                    </div>
+                    <div class="leaderboard-list" id="board-smart-money">
+                        <div class="lb-empty">載入中...</div>
+                    </div>
+                </div>
+                <div class="leaderboard-card retail-trap-board">
+                    <div class="leaderboard-header">
+                        <span class="lb-title">💣 主力倒貨／散戶接刀榜</span>
+                        <span class="lb-sub">法人大出貨 ✕ 散戶融資暴增追高</span>
+                    </div>
+                    <div class="leaderboard-list" id="board-retail-trap">
+                        <div class="lb-empty">載入中...</div>
+                    </div>
+                </div>
+                <div class="leaderboard-card dark-horse-board">
+                    <div class="leaderboard-header">
+                        <span class="lb-title">⚡ 非權值 · 聲量突圍黑馬榜</span>
+                        <span class="lb-sub">排除萬年權值股 · 抓出中小型異動飆股</span>
+                    </div>
+                    <div class="leaderboard-list" id="board-dark-horse">
+                        <div class="lb-empty">載入中...</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Stock Cards Section -->
         <section class="data-section">
             <div class="cards-section-header">
-                <h2 class="section-title">個股綜合分析與情報 Tag (點擊卡片查看推文明細與趨勢)</h2>
+                <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+                    <h2 class="section-title" style="margin-bottom:0;">個股綜合分析與情報 Tag</h2>
+                    <span class="filtered-count-badge" id="filtered-count-badge">顯示中...</span>
+                </div>
                 <div class="filter-controls-row">
-                    <input type="text" id="stock-search-input" placeholder="🔍 搜尋股票代號或名稱 (例: 2330, 大立光)..." class="search-input">
+                    <input type="text" id="stock-search-input" placeholder="🔍 搜尋代號或名稱 (例: 2330, 光聖)..." class="search-input">
                     <select id="sector-filter-select" class="sector-select">
                         <option value="ALL">🌐 全部產業類別</option>
                     </select>
+                    <select id="sort-by-select" class="sector-select">
+                        <option value="score_desc">🔥 排序：討論熱度評分 (高➔低)</option>
+                        <option value="total_inst_desc">🏛️ 排序：三大法人買超 (多➔少)</option>
+                        <option value="foreign_desc">🏦 排序：外資買超張數 (多➔少)</option>
+                        <option value="trust_desc">🤝 排序：投信買超張數 (多➔少)</option>
+                        <option value="margin_asc">💧 排序：融資減少最多 (散戶洗盤)</option>
+                        <option value="margin_desc">⚠️ 排序：融資增加最多 (散戶接刀)</option>
+                        <option value="chg_desc">📈 排序：今日漲幅排行 (強➔弱)</option>
+                        <option value="chg_asc">📉 排序：今日跌幅排行 (弱➔強)</option>
+                    </select>
                 </div>
             </div>
+
+            <!-- 1-Click Signal Strategy Filter Tabs -->
+            <div class="signal-tabs-row" id="signal-tabs-row">
+                <button class="signal-tab-btn active" data-signal="ALL">🔥 全部熱門標的</button>
+                <button class="signal-tab-btn tab-bull" data-signal="SMART_MONEY">💎 洗盤吸籌 (法人買+資減)</button>
+                <button class="signal-tab-btn tab-contrarian" data-signal="CONTRARIAN">🟢 散戶反指標 (鄉民罵+法人買)</button>
+                <button class="signal-tab-btn tab-trap" data-signal="RETAIL_TRAP">💣 抓交替警戒 (外資賣+散戶接刀)</button>
+                <button class="signal-tab-btn tab-horse" data-signal="DARK_HORSE">⚡ 非權值黑馬 (排除權值股)</button>
+            </div>
+
             <div class="cards-grid" id="cards-grid">
                 <!-- Stock cards dynamically injected -->
             </div>
