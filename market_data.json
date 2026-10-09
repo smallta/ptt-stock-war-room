@@ -1,6 +1,6 @@
 {
-  "FearGreedIndex": 20,
-  "PanicIndex": 5,
+  "FearGreedIndex": 10,
+  "PanicIndex": 27,
   "TotalCommentsParsed": 600,
   "TAIEXSummary": {
     "TAIEX": "49,313.44",
@@ -228,8 +228,57 @@
     }
   ],
   "ActionableLeaderboards": {
-    "SmartMoney": [],
+    "SmartMoney": [
+      {
+        "Stock": "統一 (1216)",
+        "Code": "1216",
+        "Price": "75.60",
+        "Change": "+0.10",
+        "ChangePercent": "+0.13%",
+        "ForeignNet": 4818,
+        "TrustNet": 1911,
+        "TotalNet": 7116,
+        "MarginDiff": -343,
+        "Mentions": 1,
+        "Score": 1,
+        "ChipSignal": "💎 融資退場 ✕ 法人吸籌 (洗盤完畢)",
+        "Tag": "資減+法人買",
+        "_sort": 8145
+      },
+      {
+        "Stock": "統一超 (2912)",
+        "Code": "2912",
+        "Price": "213.00",
+        "Change": "-0.50",
+        "ChangePercent": "-0.23%",
+        "ForeignNet": 726,
+        "TrustNet": 21,
+        "TotalNet": 750,
+        "MarginDiff": 5,
+        "Mentions": 1,
+        "Score": 1,
+        "ChipSignal": "🟢 法人逆勢買 ✕ 散戶看空 (潛在軋空強多)",
+        "Tag": "土洋同買",
+        "_sort": 735
+      }
+    ],
     "RetailTrap": [
+      {
+        "Stock": "群創 (3481)",
+        "Code": "3481",
+        "Price": "51.00",
+        "Change": "-1.50",
+        "ChangePercent": "-2.86%",
+        "ForeignNet": -20582,
+        "TrustNet": 18,
+        "TotalNet": -20853,
+        "MarginDiff": 3395,
+        "Mentions": 1,
+        "Score": 1,
+        "ChipSignal": "💣 外資大倒貨 ✕ 散戶融資接刀 (套牢警戒)",
+        "Tag": "外資倒貨+融資接刀",
+        "_sort": 31038
+      },
       {
         "Stock": "台積電 (2330)",
         "Code": "2330",
@@ -241,7 +290,7 @@
         "TotalNet": -11001,
         "MarginDiff": 1308,
         "Mentions": 2,
-        "Score": 11,
+        "Score": 10,
         "ChipSignal": "💣 外資大倒貨 ✕ 散戶融資接刀 (套牢警戒)",
         "Tag": "外資倒貨+融資接刀",
         "_sort": 14925
@@ -286,27 +335,28 @@
     },
     "盤後夜間": {
       "Pos": 1,
-      "Neg": 8
+      "Neg": 9
     }
   },
   "SectorRotation": [
     {
       "Sector": "半導體業",
       "Mentions": 4,
-      "AvgScore": 7.0,
+      "AvgScore": 6.7,
       "TopStocks": [
         "台積電",
-        "富鼎",
-        "強茂"
+        "強茂",
+        "富鼎"
       ]
     },
     {
       "Sector": "光電業",
-      "Mentions": 2,
-      "AvgScore": 4.0,
+      "Mentions": 3,
+      "AvgScore": 3.0,
       "TopStocks": [
         "大立光",
-        "全台"
+        "全台",
+        "群創"
       ]
     },
     {
@@ -324,8 +374,16 @@
       "TopStocks": [
         "櫻花"
       ]
+    },
+    {
+      "Sector": "食品工業",
+      "Mentions": 1,
+      "AvgScore": 1.0,
+      "TopStocks": [
+        "統一"
+      ]
     }
   ],
-  "MarketSummary": "❄️ 市場情緒目前處於【極度恐懼】(20分)，恐慌與停損言論激增，可留意超跌後的地板反彈契機。 資金與討論度高度集中在【半導體業】，其中以 台積電、富鼎、強茂 最受矚目。",
+  "MarketSummary": "❄️ 市場情緒目前處於【極度恐懼】(10分)，恐慌與停損言論激增，可留意超跌後的地板反彈契機。 資金與討論度高度集中在【半導體業】，其中以 台積電、強茂、富鼎 最受矚目。",
   "AISummary": null
 }

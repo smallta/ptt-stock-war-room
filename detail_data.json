@@ -1,19 +1,15 @@
 {
   "台積電 (2330)": {
-    "Keywords": {
-      "營收": 2,
-      "空": 1,
-      "嘎": 1
-    },
+    "Keywords": {},
     "Comments": [
       {
-        "user": "📱 [ptt_stock_follow_chat] 🟢 推 tsubasawolfy",
-        "text": "https://i.imgur.com/Czgg4HQ.png",
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 mamorui",
+        "text": "已經經歷 https://i.mopix.cc/OfRggO.jpg",
         "time": "TG即時推播"
       },
       {
-        "user": "📱 [ptt_stock_follow_chat] ⚪ → Jaspercool",
-        "text": "空單台指今天停掉了 我還以為GG營收會嘎我",
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 tsubasawolfy",
+        "text": "https://i.imgur.com/Czgg4HQ.png",
         "time": "TG即時推播"
       }
     ]
@@ -22,13 +18,35 @@
     "Keywords": {},
     "Comments": [
       {
-        "user": "📱 [ptt_stock_follow_chat] 🟢 推 Axwell",
-        "text": "上詮就廢物一個",
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → pttstock",
+        "text": "大立光是不是搶了上詮客戶?!",
         "time": "TG即時推播"
       },
       {
-        "user": "📱 [ptt_stock_follow_chat] ⚪ → pttstock",
-        "text": "大立光是不是搶了上詮客戶?!",
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 Axwell",
+        "text": "上詮就廢物一個",
+        "time": "TG即時推播"
+      }
+    ]
+  },
+  "力士 (4923)": {
+    "Keywords": {
+      "買": 1
+    },
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 dog41125",
+        "text": "村田海力士停損一半了該買什麼呢",
+        "time": "TG即時推播"
+      }
+    ]
+  },
+  "光明 (4420)": {
+    "Keywords": {},
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🔴 噓 icelaw",
+        "text": "一般正常人的靈魂是藍色的，正確使用光明神咒你就會",
         "time": "TG即時推播"
       }
     ]
@@ -63,7 +81,7 @@
       }
     ]
   },
-  "富鼎 (8261)": {
+  "強茂 (2481)": {
     "Keywords": {},
     "Comments": [
       {
@@ -73,7 +91,7 @@
       }
     ]
   },
-  "強茂 (2481)": {
+  "富鼎 (8261)": {
     "Keywords": {},
     "Comments": [
       {
@@ -96,6 +114,18 @@
       }
     ]
   },
+  "台半 (5425)": {
+    "Keywords": {
+      "綠": 1
+    },
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 Forcast",
+        "text": "只有大中沒綠，台半也綠的",
+        "time": "TG即時推播"
+      }
+    ]
+  },
   "大中 (6435)": {
     "Keywords": {
       "綠": 1
@@ -108,14 +138,41 @@
       }
     ]
   },
-  "台半 (5425)": {
+  "群創 (3481)": {
     "Keywords": {
-      "綠": 1
+      "爛": 1,
+      "空": 1
     },
     "Comments": [
       {
-        "user": "📱 [ptt_stock_follow_chat] 🟢 推 Forcast",
-        "text": "只有大中沒綠，台半也綠的",
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → kidd085",
+        "text": "喵喵怎麼可以打這麼爛 準備空統一超氣死",
+        "time": "TG即時推播"
+      }
+    ]
+  },
+  "統一 (1216)": {
+    "Keywords": {
+      "爛": 1,
+      "空": 1
+    },
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → kidd085",
+        "text": "喵喵怎麼可以打這麼爛 準備空統一超氣死",
+        "time": "TG即時推播"
+      }
+    ]
+  },
+  "統一超 (2912)": {
+    "Keywords": {
+      "爛": 1,
+      "空": 1
+    },
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → kidd085",
+        "text": "喵喵怎麼可以打這麼爛 準備空統一超氣死",
         "time": "TG即時推播"
       }
     ]
