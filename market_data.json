@@ -1,6 +1,6 @@
 {
-  "FearGreedIndex": 10,
-  "PanicIndex": 27,
+  "FearGreedIndex": 33,
+  "PanicIndex": 33,
   "TotalCommentsParsed": 600,
   "TAIEXSummary": {
     "TAIEX": "49,313.44",
@@ -294,22 +294,6 @@
         "ChipSignal": "💣 外資大倒貨 ✕ 散戶融資接刀 (套牢警戒)",
         "Tag": "外資倒貨+融資接刀",
         "_sort": 14925
-      },
-      {
-        "Stock": "強茂 (2481)",
-        "Code": "2481",
-        "Price": "172.50",
-        "Change": "-6.00",
-        "ChangePercent": "-3.36%",
-        "ForeignNet": -5053,
-        "TrustNet": -632,
-        "TotalNet": -6266,
-        "MarginDiff": 739,
-        "Mentions": 1,
-        "Score": 5,
-        "ChipSignal": "💣 外資大倒貨 ✕ 散戶融資接刀 (套牢警戒)",
-        "Tag": "外資倒貨+融資接刀",
-        "_sort": 8483
       }
     ],
     "DarkHorse": []
@@ -334,29 +318,27 @@
       "Neg": 0
     },
     "盤後夜間": {
-      "Pos": 1,
-      "Neg": 9
+      "Pos": 2,
+      "Neg": 6
     }
   },
   "SectorRotation": [
     {
-      "Sector": "半導體業",
+      "Sector": "光電業",
       "Mentions": 4,
-      "AvgScore": 6.7,
+      "AvgScore": 3.5,
       "TopStocks": [
-        "台積電",
-        "強茂",
-        "富鼎"
+        "友達",
+        "大立光",
+        "全台"
       ]
     },
     {
-      "Sector": "光電業",
-      "Mentions": 3,
-      "AvgScore": 3.0,
+      "Sector": "半導體業",
+      "Mentions": 2,
+      "AvgScore": 10.0,
       "TopStocks": [
-        "大立光",
-        "全台",
-        "群創"
+        "台積電"
       ]
     },
     {
@@ -368,11 +350,11 @@
       ]
     },
     {
-      "Sector": "38",
+      "Sector": "貿易百貨",
       "Mentions": 1,
-      "AvgScore": 5.0,
+      "AvgScore": 1.0,
       "TopStocks": [
-        "櫻花"
+        "統一超"
       ]
     },
     {
@@ -384,6 +366,6 @@
       ]
     }
   ],
-  "MarketSummary": "❄️ 市場情緒目前處於【極度恐懼】(10分)，恐慌與停損言論激增，可留意超跌後的地板反彈契機。 資金與討論度高度集中在【半導體業】，其中以 台積電、強茂、富鼎 最受矚目。",
+  "MarketSummary": "⚖️ 市場情緒目前【中立震盪】(33分)，多空雙方力道均衡。 資金與討論度高度集中在【光電業】，其中以 友達、大立光、全台 最受矚目。",
   "AISummary": null
 }

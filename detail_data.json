@@ -41,6 +41,28 @@
       }
     ]
   },
+  "友達 (2409)": {
+    "Keywords": {
+      "噴": 2
+    },
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → opticalman",
+        "text": "友達會跟著噴嗎",
+        "time": "TG即時推播"
+      }
+    ]
+  },
+  "合一 (4743)": {
+    "Keywords": {},
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → icelaw",
+        "text": "融合一起",
+        "time": "TG即時推播"
+      }
+    ]
+  },
   "光明 (4420)": {
     "Keywords": {},
     "Comments": [
@@ -71,36 +93,6 @@
       }
     ]
   },
-  "櫻花 (9911)": {
-    "Keywords": {},
-    "Comments": [
-      {
-        "user": "📱 [ptt_stock_follow_chat] ⚪ → dosiris",
-        "text": "不過現在去就是沒櫻花可看",
-        "time": "TG即時推播"
-      }
-    ]
-  },
-  "強茂 (2481)": {
-    "Keywords": {},
-    "Comments": [
-      {
-        "user": "📱 [ptt_stock_follow_chat] 🟢 推 Forcast",
-        "text": "大富強台，富鼎強茂",
-        "time": "TG即時推播"
-      }
-    ]
-  },
-  "富鼎 (8261)": {
-    "Keywords": {},
-    "Comments": [
-      {
-        "user": "📱 [ptt_stock_follow_chat] 🟢 推 Forcast",
-        "text": "大富強台，富鼎強茂",
-        "time": "TG即時推播"
-      }
-    ]
-  },
   "全台 (3038)": {
     "Keywords": {
       "空": 1,
@@ -114,26 +106,15 @@
       }
     ]
   },
-  "台半 (5425)": {
+  "統一超 (2912)": {
     "Keywords": {
-      "綠": 1
+      "爛": 1,
+      "空": 1
     },
     "Comments": [
       {
-        "user": "📱 [ptt_stock_follow_chat] 🟢 推 Forcast",
-        "text": "只有大中沒綠，台半也綠的",
-        "time": "TG即時推播"
-      }
-    ]
-  },
-  "大中 (6435)": {
-    "Keywords": {
-      "綠": 1
-    },
-    "Comments": [
-      {
-        "user": "📱 [ptt_stock_follow_chat] 🟢 推 Forcast",
-        "text": "只有大中沒綠，台半也綠的",
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → kidd085",
+        "text": "喵喵怎麼可以打這麼爛 準備空統一超氣死",
         "time": "TG即時推播"
       }
     ]
@@ -164,19 +145,6 @@
       }
     ]
   },
-  "統一超 (2912)": {
-    "Keywords": {
-      "爛": 1,
-      "空": 1
-    },
-    "Comments": [
-      {
-        "user": "📱 [ptt_stock_follow_chat] ⚪ → kidd085",
-        "text": "喵喵怎麼可以打這麼爛 準備空統一超氣死",
-        "time": "TG即時推播"
-      }
-    ]
-  },
   "萬在 (4543)": {
     "Keywords": {
       "跌": 1,
@@ -186,19 +154,6 @@
       {
         "user": "📱 [ptt_stock_follow_chat] 🟢 推 pttstock",
         "text": "大多頭還空 空你老輸 等跌破四萬在空!",
-        "time": "TG即時推播"
-      }
-    ]
-  },
-  "NVIDIA概念股": {
-    "Keywords": {
-      "空": 1,
-      "泡沫": 1
-    },
-    "Comments": [
-      {
-        "user": "📱 [ptt_stock_follow_chat] 🟢 推 lovebabyqqq",
-        "text": "老黃看到泡沫了 大麥空才是贏家 越多人酸越要相信泡",
         "time": "TG即時推播"
       }
     ]
