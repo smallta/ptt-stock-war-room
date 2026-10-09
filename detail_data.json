@@ -2,138 +2,146 @@
   "台積電 (2330)": {
     "Keywords": {
       "營收": 2,
-      "跌": 2,
-      "泡沫": 1,
-      "崩": 1
+      "空": 1,
+      "嘎": 1
     },
     "Comments": [
       {
-        "user": "📱 [ptt_stock_follow_chat] 🟢 推 keyofdejavu",
-        "text": "我想這次真的完了⚪ → benson1212  ：[樂透] 幾個交易日才會超越五萬點 -> 六、以上皆非🟢 推 jyhfang     ：小那要-2.0%了嗎🟢 推 icedog122   ：果然gg開營收就是跌🟢 推 sss870192   ：來了 他們來了",
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 tsubasawolfy",
+        "text": "https://i.imgur.com/Czgg4HQ.png",
         "time": "TG即時推播"
       },
       {
-        "user": "📱 [ptt_stock_follow_chat] ⚪ → ZO20",
-        "text": "價差700 只好犧牲gg了",
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → Jaspercool",
+        "text": "空單台指今天停掉了 我還以為GG營收會嘎我",
+        "time": "TG即時推播"
+      }
+    ]
+  },
+  "上詮 (3363)": {
+    "Keywords": {},
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 Axwell",
+        "text": "上詮就廢物一個",
         "time": "TG即時推播"
       },
       {
-        "user": "📱 [ptt_stock_follow_chat] 🟢 推 AllenAline",
-        "text": "就這樣? AI拐點就這樣? GG和老馬合作消息沒證實就",
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → pttstock",
+        "text": "大立光是不是搶了上詮客戶?!",
         "time": "TG即時推播"
-      },
+      }
+    ]
+  },
+  "大將 (1453)": {
+    "Keywords": {},
+    "Comments": [
       {
-        "user": "📱 [ptt_stock_follow_chat] ⚪ → mscmobitai",
-        "text": "https://i.verb.tw/YpL3mzcI.jpg🔴 噓 s1612316    ：股災了 會超過一萬點🟢 推 ss425727100 ：OpenAI 暴雷啦砍單啦🟢 推 livewater   ：打仗了?🔴 噓 ggbi4zzz    ：AI泡沫破裂OpenAi大雷",
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → pttstock",
+        "text": "SI大將軍 憨川 準備11/5被擊倒",
         "time": "TG即時推播"
-      },
+      }
+    ]
+  },
+  "大立光 (3008)": {
+    "Keywords": {},
+    "Comments": [
       {
-        "user": "📱 [ptt_stock_follow_chat] 🟢 推 lala8520",
-        "text": "台積電超過財測高標 照樣崩 這年頭開獎都是崩",
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → pttstock",
+        "text": "大立光是不是搶了上詮客戶?!",
         "time": "TG即時推播"
-      },
+      }
+    ]
+  },
+  "櫻花 (9911)": {
+    "Keywords": {},
+    "Comments": [
       {
-        "user": "📱 [ptt_stock_follow_chat] 🔴 噓 aaaaaaa1",
-        "text": "又回到 TSM拼命跌 台積電撐盤狗瘋狂狗撐的日子了",
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → dosiris",
+        "text": "不過現在去就是沒櫻花可看",
+        "time": "TG即時推播"
+      }
+    ]
+  },
+  "富鼎 (8261)": {
+    "Keywords": {},
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 Forcast",
+        "text": "大富強台，富鼎強茂",
+        "time": "TG即時推播"
+      }
+    ]
+  },
+  "強茂 (2481)": {
+    "Keywords": {},
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 Forcast",
+        "text": "大富強台，富鼎強茂",
+        "time": "TG即時推播"
+      }
+    ]
+  },
+  "全台 (3038)": {
+    "Keywords": {
+      "空": 1,
+      "99": 1
+    },
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → pttstock",
+        "text": "全台只有+~老輸看空 99.9%老輸都做多",
+        "time": "TG即時推播"
+      }
+    ]
+  },
+  "大中 (6435)": {
+    "Keywords": {
+      "綠": 1
+    },
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 Forcast",
+        "text": "只有大中沒綠，台半也綠的",
+        "time": "TG即時推播"
+      }
+    ]
+  },
+  "台半 (5425)": {
+    "Keywords": {
+      "綠": 1
+    },
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 Forcast",
+        "text": "只有大中沒綠，台半也綠的",
+        "time": "TG即時推播"
+      }
+    ]
+  },
+  "萬在 (4543)": {
+    "Keywords": {
+      "跌": 1,
+      "空": 1
+    },
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 pttstock",
+        "text": "大多頭還空 空你老輸 等跌破四萬在空!",
         "time": "TG即時推播"
       }
     ]
   },
   "NVIDIA概念股": {
     "Keywords": {
-      "崩": 1,
-      "價值": 1
+      "空": 1,
+      "泡沫": 1
     },
     "Comments": [
       {
-        "user": "📱 [ptt_stock_follow_chat] 🟢 推 gest7240",
-        "text": "老黃價值型pe沒啥漲也能崩，真的靠北到不行",
-        "time": "TG即時推播"
-      },
-      {
-        "user": "📱 [ptt_stock_follow_chat] 🔴 噓 s1612316",
-        "text": "甲骨文如果爆了 老黃骨牌全炸 比2008還猛",
-        "time": "TG即時推播"
-      },
-      {
-        "user": "📱 [ptt_stock_follow_chat] 🟢 推 harpuia",
-        "text": "泡泡關我屁事，我想看老黃吹泡泡吹到爆炸",
-        "time": "TG即時推播"
-      },
-      {
-        "user": "📱 [ptt_stock_follow_chat] ⚪ → harpuia",
-        "text": "老黃泡泡怎不在吹大點，我想看老黃自爆啊",
-        "time": "TG即時推播"
-      }
-    ]
-  },
-  "聯發科 (2454)": {
-    "Keywords": {
-      "營收": 2
-    },
-    "Comments": [
-      {
-        "user": "📱 [ptt_stock_follow_chat] ⚪ → Lowpapa",
-        "text": "發哥股價年漲200%  營收年增2%  懂得都懂.....",
-        "time": "TG即時推播"
-      }
-    ]
-  },
-  "川寶 (1595)": {
-    "Keywords": {
-      "崩": 1
-    },
-    "Comments": [
-      {
-        "user": "📱 [ptt_stock_follow_chat] 🟢 推 homerunball",
-        "text": "誰把我衣櫃的錢幹走了 我放了3000萬啊🟢 推 mscmobitai  ：https://i.verb.tw/YpL3mzcI.jpg🟢 推 iceyeman    ：哇操 是怎樣rrrrrrRRRRRR⚪ → ayufly      ：台股明天躲崩有點神 周末再靠川寶救盤 完美",
-        "time": "TG即時推播"
-      },
-      {
-        "user": "📱 [ptt_stock_follow_chat] ⚪ → dosoleil",
-        "text": "今天劇本就要殺啊 誰讓川寶出來講話的",
-        "time": "TG即時推播"
-      }
-    ]
-  },
-  "熱映 (3373)": {
-    "Keywords": {},
-    "Comments": [
-      {
-        "user": "📱 [ptt_stock_follow_chat] 🟢 推 m50205811",
-        "text": "台股戰士 現正熱映中",
-        "time": "TG即時推播"
-      }
-    ]
-  },
-  "力士 (4923)": {
-    "Keywords": {},
-    "Comments": [
-      {
-        "user": "📱 [ptt_stock_follow_chat] 🔴 噓 socialloser",
-        "text": "海力士有種歸零 韓狗人一起和我下地獄",
-        "time": "TG即時推播"
-      }
-    ]
-  },
-  "鴻海 (2317)": {
-    "Keywords": {},
-    "Comments": [
-      {
-        "user": "📱 [ptt_stock_follow_chat] 🟢 推 waynesnow",
-        "text": "公公指標好準...",
-        "time": "TG即時推播"
-      }
-    ]
-  },
-  "大立光 (3008)": {
-    "Keywords": {
-      "跌": 1
-    },
-    "Comments": [
-      {
-        "user": "📱 [ptt_stock_follow_chat] 🟢 推 fp737",
-        "text": "怎麼突然殺那麼大力⚪ → PeikangShin ：開在媽媽十塊⚪ → Kyameron    ：債券現在漲了 反而該擔心🟢 推 ZO20        ：遙想有一個星期五看台指看到跌停",
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 lovebabyqqq",
+        "text": "老黃看到泡沫了 大麥空才是贏家 越多人酸越要相信泡",
         "time": "TG即時推播"
       }
     ]
