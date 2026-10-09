@@ -1,159 +1,233 @@
 {
   "台積電 (2330)": {
-    "Keywords": {},
+    "Keywords": {
+      "利空": 3,
+      "空": 3,
+      "跌": 5,
+      "崩": 2,
+      "法說": 3,
+      "財報": 1,
+      "買": 1,
+      "歐印": 1,
+      "賺": 1,
+      "賣": 1,
+      "EPS": 1,
+      "營收": 2,
+      "爛": 1
+    },
     "Comments": [
       {
-        "user": "📱 [ptt_stock_follow_chat] 🟢 推 mamorui",
-        "text": "已經經歷 https://i.mopix.cc/OfRggO.jpg",
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 OhMyGoose",
+        "text": "GG應該是有超大利空",
         "time": "TG即時推播"
       },
       {
-        "user": "📱 [ptt_stock_follow_chat] 🟢 推 tsubasawolfy",
-        "text": "https://i.imgur.com/Czgg4HQ.png",
+        "user": "📱 [ptt_stock_follow_chat] 🔴 噓 yulin0619",
+        "text": "GG應該有超大利空？那你要不要看英特爾的跌更多",
+        "time": "TG即時推播"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → yulin0619",
+        "text": "是不是英特爾有比台積電更大的利空？",
+        "time": "TG即時推播"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 agvnol",
+        "text": "台積電崩盤.....",
+        "time": "TG即時推播"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🔴 噓 pru5566",
+        "text": "台積電只剩五萬蛙當成寶",
+        "time": "TG即時推播"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → pru5566",
+        "text": "就想問傻多 真的以為台積電晶片很稀缺喔",
+        "time": "TG即時推播"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 a2080259",
+        "text": "gg回1000 發哥回1200 股價靠攏了",
+        "time": "TG即時推播"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 hidework",
+        "text": "台積電要吃5%了嗎",
+        "time": "TG即時推播"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 JMSDF",
+        "text": "台積電ADR這種弱勢，好久沒有了，一路往下",
+        "time": "TG即時推播"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 ksuenjjr",
+        "text": "ASTS感覺還會跌一陣子⚪ → babyyou0988 ：美積電是美積電 台積電是台積電⚪ → dosoleil    ：結果又只有卡哇受傷嗎🟢 推 Alonso2005  ：一點氣氛都沒，還是喝酒好了",
+        "time": "TG即時推播"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 ASG",
+        "text": "台積電明明就一直創高",
+        "time": "TG即時推播"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 macheal",
+        "text": "台積電再跌也跌不到2400以下了啊...",
+        "time": "TG即時推播"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 nikok",
+        "text": "GG被黑了？",
+        "time": "TG即時推播"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 gtaped05550",
+        "text": "台積電法說隔天崩跌兩千",
+        "time": "TG即時推播"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → eierom",
+        "text": "上次七月台積電財報超好砸盤，這次月減自己想",
+        "time": "TG即時推播"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 stocktonty",
+        "text": "下週GG法說救全村",
+        "time": "TG即時推播"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 Jaspercool",
+        "text": "買啥GG 光通的天下 我要歐印",
+        "time": "TG即時推播"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 eierom",
+        "text": "下禮拜台積電法說完就會砸盤了",
+        "time": "TG即時推播"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → b9513227",
+        "text": "GG今年EPS110 明年EPS150 你不想賺錢可以賣一賣",
+        "time": "TG即時推播"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → guky",
+        "text": "蘋果砍單，難怪gg九月營收沒繼續往上創新高",
+        "time": "TG即時推播"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 good10740",
+        "text": "蘋果不干GG的事.. 去找公公",
+        "time": "TG即時推播"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 Bencc142",
+        "text": "台灣的電 不支持台積電這種公司 跌爛剛好",
+        "time": "TG即時推播"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 Gazza555",
+        "text": "台積電怎麼了 美國人軟屌",
         "time": "TG即時推播"
       }
     ]
   },
-  "上詮 (3363)": {
+  "聯發科 (2454)": {
     "Keywords": {},
     "Comments": [
       {
-        "user": "📱 [ptt_stock_follow_chat] ⚪ → pttstock",
-        "text": "大立光是不是搶了上詮客戶?!",
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 a2080259",
+        "text": "gg回1000 發哥回1200 股價靠攏了",
         "time": "TG即時推播"
       },
       {
-        "user": "📱 [ptt_stock_follow_chat] 🟢 推 Axwell",
-        "text": "上詮就廢物一個",
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 a2080259",
+        "text": "台股應該要回45比較合理 發哥至少要先兩根",
+        "time": "TG即時推播"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → joygo",
+        "text": "發哥多少可以接",
+        "time": "TG即時推播"
+      }
+    ]
+  },
+  "宜鼎 (5289)": {
+    "Keywords": {
+      "買": 1,
+      "套": 1
+    },
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 serenewen",
+        "text": "我是白癡才買宜鼎",
+        "time": "TG即時推播"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 serenewen",
+        "text": "我也被套……唉 金庸大拜託救宜鼎",
+        "time": "TG即時推播"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 serenewen",
+        "text": "宜鼎真的沒救了",
+        "time": "TG即時推播"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 serenewen",
+        "text": "誰有宜鼎？",
+        "time": "TG即時推播"
+      }
+    ]
+  },
+  "鴻海 (2317)": {
+    "Keywords": {
+      "崩": 1
+    },
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → asws0808",
+        "text": "海公公出量真的是個崩盤訊號",
+        "time": "TG即時推播"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 good10740",
+        "text": "蘋果不干GG的事.. 去找公公",
+        "time": "TG即時推播"
+      }
+    ]
+  },
+  "川湖 (2059)": {
+    "Keywords": {
+      "買": 1
+    },
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 a100213",
+        "text": "希望川湖不要被搞，昨天才買了一堆零股QQ",
+        "time": "TG即時推播"
+      }
+    ]
+  },
+  "至上 (8112)": {
+    "Keywords": {},
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → garlos",
+        "text": "可能共和黨贏不贏也不在乎 利益至上",
         "time": "TG即時推播"
       }
     ]
   },
   "力士 (4923)": {
     "Keywords": {
-      "買": 1
+      "爛": 1
     },
     "Comments": [
       {
-        "user": "📱 [ptt_stock_follow_chat] 🟢 推 dog41125",
-        "text": "村田海力士停損一半了該買什麼呢",
-        "time": "TG即時推播"
-      }
-    ]
-  },
-  "友達 (2409)": {
-    "Keywords": {
-      "噴": 2
-    },
-    "Comments": [
-      {
-        "user": "📱 [ptt_stock_follow_chat] ⚪ → opticalman",
-        "text": "友達會跟著噴嗎",
-        "time": "TG即時推播"
-      }
-    ]
-  },
-  "合一 (4743)": {
-    "Keywords": {},
-    "Comments": [
-      {
-        "user": "📱 [ptt_stock_follow_chat] ⚪ → icelaw",
-        "text": "融合一起",
-        "time": "TG即時推播"
-      }
-    ]
-  },
-  "光明 (4420)": {
-    "Keywords": {},
-    "Comments": [
-      {
-        "user": "📱 [ptt_stock_follow_chat] 🔴 噓 icelaw",
-        "text": "一般正常人的靈魂是藍色的，正確使用光明神咒你就會",
-        "time": "TG即時推播"
-      }
-    ]
-  },
-  "大將 (1453)": {
-    "Keywords": {},
-    "Comments": [
-      {
-        "user": "📱 [ptt_stock_follow_chat] ⚪ → pttstock",
-        "text": "SI大將軍 憨川 準備11/5被擊倒",
-        "time": "TG即時推播"
-      }
-    ]
-  },
-  "大立光 (3008)": {
-    "Keywords": {},
-    "Comments": [
-      {
-        "user": "📱 [ptt_stock_follow_chat] ⚪ → pttstock",
-        "text": "大立光是不是搶了上詮客戶?!",
-        "time": "TG即時推播"
-      }
-    ]
-  },
-  "全台 (3038)": {
-    "Keywords": {
-      "空": 1,
-      "99": 1
-    },
-    "Comments": [
-      {
-        "user": "📱 [ptt_stock_follow_chat] ⚪ → pttstock",
-        "text": "全台只有+~老輸看空 99.9%老輸都做多",
-        "time": "TG即時推播"
-      }
-    ]
-  },
-  "統一超 (2912)": {
-    "Keywords": {
-      "爛": 1,
-      "空": 1
-    },
-    "Comments": [
-      {
-        "user": "📱 [ptt_stock_follow_chat] ⚪ → kidd085",
-        "text": "喵喵怎麼可以打這麼爛 準備空統一超氣死",
-        "time": "TG即時推播"
-      }
-    ]
-  },
-  "群創 (3481)": {
-    "Keywords": {
-      "爛": 1,
-      "空": 1
-    },
-    "Comments": [
-      {
-        "user": "📱 [ptt_stock_follow_chat] ⚪ → kidd085",
-        "text": "喵喵怎麼可以打這麼爛 準備空統一超氣死",
-        "time": "TG即時推播"
-      }
-    ]
-  },
-  "統一 (1216)": {
-    "Keywords": {
-      "爛": 1,
-      "空": 1
-    },
-    "Comments": [
-      {
-        "user": "📱 [ptt_stock_follow_chat] ⚪ → kidd085",
-        "text": "喵喵怎麼可以打這麼爛 準備空統一超氣死",
-        "time": "TG即時推播"
-      }
-    ]
-  },
-  "萬在 (4543)": {
-    "Keywords": {
-      "跌": 1,
-      "空": 1
-    },
-    "Comments": [
-      {
-        "user": "📱 [ptt_stock_follow_chat] 🟢 推 pttstock",
-        "text": "大多頭還空 空你老輸 等跌破四萬在空!",
+        "user": "📱 [ptt_stock_follow_chat] 🔴 噓 socialloser",
+        "text": "有人知道三星海力士在爛三小嗎",
         "time": "TG即時推播"
       }
     ]
