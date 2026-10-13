@@ -338,6 +338,31 @@ def get_institutional_data():
             summary["TrustTopBuy"] = sorted(t_list, key=lambda x: x["net"], reverse=True)[:3]
     except Exception as e:
         print(f"Error fetching institutional data: {e}")
+
+    # 補充櫃買中心 (TPEx 上櫃) 三大法人買賣超明細
+    try:
+        tpex_url = "https://www.tpex.org.tw/web/stock/3insti/daily_trade/3itrade_hedge_result.php?l=zh-tw&o=json&se=EW&t=D"
+        tpex_res = safe_get(tpex_url, is_json=True)
+        if isinstance(tpex_res, dict) and tpex_res.get("tables"):
+            for row in tpex_res["tables"][0].get("data", []):
+                code = row[0].strip()
+                if len(code) == 4 and code not in inst_data:
+                    try:
+                        foreign_net = int(row[10].replace(",", "")) // 1000
+                        trust_net = int(row[13].replace(",", "")) // 1000
+                        dealer_net = int(row[22].replace(",", "")) // 1000
+                        total_net = int(row[23].replace(",", "")) // 1000
+                        inst_data[code] = {
+                            "ForeignNet": foreign_net,
+                            "TrustNet": trust_net,
+                            "DealerNet": dealer_net,
+                            "TotalNet": total_net
+                        }
+                    except:
+                        pass
+    except Exception as e:
+        print(f"Error fetching TPEx institutional data: {e}")
+
     return inst_data, summary
 
 def get_margin_data():
@@ -389,6 +414,31 @@ def get_margin_data():
                             continue
     except Exception as e:
         print(f"Error fetching margin data: {e}")
+
+    # 補充櫃買中心 (TPEx 上櫃) 融資融券明細
+    try:
+        tpex_m_url = "https://www.tpex.org.tw/openapi/v1/tpex_mainboard_margin_balance"
+        tpex_m_res = safe_get(tpex_m_url, is_json=True)
+        if isinstance(tpex_m_res, list):
+            for item in tpex_m_res:
+                code = item.get("SecuritiesCompanyCode", "").strip()
+                if len(code) == 4 and code not in margin_stock_data:
+                    try:
+                        m_cur = int(item.get("MarginPurchaseBalance", 0) or 0)
+                        m_prev = int(item.get("MarginPurchaseBalancePreviousDay", 0) or 0)
+                        s_cur = int(item.get("ShortSaleBalance", 0) or 0)
+                        s_prev = int(item.get("ShortSaleBalancePreviousDay", 0) or 0)
+                        margin_stock_data[code] = {
+                            "MarginDiff": m_cur - m_prev,
+                            "MarginBalance": f"{m_cur:,}",
+                            "ShortDiff": s_cur - s_prev,
+                            "ShortBalance": f"{s_cur:,}"
+                        }
+                    except:
+                        pass
+    except Exception as e:
+        print(f"Error fetching TPEx margin data: {e}")
+
     return margin_stock_data, summary
 
 def get_ai_market_summary(results, market_data, taiex_info):
@@ -544,7 +594,7 @@ def crawl_comments(url):
             })
     return comments
 
-def crawl_telegram_chat(max_pages=30):
+def crawl_telegram_chat(max_pages=80):
     channels_str = os.environ.get("TELEGRAM_CHANNELS", "")
     ch_list = [c.strip().lstrip("@") for c in channels_str.split(",") if c.strip()] if channels_str else TELEGRAM_CHANNELS
     if "ptt_stock_follow_chat" not in ch_list:
@@ -830,13 +880,8 @@ def analyze(comments, stocks, valuations, sectors, price_data, inst_data, inst_s
             tot_n = int(inst.get("TotalNet", 0)) if inst.get("TotalNet", "-") != "-" else (fn + tn)
             md = int(m_diff) if m_diff != "-" else 0
             
-            if (tot_n > 300 or fn > 300 or tn > 100) and md < -100:
-                chip_signal = "💎 融資退場 ✕ 法人吸籌 (洗盤完畢)"
-            elif (tot_n > 300 or (fn > 200 and tn > 0)) and data["Neg"] >= data["Pos"]:
-                chip_signal = "🟢 法人逆勢買 ✕ 散戶看空 (潛在軋空強多)"
-            elif fn > 800 and tn > 100:
-                chip_signal = "🔥 土洋法人同步重押"
-            elif (fn < -800 or tot_n < -800) and md > 150:
+            # 高危散戶接刀/大戶出貨訊號優先判定
+            if (fn < -800 or tot_n < -800) and md > 100:
                 chip_signal = "💣 外資大倒貨 ✕ 散戶融資接刀 (套牢警戒)"
             elif (fn < -1000 or tot_n < -1000) and data["Pos"] > data["Neg"]:
                 chip_signal = "🔴 外資大出貨 ✕ 散戶追高 (散戶套牢警報)"
@@ -844,7 +889,14 @@ def analyze(comments, stocks, valuations, sectors, price_data, inst_data, inst_s
                 chip_signal = "⚠️ 融資暴增 ✕ 散戶狂熱 (籌碼過熱浮額多)"
             elif fn < -800 and tn < -100:
                 chip_signal = "❄️ 土洋法人雙向提款"
-            elif tot_n > 500:
+            # 多方吸籌訊號 (嚴格要求法人整體買超 tot_n > 0 且外資未大倒貨 fn > -300)
+            elif tot_n > 200 and fn > -300 and md < -100:
+                chip_signal = "💎 融資退場 ✕ 法人吸籌 (洗盤完畢)"
+            elif tot_n > 200 and fn > -300 and data["Neg"] >= data["Pos"]:
+                chip_signal = "🟢 法人逆勢買 ✕ 散戶看空 (潛在軋空強多)"
+            elif fn > 800 and tn > 100:
+                chip_signal = "🔥 土洋法人同步重押"
+            elif tot_n > 500 and fn > 0:
                 chip_signal = "📈 法人主力偏多布局"
             elif tot_n < -500:
                 chip_signal = "📉 法人主力偏空調節"
@@ -1053,21 +1105,21 @@ def analyze(comments, stocks, valuations, sectors, price_data, inst_data, inst_s
         
         is_etf = str(r["Code"]).startswith("00")
         
-        # 1. 💎 主力吸籌／散戶下車 (非ETF + 法人買超 + 融資減少 或 散戶看空)
-        if not is_etf and (tot_n > 100 or fn > 200 or tn > 50) and (md < 0 or neg_r > pos_r):
+        # 1. 💎 主力吸籌／散戶下車 (非ETF + 法人整體實質大買 + 融資減少 或 散戶看空，且外資不能大賣)
+        if not is_etf and tot_n > 100 and fn > -300 and (md < 0 or neg_r > pos_r):
             tag = "資減+法人買" if md < -50 else ("土洋同買" if (fn > 0 and tn > 0) else "散戶看空+法人買")
             smart_money_candidates.append({**item_brief, "Tag": tag, "_sort": tot_n - md * 3})
-        # 2. 💣 主力出貨／散戶接刀 (非ETF + 法人大賣 + 融資逆勢增加接刀)
+        # 2. 💣 主力出貨／散戶接刀 (非ETF + 法人實質大賣 + 融資逆勢增加接刀)
         if not is_etf and (tot_n < -300 or fn < -500) and md > 50:
             tag = "外資倒貨+融資接刀" if fn < -500 else "法人出貨+散戶擴資"
             retail_trap_candidates.append({**item_brief, "Tag": tag, "_sort": md * 3 - tot_n})
         # 3. ⚡ 非權值 · 聲量黑馬 (排除萬年大型權值股與ETF，抓出討論度高且有買盤或漲勢的中小型股)
-        if not is_etf and r["Code"] not in mega_caps and r["Mentions"] >= 2 and (tot_n > 0 or chg_p > 0):
+        if not is_etf and r["Code"] not in mega_caps and (r["Mentions"] >= 2 or r["Score"] >= 10) and (tot_n > 0 or chg_p > 0):
             tag = f"聲量 {r['Mentions']} 則 · 法人+{tot_n}張" if tot_n > 0 else f"聲量 {r['Mentions']} 則 · 強勢 {r['ChangePercent']}"
             dark_horse_candidates.append({**item_brief, "Tag": tag, "_sort": r["Score"] + (20 if tot_n > 200 else 0)})
             
-    smart_money_list = sorted(smart_money_candidates, key=lambda x: x["_sort"], reverse=True)[:5]
-    retail_trap_list = sorted(retail_trap_candidates, key=lambda x: x["_sort"], reverse=True)[:5]
+    smart_money_list = sorted([c for c in smart_money_candidates if c["_sort"] > 0], key=lambda x: x["_sort"], reverse=True)[:5]
+    retail_trap_list = sorted([c for c in retail_trap_candidates if c["_sort"] > 0], key=lambda x: x["_sort"], reverse=True)[:5]
     dark_horse_list = sorted(dark_horse_candidates, key=lambda x: x["_sort"], reverse=True)[:5]
     
     market_data = {
@@ -1236,7 +1288,13 @@ def main():
             except: pass
             
         today_snapshot = {r["Stock"]: {"Score": r["Score"], "Mentions": r["Mentions"]} for r in res[:40]}
-        history[today_str] = today_snapshot
+        if today_str not in history:
+            history[today_str] = today_snapshot
+        else:
+            # 智慧合併：若當日已有歷程，保留最高聲量與分數，避免少量標的覆蓋豐富紀錄
+            for st, st_data in today_snapshot.items():
+                if st not in history[today_str] or st_data["Mentions"] >= history[today_str][st].get("Mentions", 0):
+                    history[today_str][st] = st_data
         dates = sorted(history.keys())[-7:]
         history = {d: history[d] for d in dates}
         
