@@ -845,8 +845,8 @@
   },
   "2026-10-14": {
     "台積電 (2330)": {
-      "Score": 387,
-      "Mentions": 98
+      "Score": 436,
+      "Mentions": 105
     },
     "南亞 (1303)": {
       "Score": 319,
@@ -913,7 +913,7 @@
       "Mentions": 3
     },
     "台虹 (8039)": {
-      "Score": 17,
+      "Score": 19,
       "Mentions": 4
     },
     "華新 (1605)": {
@@ -929,8 +929,8 @@
       "Mentions": 4
     },
     "大立光 (3008)": {
-      "Score": 15,
-      "Mentions": 3
+      "Score": 27,
+      "Mentions": 4
     },
     "蔚華科 (3055)": {
       "Score": 15,
@@ -977,8 +977,8 @@
       "Mentions": 3
     },
     "群創 (3481)": {
-      "Score": 12,
-      "Mentions": 2
+      "Score": 17,
+      "Mentions": 3
     },
     "鴻海 (2317)": {
       "Score": 12,
@@ -1003,6 +1003,66 @@
     "先進光 (3362)": {
       "Score": 10,
       "Mentions": 2
+    },
+    "大毅 (2478)": {
+      "Score": 19,
+      "Mentions": 4
+    },
+    "力成 (6239)": {
+      "Score": 7,
+      "Mentions": 1
+    },
+    "全新 (2455)": {
+      "Score": 7,
+      "Mentions": 1
+    },
+    "光聖 (6442)": {
+      "Score": 7,
+      "Mentions": 1
+    },
+    "信大 (1109)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "富邦金 (2881)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "達明 (4585)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "台郡 (6269)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "遠東新 (1402)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "南茂 (8150)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "禾伸堂 (3026)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "台亞 (2340)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "彰銀 (2801)": {
+      "Score": 4,
+      "Mentions": 2
+    },
+    "日電貿 (3090)": {
+      "Score": 4,
+      "Mentions": 1
+    },
+    "玉晶光 (3406)": {
+      "Score": 3,
+      "Mentions": 1
     }
   }
 }
