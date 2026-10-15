@@ -1,24 +1,81 @@
 {
   "台積電 (2330)": {
     "Keywords": {
-      "跌": 8,
-      "法說": 9,
+      "跌": 7,
+      "爛": 1,
+      "法說": 5,
+      "買": 1,
+      "上車": 1,
+      "老蘇": 2,
       "空": 3,
+      "展望": 1,
+      "賣": 3,
       "救命": 1,
-      "套": 3,
+      "套": 1,
       "嘎": 2,
-      "老蘇": 1,
-      "賣": 2,
-      "99": 2,
-      "賺": 1,
-      "買": 4,
-      "虧": 1,
-      "綠": 1,
-      "崩": 1,
-      "獲利": 1,
-      "毛利": 1
+      "99": 1
     },
     "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 fajita",
+        "text": "GG縱使不如預期也已經先跌過了,啊不然是要怎樣",
+        "time": "TG即時推播"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → asjh612",
+        "text": "GG如果一直漲 不如預期跌正常 前面跌過了有啥好跌",
+        "time": "TG即時推播"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 rhythm7321",
+        "text": "台積電法說開太爛 法會真的會變升天",
+        "time": "TG即時推播"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → INescape123",
+        "text": "GG法說救台灣",
+        "time": "TG即時推播"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 mrgyt1030",
+        "text": "入手10股台積電壓壓驚",
+        "time": "TG即時推播"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 kidd085",
+        "text": "GG被老蘇鞭打後突然充滿力量🟢 推 Falagar     ：5萬點前最後的上車機會了 要買要快⚪ → abc0922001  ：阿沒有最多的是2026/07/17那天⚪ → brian040818 ：記住那些跟你說會回測5年線的ID",
+        "time": "TG即時推播"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 storyb181",
+        "text": "油價跌美債跌，GG展望爆炸好，為啥還想空….",
+        "time": "TG即時推播"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 audic",
+        "text": "科技肥宅還有錢，不要跟gger對做",
+        "time": "TG即時推播"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 joe2",
+        "text": "https://i.imgur.com/4fGGtHN.jpeg",
+        "time": "TG即時推播"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 GODLP",
+        "text": "VV爽 台積電要來拯救全世界了",
+        "time": "TG即時推播"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → asjh612",
+        "text": "外資的台積電早就從7成以上賣到剩不到69%了",
+        "time": "TG即時推播"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 aaaaaaa1",
+        "text": "台積電 外資賣三萬五千張 只跌一趴 XDDDDDDDDDDDDDD",
+        "time": "TG即時推播"
+      },
       {
         "user": "📱 [ptt_stock_follow_chat] 🟢 推 inmylove77",
         "text": "gg上次法說跌2900這次算客氣了吧",
@@ -83,108 +140,129 @@
         "user": "📱 [ptt_stock_follow_chat] ⚪ → pttstock",
         "text": "龍哥套死CPO 又套死封測 現在換吹GG",
         "time": "TG即時推播"
-      },
+      }
+    ]
+  },
+  "川寶 (1595)": {
+    "Keywords": {
+      "跌": 1,
+      "空": 1,
+      "被錯殺": 1,
+      "嘎": 1,
+      "崩": 1,
+      "綠": 1
+    },
+    "Comments": [
       {
-        "user": "📱 [ptt_stock_follow_chat] ⚪ → f19870421",
-        "text": "不是外資沒砸盤早就五萬 而是外資就在這等你幫他抬🟢 推 tkjh10131   ：今天嘎尾老蘇講話好大聲⚪ → cool189     ：TSM還在跌 到底三小🔴 噓 water82522  ：GG是有法說今天才勉強撐在季線上 明天沒防護罩囉",
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 dailymilk",
+        "text": "川寶安靜地可怕 以往跌個幾趴就出來哀哀叫的 怪哉",
         "time": "TG即時推播"
       },
       {
-        "user": "📱 [ptt_stock_follow_chat] 🟢 推 Gazza555",
-        "text": "外資大賣 GG法會 995🟢 推 trogtor     ：小兒正等著內資拉上去再收割⚪ → event1408472：現在開始空到44000還有肉🟢 推 gtaped05550 ：明天完蛋了🟢 推 kwanles     ：完了，這次真的完了",
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → dailymilk",
+        "text": "川寶一定在玩什麼把戲 等著看",
         "time": "TG即時推播"
       },
       {
-        "user": "📱 [ptt_stock_follow_chat] 🟢 推 fywei",
-        "text": "外資明顯沒有影響力了 七巨頭牽手台積電嘎爆外資",
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → calqlus",
+        "text": "可以想像川寶在ppi作弊的桌馬了。",
         "time": "TG即時推播"
       },
       {
-        "user": "📱 [ptt_stock_follow_chat] 🟢 推 joe2",
-        "text": "https://i.imgur.com/X9W7GGX.jpeg",
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 dailymilk",
+        "text": "川寶這幾天那麼安靜 就是為了今晚大V演說",
         "time": "TG即時推播"
       },
       {
-        "user": "📱 [ptt_stock_follow_chat] 🟢 推 yellone741",
-        "text": "大媽跟大哥要撐住呀 明天是最後的殺盤了",
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 fajita",
+        "text": "川寶繃不住要用MOAB轟伊了,油價應該會被打下來",
         "time": "TG即時推播"
       },
       {
-        "user": "📱 [ptt_stock_follow_chat] 🟢 推 CCH2022",
-        "text": "GG前三季賺78.75，今年漲了890元，要再跌都合理",
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 energy100203",
+        "text": "川寶沒用",
         "time": "TG即時推播"
       },
       {
-        "user": "📱 [ptt_stock_follow_chat] ⚪ → qwert1122",
-        "text": "https://i.mopix.cc/ahljGG.jpg",
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → BUKU",
+        "text": "川寶跪了？⚪ → fallinlove15：我還有錢 還有很多不想追高的錢⚪ → brian040818 ：沒人空在地板吧? 是不是都被嘎了?🟢 推 a2080259    ：為什麼要搞我，還有一張還沒回補耶🔴 噓 kenbo       ：因為台股被錯殺了，就這麼簡單",
         "time": "TG即時推播"
       },
       {
-        "user": "📱 [ptt_stock_follow_chat] 🟢 推 Ensidia",
-        "text": "你各位還想賭GG法會啊 都套到了吧",
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 strong2205",
+        "text": "又有低能憨多在哪阿呆股叫的 明天繼續崩～⚪ → bbcer       ：看過台指紅綠燈後,現在這種不到5%的都還好欸🟢 推 LipaCat5566 ：川寶下一招想也知道是宣布跟伊朗談判有進展⚪ → CDA2        ：VVVV VVVV VVVV VVVV VVVV VVVV VVVV VVVV VVVV",
         "time": "TG即時推播"
       },
       {
-        "user": "📱 [ptt_stock_follow_chat] ⚪ → gest7240",
-        "text": "台積電這個持續放量的產能，nv會受惠吧",
-        "time": "TG即時推播"
-      },
-      {
-        "user": "📱 [ptt_stock_follow_chat] 🟢 推 DellSale999",
-        "text": "年底前 80元的台灣50  1字頭的GG  有機會買到了吧?",
-        "time": "TG即時推播"
-      },
-      {
-        "user": "📱 [ptt_stock_follow_chat] ⚪ → fajita",
-        "text": "這次GG法會效應早就提早反應了",
-        "time": "TG即時推播"
-      },
-      {
-        "user": "📱 [ptt_stock_follow_chat] ⚪ → Benetnasch",
-        "text": "台灣人目標是把台積電從外資手上買回來吧？還有6成",
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 badbadook",
+        "text": "國安呢黑手呢川寶呢",
         "time": "TG即時推播"
       }
     ]
   },
-  "彰銀 (2801)": {
+  "力士 (4923)": {
     "Keywords": {
-      "買": 1,
-      "跌": 1
+      "跌": 2,
+      "破底": 1
     },
     "Comments": [
       {
-        "user": "📱 [ptt_stock_follow_chat] 🟢 推 eierom",
-        "text": "彰銀我有做多幾口，真的不錯",
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 pikachu123",
+        "text": "海力士是要倒閉了嗎",
         "time": "TG即時推播"
       },
       {
-        "user": "📱 [ptt_stock_follow_chat] 🟢 推 f204137",
-        "text": "http://imgpoi.com/i/75BOLPD.jpg 3年前買彰銀 眼紅",
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 Sianan",
+        "text": "資金都去美債了 靠北 韓力士明天再跌要破底了",
         "time": "TG即時推播"
       },
       {
-        "user": "📱 [ptt_stock_follow_chat] ⚪ → dowcher",
-        "text": "沒錢下單窮鬼：哼你一次下單百張彰銀不算什麼，我是",
+        "user": "📱 [ptt_stock_follow_chat] 🔴 噓 vul3wl6",
+        "text": "海力士盤前跌的無慘= =",
         "time": "TG即時推播"
       },
       {
-        "user": "📱 [ptt_stock_follow_chat] 🟢 推 f204137",
-        "text": "台股下跌 彰銀上漲 冒出優越感 哈",
+        "user": "📱 [ptt_stock_follow_chat] 🔴 噓 socialloser",
+        "text": "請大家救救我的海力士 QQ",
+        "time": "TG即時推播"
+      }
+    ]
+  },
+  "南亞 (1303)": {
+    "Keywords": {
+      "空": 1,
+      "跌": 1,
+      "老蘇": 1
+    },
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 braai",
+        "text": "放空南亞",
         "time": "TG即時推播"
       },
       {
-        "user": "📱 [ptt_stock_follow_chat] ⚪ → dowcher",
-        "text": "沒單窮鬼- 哼你幾百張成本16彰銀不算什麼 窮鬼真的",
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 DragonGirl48",
+        "text": "31117!!!!!⚪ → f204137     ：哈 人性超有趣 漲的時候與跌的時候 心態很不同🔴 噓 vncss       ：陳嘉偉還敢講南亞 快笑死 會員都斷頭了🔴 噓 takuya1     ：這次真的完蛋了，我是認真的，老蘇雖然一直被笑但終",
         "time": "TG即時推播"
-      },
+      }
+    ]
+  },
+  "寶一 (8222)": {
+    "Keywords": {},
+    "Comments": [
       {
-        "user": "📱 [ptt_stock_follow_chat] ⚪ → dowcher",
-        "text": "你各位忙了一個月炫零股，我彰銀又要回30",
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → dailymilk",
+        "text": "川寶一定在玩什麼把戲 等著看",
         "time": "TG即時推播"
-      },
+      }
+    ]
+  },
+  "全家 (5903)": {
+    "Keywords": {},
+    "Comments": [
       {
-        "user": "📱 [ptt_stock_follow_chat] ⚪ → dowcher",
-        "text": "抱著彰銀什麼事都不用做",
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 zx0158",
+        "text": "全家怎麼沒食物啦，別跟我搶啊！",
         "time": "TG即時推播"
       }
     ]
@@ -195,6 +273,26 @@
       {
         "user": "📱 [ptt_stock_follow_chat] ⚪ → bbcer",
         "text": "只知道祥碩欸，石頭概念穀",
+        "time": "TG即時推播"
+      }
+    ]
+  },
+  "德英 (4911)": {
+    "Keywords": {},
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 JMSDF",
+        "text": "歐洲半導體LIVE: 德英飛凌-8.53% 義法半導-7.01%",
+        "time": "TG即時推播"
+      }
+    ]
+  },
+  "大立 (4716)": {
+    "Keywords": {},
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 Jaspercool",
+        "text": "沒有大破哪來的大立 不先捶到4萬點怎麼漲",
         "time": "TG即時推播"
       }
     ]
@@ -239,16 +337,6 @@
       }
     ]
   },
-  "華邦電 (2344)": {
-    "Keywords": {},
-    "Comments": [
-      {
-        "user": "📱 [ptt_stock_follow_chat] ⚪ → stocktonty",
-        "text": "去年10月~11月華邦電69殺到52的時候有多少人接呢",
-        "time": "TG即時推播"
-      }
-    ]
-  },
   "全台 (3038)": {
     "Keywords": {
       "跌": 1,
@@ -265,77 +353,30 @@
       }
     ]
   },
-  "南亞 (1303)": {
+  "元太 (8069)": {
     "Keywords": {
-      "跌": 1,
+      "跌": 1
+    },
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → f19870421",
+        "text": "元太外匯台幣還在貶喔🟢 推 metallolly  ：晚上準備去搶友善時光🟢 推 jin49518124 ：嗚嗚嗚，滿手血啾命🟢 推 q09701023   ：主跌段",
+        "time": "TG即時推播"
+      }
+    ]
+  },
+  "和大 (1536)": {
+    "Keywords": {
+      "賣": 1,
+      "空": 1,
+      "虧": 1,
+      "嘎": 1,
       "老蘇": 1
     },
     "Comments": [
       {
-        "user": "📱 [ptt_stock_follow_chat] 🟢 推 DragonGirl48",
-        "text": "31117!!!!!⚪ → f204137     ：哈 人性超有趣 漲的時候與跌的時候 心態很不同🔴 噓 vncss       ：陳嘉偉還敢講南亞 快笑死 會員都斷頭了🔴 噓 takuya1     ：這次真的完蛋了，我是認真的，老蘇雖然一直被笑但終",
-        "time": "TG即時推播"
-      }
-    ]
-  },
-  "星通 (3025)": {
-    "Keywords": {
-      "賣": 1
-    },
-    "Comments": [
-      {
-        "user": "📱 [ptt_stock_follow_chat] 🟢 推 house911",
-        "text": "外豬賣超 -3025 億 ?",
-        "time": "TG即時推播"
-      }
-    ]
-  },
-  "寶一 (8222)": {
-    "Keywords": {
-      "跌": 1
-    },
-    "Comments": [
-      {
-        "user": "📱 [ptt_stock_follow_chat] 🟢 推 fajita",
-        "text": "祥德跟川寶一樣要選舉，跌2萬點是想太多",
-        "time": "TG即時推播"
-      }
-    ]
-  },
-  "玉晶光 (3406)": {
-    "Keywords": {
-      "跌": 1
-    },
-    "Comments": [
-      {
-        "user": "📱 [ptt_stock_follow_chat] ⚪ → GingFreecss",
-        "text": "大跌的時候不知道為什麼光學很強 今天有弄玉晶光",
-        "time": "TG即時推播"
-      }
-    ]
-  },
-  "台灣大 (3045)": {
-    "Keywords": {
-      "空": 1,
-      "嘎": 1
-    },
-    "Comments": [
-      {
-        "user": "📱 [ptt_stock_follow_chat] ⚪ → icedog122",
-        "text": "台灣大家一起嘎爆外資空單，大家說好不好",
-        "time": "TG即時推播"
-      }
-    ]
-  },
-  "台南 (1473)": {
-    "Keywords": {
-      "跌": 1,
-      "空": 1
-    },
-    "Comments": [
-      {
-        "user": "📱 [ptt_stock_follow_chat] ⚪ → aaaaaaa1",
-        "text": "撐盤狗天天低收籌碼 跳空開高 請一次死🟢 推 stocktonty  ：明天台南車站地面最後一班電車開出 之後就變地下站🟢 推 Daniel0712  ：我也想吃冰炫風🟢 推 icedog122   ：就因為台股沒跌到，所以補跌會更慘",
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 ILoveOppai",
+        "text": "不聽老人言 吃虧在眼前 嘎尾老蘇和大賣空早就預告",
         "time": "TG即時推播"
       }
     ]
