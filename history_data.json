@@ -1010,7 +1010,7 @@
     },
     "彰銀 (2801)": {
       "Score": 21,
-      "Mentions": 5
+      "Mentions": 7
     },
     "華電 (1603)": {
       "Score": 21,
@@ -1146,6 +1146,42 @@
     },
     "崴寶 (7744)": {
       "Score": 5,
+      "Mentions": 1
+    },
+    "祥碩 (5269)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "大將 (1453)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "華邦電 (2344)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "全台 (3038)": {
+      "Score": 4,
+      "Mentions": 1
+    },
+    "星通 (3025)": {
+      "Score": 3,
+      "Mentions": 1
+    },
+    "寶一 (8222)": {
+      "Score": 3,
+      "Mentions": 1
+    },
+    "玉晶光 (3406)": {
+      "Score": 3,
+      "Mentions": 1
+    },
+    "台灣大 (3045)": {
+      "Score": 1,
+      "Mentions": 1
+    },
+    "台南 (1473)": {
+      "Score": 1,
       "Mentions": 1
     }
   }
