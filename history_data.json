@@ -1045,8 +1045,8 @@
       "Mentions": 3
     },
     "力士 (4923)": {
-      "Score": 14,
-      "Mentions": 4
+      "Score": 19,
+      "Mentions": 7
     },
     "聯電 (2303)": {
       "Score": 13,
@@ -1185,8 +1185,8 @@
       "Mentions": 1
     },
     "川寶 (1595)": {
-      "Score": 37,
-      "Mentions": 9
+      "Score": 82,
+      "Mentions": 20
     },
     "全家 (5903)": {
       "Score": 5,
@@ -1206,6 +1206,42 @@
     },
     "和大 (1536)": {
       "Score": -3,
+      "Mentions": 1
+    },
+    "統一 (1216)": {
+      "Score": 8,
+      "Mentions": 3
+    },
+    "大成 (1210)": {
+      "Score": 7,
+      "Mentions": 1
+    },
+    "長榮 (2603)": {
+      "Score": 7,
+      "Mentions": 1
+    },
+    "羅麗芬-KY (6666)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "NVIDIA概念股": {
+      "Score": 3,
+      "Mentions": 1
+    },
+    "王座 (2751)": {
+      "Score": 3,
+      "Mentions": 1
+    },
+    "三竹 (8284)": {
+      "Score": 3,
+      "Mentions": 1
+    },
+    "大立光 (3008)": {
+      "Score": 1,
+      "Mentions": 1
+    },
+    "九豪 (6127)": {
+      "Score": -1,
       "Mentions": 1
     }
   }
