@@ -1241,8 +1241,8 @@
   },
   "2026-10-16": {
     "台積電 (2330)": {
-      "Score": 289,
-      "Mentions": 69
+      "Score": 378,
+      "Mentions": 92
     },
     "南亞 (1303)": {
       "Score": 72,
@@ -1285,7 +1285,7 @@
       "Mentions": 4
     },
     "台光電 (2383)": {
-      "Score": 16,
+      "Score": 20,
       "Mentions": 4
     },
     "創意 (3443)": {
@@ -1297,7 +1297,7 @@
       "Mentions": 3
     },
     "彰銀 (2801)": {
-      "Score": 15,
+      "Score": 12,
       "Mentions": 3
     },
     "昇達科 (3491)": {
@@ -1381,8 +1381,8 @@
       "Mentions": 3
     },
     "友達 (2409)": {
-      "Score": 7,
-      "Mentions": 3
+      "Score": 24,
+      "Mentions": 7
     },
     "中華電 (2412)": {
       "Score": 7,
@@ -1397,6 +1397,70 @@
       "Mentions": 1
     },
     "光環 (3234)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "三竹 (8284)": {
+      "Score": 14,
+      "Mentions": 4
+    },
+    "漢磊 (3707)": {
+      "Score": 9,
+      "Mentions": 3
+    },
+    "嘉晶 (3016)": {
+      "Score": 9,
+      "Mentions": 3
+    },
+    "聯鈞 (3450)": {
+      "Score": 6,
+      "Mentions": 2
+    },
+    "大將 (1453)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "農林 (2913)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "元太 (8069)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "台虹 (8039)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "漢測 (7856)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "中碳 (1723)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "永豐金 (2890)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "廣積 (8050)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "宏達電 (2498)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "愛普* (6531)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "聯詠 (3034)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "群聯 (8299)": {
       "Score": 5,
       "Mentions": 1
     }
