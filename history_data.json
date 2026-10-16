@@ -1465,12 +1465,12 @@
       "Mentions": 1
     },
     "NVIDIA概念股": {
-      "Score": 8,
-      "Mentions": 2
+      "Score": 36,
+      "Mentions": 9
     },
     "台灣大 (3045)": {
-      "Score": 7,
-      "Mentions": 1
+      "Score": 1,
+      "Mentions": 2
     },
     "全家 (5903)": {
       "Score": 7,
@@ -1514,6 +1514,46 @@
     },
     "南亞科 (2408)": {
       "Score": 3,
+      "Mentions": 1
+    },
+    "力士 (4923)": {
+      "Score": 13,
+      "Mentions": 3
+    },
+    "亞泥 (1102)": {
+      "Score": 10,
+      "Mentions": 2
+    },
+    "全台 (3038)": {
+      "Score": 10,
+      "Mentions": 2
+    },
+    "中鋼 (2002)": {
+      "Score": 7,
+      "Mentions": 1
+    },
+    "聚陽 (1477)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "儒鴻 (1476)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "台泥 (1101)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "中台 (6923)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "王座 (2751)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "新日興 (3376)": {
+      "Score": 5,
       "Mentions": 1
     }
   }
