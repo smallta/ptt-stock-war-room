@@ -2,11 +2,8 @@ name: PTT Stock War Room Auto Crawl & Deploy
 
 on:
   schedule:
-    # 台灣時間 (UTC+8)：週一至週五 09:00、11:45、14:00、18:30 自動執行
-    - cron: '0 1 * * 1-5'
-    - cron: '45 3 * * 1-5'
-    - cron: '0 6 * * 1-5'
-    - cron: '30 10 * * 1-5'
+    # 台灣時間 (UTC+8)：週一至週五 晚上 21:15 自動執行 (盤後籌碼與融資結算完畢)
+    - cron: '15 13 * * 1-5'
   workflow_dispatch: # 支援在 Actions 頁面手動點擊執行
 
 permissions:
