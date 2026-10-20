@@ -5,6 +5,12 @@ import re
 import json
 import time
 import os
+from datetime import datetime, timezone, timedelta
+
+TW_TZ = timezone(timedelta(hours=8))
+
+def get_tw_now():
+    return datetime.now(TW_TZ)
 
 try:
     from curl_cffi import requests as cffi_requests
@@ -375,6 +381,14 @@ def get_margin_data():
         url = "https://www.twse.com.tw/rwd/zh/marginTrading/MI_MARGN?response=json&selectType=ALL"
         res = safe_get(url, is_json=True)
         if isinstance(res, dict) and "tables" in res:
+            today_num = get_tw_now().strftime("%Y%m%d")
+            res_date = str(res.get("date", ""))
+            if res_date and res_date != today_num:
+                print(f"⚠️ 證交所今日 ({today_num}) 信用交易尚未更新，目前資料日期為 {res_date} (沿用前一營業日)")
+                summary["Notice"] = f"(資料日期: {res_date}，今日結算中)"
+            else:
+                summary["Notice"] = ""
+
             # Table 0: Credit Summary
             if len(res["tables"]) > 0 and "data" in res["tables"][0]:
                 t0 = res["tables"][0]["data"]
@@ -560,14 +574,32 @@ def get_taiex_intraday_trend():
 def find_chat_urls():
     chat_urls = []
     current_url = STOCK_BOARD_URL
-    for _ in range(20):
+    now_tw = get_tw_now()
+    today_slash = now_tw.strftime("%Y/%m/%d")        # e.g. "2026/10/20"
+    today_md_slash = now_tw.strftime("%m/%d")       # e.g. "10/20"
+    today_md_nozero = f"{now_tw.month}/{now_tw.day}" # e.g. "10/20"
+    
+    stop_paging = False
+    for page in range(25):
+        if stop_paging: break
         html = safe_get(current_url)
         if not html: break
         soup = BeautifulSoup(html, "html.parser")
-        for entry in soup.find_all("div", class_="r-ent"):
+        entries = soup.find_all("div", class_="r-ent")
+        for entry in entries:
             title_tag = entry.find("div", class_="title").find("a")
-            if title_tag and ("盤中閒聊" in title_tag.text or "盤後閒聊" in title_tag.text):
-                chat_urls.append(PTT_URL + title_tag["href"])
+            if not title_tag: continue
+            title = title_tag.text.strip()
+            if "盤中閒聊" in title or "盤後閒聊" in title:
+                # 嚴格判定：文章標題是否包含「今日日期」
+                is_today = (today_slash in title) or (today_md_slash in title) or (today_md_nozero in title)
+                if is_today:
+                    chat_urls.append(PTT_URL + title_tag["href"])
+                else:
+                    # 如果遇到舊日期的閒聊文，且今天已經抓到文章，說明已跨越到昨天，停止翻頁
+                    if len(chat_urls) > 0:
+                        stop_paging = True
+                        break
         paging = soup.find("div", class_="btn-group-paging")
         if paging:
             current_url = PTT_URL + paging.find_all("a")[1]["href"]
@@ -575,7 +607,9 @@ def find_chat_urls():
             break
         time.sleep(0.05)
     # Preserve newest-first order
-    return list(dict.fromkeys(chat_urls))
+    chat_urls = list(dict.fromkeys(chat_urls))
+    print(f"Found {len(chat_urls)} chat articles for today ({today_slash}).")
+    return chat_urls
 
 def crawl_comments(url):
     html = safe_get(url)
@@ -600,20 +634,42 @@ def crawl_telegram_chat(max_pages=80):
     if "ptt_stock_follow_chat" not in ch_list:
         ch_list.insert(0, "ptt_stock_follow_chat")
         
+    now_tw = get_tw_now()
+    today_date_str = now_tw.strftime("%Y-%m-%d") # e.g. "2026-10-20"
+    
     comments = []
     for ch in ch_list:
-        print(f"Fetching Telegram Channel: t.me/s/{ch} (up to {max_pages} pages)...")
+        print(f"Fetching Telegram Channel: t.me/s/{ch} (today: {today_date_str})...")
         before = None
+        stop_ch = False
         for page in range(max_pages):
+            if stop_ch: break
             try:
                 url = f"https://t.me/s/{ch}?before={before}" if before else f"https://t.me/s/{ch}"
                 html = safe_get(url)
                 if not html: break
                 soup = BeautifulSoup(html, "html.parser")
-                msgs = soup.find_all("div", class_="js-message_text")
-                if not msgs: break
-                for m in msgs:
-                    text = m.text.strip()
+                msg_divs = soup.find_all("div", class_="tgme_widget_message")
+                if not msg_divs: break
+                for m in msg_divs:
+                    time_tag = m.find("time")
+                    msg_time_str = "TG即時"
+                    if time_tag and time_tag.get("datetime"):
+                        try:
+                            dt_raw = time_tag["datetime"].replace("Z", "+00:00")
+                            msg_dt = datetime.fromisoformat(dt_raw).astimezone(TW_TZ)
+                            msg_date = msg_dt.strftime("%Y-%m-%d")
+                            if msg_date != today_date_str:
+                                # 遇到今天以前的歷史訊息，立即停止向後翻頁
+                                stop_ch = True
+                                continue
+                            msg_time_str = msg_dt.strftime("%H:%M")
+                        except Exception:
+                            pass
+                            
+                    text_el = m.find("div", class_="js-message_text")
+                    if not text_el: continue
+                    text = text_el.text.strip()
                     if "：" in text:
                         parts = text.split("：", 1)
                         user_str = parts[0].strip().replace("\n", " ")
@@ -621,16 +677,16 @@ def crawl_telegram_chat(max_pages=80):
                         comments.append({
                             "user": f"📱 [{ch}] {user_str}",
                             "content": content_str,
-                            "time": "TG即時推播"
+                            "time": msg_time_str
                         })
                     else:
                         comments.append({
                             "user": f"📱 [{ch}]",
                             "content": text,
-                            "time": "TG即時推播"
+                            "time": msg_time_str
                         })
                 more = soup.find("a", class_="tme_messages_more")
-                if more and "data-before" in more.attrs:
+                if more and "data-before" in more.attrs and not stop_ch:
                     before = more["data-before"]
                 else:
                     break
@@ -639,7 +695,7 @@ def crawl_telegram_chat(max_pages=80):
                 print(f"Error crawling Telegram channel {ch} page {page}: {e}")
                 break
             
-    print(f"Gathered {len(comments)} messages from {len(ch_list)} Telegram channel(s).")
+    print(f"Gathered {len(comments)} messages from {len(ch_list)} Telegram channel(s) for today ({today_date_str}).")
     return comments
 
 def parse_time_slot(time_str):
@@ -1174,6 +1230,7 @@ def generate_tg_digest(results, market_data):
     
     gh_pages_url = os.environ.get("GITHUB_PAGES_URL", "https://smallta.github.io/ptt-stock-war-room/")
     
+    notice_str = f" {margin_s.get('Notice')}" if margin_s.get("Notice") else ""
     lines = [
         f"📊 【PTT 戰情室 · 今日盤後實戰情報】 ({today})\n",
         f"📈 今日大盤加權指數：{taiex.get('TAIEX', '-')} 點 ({taiex.get('Change', '-')} / {taiex.get('ChangePercent', '-')})",
@@ -1181,7 +1238,7 @@ def generate_tg_digest(results, market_data):
         "🏛️ 三大法人買賣金額 (證交所官方)：",
         f"- 外資：{f_amt} ｜ 投信：{t_amt} ｜ 自營商：{d_amt}",
         f"- 三大法人合計：{tot_amt}",
-        f"- 信用交易融資：{m_bal} (增減 {m_diff} / {m_shares_str})",
+        f"- 信用交易融資：{m_bal} (增減 {m_diff} / {m_shares_str}){notice_str}",
         f"- 信用交易融券：增減 {s_shares_str}\n",
     ]
     
@@ -1234,16 +1291,23 @@ def generate_tg_digest(results, market_data):
     with open("tg_digest_report.txt", "w", encoding="utf-8") as f:
         f.write(digest_text)
         
-    # Auto-send if Telegram tokens are available
+    # 嚴格控制 Telegram 推播時間：
+    # 依使用者需求，只在晚上 9 點 (21:00 UTC+8) 以後才推播（資料最完整），白天時段只更新網頁不打擾
+    now_hour = get_tw_now().hour
+    force_push = os.environ.get("FORCE_TG_PUSH", "").strip().lower() in ("1", "true", "yes")
+    
     bot_token = os.environ.get("TELEGRAM_BOT_TOKEN") or "8837287745:AAGq7-ZQKt_PwzowODDbpc4pzdDhoyfcw1k"
     chat_id = os.environ.get("TELEGRAM_CHAT_ID") or "1815627011"
     if bot_token and chat_id:
-        try:
-            tg_url = f"https://api.telegram.org/bot{bot_token}/sendMessage"
-            requests.post(tg_url, json={"chat_id": chat_id, "text": digest_text}, timeout=10)
-            print("✅ 已自動推播最新戰情報告至 Telegram！")
-        except Exception as e:
-            print(f"⚠️ Telegram 自動推播略過: {e}")
+        if now_hour >= 21 or force_push:
+            try:
+                tg_url = f"https://api.telegram.org/bot{bot_token}/sendMessage"
+                requests.post(tg_url, json={"chat_id": chat_id, "text": digest_text}, timeout=10)
+                print(f"✅ 已於晚上盤後推播時段 (當前台灣時間 {now_hour}:xx) 自動發送最新戰情報告至 Telegram！")
+            except Exception as e:
+                print(f"⚠️ Telegram 自動推播略過: {e}")
+        else:
+            print(f"ℹ️ 目前台灣時間為 {now_hour}:xx (未達晚上 21:00 盤後完整推播時段)，已產出戰情報告並更新儀表板，略過 Telegram 訊息推播以免打擾。")
             
     return digest_text
 

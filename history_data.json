@@ -1,158 +1,4 @@
 {
-  "2026-10-01": {
-    "台積電 (2330)": {
-      "Score": 1478,
-      "Mentions": 535
-    },
-    "友達 (2409)": {
-      "Score": 557,
-      "Mentions": 242
-    },
-    "聯發科 (2454)": {
-      "Score": 340,
-      "Mentions": 86
-    },
-    "聯茂 (6213)": {
-      "Score": 232,
-      "Mentions": 67
-    },
-    "南亞 (1303)": {
-      "Score": 198,
-      "Mentions": 76
-    },
-    "創意 (3443)": {
-      "Score": 172,
-      "Mentions": 45
-    },
-    "大立光 (3008)": {
-      "Score": 111,
-      "Mentions": 30
-    },
-    "南電 (8046)": {
-      "Score": 110,
-      "Mentions": 30
-    },
-    "欣興 (3037)": {
-      "Score": 91,
-      "Mentions": 21
-    },
-    "力士 (4923)": {
-      "Score": 84,
-      "Mentions": 22
-    },
-    "景碩 (3189)": {
-      "Score": 84,
-      "Mentions": 21
-    },
-    "鴻海 (2317)": {
-      "Score": 75,
-      "Mentions": 19
-    },
-    "群聯 (8299)": {
-      "Score": 72,
-      "Mentions": 29
-    },
-    "環球晶 (6488)": {
-      "Score": 71,
-      "Mentions": 19
-    },
-    "聯電 (2303)": {
-      "Score": 69,
-      "Mentions": 15
-    },
-    "NVIDIA概念股": {
-      "Score": 68,
-      "Mentions": 21
-    },
-    "台光電 (2383)": {
-      "Score": 63,
-      "Mentions": 14
-    },
-    "中鋼 (2002)": {
-      "Score": 62,
-      "Mentions": 22
-    },
-    "群創 (3481)": {
-      "Score": 61,
-      "Mentions": 12
-    },
-    "嘉晶 (3016)": {
-      "Score": 56,
-      "Mentions": 14
-    },
-    "川寶 (1595)": {
-      "Score": 53,
-      "Mentions": 14
-    },
-    "大甲 (2221)": {
-      "Score": 49,
-      "Mentions": 22
-    },
-    "茂矽 (2342)": {
-      "Score": 48,
-      "Mentions": 15
-    },
-    "中華 (2204)": {
-      "Score": 47,
-      "Mentions": 8
-    },
-    "漢測 (7856)": {
-      "Score": 45,
-      "Mentions": 10
-    },
-    "宏達電 (2498)": {
-      "Score": 44,
-      "Mentions": 16
-    },
-    "彰源 (2030)": {
-      "Score": 43,
-      "Mentions": 10
-    },
-    "宏碁 (2353)": {
-      "Score": 43,
-      "Mentions": 9
-    },
-    "聯合 (4129)": {
-      "Score": 40,
-      "Mentions": 8
-    },
-    "數字 (5287)": {
-      "Score": 39,
-      "Mentions": 9
-    },
-    "南亞科 (2408)": {
-      "Score": 39,
-      "Mentions": 8
-    },
-    "緯創 (3231)": {
-      "Score": 39,
-      "Mentions": 8
-    },
-    "華電 (1603)": {
-      "Score": 39,
-      "Mentions": 7
-    },
-    "彰銀 (2801)": {
-      "Score": 38,
-      "Mentions": 9
-    },
-    "晶技 (3042)": {
-      "Score": 37,
-      "Mentions": 7
-    },
-    "萬海 (2615)": {
-      "Score": 36,
-      "Mentions": 17
-    },
-    "三星 (5007)": {
-      "Score": 35,
-      "Mentions": 7
-    },
-    "元大台灣50 (0050)": {
-      "Score": 34,
-      "Mentions": 9
-    }
-  },
   "2026-10-03": {
     "台積電 (2330)": {
       "Score": 1199,
@@ -963,6 +809,168 @@
     "陽明 (2609)": {
       "Score": 24,
       "Mentions": 4
+    }
+  },
+  "2026-10-20": {
+    "台積電 (2330)": {
+      "Score": 271,
+      "Mentions": 73
+    },
+    "富喬 (1815)": {
+      "Score": 74,
+      "Mentions": 19
+    },
+    "南亞 (1303)": {
+      "Score": 59,
+      "Mentions": 13
+    },
+    "台郡 (6269)": {
+      "Score": 47,
+      "Mentions": 17
+    },
+    "川寶 (1595)": {
+      "Score": 34,
+      "Mentions": 7
+    },
+    "中鋼 (2002)": {
+      "Score": 29,
+      "Mentions": 10
+    },
+    "友達 (2409)": {
+      "Score": 26,
+      "Mentions": 6
+    },
+    "禾伸堂 (3026)": {
+      "Score": 25,
+      "Mentions": 10
+    },
+    "力士 (4923)": {
+      "Score": 25,
+      "Mentions": 6
+    },
+    "南亞科 (2408)": {
+      "Score": 23,
+      "Mentions": 5
+    },
+    "聯電 (2303)": {
+      "Score": 23,
+      "Mentions": 5
+    },
+    "大立光 (3008)": {
+      "Score": 23,
+      "Mentions": 4
+    },
+    "聯發科 (2454)": {
+      "Score": 18,
+      "Mentions": 4
+    },
+    "台灣大 (3045)": {
+      "Score": 13,
+      "Mentions": 3
+    },
+    "全家 (5903)": {
+      "Score": 12,
+      "Mentions": 2
+    },
+    "台塑 (1301)": {
+      "Score": 11,
+      "Mentions": 4
+    },
+    "力積電 (6770)": {
+      "Score": 11,
+      "Mentions": 3
+    },
+    "德宏 (5475)": {
+      "Score": 10,
+      "Mentions": 2
+    },
+    "台玻 (1802)": {
+      "Score": 10,
+      "Mentions": 2
+    },
+    "誠美材 (4960)": {
+      "Score": 10,
+      "Mentions": 2
+    },
+    "台虹 (8039)": {
+      "Score": 10,
+      "Mentions": 2
+    },
+    "金居 (8358)": {
+      "Score": 10,
+      "Mentions": 3
+    },
+    "大成 (1210)": {
+      "Score": 8,
+      "Mentions": 2
+    },
+    "群聯 (8299)": {
+      "Score": 8,
+      "Mentions": 2
+    },
+    "亞電 (4939)": {
+      "Score": 8,
+      "Mentions": 2
+    },
+    "元大台灣50 (0050)": {
+      "Score": 7,
+      "Mentions": 1
+    },
+    "榮科 (4989)": {
+      "Score": 7,
+      "Mentions": 4
+    },
+    "環球晶 (6488)": {
+      "Score": 7,
+      "Mentions": 2
+    },
+    "群創 (3481)": {
+      "Score": 7,
+      "Mentions": 1
+    },
+    "聯茂 (6213)": {
+      "Score": 7,
+      "Mentions": 3
+    },
+    "強茂 (2481)": {
+      "Score": 7,
+      "Mentions": 1
+    },
+    "盟立 (2464)": {
+      "Score": 7,
+      "Mentions": 1
+    },
+    "廣達 (2382)": {
+      "Score": 7,
+      "Mentions": 1
+    },
+    "台塑化 (6505)": {
+      "Score": 6,
+      "Mentions": 2
+    },
+    "聚亨 (2022)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "華星光 (4979)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "上詮 (3363)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "金雨 (4503)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "聯合 (4129)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "聯合再生 (3576)": {
+      "Score": 5,
+      "Mentions": 1
     }
   }
 }
