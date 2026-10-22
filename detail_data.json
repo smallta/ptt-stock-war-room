@@ -1,35 +1,128 @@
 {
-  "台灣大 (3045)": {
+  "川寶 (1595)": {
+    "Keywords": {},
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🔴 噓 Jimmy030489",
+        "text": "川寶沒事搞伊朗 搞到中東大亂",
+        "time": "01:17"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → NEX4036",
+        "text": "要不是有川寶的去中化",
+        "time": "01:08"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 NEX4036",
+        "text": "你各位別怨川寶",
+        "time": "01:08"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 gest7240",
+        "text": "川寶 要投票了 來點積極作為吧 不然歷史臭名",
+        "time": "00:35"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 weiren6",
+        "text": "川寶鱉一波大招 準備周末開大",
+        "time": "00:31"
+      }
+    ]
+  },
+  "國票金 (2889)": {
     "Keywords": {
-      "買": 1
+      "空": 1,
+      "噴": 2
     },
     "Comments": [
       {
-        "user": "📱 [ptt_stock_follow_chat] 🔴 噓 beta0907",
-        "text": "前幾天早說外資8000億被台灣大媽買走 現在不就認錯?",
-        "time": "00:04"
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 asws0808",
+        "text": "國票金會去自動放空美股嗎",
+        "time": "01:57"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → Everforest",
+        "text": "ai都是真的!!! 國票金 噴",
+        "time": "01:53"
       }
     ]
   },
   "台積電 (2330)": {
-    "Keywords": {},
-    "Comments": [
-      {
-        "user": "📱 [ptt_stock_follow_chat] 🟢 推 CashHunter",
-        "text": "明天GG上2500，指數上48000",
-        "time": "01:25"
-      }
-    ]
-  },
-  "聯合 (4129)": {
     "Keywords": {
-      "空": 1
+      "all in": 1
     },
     "Comments": [
       {
-        "user": "📱 [ptt_stock_follow_chat] 🟢 推 waitrop",
-        "text": "谷歌就被華爾街跟Openai 集團聯合放空好幾年了，最",
-        "time": "00:03"
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 sim3000",
+        "text": "下週趕快質借 all in 2330",
+        "time": "01:38"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → ted1985",
+        "text": "護國神風 神山蛋雕",
+        "time": "01:00"
+      }
+    ]
+  },
+  "力士 (4923)": {
+    "Keywords": {},
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → sosoana",
+        "text": "以為自己抄底海力士美光結果是在接刀@@",
+        "time": "01:55"
+      }
+    ]
+  },
+  "大樹 (6469)": {
+    "Keywords": {},
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 Reginald",
+        "text": "超越大樹守衛的券商出現了 無限下單守衛台股",
+        "time": "01:46"
+      }
+    ]
+  },
+  "NVIDIA概念股": {
+    "Keywords": {},
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → LDPC",
+        "text": "連我的王牌老黃都被殺到殘血了",
+        "time": "01:43"
+      }
+    ]
+  },
+  "新日興 (3376)": {
+    "Keywords": {},
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 jerry10307",
+        "text": "剩蘋果….可惜新日興還在地板",
+        "time": "01:11"
+      }
+    ]
+  },
+  "中鋼 (2002)": {
+    "Keywords": {},
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → cheedo",
+        "text": "可以 等中鋼1000",
+        "time": "00:34"
+      }
+    ]
+  },
+  "大成 (1210)": {
+    "Keywords": {
+      "跌": 1
+    },
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 newvote",
+        "text": "台股最大成本股 台積......是能跌到哪",
+        "time": "00:26"
       }
     ]
   }
