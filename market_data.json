@@ -1,7 +1,7 @@
 {
-  "FearGreedIndex": 60,
+  "FearGreedIndex": 50,
   "PanicIndex": 5,
-  "TotalCommentsParsed": 819,
+  "TotalCommentsParsed": 206,
   "TAIEXSummary": {
     "TAIEX": "46,041.43",
     "Change": "-846.34",
@@ -250,7 +250,7 @@
       "Alert": "💥 族群重挫跳水",
       "UpCount": 0,
       "DownCount": 7,
-      "Mentions": 2,
+      "Mentions": 0,
       "TopStocks": [
         "台積電 (2330) (-1.45%)",
         "均華 (6640) (-3.44%)",
@@ -273,124 +273,9 @@
     }
   ],
   "ActionableLeaderboards": {
-    "SmartMoney": [
-      {
-        "Stock": "中鋼 (2002)",
-        "Code": "2002",
-        "Price": "19.55",
-        "Change": "-0.05",
-        "ChangePercent": "-0.26%",
-        "ForeignNet": 24664,
-        "TrustNet": 650,
-        "TotalNet": 24927,
-        "MarginDiff": -539,
-        "Mentions": 1,
-        "Score": 5,
-        "ChipSignal": "💎 融資退場 ✕ 法人吸籌 (洗盤完畢)",
-        "Tag": "資減+法人買",
-        "_sort": 26544
-      },
-      {
-        "Stock": "國票金 (2889)",
-        "Code": "2889",
-        "Price": "16.95",
-        "Change": "+0.05",
-        "ChangePercent": "+0.30%",
-        "ForeignNet": 3506,
-        "TrustNet": 174,
-        "TotalNet": 3676,
-        "MarginDiff": -4,
-        "Mentions": 2,
-        "Score": 8,
-        "ChipSignal": "🟢 法人逆勢買 ✕ 散戶看空 (潛在軋空強多)",
-        "Tag": "土洋同買",
-        "_sort": 3688
-      },
-      {
-        "Stock": "大成 (1210)",
-        "Code": "1210",
-        "Price": "51.30",
-        "Change": "+0.20",
-        "ChangePercent": "+0.39%",
-        "ForeignNet": 366,
-        "TrustNet": 0,
-        "TotalNet": 366,
-        "MarginDiff": -12,
-        "Mentions": 1,
-        "Score": 3,
-        "ChipSignal": "🟢 法人逆勢買 ✕ 散戶看空 (潛在軋空強多)",
-        "Tag": "散戶看空+法人買",
-        "_sort": 402
-      },
-      {
-        "Stock": "川寶 (1595)",
-        "Code": "1595",
-        "Price": "74.00",
-        "Change": "-6.00",
-        "ChangePercent": "-7.50%",
-        "ForeignNet": 160,
-        "TrustNet": 0,
-        "TotalNet": 134,
-        "MarginDiff": -59,
-        "Mentions": 5,
-        "Score": 25,
-        "ChipSignal": "⚖️ 散戶與法人動向平衡",
-        "Tag": "資減+法人買",
-        "_sort": 311
-      }
-    ],
-    "RetailTrap": [
-      {
-        "Stock": "台積電 (2330)",
-        "Code": "2330",
-        "Price": "2,385.00",
-        "Change": "-35.00",
-        "ChangePercent": "-1.45%",
-        "ForeignNet": -12695,
-        "TrustNet": 1349,
-        "TotalNet": -10150,
-        "MarginDiff": 142,
-        "Mentions": 2,
-        "Score": 8,
-        "ChipSignal": "💣 外資大倒貨 ✕ 散戶融資接刀 (套牢警戒)",
-        "Tag": "外資倒貨+融資接刀",
-        "_sort": 10576
-      }
-    ],
-    "DarkHorse": [
-      {
-        "Stock": "國票金 (2889)",
-        "Code": "2889",
-        "Price": "16.95",
-        "Change": "+0.05",
-        "ChangePercent": "+0.30%",
-        "ForeignNet": 3506,
-        "TrustNet": 174,
-        "TotalNet": 3676,
-        "MarginDiff": -4,
-        "Mentions": 2,
-        "Score": 8,
-        "ChipSignal": "🟢 法人逆勢買 ✕ 散戶看空 (潛在軋空強多)",
-        "Tag": "聲量 2 則 · 法人+3676張",
-        "_sort": 28
-      },
-      {
-        "Stock": "川寶 (1595)",
-        "Code": "1595",
-        "Price": "74.00",
-        "Change": "-6.00",
-        "ChangePercent": "-7.50%",
-        "ForeignNet": 160,
-        "TrustNet": 0,
-        "TotalNet": 134,
-        "MarginDiff": -59,
-        "Mentions": 5,
-        "Score": 25,
-        "ChipSignal": "⚖️ 散戶與法人動向平衡",
-        "Tag": "聲量 5 則 · 法人+134張",
-        "_sort": 25
-      }
-    ]
+    "SmartMoney": [],
+    "RetailTrap": [],
+    "DarkHorse": []
   },
   "InstitutionalSentiment": {
     "ForeignBullish": 0,
@@ -412,52 +297,11 @@
       "Neg": 0
     },
     "盤後夜間": {
-      "Pos": 1,
-      "Neg": 2
+      "Pos": 0,
+      "Neg": 0
     }
   },
-  "SectorRotation": [
-    {
-      "Sector": "金融保險",
-      "Mentions": 2,
-      "AvgScore": 8.0,
-      "TopStocks": [
-        "國票金"
-      ]
-    },
-    {
-      "Sector": "半導體業",
-      "Mentions": 2,
-      "AvgScore": 8.0,
-      "TopStocks": [
-        "台積電"
-      ]
-    },
-    {
-      "Sector": "電子零組件業",
-      "Mentions": 1,
-      "AvgScore": 5.0,
-      "TopStocks": [
-        "新日興"
-      ]
-    },
-    {
-      "Sector": "鋼鐵工業",
-      "Mentions": 1,
-      "AvgScore": 5.0,
-      "TopStocks": [
-        "中鋼"
-      ]
-    },
-    {
-      "Sector": "食品工業",
-      "Mentions": 1,
-      "AvgScore": 3.0,
-      "TopStocks": [
-        "大成"
-      ]
-    }
-  ],
-  "MarketSummary": "⚖️ 市場情緒目前【中立震盪】(60分)，多空雙方力道均衡。 資金與討論度高度集中在【金融保險】，其中以 國票金 最受矚目。",
+  "SectorRotation": [],
+  "MarketSummary": "⚖️ 市場情緒目前【中立震盪】(50分)，多空雙方力道均衡。",
   "AISummary": null
 }
