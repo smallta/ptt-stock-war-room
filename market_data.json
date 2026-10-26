@@ -1,7 +1,7 @@
 {
-  "FearGreedIndex": 50,
+  "FearGreedIndex": 100,
   "PanicIndex": 5,
-  "TotalCommentsParsed": 206,
+  "TotalCommentsParsed": 272,
   "TAIEXSummary": {
     "TAIEX": "46,041.43",
     "Change": "-846.34",
@@ -250,7 +250,7 @@
       "Alert": "💥 族群重挫跳水",
       "UpCount": 0,
       "DownCount": 7,
-      "Mentions": 0,
+      "Mentions": 3,
       "TopStocks": [
         "台積電 (2330) (-1.45%)",
         "均華 (6640) (-3.44%)",
@@ -273,8 +273,42 @@
     }
   ],
   "ActionableLeaderboards": {
-    "SmartMoney": [],
-    "RetailTrap": [],
+    "SmartMoney": [
+      {
+        "Stock": "川寶 (1595)",
+        "Code": "1595",
+        "Price": "74.00",
+        "Change": "-6.00",
+        "ChangePercent": "-7.50%",
+        "ForeignNet": 160,
+        "TrustNet": 0,
+        "TotalNet": 134,
+        "MarginDiff": -59,
+        "Mentions": 1,
+        "Score": 5,
+        "ChipSignal": "⚖️ 散戶與法人動向平衡",
+        "Tag": "資減+法人買",
+        "_sort": 311
+      }
+    ],
+    "RetailTrap": [
+      {
+        "Stock": "台積電 (2330)",
+        "Code": "2330",
+        "Price": "2,385.00",
+        "Change": "-35.00",
+        "ChangePercent": "-1.45%",
+        "ForeignNet": -12695,
+        "TrustNet": 1349,
+        "TotalNet": -10150,
+        "MarginDiff": 142,
+        "Mentions": 3,
+        "Score": 17,
+        "ChipSignal": "💣 外資大倒貨 ✕ 散戶融資接刀 (套牢警戒)",
+        "Tag": "外資倒貨+融資接刀",
+        "_sort": 10576
+      }
+    ],
     "DarkHorse": []
   },
   "InstitutionalSentiment": {
@@ -297,11 +331,28 @@
       "Neg": 0
     },
     "盤後夜間": {
-      "Pos": 0,
+      "Pos": 2,
       "Neg": 0
     }
   },
-  "SectorRotation": [],
-  "MarketSummary": "⚖️ 市場情緒目前【中立震盪】(50分)，多空雙方力道均衡。",
+  "SectorRotation": [
+    {
+      "Sector": "半導體業",
+      "Mentions": 3,
+      "AvgScore": 17.0,
+      "TopStocks": [
+        "台積電"
+      ]
+    },
+    {
+      "Sector": "食品工業",
+      "Mentions": 1,
+      "AvgScore": 7.0,
+      "TopStocks": [
+        "味全"
+      ]
+    }
+  ],
+  "MarketSummary": "🔥 市場情緒目前處於【極度貪婪】(100分)，多數鄉民強力看好後市，請留意追高與大盤反轉風險。 資金與討論度高度集中在【半導體業】，其中以 台積電 最受矚目。",
   "AISummary": null
 }
