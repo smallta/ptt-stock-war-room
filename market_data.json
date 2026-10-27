@@ -1,315 +1,254 @@
 {
-  "FearGreedIndex": 100,
-  "PanicIndex": 5,
-  "TotalCommentsParsed": 272,
+  "FearGreedIndex": 33,
+  "PanicIndex": 75,
+  "TotalCommentsParsed": 268,
   "TAIEXSummary": {
-    "TAIEX": "46,041.43",
-    "Change": "-846.34",
-    "ChangePercent": "-1.81%",
-    "Date": "20261022"
+    "TAIEX": "46,096.23",
+    "Change": "+54.80",
+    "ChangePercent": "+0.12%",
+    "Date": "20261027"
   },
   "TAIEXIntradayTrend": {
-    "早盤開盤": 47006.69,
-    "盤中震盪": 46544.63,
-    "尾盤收盤": 46041.43,
-    "盤後夜間": 46041.43
+    "早盤開盤": 46317.27,
+    "盤中震盪": 45885.99,
+    "尾盤收盤": 46096.23,
+    "盤後夜間": 46096.23
   },
   "RealInstitutionalStats": {
-    "ForeignBuyCount": 508,
-    "ForeignSellCount": 546,
-    "ForeignTotalNet": 43376,
+    "ForeignBuyCount": 701,
+    "ForeignSellCount": 377,
+    "ForeignTotalNet": 148931,
     "ForeignTopBuy": [
       {
-        "name": "台泥",
-        "code": "1101",
-        "net": 25549
-      },
-      {
-        "name": "台玻",
-        "code": "1802",
-        "net": 25235
+        "name": "力積電",
+        "code": "6770",
+        "net": 56011
       },
       {
         "name": "中鋼",
         "code": "2002",
-        "net": 24664
+        "net": 29598
+      },
+      {
+        "name": "華邦電",
+        "code": "2344",
+        "net": 22488
       }
     ],
-    "TrustBuyCount": 155,
-    "TrustSellCount": 124,
-    "TrustTotalNet": -18460,
+    "TrustBuyCount": 158,
+    "TrustSellCount": 98,
+    "TrustTotalNet": 46793,
     "TrustTopBuy": [
       {
-        "name": "友達",
-        "code": "2409",
-        "net": 4839
+        "name": "力積電",
+        "code": "6770",
+        "net": 4937
       },
       {
-        "name": "台泥",
-        "code": "1101",
-        "net": 4726
+        "name": "元大台灣50",
+        "code": "0050",
+        "net": 4710
       },
       {
-        "name": "台玻",
-        "code": "1802",
-        "net": 2968
+        "name": "凱基金",
+        "code": "2883",
+        "net": 4144
       }
     ],
     "Amounts": {
       "Foreign": {
-        "buy": "3041.34億",
-        "sell": "3857.16億",
-        "net": "-815.82億"
+        "buy": "5141.23億",
+        "sell": "5221.62億",
+        "net": "-80.39億"
       },
       "Trust": {
-        "buy": "252.64億",
-        "sell": "157.71億",
-        "net": "+94.92億"
+        "buy": "383.92億",
+        "sell": "147.88億",
+        "net": "+236.05億"
       },
       "Dealer": {
-        "buy": "421.74億",
-        "sell": "695.52億",
-        "net": "-273.77億",
-        "self_net": "-37.16億",
-        "hedge_net": "-236.61億"
+        "buy": "444.81億",
+        "sell": "568.80億",
+        "net": "-123.99億",
+        "self_net": "+7.68億",
+        "hedge_net": "-131.67億"
       },
       "Total": {
-        "buy": "3715.72億",
-        "sell": "4710.39億",
-        "net": "-994.67億"
+        "buy": "5969.97億",
+        "sell": "5938.30億",
+        "net": "+31.67億"
       }
     }
   },
   "MarginSummary": {
-    "MarginBalance": "6338.80億",
+    "MarginBalance": "6233.87億",
     "MarginDiff": "-104.93億",
-    "MarginSharesDiff": -27925,
-    "ShortSharesDiff": 23941,
-    "Notice": "(資料日期: 20261022，今日結算中)"
+    "MarginSharesDiff": -53788,
+    "ShortSharesDiff": 1169,
+    "Notice": "(資料日期: 20261027，今日結算中)"
   },
   "SectorAlerts": [
     {
-      "theme": "💡 CPO矽光子",
-      "type": "drop",
-      "avgChange": "-6.73%",
-      "alert": "💥 族群重挫跳水",
-      "topStocks": [
-        "聯亞 (3081): $2375.00 (-9.52%)",
-        "上詮 (3363): $506.00 (-7.83%)",
-        "華星光 (4979): $450.00 (-7.79%)"
-      ]
-    },
-    {
-      "theme": "⚡ CoWoS先進封裝",
-      "type": "drop",
-      "avgChange": "-3.83%",
-      "alert": "💥 族群重挫跳水",
-      "topStocks": [
-        "弘塑 (3131): $1985.00 (-5.48%)",
-        "萬潤 (6187): $1260.00 (-5.26%)",
-        "辛耘 (3583): $594.00 (-4.19%)"
-      ]
-    },
-    {
-      "theme": "🤖 AI伺服器/散熱",
-      "type": "drop",
-      "avgChange": "-2.17%",
-      "alert": "💥 族群重挫跳水",
-      "topStocks": [
-        "建準 (2421): $155.00 (-2.82%)",
-        "奇鋐 (3017): $3,145.00 (-2.78%)",
-        "技嘉 (2376): $349.00 (-2.65%)"
-      ]
-    },
-    {
       "theme": "🦾 機器人概念",
-      "type": "drop",
-      "avgChange": "-2.21%",
-      "alert": "💥 族群重挫跳水",
+      "type": "surge",
+      "avgChange": "+3.71%",
+      "alert": "🚀 族群齊揚強攻",
       "topStocks": [
-        "大銀微系統 (4576): $203.50 (-5.35%)",
-        "所羅門 (2359): $115.00 (-3.36%)",
-        "廣明 (6188): $61.00 (-1.77%)"
-      ]
-    },
-    {
-      "theme": "📱 IC設計",
-      "type": "drop",
-      "avgChange": "-3.55%",
-      "alert": "💥 族群重挫跳水",
-      "topStocks": [
-        "世芯-KY (3661): $3,495.00 (-5.80%)",
-        "創意 (3443): $7,585.00 (-5.19%)",
-        "達發 (6526): $778.00 (-3.47%)"
+        "大銀微系統 (4576): $219.00 (+7.62%)",
+        "所羅門 (2359): $121.50 (+5.65%)",
+        "時碩工業 (4566): $87.20 (+3.32%)"
       ]
     }
   ],
   "ThemeStats": [
     {
+      "Theme": "🦾 機器人概念",
+      "AvgChange": "+3.71%",
+      "AvgChangeVal": 3.71,
+      "Alert": "🚀 族群齊揚強攻",
+      "UpCount": 6,
+      "DownCount": 0,
+      "Mentions": 0,
+      "TopStocks": [
+        "大銀微系統 (4576) (+7.62%)",
+        "所羅門 (2359) (+5.65%)",
+        "時碩工業 (4566) (+3.32%)"
+      ]
+    },
+    {
+      "Theme": "🤖 AI伺服器/散熱",
+      "AvgChange": "+1.44%",
+      "AvgChangeVal": 1.44,
+      "Alert": "⚖️ 平穩震盪",
+      "UpCount": 5,
+      "DownCount": 3,
+      "Mentions": 0,
+      "TopStocks": [
+        "緯穎 (6669) (+5.98%)",
+        "英業達 (2356) (+4.13%)",
+        "技嘉 (2376) (+2.44%)"
+      ]
+    },
+    {
+      "Theme": "🏦 金控指標",
+      "AvgChange": "+0.62%",
+      "AvgChangeVal": 0.62,
+      "Alert": "⚖️ 平穩震盪",
+      "UpCount": 4,
+      "DownCount": 2,
+      "Mentions": 0,
+      "TopStocks": [
+        "富邦金 (2881) (+2.21%)",
+        "第一金 (2892) (+1.89%)",
+        "國泰金 (2882) (+0.44%)"
+      ]
+    },
+    {
+      "Theme": "⚡ CoWoS先進封裝",
+      "AvgChange": "+0.52%",
+      "AvgChangeVal": 0.52,
+      "Alert": "⚖️ 平穩震盪",
+      "UpCount": 5,
+      "DownCount": 2,
+      "Mentions": 2,
+      "TopStocks": [
+        "萬潤 (6187) (+1.98%)",
+        "弘塑 (3131) (+1.51%)",
+        "均華 (6640) (+1.08%)"
+      ]
+    },
+    {
+      "Theme": "✈️ 航空雙雄",
+      "AvgChange": "+0.43%",
+      "AvgChangeVal": 0.43,
+      "Alert": "⚖️ 平穩震盪",
+      "UpCount": 1,
+      "DownCount": 2,
+      "Mentions": 0,
+      "TopStocks": [
+        "長榮航 (2618) (+1.78%)",
+        "華航 (2610) (-0.24%)",
+        "星宇航空 (2646) (-0.25%)"
+      ]
+    },
+    {
       "Theme": "🚢 貨櫃航運",
-      "AvgChange": "+1.08%",
-      "AvgChangeVal": 1.08,
+      "AvgChange": "-0.05%",
+      "AvgChangeVal": -0.05,
       "Alert": "⚖️ 平穩震盪",
       "UpCount": 2,
       "DownCount": 1,
       "Mentions": 0,
       "TopStocks": [
-        "萬海 (2615) (+2.58%)",
-        "長榮 (2603) (+0.97%)",
-        "陽明 (2609) (-0.32%)"
-      ]
-    },
-    {
-      "Theme": "🏦 金控指標",
-      "AvgChange": "+1.06%",
-      "AvgChangeVal": 1.06,
-      "Alert": "⚖️ 平穩震盪",
-      "UpCount": 4,
-      "DownCount": 1,
-      "Mentions": 0,
-      "TopStocks": [
-        "兆豐金 (2886) (+2.99%)",
-        "第一金 (2892) (+2.54%)",
-        "玉山金 (2884) (+1.12%)"
-      ]
-    },
-    {
-      "Theme": "✈️ 航空雙雄",
-      "AvgChange": "+0.53%",
-      "AvgChangeVal": 0.53,
-      "Alert": "⚖️ 平穩震盪",
-      "UpCount": 3,
-      "DownCount": 0,
-      "Mentions": 0,
-      "TopStocks": [
-        "華航 (2610) (+0.74%)",
-        "星宇航空 (2646) (+0.50%)",
-        "長榮航 (2618) (+0.36%)"
-      ]
-    },
-    {
-      "Theme": "🔌 重電與綠能",
-      "AvgChange": "-0.75%",
-      "AvgChangeVal": -0.75,
-      "Alert": "⚖️ 平穩震盪",
-      "UpCount": 1,
-      "DownCount": 3,
-      "Mentions": 0,
-      "TopStocks": [
-        "上緯投控 (3708) (+0.53%)",
-        "士電 (1503) (0.00%)",
-        "中興電 (1513) (-1.23%)"
-      ]
-    },
-    {
-      "Theme": "🤖 AI伺服器/散熱",
-      "AvgChange": "-2.17%",
-      "AvgChangeVal": -2.17,
-      "Alert": "💥 族群重挫跳水",
-      "UpCount": 0,
-      "DownCount": 8,
-      "Mentions": 0,
-      "TopStocks": [
-        "雙鴻 (3324) (-1.09%)",
-        "英業達 (2356) (-1.31%)",
-        "廣達 (2382) (-1.98%)"
-      ]
-    },
-    {
-      "Theme": "🦾 機器人概念",
-      "AvgChange": "-2.21%",
-      "AvgChangeVal": -2.21,
-      "Alert": "💥 族群重挫跳水",
-      "UpCount": 0,
-      "DownCount": 6,
-      "Mentions": 0,
-      "TopStocks": [
-        "時碩工業 (4566) (-0.82%)",
-        "羅昇 (8374) (-0.98%)",
-        "穎漢 (4562) (-1.01%)"
-      ]
-    },
-    {
-      "Theme": "📱 IC設計",
-      "AvgChange": "-3.55%",
-      "AvgChangeVal": -3.55,
-      "Alert": "💥 族群重挫跳水",
-      "UpCount": 0,
-      "DownCount": 6,
-      "Mentions": 0,
-      "TopStocks": [
-        "聯詠 (3034) (-1.19%)",
-        "瑞昱 (2379) (-2.53%)",
-        "聯發科 (2454) (-3.14%)"
-      ]
-    },
-    {
-      "Theme": "⚡ CoWoS先進封裝",
-      "AvgChange": "-3.83%",
-      "AvgChangeVal": -3.83,
-      "Alert": "💥 族群重挫跳水",
-      "UpCount": 0,
-      "DownCount": 7,
-      "Mentions": 3,
-      "TopStocks": [
-        "台積電 (2330) (-1.45%)",
-        "均華 (6640) (-3.44%)",
-        "家登 (3680) (-3.45%)"
+        "陽明 (2609) (+1.78%)",
+        "長榮 (2603) (+0.58%)",
+        "萬海 (2615) (-2.51%)"
       ]
     },
     {
       "Theme": "💡 CPO矽光子",
-      "AvgChange": "-6.73%",
-      "AvgChangeVal": -6.73,
-      "Alert": "💥 族群重挫跳水",
-      "UpCount": 0,
-      "DownCount": 8,
+      "AvgChange": "-0.06%",
+      "AvgChangeVal": -0.06,
+      "Alert": "⚖️ 平穩震盪",
+      "UpCount": 3,
+      "DownCount": 5,
       "Mentions": 0,
       "TopStocks": [
-        "波若威 (3163) (-5.32%)",
-        "聯茂 (6213) (-5.59%)",
-        "聯鈞 (3450) (-5.78%)"
+        "聯亞 (3081) (+5.26%)",
+        "華星光 (4979) (+3.89%)",
+        "聯鈞 (3450) (+1.18%)"
+      ]
+    },
+    {
+      "Theme": "📱 IC設計",
+      "AvgChange": "-0.41%",
+      "AvgChangeVal": -0.41,
+      "Alert": "⚖️ 平穩震盪",
+      "UpCount": 2,
+      "DownCount": 3,
+      "Mentions": 0,
+      "TopStocks": [
+        "聯詠 (3034) (+2.74%)",
+        "瑞昱 (2379) (+2.72%)",
+        "世芯-KY (3661) (0.00%)"
+      ]
+    },
+    {
+      "Theme": "🔌 重電與綠能",
+      "AvgChange": "-0.92%",
+      "AvgChangeVal": -0.92,
+      "Alert": "⚖️ 平穩震盪",
+      "UpCount": 1,
+      "DownCount": 4,
+      "Mentions": 0,
+      "TopStocks": [
+        "上緯投控 (3708) (+1.78%)",
+        "士電 (1503) (-0.26%)",
+        "亞力 (1514) (-0.61%)"
       ]
     }
   ],
   "ActionableLeaderboards": {
-    "SmartMoney": [
+    "SmartMoney": [],
+    "RetailTrap": [],
+    "DarkHorse": [
       {
-        "Stock": "川寶 (1595)",
-        "Code": "1595",
-        "Price": "74.00",
-        "Change": "-6.00",
-        "ChangePercent": "-7.50%",
-        "ForeignNet": 160,
+        "Stock": "力士 (4923)",
+        "Code": "4923",
+        "Price": "45.65",
+        "Change": "-0.60",
+        "ChangePercent": "-1.30%",
+        "ForeignNet": 2,
         "TrustNet": 0,
-        "TotalNet": 134,
-        "MarginDiff": -59,
-        "Mentions": 1,
-        "Score": 5,
+        "TotalNet": 2,
+        "MarginDiff": -1,
+        "Mentions": 4,
+        "Score": 19,
         "ChipSignal": "⚖️ 散戶與法人動向平衡",
-        "Tag": "資減+法人買",
-        "_sort": 311
+        "Tag": "聲量 4 則 · 法人+2張",
+        "_sort": 19
       }
-    ],
-    "RetailTrap": [
-      {
-        "Stock": "台積電 (2330)",
-        "Code": "2330",
-        "Price": "2,385.00",
-        "Change": "-35.00",
-        "ChangePercent": "-1.45%",
-        "ForeignNet": -12695,
-        "TrustNet": 1349,
-        "TotalNet": -10150,
-        "MarginDiff": 142,
-        "Mentions": 3,
-        "Score": 17,
-        "ChipSignal": "💣 外資大倒貨 ✕ 散戶融資接刀 (套牢警戒)",
-        "Tag": "外資倒貨+融資接刀",
-        "_sort": 10576
-      }
-    ],
-    "DarkHorse": []
+    ]
   },
   "InstitutionalSentiment": {
     "ForeignBullish": 0,
@@ -331,28 +270,29 @@
       "Neg": 0
     },
     "盤後夜間": {
-      "Pos": 2,
-      "Neg": 0
+      "Pos": 1,
+      "Neg": 2
     }
   },
   "SectorRotation": [
     {
       "Sector": "半導體業",
       "Mentions": 3,
-      "AvgScore": 17.0,
+      "AvgScore": 7.5,
       "TopStocks": [
-        "台積電"
+        "台積電",
+        "聯電"
       ]
     },
     {
-      "Sector": "食品工業",
+      "Sector": "電腦及週邊設備業",
       "Mentions": 1,
-      "AvgScore": 7.0,
+      "AvgScore": 3.0,
       "TopStocks": [
-        "味全"
+        "精英"
       ]
     }
   ],
-  "MarketSummary": "🔥 市場情緒目前處於【極度貪婪】(100分)，多數鄉民強力看好後市，請留意追高與大盤反轉風險。 資金與討論度高度集中在【半導體業】，其中以 台積電 最受矚目。",
+  "MarketSummary": "⚖️ 市場情緒目前【中立震盪】(33分)，多空雙方力道均衡。 🚨 警報：絕望/畢業指數偏高(75分)，散戶停損潮湧現！ 資金與討論度高度集中在【半導體業】，其中以 台積電、聯電 最受矚目。",
   "AISummary": null
 }

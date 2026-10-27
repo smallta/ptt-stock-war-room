@@ -1,57 +1,80 @@
 {
-  "台積電 (2330)": {
+  "力士 (4923)": {
     "Keywords": {
       "買": 1
     },
     "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 sosoana",
+        "text": "抄底美力士大獲全勝耶",
+        "time": "02:29"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 sosoana",
+        "text": "LDPC大我們海力士蛙不離不棄",
+        "time": "02:31"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → LDPC",
+        "text": "@@我瘋狂的買海力士  打完這場戰爭 我們就可以回家",
+        "time": "02:34"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → robert7111",
+        "text": "三星 海力士 今天就給答案了",
+        "time": "01:56"
+      }
+    ]
+  },
+  "台積電 (2330)": {
+    "Keywords": {
+      "老蘇": 1
+    },
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 fajita",
+        "text": "老蘇今天才鞭台積電,晚上就大漲,嘻嘻嘻",
+        "time": "00:12"
+      },
       {
         "user": "📱 [ptt_stock_follow_chat] 🟢 推 pikachu123",
         "text": "https://i.verb.tw/GG0jPmdv.jpg",
-        "time": "02:12"
-      },
-      {
-        "user": "📱 [ptt_stock_follow_chat] ⚪ → luke0407123",
-        "text": "可以讓我幸福一回嗎 買台積電送Duo 怎麼這麼好！",
-        "time": "01:37"
-      },
-      {
-        "user": "📱 [ptt_stock_follow_chat] ⚪ → aewul",
-        "text": "台積電被川習針對囉，他們不會樂見強勢台股的",
-        "time": "00:41"
+        "time": "00:09"
       }
     ]
   },
-  "味全 (1201)": {
-    "Keywords": {
-      "買": 1
-    },
-    "Comments": [
-      {
-        "user": "📱 [ptt_stock_follow_chat] 🟢 推 aquapo11",
-        "text": "油太噁心了，不買味全股票",
-        "time": "00:37"
-      }
-    ]
-  },
-  "川寶 (1595)": {
+  "聯電 (2303)": {
     "Keywords": {},
     "Comments": [
       {
-        "user": "📱 [ptt_stock_follow_chat] ⚪ → fajita",
-        "text": "拉油價是在教訓川寶,讓川寶輸到脫褲子",
-        "time": "00:04"
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 instill8",
+        "text": "聯電期126 讚喔",
+        "time": "00:45"
       }
     ]
   },
-  "精測 (6510)": {
+  "博大 (8109)": {
     "Keywords": {
-      "歐印": 1
+      "崩": 1
     },
     "Comments": [
       {
-        "user": "📱 [ptt_stock_follow_chat] 🟢 推 inuyaksa",
-        "text": "歐印精測",
-        "time": "00:38"
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 Arkzeon",
+        "text": "原來現在+800叫崩、中文真是博大精深",
+        "time": "01:09"
+      }
+    ]
+  },
+  "精英 (2331)": {
+    "Keywords": {
+      "空": 1,
+      "老蘇": 1
+    },
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🔴 噓 chiayigo",
+        "text": "一碰47k精英空軍就飛出來了 相信老蘇就空吧",
+        "time": "00:02"
       }
     ]
   }
