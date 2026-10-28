@@ -1,80 +1,255 @@
 {
   "力士 (4923)": {
     "Keywords": {
-      "買": 1
+      "噴": 6,
+      "爛": 1,
+      "買": 3,
+      "嘎": 1
     },
     "Comments": [
       {
-        "user": "📱 [ptt_stock_follow_chat] 🟢 推 sosoana",
-        "text": "抄底美力士大獲全勝耶",
-        "time": "02:29"
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 s832015825",
+        "text": "海力士+10.89% 美麗士13.5% 好扯",
+        "time": "01:11"
       },
       {
-        "user": "📱 [ptt_stock_follow_chat] 🟢 推 sosoana",
-        "text": "LDPC大我們海力士蛙不離不棄",
-        "time": "02:31"
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → dosoleil",
+        "text": "事實上韓力士夜盤也漲到13%了吧",
+        "time": "01:14"
       },
       {
-        "user": "📱 [ptt_stock_follow_chat] ⚪ → LDPC",
-        "text": "@@我瘋狂的買海力士  打完這場戰爭 我們就可以回家",
-        "time": "02:34"
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 benson1212",
+        "text": "海力士還在噴",
+        "time": "01:06"
       },
       {
-        "user": "📱 [ptt_stock_follow_chat] ⚪ → robert7111",
-        "text": "三星 海力士 今天就給答案了",
-        "time": "01:56"
-      }
-    ]
-  },
-  "台積電 (2330)": {
-    "Keywords": {
-      "老蘇": 1
-    },
-    "Comments": [
-      {
-        "user": "📱 [ptt_stock_follow_chat] 🟢 推 fajita",
-        "text": "老蘇今天才鞭台積電,晚上就大漲,嘻嘻嘻",
-        "time": "00:12"
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → MizPerfect",
+        "text": "海力士盤中量能大約是20日均量的3.2倍 太強了",
+        "time": "00:56"
       },
       {
-        "user": "📱 [ptt_stock_follow_chat] 🟢 推 pikachu123",
-        "text": "https://i.verb.tw/GG0jPmdv.jpg",
-        "time": "00:09"
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → iamsofa",
+        "text": "巴能爛成這樣 哪怕單押美力士都比韓股好",
+        "time": "00:48"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 bird1st",
+        "text": "美力士比較好吧 韓國有時候殺的莫名其妙",
+        "time": "00:34"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 tomdavis",
+        "text": "大力士一人帶飛整個指數(X",
+        "time": "00:30"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 lucky360",
+        "text": "台灣能直接買到海力士的就是00735了",
+        "time": "00:33"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 Jaspercool",
+        "text": "有美力士不買 去買00735那種東西幹嘛",
+        "time": "00:33"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → hkcdc",
+        "text": "海力士才是記憶體龍頭",
+        "time": "00:26"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → Jaspercool",
+        "text": "幹 海力士這麼頂啊 嘎嘎漲欸",
+        "time": "00:28"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → Jaspercool",
+        "text": "手上握有閃迪美光lite 就是沒有海力士 幹",
+        "time": "00:29"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → Jaspercool",
+        "text": "有海力士",
+        "time": "00:30"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 DivaNight",
+        "text": "靠邀 海力士繼續噴 今天能噴多高",
+        "time": "00:17"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 hkcdc",
+        "text": "早說了 台股不重要 海力士才是大哥",
+        "time": "00:20"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → hkcdc",
+        "text": "快快加入海力士一起噴",
+        "time": "00:20"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 Jaspercool",
+        "text": "早知道買美力士了 為啥我要一直執著閃迪跟美光呢",
+        "time": "00:26"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 tomdavis",
+        "text": "海力士發錢了 美光沒發錢 除非美光也發錢(X",
+        "time": "00:07"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 ksuenjjr",
+        "text": "美光跟美力士都離新高其實沒很遠，閃迪倒是落後很多",
+        "time": "00:13"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → bightg30098",
+        "text": "懷念130海力士",
+        "time": "00:02"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → socialloser",
+        "text": "海力士超猛欸 三小啦",
+        "time": "00:04"
       }
     ]
   },
   "聯電 (2303)": {
+    "Keywords": {
+      "跌": 1,
+      "舒服": 1
+    },
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 lin8807819",
+        "text": "聯電是怎樣？",
+        "time": "01:33"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 PitzMan",
+        "text": "聯電1.32 CC..",
+        "time": "01:36"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → Jaspercool",
+        "text": "哈哈 還好聯電我160就出了 可是我昨天才撿123",
+        "time": "01:37"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 Jaspercool",
+        "text": "有聯電的要小心囉 期貨跌了五趴",
+        "time": "01:39"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → goodman5566",
+        "text": "聯電一堆散戶 正常",
+        "time": "01:43"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → YaKiSaBa",
+        "text": "聯電我前面抄底吃了3x% 舒服",
+        "time": "01:45"
+      }
+    ]
+  },
+  "台積電 (2330)": {
     "Keywords": {},
     "Comments": [
       {
-        "user": "📱 [ptt_stock_follow_chat] 🟢 推 instill8",
-        "text": "聯電期126 讚喔",
-        "time": "00:45"
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 et69523820",
+        "text": "https://i.imgur.com/O6LYyUI.jpeg 一柱擎天是大哥",
+        "time": "02:45"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 hkcdc",
+        "text": "早說了 台股不重要 海力士才是大哥",
+        "time": "00:20"
       }
     ]
   },
-  "博大 (8109)": {
+  "南亞 (1303)": {
     "Keywords": {
-      "崩": 1
+      "買": 1
     },
     "Comments": [
       {
-        "user": "📱 [ptt_stock_follow_chat] 🟢 推 Arkzeon",
-        "text": "原來現在+800叫崩、中文真是博大精深",
-        "time": "01:09"
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 lucky360",
+        "text": "明天還買得到南亞科華邦電嗎？",
+        "time": "00:26"
       }
     ]
   },
-  "精英 (2331)": {
+  "南亞科 (2408)": {
     "Keywords": {
-      "空": 1,
-      "老蘇": 1
+      "買": 1
     },
     "Comments": [
       {
-        "user": "📱 [ptt_stock_follow_chat] 🔴 噓 chiayigo",
-        "text": "一碰47k精英空軍就飛出來了 相信老蘇就空吧",
-        "time": "00:02"
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 lucky360",
+        "text": "明天還買得到南亞科華邦電嗎？",
+        "time": "00:26"
+      }
+    ]
+  },
+  "華邦電 (2344)": {
+    "Keywords": {
+      "買": 1
+    },
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 lucky360",
+        "text": "明天還買得到南亞科華邦電嗎？",
+        "time": "00:26"
+      }
+    ]
+  },
+  "川寶 (1595)": {
+    "Keywords": {},
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 kober5566",
+        "text": "升息等兩個月後吧 川寶輸了期中就甘願放手惹",
+        "time": "02:01"
+      }
+    ]
+  },
+  "大立光 (3008)": {
+    "Keywords": {},
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 tomdavis",
+        "text": "大力士一人帶飛整個指數(X",
+        "time": "00:30"
+      }
+    ]
+  },
+  "聯發科 (2454)": {
+    "Keywords": {},
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → Jaspercool",
+        "text": "手上握有 閃迪美光lite mrvl 台光電 聯發科 就是沒",
+        "time": "00:30"
+      }
+    ]
+  },
+  "台光電 (2383)": {
+    "Keywords": {},
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → Jaspercool",
+        "text": "手上握有 閃迪美光lite mrvl 台光電 聯發科 就是沒",
+        "time": "00:30"
+      }
+    ]
+  },
+  "旺宏 (2337)": {
+    "Keywords": {},
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🔴 噓 AZBTPATONY",
+        "text": "旺宏:有我的事嗎",
+        "time": "00:05"
       }
     ]
   }
