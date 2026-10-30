@@ -1,87 +1,317 @@
 {
-  "中華電 (2412)": {
-    "Keywords": {
-      "買": 1
-    },
-    "Comments": [
-      {
-        "user": "📱 [ptt_stock_follow_chat] ⚪ → dowcher",
-        "text": "回到六月買中華電信都比si好太多",
-        "time": "01:53"
-      }
-    ]
-  },
-  "華電 (1603)": {
-    "Keywords": {
-      "買": 1
-    },
-    "Comments": [
-      {
-        "user": "📱 [ptt_stock_follow_chat] ⚪ → dowcher",
-        "text": "回到六月買中華電信都比si好太多",
-        "time": "01:53"
-      }
-    ]
-  },
-  "彰銀 (2801)": {
-    "Keywords": {},
-    "Comments": [
-      {
-        "user": "📱 [ptt_stock_follow_chat] ⚪ → LLSBOY",
-        "text": "2021至今彰銀含息報酬135%~台G電398%",
-        "time": "02:19"
-      }
-    ]
-  },
   "台積電 (2330)": {
-    "Keywords": {},
+    "Keywords": {
+      "跌": 6,
+      "救命": 1,
+      "買": 1,
+      "空": 1,
+      "套": 1,
+      "賣": 2,
+      "泡沫": 1,
+      "崩": 1
+    },
     "Comments": [
       {
-        "user": "📱 [ptt_stock_follow_chat] ⚪ → LLSBOY",
-        "text": "2021至今彰銀含息報酬135%~台G電398%",
-        "time": "02:19"
+        "user": "📱 [ptt_stock_follow_chat] 🔴 噓 ma721",
+        "text": "破了 gg",
+        "time": "02:34"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 RaiGend0519",
+        "text": "前天版上有個傢伙把GOOG轉66塊的GGLL　現在62.91...",
+        "time": "02:28"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🔴 噓 penguinboy",
+        "text": "算了關掉APP 十年後再看台G店",
+        "time": "02:26"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → yipi1357",
+        "text": "台積電跌一塊換大盤8點 已經讓大盤跌640點",
+        "time": "02:26"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → kwanles",
+        "text": "TSM跟台G好像有點脫鉤，但這次若跟上....",
+        "time": "02:24"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → goye",
+        "text": "TSM 6% 日盤的GG不太會一個早上跟上 機率超低",
+        "time": "02:23"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🔴 噓 penguinboy",
+        "text": "救命 我的台G店",
+        "time": "02:23"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🔴 噓 winston99422",
+        "text": "費半9%🟢 推 ggerger     ：週一應該賠100多 唉⚪ → eeeee118    ：====週四半夜4點 47600  過了46小時跌了4300點🟢 推 NowQmmmmmmmm：https://i.mopix.cc/r9zvEK.jpg",
+        "time": "02:23"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → JMSDF",
+        "text": "台積電很扎實的-6.7%沒背離 量價相符 刀刻往下",
+        "time": "02:18"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 zephyr105",
+        "text": "一直炸欸⚪ → talrasha    ：有國安 限空令   買起來🟢 推 facio124    ：溫馨提醒一下，大盤下週跌停的話，正二耗損很多ㄛ🟢 推 strawbee    ：台積電期貨破2300了……",
+        "time": "02:18"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 aaaaaaa1",
+        "text": "羨慕撐盤狗8兆現貨 50萬張台積電全數套牢:)",
+        "time": "01:57"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 andy70612",
+        "text": "加油啦  我也想撿1字頭的神山  7開頭的台50",
+        "time": "01:54"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → goodman5566",
+        "text": "下禮拜黑手如果還撐台積電 真的被爽領錢領爽",
+        "time": "01:50"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 JMSDF",
+        "text": "台積電又動了，又開始出量大賣了...-6.7%",
+        "time": "01:51"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 strawbee",
+        "text": "台gg 扣掉早上的跌幅下禮拜還欠多少債要還？",
+        "time": "01:50"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 KY1998",
+        "text": "GG跌5% 大盤少快1000 還不包含其他烙賽的",
+        "time": "01:47"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🔴 噓 aaaaaaa1",
+        "text": "TSM-6% 弱智撐盤狗再給我硬撐台積電1% 玩玩看",
+        "time": "01:44"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 JMSDF",
+        "text": "報告總統，費半下面沒支撐，台積電-6.5%往7走去",
+        "time": "01:41"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → ken13520",
+        "text": "明年底前應該能看到1000的GG",
+        "time": "01:24"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 ken13520",
+        "text": "GG正常價1000",
+        "time": "01:24"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → aewul",
+        "text": "台積電回測1000",
+        "time": "01:22"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 helmsley",
+        "text": "今天還被嗆想撿2000的gg做夢 老子等1500",
+        "time": "01:23"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 soon55555",
+        "text": "Ai 泡沫GG蓋這麽多廠怎麼辦",
+        "time": "01:20"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 faelone",
+        "text": "聯電PE比台積電高本來就是一件很不合理的事",
+        "time": "01:20"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → JMSDF",
+        "text": "APP沒看過台積電ADR可以連續一整晚都\"強力賣出\"",
+        "time": "01:09"
       }
     ]
   },
-  "台塑 (1301)": {
+  "川寶 (1595)": {
+    "Keywords": {
+      "崩": 1,
+      "賺": 2,
+      "空": 2,
+      "跌": 1
+    },
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 lmfao",
+        "text": "川寶現在在幹嘛 抄貨嗎",
+        "time": "02:32"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → zephyr105",
+        "text": "川寶沒有消息嗎",
+        "time": "01:52"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 omanorboyo",
+        "text": "好扯 川寶沒出來救一下美國親兒子嗎 一舉帶崩費半",
+        "time": "01:53"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → starport",
+        "text": "川寶把AI改成SI 然後實現了 AI is over 恭喜他",
+        "time": "01:37"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 pudding10121",
+        "text": "美股好像在V了⚪ → Trollenglish：川寶早就賺爽爽了 根本不管選舉了🟢 推 jjsobig     ：他兒子不是做空比特幣嗎 真他媽有夠準的 神人也🟢 推 joyeszhang  ：川普還要硬打伊朗 費半準備破年線",
+        "time": "01:26"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → LADKUO56",
+        "text": "不過川寶可能又要打伊朗 就不好說了",
+        "time": "01:25"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 manboisold",
+        "text": "美積電就川寶炒起來的，被華西街宰剛好吧",
+        "time": "01:24"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 Trollenglish",
+        "text": "川寶早就做空了 選舉可以輸 錢不能不賺",
+        "time": "01:12"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → DSGG978",
+        "text": "一天跌這麼多，是有多想讓川寶下去",
+        "time": "01:07"
+      }
+    ]
+  },
+  "大甲 (2221)": {
+    "Keywords": {
+      "買": 1
+    },
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → ccdrv",
+        "text": "止不住耶  沒人想買了🟢 推 lepidoptera ：直接進技術性熊市…🟢 推 good10740   ：換陣營當然要撤退呀 免得被清算🔴 噓 calqlus     ：加了好幾個黑名單很明顯都是一個帳號講完換另一個⚪ → Trollenglish：支援愛抄底 jpg🟢 推 kcboy123    ：講到大甲就好笑，節目中投顧老師還推薦大甲 有夠壞⚪ → brain9453   ：超級爽 怎麼上去怎麼下來 低能投信雞巴拉三小",
+        "time": "01:13"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → eeeee118",
+        "text": "想到今天大甲  尾盤主力狂倒貨  現在看還真是先知",
+        "time": "01:12"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → eeeee118",
+        "text": "大甲  今天主力演了一整場  直到1點23才放推",
+        "time": "01:12"
+      }
+    ]
+  },
+  "聯電 (2303)": {
+    "Keywords": {
+      "爛": 1
+    },
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 faelone",
+        "text": "聯電PE比台積電高本來就是一件很不合理的事",
+        "time": "01:20"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → JMSDF",
+        "text": "成熟製程今晚先被當垃圾倒爛 聯電老實回50塊吧",
+        "time": "01:18"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 flyslider",
+        "text": "高股息 一堆都有聯電",
+        "time": "01:12"
+      }
+    ]
+  },
+  "NVIDIA概念股": {
+    "Keywords": {
+      "跌": 2,
+      "財報": 1,
+      "空": 1,
+      "丸子": 2,
+      "老蘇": 1
+    },
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 icedog122",
+        "text": "老黃明明沒開財報，也要跌5%，有沒有搞錯",
+        "time": "01:58"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → asjh612",
+        "text": "可以解定存了嗎🟢 推 sp03154     ：老蘇，現在才3-3波主跌段，補啥空單？？🟢 推 leon1757tw  ：這次真的丸子🟢 推 hc20016     ：兜兜轉轉 老黃又回200了",
+        "time": "01:34"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → brain9453",
+        "text": "老黃：你的AGI喊了三個冬天 毛都沒出現",
+        "time": "01:27"
+      }
+    ]
+  },
+  "天品 (6199)": {
+    "Keywords": {
+      "99": 1
+    },
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → eeeee118",
+        "text": "下周繼續看 天品 表演爬樓梯走法",
+        "time": "01:13"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 eeeee118",
+        "text": "下周6199天品  一樣繼續爬坡嗎 0.0",
+        "time": "01:11"
+      }
+    ]
+  },
+  "味全 (1201)": {
     "Keywords": {
       "噴": 2
     },
     "Comments": [
       {
-        "user": "📱 [ptt_stock_follow_chat] ⚪ → s555666",
-        "text": "台塑這半年漲了快100%，就知道這油價噴得多離譜了",
-        "time": "01:56"
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 eeeee118",
+        "text": "這種盤  連味全都能連拉兩根漲停  超猛XD",
+        "time": "02:16"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 eeeee118",
+        "text": "味全  該不會下周一  繼續噴噴",
+        "time": "01:19"
       }
     ]
   },
-  "川寶 (1595)": {
-    "Keywords": {},
+  "大立光 (3008)": {
+    "Keywords": {
+      "跌": 1,
+      "妖": 1
+    },
     "Comments": [
       {
-        "user": "📱 [ptt_stock_follow_chat] 🟢 推 Heyer",
-        "text": "川寶怎麼三不五時就要發神經",
-        "time": "01:59"
-      }
-    ]
-  },
-  "全家 (5903)": {
-    "Keywords": {},
-    "Comments": [
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → mcharuko",
+        "text": "靠妖股市跌嗎 星期一跌太大力糖漿會被逼交一波大在",
+        "time": "02:32"
+      },
       {
-        "user": "📱 [ptt_stock_follow_chat] ⚪ → dowcher",
-        "text": "全家早收割si了",
-        "time": "02:02"
-      }
-    ]
-  },
-  "嘉晶 (3016)": {
-    "Keywords": {},
-    "Comments": [
-      {
-        "user": "📱 [ptt_stock_follow_chat] 🟢 推 KisB",
-        "text": "嘉晶燒起來了",
-        "time": "01:38"
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 a71y242",
+        "text": "沒錢了 只能戴鋼盔衝。殺這麼大力 華爾街選完要做多",
+        "time": "01:12"
       }
     ]
   },
@@ -89,9 +319,169 @@
     "Keywords": {},
     "Comments": [
       {
-        "user": "📱 [ptt_stock_follow_chat] 🟢 推 tomdavis",
-        "text": "海力士 救我R(X",
-        "time": "00:14"
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → hototogisu",
+        "text": "SK美力士 -10%",
+        "time": "02:33"
+      }
+    ]
+  },
+  "千興 (2025)": {
+    "Keywords": {},
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → inyo",
+        "text": "2025/12/31 28963.6 現在還有45000要怎樣才會畢業？",
+        "time": "02:18"
+      }
+    ]
+  },
+  "台達電 (2308)": {
+    "Keywords": {
+      "噴": 2
+    },
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → tomy886",
+        "text": "今天收44000 台指就跟台達電一樣 噴",
+        "time": "01:46"
+      }
+    ]
+  },
+  "大將 (1453)": {
+    "Keywords": {},
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → goodman5566",
+        "text": "川普多頭大將軍 看來該退休了",
+        "time": "01:46"
+      }
+    ]
+  },
+  "耀億 (4430)": {
+    "Keywords": {},
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → angelo98",
+        "text": "4430",
+        "time": "01:31"
+      }
+    ]
+  },
+  "宜新實業 (4440)": {
+    "Keywords": {},
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 angelo98",
+        "text": "4440",
+        "time": "01:30"
+      }
+    ]
+  },
+  "大成 (1210)": {
+    "Keywords": {},
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → PeikangShin",
+        "text": "來來來 怎麼樣  棒康大進財。大成宮   再說一次  陰",
+        "time": "01:28"
+      }
+    ]
+  },
+  "全台 (3038)": {
+    "Keywords": {},
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🔴 噓 Ice826",
+        "text": "川普真的還不自盡嗎🟢 推 kcboy123    ：全台灣股民欠嘉偉老師一個道歉 火燒連環船嘉偉之怒!🟢 推 STAV72      ：https://i.verb.tw/qKNaUX2w.jpg 訊號來了！史上最🔴 噓 stanleyplus ：下週終於可以看融資追繳秀了~~~~~~~~~~~~",
+        "time": "01:09"
+      }
+    ]
+  },
+  "友達 (2409)": {
+    "Keywords": {
+      "噴": 2,
+      "賣": 1
+    },
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → manfree",
+        "text": "台股連賣廠房的群創、友達都能噴了，有什麼不可能",
+        "time": "02:33"
+      }
+    ]
+  },
+  "群創 (3481)": {
+    "Keywords": {
+      "噴": 2,
+      "賣": 1
+    },
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → manfree",
+        "text": "台股連賣廠房的群創、友達都能噴了，有什麼不可能",
+        "time": "02:33"
+      }
+    ]
+  },
+  "精英 (2331)": {
+    "Keywords": {
+      "空": 1
+    },
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🔴 噓 calqlus",
+        "text": "https://i.verb.tw/P8DaRpEU.jpg 精英空沒參戰",
+        "time": "01:52"
+      }
+    ]
+  },
+  "南亞 (1303)": {
+    "Keywords": {
+      "爛": 1
+    },
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → brain9453",
+        "text": "ee大 週一錘爛南亞",
+        "time": "01:22"
+      }
+    ]
+  },
+  "泰豐 (2102)": {
+    "Keywords": {
+      "空": 1
+    },
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 LDPC",
+        "text": "吃不起鼎泰豐拉阿阿 空手蛙 救救我",
+        "time": "01:03"
+      }
+    ]
+  },
+  "波若威 (3163)": {
+    "Keywords": {
+      "跌": 1,
+      "空": 1
+    },
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → YHOTV4096",
+        "text": "觀自降股殺, 跌深波若威羅蜜望實,照見五面皆空,多即",
+        "time": "02:26"
+      }
+    ]
+  },
+  "蜜望實 (8043)": {
+    "Keywords": {
+      "跌": 1,
+      "空": 1
+    },
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → YHOTV4096",
+        "text": "觀自降股殺, 跌深波若威羅蜜望實,照見五面皆空,多即",
+        "time": "02:26"
       }
     ]
   }
