@@ -349,8 +349,8 @@
       "Mentions": 2
     },
     "NVIDIA概念股": {
-      "Score": 8,
-      "Mentions": 2
+      "Score": 37,
+      "Mentions": 8
     },
     "欣興 (3037)": {
       "Score": 8,
@@ -414,6 +414,26 @@
     },
     "幸康 (3332)": {
       "Score": 5,
+      "Mentions": 1
+    },
+    "台灣大 (3045)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "三竹 (8284)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "大成 (1210)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "地心引力 (3629)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "宏碁 (2353)": {
+      "Score": 3,
       "Mentions": 1
     }
   }
