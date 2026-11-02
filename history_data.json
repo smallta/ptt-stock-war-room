@@ -1,18 +1,4 @@
 {
-  "2026-10-21": {
-    "台灣大 (3045)": {
-      "Score": 7,
-      "Mentions": 1
-    },
-    "台積電 (2330)": {
-      "Score": 5,
-      "Mentions": 1
-    },
-    "聯合 (4129)": {
-      "Score": 3,
-      "Mentions": 1
-    }
-  },
   "2026-10-22": {
     "川寶 (1595)": {
       "Score": 25,
@@ -266,6 +252,168 @@
     },
     "蜜望實 (8043)": {
       "Score": 1,
+      "Mentions": 1
+    }
+  },
+  "2026-11-02": {
+    "台積電 (2330)": {
+      "Score": 652,
+      "Mentions": 167
+    },
+    "聯發科 (2454)": {
+      "Score": 129,
+      "Mentions": 31
+    },
+    "台達電 (2308)": {
+      "Score": 99,
+      "Mentions": 22
+    },
+    "群聯 (8299)": {
+      "Score": 62,
+      "Mentions": 18
+    },
+    "川寶 (1595)": {
+      "Score": 55,
+      "Mentions": 12
+    },
+    "富喬 (1815)": {
+      "Score": 46,
+      "Mentions": 15
+    },
+    "禾伸堂 (3026)": {
+      "Score": 45,
+      "Mentions": 13
+    },
+    "聯電 (2303)": {
+      "Score": 44,
+      "Mentions": 11
+    },
+    "中鋼 (2002)": {
+      "Score": 27,
+      "Mentions": 6
+    },
+    "南亞 (1303)": {
+      "Score": 23,
+      "Mentions": 9
+    },
+    "群創 (3481)": {
+      "Score": 22,
+      "Mentions": 4
+    },
+    "友達 (2409)": {
+      "Score": 22,
+      "Mentions": 4
+    },
+    "力士 (4923)": {
+      "Score": 22,
+      "Mentions": 5
+    },
+    "大中 (6435)": {
+      "Score": 18,
+      "Mentions": 5
+    },
+    "華電 (1603)": {
+      "Score": 18,
+      "Mentions": 4
+    },
+    "中華電 (2412)": {
+      "Score": 18,
+      "Mentions": 4
+    },
+    "聯茂 (6213)": {
+      "Score": 16,
+      "Mentions": 4
+    },
+    "大立光 (3008)": {
+      "Score": 16,
+      "Mentions": 4
+    },
+    "環球晶 (6488)": {
+      "Score": 15,
+      "Mentions": 6
+    },
+    "鴻海 (2317)": {
+      "Score": 13,
+      "Mentions": 3
+    },
+    "天剛 (5310)": {
+      "Score": 10,
+      "Mentions": 2
+    },
+    "穩懋 (3105)": {
+      "Score": 10,
+      "Mentions": 2
+    },
+    "大甲 (2221)": {
+      "Score": 10,
+      "Mentions": 2
+    },
+    "NVIDIA概念股": {
+      "Score": 8,
+      "Mentions": 2
+    },
+    "欣興 (3037)": {
+      "Score": 8,
+      "Mentions": 2
+    },
+    "全家 (5903)": {
+      "Score": 8,
+      "Mentions": 2
+    },
+    "昇達科 (3491)": {
+      "Score": 7,
+      "Mentions": 1
+    },
+    "信昌電 (6173)": {
+      "Score": 7,
+      "Mentions": 1
+    },
+    "光寶科 (2301)": {
+      "Score": 7,
+      "Mentions": 1
+    },
+    "大樹 (6469)": {
+      "Score": 6,
+      "Mentions": 2
+    },
+    "高興昌 (2008)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "大毅 (2478)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "信大 (1109)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "麗臺 (2465)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "吉祥全 (2491)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "宏達電 (2498)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "東元 (1504)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "東台 (4526)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "台光電 (2383)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "幸康 (3332)": {
+      "Score": 5,
       "Mentions": 1
     }
   }
