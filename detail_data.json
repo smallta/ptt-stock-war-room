@@ -1,48 +1,453 @@
 {
   "台積電 (2330)": {
     "Keywords": {
-      "爛": 1
+      "跌": 5,
+      "丸子": 2,
+      "賣": 1,
+      "老蘇": 1,
+      "便宜": 2,
+      "套": 1,
+      "成長": 1
     },
     "Comments": [
       {
-        "user": "📱 [ptt_stock_follow_chat] 🟢 推 newvote",
-        "text": "intel自己爛 何必拖累台積電..",
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 mamorui",
+        "text": "菇菇我一直對五萬沒興趣 我今年第一季比較在意GG有",
+        "time": "04:13"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → JMSDF",
+        "text": "睽違30年的民主黨籍德州州長開第一槍，AI資料中心GG",
+        "time": "03:36"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → a0808996",
+        "text": "台積電不會亂漲價阿 只是叫你去排隊而已",
+        "time": "02:19"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 mamorui",
+        "text": "其實是很簡單的任務。 菇菇我知道GG關鍵的價位在哪",
+        "time": "01:45"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 mamorui",
+        "text": "我好像只跟嗨大信件講過GG的秘密任務是什麼",
+        "time": "01:32"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → mamorui",
+        "text": "GG一直沒有完成秘密任務",
+        "time": "01:29"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🔴 噓 JMSDF",
+        "text": "共和黨手上一堆AI基建法案，參眾兩院不用送了，GG",
+        "time": "01:24"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 lobster1688",
+        "text": "GG再做一次回測就要上了 黃金大漲市場根本不缺錢",
+        "time": "01:18"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 flash789",
+        "text": "費半和GG ADR看起來明天還有得跌",
+        "time": "01:16"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 lobster1688",
+        "text": "稍微動一下腦子就知道美中博弈GG還是戰場 不用擔心",
+        "time": "00:56"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 coolfishman",
+        "text": "gg跌 夜盤漲",
         "time": "00:54"
       },
       {
-        "user": "📱 [ptt_stock_follow_chat] 🟢 推 sim3000",
-        "text": "我沒中小了 只有GG跟一堆ETF",
-        "time": "00:30"
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → luke0407123",
+        "text": "呼 還好台積電還沒去德州 差點被逼去 現在不用去了",
+        "time": "00:54"
       },
       {
-        "user": "📱 [ptt_stock_follow_chat] ⚪ → macheal",
-        "text": "結果明天台積電漲停，一堆人開始哭",
-        "time": "00:09"
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → garlos",
+        "text": "笑死 民主黨勝選油價馬上大跌 這不是預告總統GG",
+        "time": "00:53"
       },
       {
-        "user": "📱 [ptt_stock_follow_chat] 🟢 推 opticalman",
-        "text": "漲600，結果只漲金融和GG 明天是不是要緊張了",
-        "time": "00:00"
-      }
-    ]
-  },
-  "欣興 (3037)": {
-    "Keywords": {},
-    "Comments": [
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 icedog122",
+        "text": "明天換gg死魚，拉中小",
+        "time": "00:47"
+      },
       {
-        "user": "📱 [ptt_stock_follow_chat] 🟢 推 proprome",
-        "text": "欣興爆炸囉",
-        "time": "03:28"
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → poco0960",
+        "text": "GG是丸子",
+        "time": "00:43"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 lobster1688",
+        "text": "美國不管哪ㄎ一黨執政AI都是國安問題，就別操心GG了",
+        "time": "00:43"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 tim80101",
+        "text": "想也知道阿川沒腳對AI沒影響，難道要GG賣給對岸嗎？",
+        "time": "00:37"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → RTX3080TI",
+        "text": "夢回2022年台積電374元",
+        "time": "00:34"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🔴 噓 JMSDF",
+        "text": "AI很不環保還會導致失業，完全和民主黨對著幹 GG",
+        "time": "00:32"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 LipaCat5566",
+        "text": "台積電老蘇今天說兩個數字是多少…",
+        "time": "00:26"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → RTX3080TI",
+        "text": "台積電美國廠不用蓋了民主黨大獲全勝",
+        "time": "00:18"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 sonyvaio",
+        "text": "夜盤繼續撐沒關係 GG ADR 都下去了",
+        "time": "00:15"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → caster5210",
+        "text": "60元的台積電",
+        "time": "00:13"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🔴 噓 a52655",
+        "text": "鬼指V不動了GGGGGGGGGGGGGG",
+        "time": "00:13"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🔴 噓 JMSDF",
+        "text": "台積電ADR那個超長上引線，不到兩小時倒貨量超大...",
+        "time": "00:12"
       }
     ]
   },
   "川寶 (1595)": {
+    "Keywords": {
+      "跌": 1,
+      "崩": 1
+    },
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → kidd085",
+        "text": "川寶怒了",
+        "time": "01:39"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 CloudVII",
+        "text": "伊朗真的很想要川寶跛腳",
+        "time": "01:14"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 HiuAnOP",
+        "text": "川寶：我明明打了伊朗這麼多核武 為什麼美國人民要",
+        "time": "01:06"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 velfarre",
+        "text": "只要還有人想看布丁和川寶一起跳森巴 AI就能發展",
+        "time": "01:06"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 InfoWars",
+        "text": "頁岩油公司都是川寶的金主阿 民主黨都是反開採 跌爆",
+        "time": "00:58"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → HiuAnOP",
+        "text": "川寶不想做的事 沒人逼得了他",
+        "time": "01:00"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 InfoWars",
+        "text": "川寶最愛的 頁岩油 煤礦業 都要被DEI禁止開採了",
+        "time": "00:52"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → InfoWars",
+        "text": "川寶概念股 頁岩油 天然氣 煤礦 輸油管道 慘了",
+        "time": "00:47"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 fajita",
+        "text": "原油拉下來就是再補打川寶一巴掌,給他個無能印記",
+        "time": "00:45"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 fajita",
+        "text": "奇了,川寶選輸油價大崩盤,所以幕後小丑是川寶本人吧",
+        "time": "00:37"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 fajita",
+        "text": "民主黨已經叫川寶律師要請好了,先查內褲線半年吧",
+        "time": "00:24"
+      }
+    ]
+  },
+  "NVIDIA概念股": {
+    "Keywords": {
+      "財報": 1,
+      "賣": 1
+    },
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 mamorui",
+        "text": "只好等老黃財報  關鍵的….",
+        "time": "04:01"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 brain9453",
+        "text": "老黃急了https://i.mopix.cc/4pyzdv.jpg",
+        "time": "00:16"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → asws0808",
+        "text": "老黃現在賣顯卡還來得及嗎",
+        "time": "00:13"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 KY1998",
+        "text": "老黃逛夜市 會不會被丟雞蛋?",
+        "time": "00:14"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → sp03154",
+        "text": "老黃：趕快...快...把GPU換現金",
+        "time": "00:14"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → dowcher",
+        "text": "以後世界版面沒有什麼老黃了",
+        "time": "00:11"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → dowcher",
+        "text": "老黃又要去後面站好了",
+        "time": "00:11"
+      }
+    ]
+  },
+  "鴻海 (2317)": {
+    "Keywords": {
+      "綠": 1,
+      "崩": 1
+    },
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 asws0808",
+        "text": "聯電綠 台積綠 鴻海綠 日月光綠，期貨怎麼還是紅的",
+        "time": "00:41"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 asws0808",
+        "text": "鴻海100收",
+        "time": "00:16"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → reall860523",
+        "text": "二位數的鴻海 想到就好笑",
+        "time": "00:15"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → asws0808",
+        "text": "鴻海也崩了 瓶蓋股被當AI",
+        "time": "00:12"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 ccdrv",
+        "text": "公公是蘋概股嗎  會漲吧",
+        "time": "00:11"
+      }
+    ]
+  },
+  "統一 (1216)": {
+    "Keywords": {
+      "買": 1
+    },
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → reall860523",
+        "text": "硬要打等這任結束準備跟韓國總統一樣被調查",
+        "time": "01:03"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 asws0808",
+        "text": "明天買統一超 友善時光最近會很熱銷",
+        "time": "00:20"
+      }
+    ]
+  },
+  "寶一 (8222)": {
     "Keywords": {},
     "Comments": [
       {
-        "user": "📱 [ptt_stock_follow_chat] ⚪ → sakano",
-        "text": "川寶要倒了，牙膏一起下去，阿斗就該有阿斗的樣子",
-        "time": "01:03"
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 velfarre",
+        "text": "只要還有人想看布丁和川寶一起跳森巴 AI就能發展",
+        "time": "01:06"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 fajita",
+        "text": "原油拉下來就是再補打川寶一巴掌,給他個無能印記",
+        "time": "00:45"
+      }
+    ]
+  },
+  "綠電 (8440)": {
+    "Keywords": {
+      "便宜": 2,
+      "綠": 1
+    },
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → a0808996",
+        "text": "你可以去內蒙古無人區建 還有超便宜綠電",
+        "time": "00:52"
+      }
+    ]
+  },
+  "旺宏 (2337)": {
+    "Keywords": {},
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → brain9453",
+        "text": "旺宏還三百勒 啟智凱基",
+        "time": "00:39"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 eeeee118",
+        "text": "腦大明天繼續錘爆  旺宏",
+        "time": "00:28"
+      }
+    ]
+  },
+  "遠見 (3040)": {
+    "Keywords": {
+      "毛利": 1
+    },
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → reall860523",
+        "text": "了毛利率犧牲合作夥伴，還是很有遠見",
+        "time": "02:19"
+      }
+    ]
+  },
+  "聯電 (2303)": {
+    "Keywords": {
+      "綠": 1
+    },
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 asws0808",
+        "text": "聯電綠 台積綠 鴻海綠 日月光綠，期貨怎麼還是紅的",
+        "time": "00:41"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 brain9453",
+        "text": "聯電夜盤這傻逼又回去了哈哈",
+        "time": "00:37"
+      }
+    ]
+  },
+  "威剛 (3260)": {
+    "Keywords": {
+      "套": 1
+    },
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → iceman321",
+        "text": "牙科套的...還想殺威剛...",
+        "time": "00:14"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 brain9453",
+        "text": "冰人大 我們來爆錘威剛好不好",
+        "time": "00:13"
+      }
+    ]
+  },
+  "彰銀 (2801)": {
+    "Keywords": {},
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → dowcher",
+        "text": "跟騷狗真的好可憐，彰銀早不跟晚不跟",
+        "time": "00:31"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → dowcher",
+        "text": "我的彰銀早就變成台幣了",
+        "time": "00:31"
+      }
+    ]
+  },
+  "統一超 (2912)": {
+    "Keywords": {
+      "買": 1
+    },
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 asws0808",
+        "text": "明天買統一超 友善時光最近會很熱銷",
+        "time": "00:20"
+      }
+    ]
+  },
+  "南亞 (1303)": {
+    "Keywords": {},
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 hong92",
+        "text": "昨天有人抄底南亞沾沾自喜，明天就知道了",
+        "time": "01:04"
+      }
+    ]
+  },
+  "國建 (2501)": {
+    "Keywords": {},
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → HiuAnOP",
+        "text": "頂多美國建變成其他國家建 幹嘛非要蓋在美國",
+        "time": "00:50"
+      }
+    ]
+  },
+  "台灣大 (3045)": {
+    "Keywords": {},
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 GODLP",
+        "text": "馬的廢物外資 我要找台灣大媽弄你們",
+        "time": "00:13"
+      }
+    ]
+  },
+  "力士 (4923)": {
+    "Keywords": {
+      "跌": 1
+    },
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 wolfmind",
+        "text": "今天也跌很大 海力士 硬往下拉到-6%…",
+        "time": "00:06"
       }
     ]
   }
