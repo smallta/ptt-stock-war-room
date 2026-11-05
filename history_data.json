@@ -1,26 +1,4 @@
 {
-  "2026-10-27": {
-    "力士 (4923)": {
-      "Score": 19,
-      "Mentions": 4
-    },
-    "台積電 (2330)": {
-      "Score": 10,
-      "Mentions": 2
-    },
-    "聯電 (2303)": {
-      "Score": 5,
-      "Mentions": 1
-    },
-    "博大 (8109)": {
-      "Score": 3,
-      "Mentions": 1
-    },
-    "精英 (2331)": {
-      "Score": 3,
-      "Mentions": 1
-    }
-  },
   "2026-10-28": {
     "力士 (4923)": {
       "Score": 92,
@@ -462,6 +440,136 @@
     },
     "力士 (4923)": {
       "Score": 3,
+      "Mentions": 1
+    }
+  },
+  "2026-11-05": {
+    "台積電 (2330)": {
+      "Score": 135,
+      "Mentions": 32
+    },
+    "NVIDIA概念股": {
+      "Score": 46,
+      "Mentions": 11
+    },
+    "聯電 (2303)": {
+      "Score": 24,
+      "Mentions": 8
+    },
+    "華電 (1603)": {
+      "Score": 14,
+      "Mentions": 6
+    },
+    "亞電 (4939)": {
+      "Score": 12,
+      "Mentions": 1
+    },
+    "國泰金 (2882)": {
+      "Score": 12,
+      "Mentions": 2
+    },
+    "中華電 (2412)": {
+      "Score": 11,
+      "Mentions": 5
+    },
+    "華邦電 (2344)": {
+      "Score": 7,
+      "Mentions": 1
+    },
+    "大立光 (3008)": {
+      "Score": 7,
+      "Mentions": 1
+    },
+    "上奇 (6123)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "新建 (2516)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "國建 (2501)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "群創 (3481)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "聯發科 (2454)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "南亞 (1303)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "台光電 (2383)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "鴻海 (2317)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "台驊控股 (2636)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "川寶 (1595)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "華南金 (2880)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "台泥 (1101)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "綠電 (8440)": {
+      "Score": 3,
+      "Mentions": 1
+    },
+    "環球晶 (6488)": {
+      "Score": 3,
+      "Mentions": 1
+    },
+    "力士 (4923)": {
+      "Score": 3,
+      "Mentions": 1
+    },
+    "元大中型100 (0051)": {
+      "Score": 3,
+      "Mentions": 1
+    },
+    "元大台灣50 (0050)": {
+      "Score": 3,
+      "Mentions": 1
+    },
+    "遠傳 (4904)": {
+      "Score": 3,
+      "Mentions": 1
+    },
+    "兆豐金 (2886)": {
+      "Score": 3,
+      "Mentions": 2
+    },
+    "全台 (3038)": {
+      "Score": 3,
+      "Mentions": 1
+    },
+    "金居 (8358)": {
+      "Score": 1,
+      "Mentions": 1
+    },
+    "聯亞 (3081)": {
+      "Score": 1,
+      "Mentions": 1
+    },
+    "華城 (1519)": {
+      "Score": 1,
       "Mentions": 1
     }
   }
