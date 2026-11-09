@@ -1,7 +1,7 @@
 {
-  "FearGreedIndex": 67,
-  "PanicIndex": 37,
-  "TotalCommentsParsed": 4577,
+  "FearGreedIndex": 64,
+  "PanicIndex": 35,
+  "TotalCommentsParsed": 3789,
   "TAIEXSummary": {
     "TAIEX": "41,661.70",
     "Change": "+1960.06",
@@ -177,7 +177,7 @@
       "Alert": "🚀 族群齊揚強攻",
       "UpCount": 7,
       "DownCount": 0,
-      "Mentions": 87,
+      "Mentions": 73,
       "TopStocks": [
         "萬潤 (6187) (+9.95%)",
         "均華 (6640) (+9.92%)",
@@ -205,7 +205,7 @@
       "Alert": "🚀 族群齊揚強攻",
       "UpCount": 5,
       "DownCount": 1,
-      "Mentions": 7,
+      "Mentions": 5,
       "TopStocks": [
         "世芯-KY (3661) (+9.89%)",
         "聯發科 (2454) (+9.88%)",
@@ -275,7 +275,7 @@
       "Alert": "⚖️ 平穩震盪",
       "UpCount": 1,
       "DownCount": 2,
-      "Mentions": 0,
+      "Mentions": 1,
       "TopStocks": [
         "陽明 (2609) (+0.70%)",
         "長榮 (2603) (-0.41%)",
@@ -329,8 +329,8 @@
         "TrustNet": 1768,
         "TotalNet": -54043,
         "MarginDiff": 5755,
-        "Mentions": 4,
-        "Score": 18,
+        "Mentions": 2,
+        "Score": 8,
         "ChipSignal": "💣 外資大倒貨 ✕ 散戶融資接刀 (套牢警戒)",
         "Tag": "外資倒貨+融資接刀",
         "_sort": 71308
@@ -384,20 +384,20 @@
         "_sort": 2854
       },
       {
-        "Stock": "聯發科 (2454)",
-        "Code": "2454",
-        "Price": "3,725.00",
-        "Change": "+335.00",
-        "ChangePercent": "+9.88%",
-        "ForeignNet": -1936,
-        "TrustNet": 520,
-        "TotalNet": -1098,
-        "MarginDiff": 189,
-        "Mentions": 5,
-        "Score": 24,
+        "Stock": "陽明 (2609)",
+        "Code": "2609",
+        "Price": "57.50",
+        "Change": "+0.40",
+        "ChangePercent": "+0.70%",
+        "ForeignNet": -3767,
+        "TrustNet": 1762,
+        "TotalNet": -2041,
+        "MarginDiff": 139,
+        "Mentions": 1,
+        "Score": 5,
         "ChipSignal": "💣 外資大倒貨 ✕ 散戶融資接刀 (套牢警戒)",
         "Tag": "外資倒貨+融資接刀",
-        "_sort": 1665
+        "_sort": 2458
       }
     ],
     "DarkHorse": [
@@ -416,38 +416,6 @@
         "ChipSignal": "⚖️ 散戶與法人動向平衡",
         "Tag": "聲量 9 則 · 強勢 +10.00%",
         "_sort": 37
-      },
-      {
-        "Stock": "安可 (3615)",
-        "Code": "3615",
-        "Price": "33.75",
-        "Change": "+2.30",
-        "ChangePercent": "+7.31%",
-        "ForeignNet": 7,
-        "TrustNet": 0,
-        "TotalNet": 7,
-        "MarginDiff": -14,
-        "Mentions": 3,
-        "Score": 17,
-        "ChipSignal": "⚖️ 散戶與法人動向平衡",
-        "Tag": "聲量 3 則 · 法人+7張",
-        "_sort": 17
-      },
-      {
-        "Stock": "川寶 (1595)",
-        "Code": "1595",
-        "Price": "63.80",
-        "Change": "+4.50",
-        "ChangePercent": "+7.59%",
-        "ForeignNet": -47,
-        "TrustNet": 0,
-        "TotalNet": -26,
-        "MarginDiff": 17,
-        "Mentions": 3,
-        "Score": 15,
-        "ChipSignal": "⚖️ 散戶與法人動向平衡",
-        "Tag": "聲量 3 則 · 強勢 +7.59%",
-        "_sort": 15
       },
       {
         "Stock": "南電 (8046)",
@@ -480,12 +448,28 @@
         "ChipSignal": "⚖️ 散戶與法人動向平衡",
         "Tag": "聲量 1 則 · 強勢 +1.63%",
         "_sort": 12
+      },
+      {
+        "Stock": "川寶 (1595)",
+        "Code": "1595",
+        "Price": "63.80",
+        "Change": "+4.50",
+        "ChangePercent": "+7.59%",
+        "ForeignNet": -47,
+        "TrustNet": 0,
+        "TotalNet": -26,
+        "MarginDiff": 17,
+        "Mentions": 2,
+        "Score": 10,
+        "ChipSignal": "⚖️ 散戶與法人動向平衡",
+        "Tag": "聲量 2 則 · 強勢 +7.59%",
+        "_sort": 10
       }
     ]
   },
   "InstitutionalSentiment": {
-    "ForeignBullish": 1,
-    "ForeignBearish": 2,
+    "ForeignBullish": 0,
+    "ForeignBearish": 1,
     "TrustBullish": 0,
     "TrustBearish": 0
   },
@@ -503,15 +487,15 @@
       "Neg": 10
     },
     "盤後夜間": {
-      "Pos": 97,
-      "Neg": 80
+      "Pos": 51,
+      "Neg": 54
     }
   },
   "SectorRotation": [
     {
       "Sector": "半導體業",
-      "Mentions": 98,
-      "AvgScore": 81.0,
+      "Mentions": 80,
+      "AvgScore": 65.0,
       "TopStocks": [
         "台積電",
         "聯發科",
@@ -520,12 +504,12 @@
     },
     {
       "Sector": "電子零組件業",
-      "Mentions": 9,
+      "Mentions": 7,
       "AvgScore": 5.8,
       "TopStocks": [
         "南電",
-        "太空梭",
-        "台光電"
+        "台光電",
+        "欣興"
       ]
     },
     {
@@ -537,22 +521,22 @@
       ]
     },
     {
-      "Sector": "食品工業",
-      "Mentions": 2,
-      "AvgScore": 6.0,
+      "Sector": "電器電纜",
+      "Mentions": 1,
+      "AvgScore": 12.0,
       "TopStocks": [
-        "大成"
+        "華電"
       ]
     },
     {
-      "Sector": "資訊服務業",
-      "Mentions": 2,
-      "AvgScore": 6.0,
+      "Sector": "通信網路業",
+      "Mentions": 1,
+      "AvgScore": 5.0,
       "TopStocks": [
-        "傳奇"
+        "宏達電"
       ]
     }
   ],
-  "MarketSummary": "⚖️ 市場情緒目前【中立震盪】(67分)，多空雙方力道均衡。 資金與討論度高度集中在【半導體業】，其中以 台積電、聯發科、聯電 最受矚目。",
-  "AISummary": "🤖 【社群情緒風向】：目前社群恐懼貪婪指數為 67 分，絕望反向指數為 37 分。鄉民整體討論偏向謹慎觀望。\n📊 【籌碼與浮額對抗】：三大法人今日合計買賣超 -899.63億，信用交易融資增減 +58.63億。需持續留意籌碼集中度高的族群是否出現大戶倒貨。\n🎯 【焦點個股動態】：討論熱度最高之標的為 NVIDIA概念股，其籌碼訊號顯示為「🎭 鄉民反串迷因狂熱」，建議搭配支撐壓力審慎操作。"
+  "MarketSummary": "⚖️ 市場情緒目前【中立震盪】(64分)，多空雙方力道均衡。 資金與討論度高度集中在【半導體業】，其中以 台積電、聯發科、聯電 最受矚目。",
+  "AISummary": null
 }
