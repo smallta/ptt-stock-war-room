@@ -176,7 +176,7 @@ function renderScoreChart(data) {
         data: {
             labels: labels,
             datasets: [{
-                label: '綜合低估分數',
+                label: '綜合熱度與聲量分數',
                 data: scores,
                 backgroundColor: gradient,
                 borderRadius: 6,
@@ -237,8 +237,17 @@ function renderTimelineChart(timelineData, taiexTrendData) {
         }
     ];
 
+    let minTaiex, maxTaiex;
     if (taiexTrendData) {
-        const taiexVals = labels.map(l => taiexTrendData[l] || null);
+        const taiexVals = labels.map(l => {
+            const v = taiexTrendData[l];
+            return (typeof v === 'number' && v > 1000) ? v : null;
+        });
+        const validTaiex = taiexVals.filter(v => v !== null);
+        if (validTaiex.length > 0) {
+            minTaiex = Math.floor(Math.min(...validTaiex) * 0.995);
+            maxTaiex = Math.ceil(Math.max(...validTaiex) * 1.005);
+        }
         datasets.push({
             label: '大盤加權指數 (右軸點數)',
             data: taiexVals,
@@ -248,6 +257,7 @@ function renderTimelineChart(timelineData, taiexTrendData) {
             borderWidth: 2,
             fill: false,
             tension: 0.3,
+            spanGaps: true,
             yAxisID: 'y1'
         });
     }
@@ -282,6 +292,8 @@ function renderTimelineChart(timelineData, taiexTrendData) {
                     type: 'linear',
                     display: true,
                     position: 'right',
+                    min: minTaiex,
+                    max: maxTaiex,
                     title: { display: true, text: '大盤指數 (點)', color: '#f59e0b' },
                     grid: { drawOnChartArea: false },
                     ticks: { color: '#f59e0b' }
@@ -665,8 +677,8 @@ function openCommentsModal(stockName) {
         const historyObj = window.HISTORY_DATA;
         const dates = Object.keys(historyObj).sort();
         if (dates.length > 0) {
-            const scores = dates.map(d => (historyObj[d][stockName] ? historyObj[d][stockName].Score : null));
-            const mentions = dates.map(d => (historyObj[d][stockName] ? historyObj[d][stockName].Mentions : 0));
+            const scores = dates.map(d => (historyObj[d] && historyObj[d][stockName] ? historyObj[d][stockName].Score : null));
+            const mentions = dates.map(d => (historyObj[d] && historyObj[d][stockName] ? historyObj[d][stockName].Mentions : 0));
             
             historyBox.style.display = 'block';
             const ctx = document.getElementById('stockHistoryChart').getContext('2d');
@@ -684,7 +696,8 @@ function openCommentsModal(stockName) {
                             borderColor: '#8b5cf6',
                             backgroundColor: 'rgba(139, 92, 246, 0.1)',
                             fill: true,
-                            tension: 0.3
+                            tension: 0.3,
+                            spanGaps: true
                         },
                         {
                             label: '討論聲量(則)',
@@ -692,7 +705,8 @@ function openCommentsModal(stockName) {
                             borderColor: '#3b82f6',
                             borderDash: [4, 4],
                             fill: false,
-                            tension: 0.3
+                            tension: 0.3,
+                            spanGaps: true
                         }
                     ]
                 },

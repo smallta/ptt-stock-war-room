@@ -12,6 +12,34 @@ TW_TZ = timezone(timedelta(hours=8))
 def get_tw_now():
     return datetime.now(TW_TZ)
 
+def get_market_target_date():
+    """
+    計算當前應分析與爬取的台股交易日（Target Date）。
+    徹底解決 GitHub Actions 因佇列塞車延遲而在隔日清晨（00:00 - 08:30）執行的跨日問題：
+    - 若台灣時間在 00:00 - 08:30 之間執行，代表今日尚未開盤，此分析任務為前一交易日（昨日）的盤後報告！
+      - 若執行時為週一清晨，前一交易日為週五（往前推 3 天）
+      - 若執行時為週日清晨，前一交易日為週五（往前推 2 天）
+      - 若執行時為週六清晨，前一交易日為週五（往前推 1 天）
+      - 平日凌晨，前一交易日為昨天（往前推 1 天）
+    - 若台灣時間在 08:30 之後執行，代表為當日盤中或盤後，目標日期即為今日（若週末執行則 fallback 至週五）。
+    """
+    now_tw = get_tw_now()
+    if now_tw.hour < 8 or (now_tw.hour == 8 and now_tw.minute < 30):
+        if now_tw.weekday() == 0:    # 週一清晨 -> 上週五
+            return now_tw - timedelta(days=3)
+        elif now_tw.weekday() == 6:  # 週日清晨 -> 上週五
+            return now_tw - timedelta(days=2)
+        elif now_tw.weekday() == 5:  # 週六清晨 -> 週五
+            return now_tw - timedelta(days=1)
+        else:                        # 週二至週五清晨 -> 昨天
+            return now_tw - timedelta(days=1)
+    else:
+        if now_tw.weekday() == 5:    # 週六日間 -> 週五
+            return now_tw - timedelta(days=1)
+        elif now_tw.weekday() == 6:  # 週日日間 -> 週五
+            return now_tw - timedelta(days=2)
+        return now_tw
+
 try:
     from curl_cffi import requests as cffi_requests
 except ImportError:
@@ -381,7 +409,7 @@ def get_margin_data():
         url = "https://www.twse.com.tw/rwd/zh/marginTrading/MI_MARGN?response=json&selectType=ALL"
         res = safe_get(url, is_json=True)
         if isinstance(res, dict) and "tables" in res:
-            today_num = get_tw_now().strftime("%Y%m%d")
+            today_num = get_market_target_date().strftime("%Y%m%d")
             res_date = str(res.get("date", ""))
             if res_date and res_date != today_num:
                 print(f"⚠️ 證交所今日 ({today_num}) 信用交易尚未更新，目前資料日期為 {res_date} (沿用前一營業日)")
@@ -560,12 +588,24 @@ def get_taiex_intraday_trend():
             tp = {}
             for row in raw_data:
                 if len(row[0]) >= 5:
-                    tp[row[0][:5]] = float(row[1].replace(",", ""))
+                    try:
+                        val = float(row[1].replace(",", ""))
+                        if val > 1000:
+                            tp[row[0][:5]] = val
+                    except Exception:
+                        pass
+            
+            # 尋找合理的區間點位，避免 0 點拉壞折線圖
+            open_val = next((tp[k] for k in sorted(tp.keys()) if "09:00" <= k <= "10:30"), 0)
+            mid_val = next((tp[k] for k in sorted(tp.keys()) if "10:30" <= k <= "13:00"), open_val)
+            close_val = next((tp[k] for k in sorted(tp.keys(), reverse=True) if "13:00" <= k <= "13:35"), mid_val)
+            last_valid = close_val or mid_val or open_val
+
             trend = {
-                "早盤開盤": tp.get("09:30", tp.get("09:00", 0)),
-                "盤中震盪": tp.get("11:30", tp.get("11:00", 0)),
-                "尾盤收盤": tp.get("13:30", tp.get("13:00", 0)),
-                "盤後夜間": tp.get("13:30", 0)
+                "早盤開盤": open_val or last_valid,
+                "盤中震盪": mid_val or last_valid,
+                "尾盤收盤": close_val or last_valid,
+                "盤後夜間": close_val or last_valid
             }
     except Exception as e:
         print(f"Error fetching TAIEX intraday trend: {e}")
@@ -574,32 +614,36 @@ def get_taiex_intraday_trend():
 def find_chat_urls():
     chat_urls = []
     current_url = STOCK_BOARD_URL
-    now_tw = get_tw_now()
-    today_slash = now_tw.strftime("%Y/%m/%d")        # e.g. "2026/10/20"
-    today_md_slash = now_tw.strftime("%m/%d")       # e.g. "10/20"
-    today_md_nozero = f"{now_tw.month}/{now_tw.day}" # e.g. "10/20"
+    target_dt = get_market_target_date()
+    today_slash = target_dt.strftime("%Y/%m/%d")        # e.g. "2026/11/09"
+    today_md_slash = target_dt.strftime("%m/%d")       # e.g. "11/09"
+    today_md_nozero = f"{target_dt.month}/{target_dt.day}" # e.g. "11/9"
     
-    stop_paging = False
+    empty_streak = 0
     for page in range(25):
-        if stop_paging: break
         html = safe_get(current_url)
         if not html: break
         soup = BeautifulSoup(html, "html.parser")
         entries = soup.find_all("div", class_="r-ent")
+        found_in_page = 0
         for entry in entries:
             title_tag = entry.find("div", class_="title").find("a")
             if not title_tag: continue
             title = title_tag.text.strip()
-            if "盤中閒聊" in title or "盤後閒聊" in title:
-                # 嚴格判定：文章標題是否包含「今日日期」
+            if "閒聊" in title:
                 is_today = (today_slash in title) or (today_md_slash in title) or (today_md_nozero in title)
                 if is_today:
                     chat_urls.append(PTT_URL + title_tag["href"])
-                else:
-                    # 如果遇到舊日期的閒聊文，且今天已經抓到文章，說明已跨越到昨天，停止翻頁
-                    if len(chat_urls) > 0:
-                        stop_paging = True
-                        break
+                    found_in_page += 1
+        
+        if found_in_page == 0:
+            empty_streak += 1
+            # 只有當已經抓過目標日文章，且連續翻 3 頁都沒有目標日閒聊時，才視為已超越範圍停止
+            if len(chat_urls) > 0 and empty_streak >= 3:
+                break
+        else:
+            empty_streak = 0
+            
         paging = soup.find("div", class_="btn-group-paging")
         if paging:
             current_url = PTT_URL + paging.find_all("a")[1]["href"]
@@ -608,7 +652,7 @@ def find_chat_urls():
         time.sleep(0.05)
     # Preserve newest-first order
     chat_urls = list(dict.fromkeys(chat_urls))
-    print(f"Found {len(chat_urls)} chat articles for today ({today_slash}).")
+    print(f"Found {len(chat_urls)} chat articles for target date ({today_slash}).")
     return chat_urls
 
 def crawl_comments(url):
@@ -634,12 +678,12 @@ def crawl_telegram_chat(max_pages=80):
     if "ptt_stock_follow_chat" not in ch_list:
         ch_list.insert(0, "ptt_stock_follow_chat")
         
-    now_tw = get_tw_now()
-    today_date_str = now_tw.strftime("%Y-%m-%d") # e.g. "2026-10-20"
+    target_dt = get_market_target_date()
+    today_date_str = target_dt.strftime("%Y-%m-%d") # e.g. "2026-11-09"
     
     comments = []
     for ch in ch_list:
-        print(f"Fetching Telegram Channel: t.me/s/{ch} (today: {today_date_str})...")
+        print(f"Fetching Telegram Channel: t.me/s/{ch} (target date: {today_date_str})...")
         before = None
         stop_ch = False
         for page in range(max_pages):
@@ -659,9 +703,12 @@ def crawl_telegram_chat(max_pages=80):
                             dt_raw = time_tag["datetime"].replace("Z", "+00:00")
                             msg_dt = datetime.fromisoformat(dt_raw).astimezone(TW_TZ)
                             msg_date = msg_dt.strftime("%Y-%m-%d")
-                            if msg_date != today_date_str:
-                                # 遇到今天以前的歷史訊息，立即停止向後翻頁
+                            if msg_date < today_date_str:
+                                # 遇到目標日以前的舊訊息，停止向更早歷史翻頁
                                 stop_ch = True
+                                continue
+                            elif msg_date > today_date_str:
+                                # 遇到比目標日更新的訊息（例如凌晨執行遇到隔日凌晨訊息），略過但不中斷翻頁
                                 continue
                             msg_time_str = msg_dt.strftime("%H:%M")
                         except Exception:
@@ -1209,7 +1256,8 @@ def analyze(comments, stocks, valuations, sectors, price_data, inst_data, inst_s
     return sorted_results, market_data
 
 def generate_tg_digest(results, market_data):
-    today = time.strftime("%Y-%m-%d")
+    target_dt = get_market_target_date()
+    today = target_dt.strftime("%Y-%m-%d")
     taiex = market_data.get("TAIEXSummary", {})
     inst_amt = market_data.get("RealInstitutionalStats", {}).get("Amounts", {})
     margin_s = market_data.get("MarginSummary", {})
@@ -1292,22 +1340,26 @@ def generate_tg_digest(results, market_data):
         f.write(digest_text)
         
     # 嚴格控制 Telegram 推播時間：
-    # 依使用者需求，只在晚上 9 點 (21:00 UTC+8) 以後才推播（資料最完整），白天時段只更新網頁不打擾
+    # 1. 於 GitHub Actions 排程/手動觸發環境中：一律自動推播（即使因排隊延遲到清晨執行也絕不漏推）
+    # 2. 或環境變數 FORCE_TG_PUSH=1
+    # 3. 或台灣時間晚上 20:30 以後至隔日開盤前 08:30（涵蓋所有夜間與清晨合法盤後時段）
     now_hour = get_tw_now().hour
+    is_github_actions = os.environ.get("GITHUB_ACTIONS", "").lower() in ("true", "1")
     force_push = os.environ.get("FORCE_TG_PUSH", "").strip().lower() in ("1", "true", "yes")
+    is_valid_push_window = is_github_actions or force_push or (now_hour >= 20 or now_hour < 9)
     
     bot_token = os.environ.get("TELEGRAM_BOT_TOKEN") or "8837287745:AAGq7-ZQKt_PwzowODDbpc4pzdDhoyfcw1k"
     chat_id = os.environ.get("TELEGRAM_CHAT_ID") or "1815627011"
     if bot_token and chat_id:
-        if now_hour >= 21 or force_push:
+        if is_valid_push_window:
             try:
                 tg_url = f"https://api.telegram.org/bot{bot_token}/sendMessage"
                 requests.post(tg_url, json={"chat_id": chat_id, "text": digest_text}, timeout=10)
-                print(f"✅ 已於晚上盤後推播時段 (當前台灣時間 {now_hour}:xx) 自動發送最新戰情報告至 Telegram！")
+                print(f"✅ 已於盤後時段 (當前台灣時間 {now_hour}:xx) 自動發送最新戰情報告至 Telegram！")
             except Exception as e:
                 print(f"⚠️ Telegram 自動推播略過: {e}")
         else:
-            print(f"ℹ️ 目前台灣時間為 {now_hour}:xx (未達晚上 21:00 盤後完整推播時段)，已產出戰情報告並更新儀表板，略過 Telegram 訊息推播以免打擾。")
+            print(f"ℹ️ 目前台灣時間為 {now_hour}:xx (日間交易時段)，已產出戰情報告並更新儀表板，略過 Telegram 訊息推播以免打擾。")
             
     return digest_text
 
@@ -1342,7 +1394,7 @@ def main():
             json.dump({r["Stock"]: {"Keywords": r["Keywords"], "Comments": r["Comments"]} for r in res}, f, ensure_ascii=False, indent=2)
             
         # 7-Day History Snapshot
-        today_str = time.strftime("%Y-%m-%d")
+        today_str = get_market_target_date().strftime("%Y-%m-%d")
         history_file = "history_data.json"
         history = {}
         if os.path.exists(history_file):
