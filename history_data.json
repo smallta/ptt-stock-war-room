@@ -1,42 +1,4 @@
 {
-  "2026-10-29": {
-    "中華電 (2412)": {
-      "Score": 7,
-      "Mentions": 1
-    },
-    "華電 (1603)": {
-      "Score": 7,
-      "Mentions": 1
-    },
-    "彰銀 (2801)": {
-      "Score": 5,
-      "Mentions": 1
-    },
-    "台積電 (2330)": {
-      "Score": 5,
-      "Mentions": 1
-    },
-    "台塑 (1301)": {
-      "Score": 5,
-      "Mentions": 1
-    },
-    "川寶 (1595)": {
-      "Score": 5,
-      "Mentions": 1
-    },
-    "全家 (5903)": {
-      "Score": 5,
-      "Mentions": 1
-    },
-    "嘉晶 (3016)": {
-      "Score": 5,
-      "Mentions": 1
-    },
-    "力士 (4923)": {
-      "Score": 5,
-      "Mentions": 1
-    }
-  },
   "2026-10-30": {
     "台積電 (2330)": {
       "Score": 108,
@@ -938,6 +900,124 @@
     },
     "亞光 (3019)": {
       "Score": 5,
+      "Mentions": 1
+    }
+  },
+  "2026-11-12": {
+    "NVIDIA概念股": {
+      "Score": 669,
+      "Mentions": 172
+    },
+    "台積電 (2330)": {
+      "Score": 62,
+      "Mentions": 16
+    },
+    "禾伸堂 (3026)": {
+      "Score": 26,
+      "Mentions": 7
+    },
+    "南亞 (1303)": {
+      "Score": 22,
+      "Mentions": 6
+    },
+    "川寶 (1595)": {
+      "Score": 20,
+      "Mentions": 5
+    },
+    "鴻海 (2317)": {
+      "Score": 13,
+      "Mentions": 2
+    },
+    "欣興 (3037)": {
+      "Score": 10,
+      "Mentions": 2
+    },
+    "南電 (8046)": {
+      "Score": 9,
+      "Mentions": 3
+    },
+    "華星光 (4979)": {
+      "Score": 8,
+      "Mentions": 2
+    },
+    "台燿 (6274)": {
+      "Score": 7,
+      "Mentions": 1
+    },
+    "台光電 (2383)": {
+      "Score": 7,
+      "Mentions": 1
+    },
+    "彰銀 (2801)": {
+      "Score": 7,
+      "Mentions": 2
+    },
+    "遠見 (3040)": {
+      "Score": 7,
+      "Mentions": 2
+    },
+    "景碩 (3189)": {
+      "Score": 6,
+      "Mentions": 2
+    },
+    "友達 (2409)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "安可 (3615)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "全台 (3038)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "鴻準 (2354)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "創意 (3443)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "緯創 (3231)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "智原 (3035)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "冠軍 (1806)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "技嘉 (2376)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "中天 (4128)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "典範 (3372)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "太極 (4934)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "宏達電 (2498)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "聯茂 (6213)": {
+      "Score": 3,
+      "Mentions": 1
+    },
+    "南亞科 (2408)": {
+      "Score": 3,
       "Mentions": 1
     }
   }
