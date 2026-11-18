@@ -1,166 +1,4 @@
 {
-  "2026-11-09": {
-    "NVIDIA概念股": {
-      "Score": 1855,
-      "Mentions": 555
-    },
-    "台積電 (2330)": {
-      "Score": 362,
-      "Mentions": 90
-    },
-    "群聯 (8299)": {
-      "Score": 37,
-      "Mentions": 9
-    },
-    "聯發科 (2454)": {
-      "Score": 31,
-      "Mentions": 6
-    },
-    "聯電 (2303)": {
-      "Score": 28,
-      "Mentions": 6
-    },
-    "川寶 (1595)": {
-      "Score": 20,
-      "Mentions": 4
-    },
-    "大立光 (3008)": {
-      "Score": 15,
-      "Mentions": 3
-    },
-    "安可 (3615)": {
-      "Score": 17,
-      "Mentions": 3
-    },
-    "南電 (8046)": {
-      "Score": 13,
-      "Mentions": 3
-    },
-    "華電 (1603)": {
-      "Score": 12,
-      "Mentions": 1
-    },
-    "傳奇 (4994)": {
-      "Score": 11,
-      "Mentions": 3
-    },
-    "鴻海 (2317)": {
-      "Score": 10,
-      "Mentions": 2
-    },
-    "中探針 (6217)": {
-      "Score": 5,
-      "Mentions": 1
-    },
-    "宏達電 (2498)": {
-      "Score": 5,
-      "Mentions": 1
-    },
-    "樂意 (7584)": {
-      "Score": 5,
-      "Mentions": 1
-    },
-    "中鋼 (2002)": {
-      "Score": 5,
-      "Mentions": 1
-    },
-    "全台 (3038)": {
-      "Score": 5,
-      "Mentions": 1
-    },
-    "富邦金 (2881)": {
-      "Score": 5,
-      "Mentions": 1
-    },
-    "台光電 (2383)": {
-      "Score": 5,
-      "Mentions": 1
-    },
-    "聯詠 (3034)": {
-      "Score": 5,
-      "Mentions": 1
-    },
-    "欣興 (3037)": {
-      "Score": 5,
-      "Mentions": 1
-    },
-    "信大 (1109)": {
-      "Score": 5,
-      "Mentions": 1
-    },
-    "益得 (6461)": {
-      "Score": 5,
-      "Mentions": 1
-    },
-    "大將 (1453)": {
-      "Score": 5,
-      "Mentions": 1
-    },
-    "台灣大 (3045)": {
-      "Score": 5,
-      "Mentions": 1
-    },
-    "禾伸堂 (3026)": {
-      "Score": 3,
-      "Mentions": 1
-    },
-    "創意 (3443)": {
-      "Score": 3,
-      "Mentions": 1
-    },
-    "新日興 (3376)": {
-      "Score": 3,
-      "Mentions": 1
-    },
-    "至上 (8112)": {
-      "Score": 3,
-      "Mentions": 1
-    },
-    "台燿 (6274)": {
-      "Score": 3,
-      "Mentions": 1
-    },
-    "藍天 (2362)": {
-      "Score": 3,
-      "Mentions": 1
-    },
-    "精華 (1565)": {
-      "Score": 3,
-      "Mentions": 1
-    },
-    "星宇航空 (2646)": {
-      "Score": 3,
-      "Mentions": 1
-    },
-    "大中 (6435)": {
-      "Score": 10,
-      "Mentions": 2
-    },
-    "大成 (1210)": {
-      "Score": 6,
-      "Mentions": 2
-    },
-    "太空梭 (2440)": {
-      "Score": 6,
-      "Mentions": 2
-    },
-    "陽明 (2609)": {
-      "Score": 5,
-      "Mentions": 1
-    },
-    "元大台灣50 (0050)": {
-      "Score": 5,
-      "Mentions": 1
-    },
-    "力士 (4923)": {
-      "Score": 3,
-      "Mentions": 1
-    },
-    "萬在 (4543)": {
-      "Score": 1,
-      "Mentions": 1
-    }
-  },
   "2026-11-10": {
     "NVIDIA概念股": {
       "Score": 707,
@@ -1077,6 +915,44 @@
       "Mentions": 1
     },
     "精英 (2331)": {
+      "Score": 1,
+      "Mentions": 1
+    }
+  },
+  "2026-11-18": {
+    "NVIDIA概念股": {
+      "Score": 190,
+      "Mentions": 45
+    },
+    "台積電 (2330)": {
+      "Score": 28,
+      "Mentions": 7
+    },
+    "聯合 (4129)": {
+      "Score": 12,
+      "Mentions": 1
+    },
+    "和大 (1536)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "全家 (5903)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "創業家 (8477)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "光環 (3234)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "川寶 (1595)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "力士 (4923)": {
       "Score": 1,
       "Mentions": 1
     }
