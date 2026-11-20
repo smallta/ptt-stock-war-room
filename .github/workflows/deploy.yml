@@ -2,11 +2,11 @@ name: PTT Stock War Room Auto Crawl & Deploy
 
 on:
   schedule:
-    # 台灣時間 (UTC+8)：週一至週五 盤後，三段式排程亂槍打鳥降低 GitHub Actions scheduled 延遲
-    # 任一段先跑完就 skip 其他（dup_check step 控），實際只會 commit 一次
-    - cron: '47 13 * * 1-5'   # 21:47 Taipei
-    - cron: '03 14 * * 1-5'   # 22:03 Taipei
-    - cron: '23 14 * * 1-5'   # 22:23 Taipei
+    # 台灣時間 (UTC+8)：週一至週五
+    # 11/16-19 驗證 UTC 13:47 晚間高峰 → 延遲 8-9h 落隔日清晨，且清晨跑 PTT/TG 內容殘缺（11/18 僅 9 檔、11/19 僅 17 檔）
+    # 改為盤後 14:30 主抓（UTC 06:30 Actions 離峰窗、收盤 1h 鄉民正發酵），21:47 備援補充（dup_check 已做過會 skip）
+    - cron: '30 6 * * 1-5'    # 14:30 Taipei (主抓 - 盤後離峰窗)
+    - cron: '47 13 * * 1-5'   # 21:47 Taipei (備援 - 若主抓當日未成功則補跑)
   workflow_dispatch: # 支援在 Actions 頁面手動點擊執行
 
 permissions:
