@@ -483,21 +483,24 @@ def get_margin_data():
 
     return margin_stock_data, summary
 
+def _rule_based_market_summary(results, market_data):
+    """Rule-based fallback when Gemini API key missing or API call fails."""
+    fg_idx = market_data.get("FearGreedIndex", 50)
+    panic_idx = market_data.get("PanicIndex", 0)
+    tot_net = market_data.get("RealInstitutionalStats", {}).get("Amounts", {}).get("Total", {}).get("net", "-")
+    m_diff = market_data.get("MarginSummary", {}).get("MarginDiff", "-")
+
+    lines = [
+        f"🤖 【社群情緒風向】：目前社群恐懼貪婪指數為 {fg_idx} 分，絕望反向指數為 {panic_idx} 分。鄉民整體討論偏向{'狂熱追價' if fg_idx>=70 else ('謹慎觀望' if fg_idx>=40 else '恐慌拋售')}。",
+        f"📊 【籌碼與浮額對抗】：三大法人今日合計買賣超 {tot_net}，信用交易融資增減 {m_diff}。需持續留意籌碼集中度高的族群是否出現大戶倒貨。",
+        f"🎯 【焦點個股動態】：討論熱度最高之標的為 {results[0]['Stock'] if results else '台股龍頭'}，其籌碼訊號顯示為「{results[0].get('ChipSignal', '動向平衡') if results else '籌碼平衡'}」，建議搭配支撐壓力審慎操作。"
+    ]
+    return "\n".join(lines)
+
 def get_ai_market_summary(results, market_data, taiex_info):
     api_key = os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")
     if not api_key:
-        # High quality rule-based AI heuristic fallback
-        fg_idx = market_data.get("FearGreedIndex", 50)
-        panic_idx = market_data.get("PanicIndex", 0)
-        tot_net = market_data.get("RealInstitutionalStats", {}).get("Amounts", {}).get("Total", {}).get("net", "-")
-        m_diff = market_data.get("MarginSummary", {}).get("MarginDiff", "-")
-        
-        lines = [
-            f"🤖 【社群情緒風向】：目前社群恐懼貪婪指數為 {fg_idx} 分，絕望反向指數為 {panic_idx} 分。鄉民整體討論偏向{'狂熱追價' if fg_idx>=70 else ('謹慎觀望' if fg_idx>=40 else '恐慌拋售')}。",
-            f"📊 【籌碼與浮額對抗】：三大法人今日合計買賣超 {tot_net}，信用交易融資增減 {m_diff}。需持續留意籌碼集中度高的族群是否出現大戶倒貨。",
-            f"🎯 【焦點個股動態】：討論熱度最高之標的為 {results[0]['Stock'] if results else '台股龍頭'}，其籌碼訊號顯示為「{results[0].get('ChipSignal', '動向平衡') if results else '籌碼平衡'}」，建議搭配支撐壓力審慎操作。"
-        ]
-        return "\n".join(lines)
+        return _rule_based_market_summary(results, market_data)
         
     try:
         top_stocks_summary = []
@@ -516,7 +519,7 @@ def get_ai_market_summary(results, market_data, taiex_info):
 
 請輸出精簡專業的 3 點「AI 盤勢與社群情緒深度解讀」（包含散戶心理/反串、主力籌碼對抗、潛在風險/機會）："""
         
-        url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={api_key}"
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={api_key}"
         payload = {
             "contents": [{"parts": [{"text": prompt}]}],
             "generationConfig": {"temperature": 0.3, "maxOutputTokens": 400}
@@ -525,10 +528,14 @@ def get_ai_market_summary(results, market_data, taiex_info):
         if res.status_code == 200:
             res_json = res.json()
             ai_text = res_json.get("candidates", [{}])[0].get("content", {}).get("parts", [{}])[0].get("text", "")
-            return ai_text.strip()
+            if ai_text.strip():
+                return ai_text.strip()
+            print(f"AI Summary Warning: Gemini returned empty text, using rule-based fallback")
+        else:
+            print(f"AI Summary Warning: Gemini HTTP {res.status_code} - {res.text[:200]}, using rule-based fallback")
     except Exception as e:
-        print(f"AI Summary Error: {e}")
-    return None
+        print(f"AI Summary Error: {e}, using rule-based fallback")
+    return _rule_based_market_summary(results, market_data)
 
 def get_taiex_info():
     # 1. 優先從證交所官網即時結算指數取得今日最新收盤 (避免 OpenAPI FMTQIK 延遲一天)
