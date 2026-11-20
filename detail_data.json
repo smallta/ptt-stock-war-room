@@ -1,166 +1,420 @@
 {
   "台積電 (2330)": {
     "Keywords": {
+      "跌": 29,
+      "空": 5,
+      "爛": 4,
+      "便宜": 10,
+      "買": 15,
+      "泡沫": 3,
+      "崩": 7,
+      "歐印": 3,
+      "99": 22,
+      "賣": 8,
       "套": 1,
-      "爛": 1,
-      "買": 1
+      "哲哲": 1,
+      "無腦": 2,
+      "老蘇": 2,
+      "救命": 2,
+      "破底": 1,
+      "出貨": 1,
+      "空蛙": 1
     },
     "Comments": [
       {
-        "user": "RTX3080TI",
-        "text": "https://i.imgur.com/JKxWGGS.jpeg",
-        "time": "11/19 14:04"
+        "user": "cdmlin",
+        "text": "國際股市跌 國安gg硬要出來護盤",
+        "time": "11/20 08:32"
       },
       {
-        "user": "largan6075",
-        "text": "尤其是台積電  常常9:00:05才開",
-        "time": "11/19 14:09"
+        "user": "wwzziipp",
+        "text": "GG搓平盤阿 沒得撿了",
+        "time": "11/20 08:33"
       },
       {
-        "user": "victor80122",
-        "text": "https://i.imgur.com/eqYbgg1.jpeg",
-        "time": "11/19 15:38"
+        "user": "cdmlin",
+        "text": "gg搓很高",
+        "time": "11/20 08:34"
       },
       {
-        "user": "k8954029",
-        "text": "誰在拉GG期貨騙人啊幹",
-        "time": "11/19 17:35"
+        "user": "omanorboyo",
+        "text": "台積電今天會跌破2000嗎",
+        "time": "11/20 08:35"
       },
       {
-        "user": "wwrand23",
-        "text": "TSM 軟屌，GG期貨真的是騙人去套",
-        "time": "11/19 17:39"
+        "user": "virgolibra",
+        "text": "台積電我們ㄧ字頭相見",
+        "time": "11/20 08:39"
       },
       {
-        "user": "yt010004",
-        "text": "猶太人收割了我們台積電  我就很賭爛了",
-        "time": "11/20 03:15"
+        "user": "Yan239",
+        "text": "空還有肉，台積電會剩1600",
+        "time": "11/20 08:39"
       },
       {
-        "user": "lottepudgy",
-        "text": "GG",
-        "time": "11/20 03:46"
+        "user": "wwzziipp",
+        "text": "GG多殺一點啊 這麼高怎麼撿",
+        "time": "11/20 08:43"
       },
       {
-        "user": "liocorno",
-        "text": "GG了 公園沒位子 怎辦",
-        "time": "11/20 03:53"
+        "user": "virgolibra",
+        "text": "台積電我們ㄧ字頭相見",
+        "time": "11/20 08:45"
       },
       {
-        "user": "goye",
-        "text": "假設GG會碰1944那個均線位置 那我們還有-7%還沒來",
-        "time": "11/20 04:12"
+        "user": "virgolibra",
+        "text": "台積電 ㄧ字頭 尖叫聲",
+        "time": "11/20 08:46"
       },
       {
-        "user": "yt010004",
-        "text": "我們政府犯了大忌  就是要跟猶太人資本對幹 下場GG",
-        "time": "11/20 04:20"
+        "user": "virgolibra",
+        "text": "台積電 ㄧ字頭 尖叫聲",
+        "time": "11/20 08:47"
       },
       {
-        "user": "holyvoice",
-        "text": "現在是除了金控外，央行也拜託，GG幫忙買美元控制匯",
-        "time": "11/20 05:17"
+        "user": "virgolibra",
+        "text": "台積電一字頭 恐慌還是興奮",
+        "time": "11/20 08:48"
       },
       {
-        "user": "holyvoice",
-        "text": "目前企業現金流來說，GG真的算小央行，啥都能幫忙",
-        "time": "11/20 05:19"
+        "user": "etop",
+        "text": "台G腰斬再來看",
+        "time": "11/20 08:49"
+      },
+      {
+        "user": "ufo559",
+        "text": "GG要破2000嗎",
+        "time": "11/20 08:50"
+      },
+      {
+        "user": "cool189",
+        "text": "GG2000要破了 爛東西",
+        "time": "11/20 08:51"
+      },
+      {
+        "user": "goodjop",
+        "text": "打折過的 便宜的GG來了~",
+        "time": "11/20 10:44"
+      },
+      {
+        "user": "showhere",
+        "text": "台積電1500見   自己去看周線",
+        "time": "11/20 10:44"
+      },
+      {
+        "user": "hakuoro",
+        "text": "GG2000都沒了 說好的拉積盤呢",
+        "time": "11/20 10:44"
+      },
+      {
+        "user": "l23l23",
+        "text": "之前主動避險去GG結果爆炸拖GG下去",
+        "time": "11/20 10:44"
+      },
+      {
+        "user": "orange1204",
+        "text": "GG 快要 GG 了 QQ",
+        "time": "11/20 10:44"
+      },
+      {
+        "user": "shykid",
+        "text": "沒想到一字頭GG比三字頭先來",
+        "time": "11/20 10:44"
+      },
+      {
+        "user": "mumuwei",
+        "text": "GG影響很大吧 老黃都自己說了 跟GG沒紙本合約 都用",
+        "time": "11/20 10:44"
+      },
+      {
+        "user": "piece1",
+        "text": "國安知道主動也有GG嗎？",
+        "time": "11/20 10:44"
+      },
+      {
+        "user": "xxgogg",
+        "text": "我一度以為這輩子看不到3位數的台積電了QAQQQ",
+        "time": "11/20 10:44"
+      },
+      {
+        "user": "addy7533967",
+        "text": "你會懷念二字頭的GG",
+        "time": "11/20 10:44"
+      },
+      {
+        "user": "rexlin",
+        "text": "2000以下的GG變不良品了",
+        "time": "11/20 10:45"
       }
     ]
   },
   "NVIDIA概念股": {
     "Keywords": {
-      "利多": 1
+      "空": 3,
+      "丸子": 4,
+      "套": 2,
+      "崩": 3,
+      "救命": 3,
+      "跌": 3,
+      "99": 1,
+      "便宜": 2
     },
     "Comments": [
       {
-        "user": "thmos180",
-        "text": "沒了老黃，沒future，好吃懶做的白人，搞不出什麼的",
-        "time": "11/19 14:38"
+        "user": "hate56",
+        "text": "老黃一根老二戳破整個AI大泡泡",
+        "time": "11/20 08:47"
       },
       {
-        "user": "thmos180",
-        "text": "沒了老黃，沒future，好吃懶做的白人，搞不出什麼的",
-        "time": "11/19 14:39"
+        "user": "mumuwei",
+        "text": "GG影響很大吧 老黃都自己說了 跟GG沒紙本合約 都用",
+        "time": "11/20 10:44"
       },
       {
-        "user": "oneeyewolf",
-        "text": "要不是老黃出事",
-        "time": "11/19 15:36"
+        "user": "ama75128",
+        "text": "台廠 太依賴老黃 丸子 兆元宴照片可以拿出來空一波",
+        "time": "11/20 10:45"
       },
       {
-        "user": "mlboy",
-        "text": "我覺 側翼/老謝 集體公開向老黃道歉 行情會馬上反轉",
-        "time": "11/19 16:32"
+        "user": "joe199277",
+        "text": "老黃聽證會12月初 這只是剛開始各位",
+        "time": "11/20 10:45"
       },
       {
-        "user": "thmos180",
-        "text": "少了老黃的作夢行情，看不到未來利多在哪？",
-        "time": "11/19 19:14"
+        "user": "faye52520",
+        "text": "老黃的老二軟掉了",
+        "time": "11/20 10:48"
       },
       {
-        "user": "leeshouyao",
-        "text": "沒人想到竟然會用搞掉老黃來戳破循環融資和台廠供應",
-        "time": "11/20 03:20"
+        "user": "xxgogg",
+        "text": "老黃早就套利離場「崩盤可不能算我頭上」",
+        "time": "11/20 10:50"
       },
       {
-        "user": "yt010004",
-        "text": "老黃問題 沒人知道  但是Q2那邊外資跑很兇 很明顯",
-        "time": "11/20 03:21"
+        "user": "twchih018",
+        "text": "老黃救命",
+        "time": "11/20 10:50"
       },
       {
-        "user": "leeshouyao",
-        "text": "但我真的沒想到竟然是用幹掉老黃來戳破泡泡..我本來",
-        "time": "11/20 04:24"
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → sonny0927",
+        "text": "X炸鍋啦～老黃稍早受訪要開新公司",
+        "time": "10:57"
       },
       {
-        "user": "leeshouyao",
-        "text": "現在開起來的確明顯就已經預定要靠老黃戳破泡泡 老",
-        "time": "11/20 04:28"
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → BlackTech",
+        "text": "唯一救贖，GG招募老黃 AI RD Center!",
+        "time": "10:53"
       },
       {
-        "user": "leeshouyao",
-        "text": "就大家都是忽然發現老黃辭職了 問題一大堆連環爆 老",
-        "time": "11/20 04:31"
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 ronga",
+        "text": "難道要回到25000 老黃救命啊",
+        "time": "10:51"
       },
       {
-        "user": "holyvoice",
-        "text": "http://i.imgur.com/OPY9ITe.jpg 繼老黃後，蘇媽出",
-        "time": "11/20 04:37"
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → twchih018",
+        "text": "老黃救命",
+        "time": "10:50"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🔴 噓 twchih018",
+        "text": "36000破！！！⚪ → chan184966  ：1990 WOW🟢 推 goodman5566 ：直接回6000吧🟢 推 SeaForest   ：https://i.imgur.com/JFLiLCq.jpeg 2000的GG當紅包⚪ → cerwvk      ：等漲跌幅砍半.🟢 推 josephpu    ：https://i.imgur.com/4CaJEEQ.jpeg🟢 推 asdasd4522  ：四貸同堂 變四貸靈堂了🟢 推 barry841120 ：終於要教訓正五貪狗了⚪ → xxgogg      ：老黃早就套利離場「崩盤可不能算我頭上」🟢 推 ama75128    ：反一 6% 真的不多見",
+        "time": "10:50"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → faye52520",
+        "text": "老黃的老二軟掉了",
+        "time": "10:49"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 joe199277",
+        "text": "老黃聽證會12月初 這只是剛開始各位",
+        "time": "10:45"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 ama75128",
+        "text": "台廠 太依賴老黃 丸子 兆元宴照片可以拿出來空一波",
+        "time": "10:45"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 mumuwei",
+        "text": "GG影響很大吧 老黃都自己說了 跟GG沒紙本合約 都用",
+        "time": "10:45"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 jacky3838",
+        "text": "2500囉⚪ → ilovecat5566：36K快守不住啦!!!🟢 推 kenny945    ：等到主動砸盤，0050就倒大楣了🟢 推 JaccWu      ：糖漿終於可以進場了🟢 推 jeremyZH    ：GG2000破了QQ🟢 推 lobster1688 ：老黃Over AI is over 台廠供應鏈也Over⚪ → aloness     ：…🟢 推 Dogi        ：2000以下台積 下鑽石雨了⚪ → ct78645     ：放推了 完了  一切都完了",
+        "time": "10:43"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → ken720331",
+        "text": "老黃的功勞不是哪個誰的功勞，人家老黃還不給趁",
+        "time": "10:42"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 jin49518124",
+        "text": "大家不要怕36000肛底🟢 推 feedcat     ：幹你娘2百多萬沒了🟢 推 zxcv12300   ：這波最大贏家外資,天天提款,糖漿送錢⚪ → twchih018   ：今天有機會創屎上最大跌點⚪ → fajita      ：小鵝真的贏麻了，山頂提款數兆，明年便宜撿🟢 推 v58264579   ：台積破兩千會殺到哪⚪ → CYL009      ：槓桿融資仔終於被禁空令陰到惹 嘻嘻🟢 推 ken720331   ：日經在跟我們比了，大家看誰厲害🟢 推 nicexd      ：幹嘛幹祥德 要幹也是幹老黃皮鹽🔴 噓 oh123oh     ：還在守2000GG嗎?感覺外資還沒發力...",
+        "time": "10:41"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → spa41260",
+        "text": "就該知道的，直到老黃爆了才引爆",
+        "time": "10:40"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 cps80655",
+        "text": "感覺就是會今年瞎忙，老黃給的全部跟他一起離開",
+        "time": "10:39"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → NowQmmmmmmmm",
+        "text": "知道這個世界沒老黃的可怕了吧",
+        "time": "10:38"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 lucky360",
+        "text": "老黃自己都沒想到 他的婚外情直接讓全球大崩盤",
+        "time": "10:38"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → willy07127",
+        "text": "老黃這個大動脈被砍掉 真的不用想五萬了",
+        "time": "10:37"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → ken720331",
+        "text": "要記得是美國人做掉老黃",
+        "time": "10:37"
       }
     ]
   },
-  "天品 (6199)": {
+  "聯發科 (2454)": {
     "Keywords": {
-      "買": 1,
-      "跌": 1,
-      "妖": 1
+      "買": 1
     },
     "Comments": [
       {
-        "user": "Blackout",
-        "text": "建議買天品，外面怎麼跌都沒他的事",
-        "time": "11/19 14:12"
+        "user": "vanii40",
+        "text": "聯發科很硬喔",
+        "time": "11/20 08:41"
       },
       {
-        "user": "svool",
-        "text": "天品真的妖",
-        "time": "11/19 14:13"
+        "user": "qqq852963tw",
+        "text": "發哥別騙 單那麽少",
+        "time": "11/20 08:42"
       },
       {
-        "user": "Forcast",
-        "text": "天品種花",
-        "time": "11/19 14:13"
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → stocktonty",
+        "text": "陳龍台積買2400 大立光買6200 聯發科買4700 望周知",
+        "time": "10:54"
       },
       {
-        "user": "stocktonty",
-        "text": "天品就葬儀社概念股 去年關稅前也是一直漲",
-        "time": "11/19 14:15"
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 turndown4wat",
+        "text": "發哥快燈了",
+        "time": "10:51"
+      }
+    ]
+  },
+  "大成 (1210)": {
+    "Keywords": {
+      "崩": 1,
+      "舒服": 1
+    },
+    "Comments": [
+      {
+        "user": "mecca",
+        "text": "恭喜前天抄底京元電大成功QQ",
+        "time": "11/20 08:40"
       },
       {
-        "user": "Blackout",
-        "text": "天品這波應該和他們公司債有關，不知道要拉到什麼時",
-        "time": "11/19 14:17"
+        "user": "siki588",
+        "text": "大崩盤大成功o.O",
+        "time": "11/20 08:45"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 hate56",
+        "text": "打王大成功!!!!!!!!",
+        "time": "10:43"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → bndan",
+        "text": "民主黨: 這波宣傳大成功 反AI的鍋都黃扛了 舒服",
+        "time": "10:39"
+      }
+    ]
+  },
+  "中華電 (2412)": {
+    "Keywords": {
+      "崩": 2,
+      "跌": 3
+    },
+    "Comments": [
+      {
+        "user": "siopp",
+        "text": "中華電本益比3x了，很穩啊，看電子蛙崩潰",
+        "time": "11/20 08:43"
+      },
+      {
+        "user": "tmdl",
+        "text": "坐等中華電開崩   迎接全面股災",
+        "time": "11/20 08:43"
+      },
+      {
+        "user": "jeffofpower1",
+        "text": "中華電也跌",
+        "time": "11/20 10:49"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → Feting",
+        "text": "昨天中華電一堆融資，今天就跌下去",
+        "time": "10:54"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 jeffofpower1",
+        "text": "中華電也跌",
+        "time": "10:49"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 lsgsl",
+        "text": "連中華電避風港都倒了QQ...",
+        "time": "10:41"
+      }
+    ]
+  },
+  "華電 (1603)": {
+    "Keywords": {
+      "崩": 2,
+      "跌": 3
+    },
+    "Comments": [
+      {
+        "user": "siopp",
+        "text": "中華電本益比3x了，很穩啊，看電子蛙崩潰",
+        "time": "11/20 08:43"
+      },
+      {
+        "user": "tmdl",
+        "text": "坐等中華電開崩   迎接全面股災",
+        "time": "11/20 08:43"
+      },
+      {
+        "user": "jeffofpower1",
+        "text": "中華電也跌",
+        "time": "11/20 10:49"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → Feting",
+        "text": "昨天中華電一堆融資，今天就跌下去",
+        "time": "10:54"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 jeffofpower1",
+        "text": "中華電也跌",
+        "time": "10:49"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 lsgsl",
+        "text": "連中華電避風港都倒了QQ...",
+        "time": "10:41"
       }
     ]
   },
@@ -170,58 +424,44 @@
     },
     "Comments": [
       {
-        "user": "pttstock",
-        "text": "0.0 買正2 0050 穩!",
-        "time": "11/19 14:53"
-      }
-    ]
-  },
-  "神準 (3558)": {
-    "Keywords": {
-      "老蘇": 1,
-      "崩": 1,
-      "空": 1
-    },
-    "Comments": [
-      {
-        "user": "cps80655",
-        "text": "不要再笑老蘇了，老蘇這次真的神準",
-        "time": "11/19 14:17"
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 motorolla",
+        "text": "0050 死守85關卡",
+        "time": "10:41"
       },
       {
-        "user": "barry841120",
-        "text": "一直空 空到真的崩 好像不能叫神準吧",
-        "time": "11/19 14:19"
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → tamsky",
+        "text": "0050 我只買80",
+        "time": "10:37"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 motorolla",
+        "text": "0050 還是好多人接單喔 讚喔",
+        "time": "10:37"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 helmsley",
+        "text": "0050 85我竟然不敢抄…",
+        "time": "10:35"
       }
     ]
   },
-  "聯發科 (2454)": {
+  "富邦金 (2881)": {
     "Keywords": {},
     "Comments": [
       {
-        "user": "stocktonty",
-        "text": "跟疫情比就差10倍了啊 那時候台積200多發哥300多",
-        "time": "11/19 14:12"
-      }
-    ]
-  },
-  "群聯 (8299)": {
-    "Keywords": {},
-    "Comments": [
+        "user": "say0717",
+        "text": "好怕喔 我手上都富邦金 好像都沒感覺 哈哈",
+        "time": "11/20 08:34"
+      },
       {
         "user": "f204137",
-        "text": "群聯也會複製國巨走勢 信徒注意了",
-        "time": "11/19 14:17"
-      }
-    ]
-  },
-  "義隆 (2458)": {
-    "Keywords": {},
-    "Comments": [
+        "text": "股災 差多了 富邦金150元的全球股災XD",
+        "time": "11/20 08:48"
+      },
       {
-        "user": "Kyameron",
-        "text": "靠么 義隆電 前公司",
-        "time": "11/19 14:25"
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → YHOTV4096",
+        "text": "日月光和富邦金也岌岌可危。",
+        "time": "10:52"
       }
     ]
   },
@@ -229,99 +469,472 @@
     "Keywords": {},
     "Comments": [
       {
-        "user": "kmshy",
-        "text": "會員的環球晶國巨已落賽",
-        "time": "11/19 15:09"
-      }
-    ]
-  },
-  "大成 (1210)": {
-    "Keywords": {},
-    "Comments": [
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 leftwalk",
+        "text": "環球晶的大M也完成了",
+        "time": "10:41"
+      },
       {
-        "user": "ookimoo",
-        "text": "璃心的 笑死人 塑造反派大成功",
-        "time": "11/20 04:08"
-      }
-    ]
-  },
-  "聯發 (1459)": {
-    "Keywords": {},
-    "Comments": [
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 xavitier",
+        "text": "環球晶1拆4分割嗎？",
+        "time": "10:36"
+      },
       {
-        "user": "as111531",
-        "text": "ai is fake 週末畢業文聯發",
-        "time": "11/20 04:27"
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 scgraph",
+        "text": "國巨 環球晶 緯穎都1拆四",
+        "time": "10:34"
       }
     ]
   },
-  "全台 (3038)": {
-    "Keywords": {},
-    "Comments": [
-      {
-        "user": "marginalFeng",
-        "text": "我猜下禮拜全台灣股民就開始罵為何外資一堆主動etf",
-        "time": "11/20 04:43"
-      }
-    ]
-  },
-  "統一 (1216)": {
-    "Keywords": {},
-    "Comments": [
-      {
-        "user": "holyvoice",
-        "text": "現在可能連各地信用合作社都進去了，因為它們統一由",
-        "time": "11/20 04:54"
-      }
-    ]
-  },
-  "鴻海 (2317)": {
+  "大立光 (3008)": {
     "Keywords": {
+      "空": 1,
+      "買": 1,
       "跌": 1
     },
     "Comments": [
       {
-        "user": "GingFreecss",
-        "text": "怎樣今天是顧鴻海喔 怎麼鴻海沒跌",
-        "time": "11/19 14:05"
+        "user": "event1408472",
+        "text": "今天至少三千點 大力空下去我不會害你",
+        "time": "11/20 08:48"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → stocktonty",
+        "text": "陳龍台積買2400 大立光買6200 聯發科買4700 望周知",
+        "time": "10:54"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → NowQmmmmmmmm",
+        "text": "大立光也跌停了",
+        "time": "10:51"
       }
     ]
   },
-  "儒鴻 (1476)": {
+  "聯合 (4129)": {
     "Keywords": {
-      "空": 1
+      "崩": 1
     },
     "Comments": [
       {
-        "user": "Armag",
-        "text": "儒鴻的展位空無一人順手操樂幾張",
-        "time": "11/19 14:17"
+        "user": "EIngXuan",
+        "text": "101聯合公祭 一起跳一起辦",
+        "time": "11/20 10:45"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🔴 噓 OOorc",
+        "text": "我們的人說11點開始拉。抱緊！🟢 推 v58264579   ：台積不撐了嗎⚪ → EIngXuan    ：101聯合公祭 一起跳一起辦⚪ → bndan       ：婀~不對 國安進場是敲羅打鼓的進場 XD 深怕沒人知道🟢 推 kenny945    ：GG崩掉主動就要砸盤了⚪ → CaTkinGG    ：無言了⚪ → mirror487   ：注意！政府又幫你賠了...",
+        "time": "10:45"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → scgraph",
+        "text": "政府快聯合四大作手救股市啊",
+        "time": "10:40"
+      }
+    ]
+  },
+  "神腦 (2450)": {
+    "Keywords": {},
+    "Comments": [
+      {
+        "user": "jeffofpower1",
+        "text": "-2450",
+        "time": "11/20 10:49"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → jeffofpower1",
+        "text": "-2450",
+        "time": "10:49"
+      }
+    ]
+  },
+  "永光 (1711)": {
+    "Keywords": {},
+    "Comments": [
+      {
+        "user": "BossGibbs",
+        "text": "永光還沒抽籤先-24%",
+        "time": "11/20 10:50"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 BossGibbs",
+        "text": "永光還沒抽籤先-24%",
+        "time": "10:50"
+      }
+    ]
+  },
+  "上詮 (3363)": {
+    "Keywords": {},
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 omanorboyo",
+        "text": "上詮 有夠慘",
+        "time": "10:39"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 justhandsome",
+        "text": "腦船長的上詮會員還好嗎？要工作幾年才回來",
+        "time": "10:38"
+      }
+    ]
+  },
+  "緯穎 (6669)": {
+    "Keywords": {},
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → scgraph",
+        "text": "緯穎算錯了,是一拆6",
+        "time": "10:35"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 scgraph",
+        "text": "國巨 環球晶 緯穎都1拆四",
+        "time": "10:34"
+      }
+    ]
+  },
+  "龍巖 (5530)": {
+    "Keywords": {
+      "跌": 1,
+      "噴": 2
+    },
+    "Comments": [
+      {
+        "user": "preventer",
+        "text": "跌成這樣 龍巖也沒漲停啊  三小",
+        "time": "11/20 09:47"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 etop",
+        "text": "龍巖沒噴出 沒恐慌",
+        "time": "10:54"
+      }
+    ]
+  },
+  "可成 (2474)": {
+    "Keywords": {
+      "賺": 1
+    },
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → buyaowen",
+        "text": "可成賺到 庫藏股碰到股災",
+        "time": "10:44"
+      }
+    ]
+  },
+  "力士 (4923)": {
+    "Keywords": {},
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 Forcast",
+        "text": "力士7%",
+        "time": "10:40"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 Forcast",
+        "text": "力士6%",
+        "time": "10:38"
       }
     ]
   },
   "緯創 (3231)": {
     "Keywords": {
-      "空": 1,
-      "空蛙": 1
+      "買": 1
     },
     "Comments": [
       {
-        "user": "brain9453",
-        "text": "她空緯創喔 好屌空蛙",
-        "time": "11/19 14:20"
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → asws0808",
+        "text": "緯創誰在買 怎麼有大單200張",
+        "time": "10:39"
       }
     ]
   },
-  "天剛 (5310)": {
+  "永豐金 (2890)": {
     "Keywords": {
-      "噴": 2,
-      "空": 1
+      "賣": 1,
+      "跌": 1
     },
     "Comments": [
       {
-        "user": "obovqq",
-        "text": "會噴就好 今天剛回補 明天繼續空☺",
-        "time": "11/19 14:55"
+        "user": "Dirgo",
+        "text": "永豐金撮漲停還是沒回去我的賣出價,感慨萬千",
+        "time": "11/20 08:36"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 Haerin520",
+        "text": "永豐金跌停？",
+        "time": "10:54"
+      }
+    ]
+  },
+  "群聯 (8299)": {
+    "Keywords": {
+      "跌": 1,
+      "嘎": 1
+    },
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 dn410054",
+        "text": "群聯還沒跌停耶   哈哈哈",
+        "time": "10:56"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 tomdavis",
+        "text": "群聯嘎起來了",
+        "time": "10:56"
+      }
+    ]
+  },
+  "天品 (6199)": {
+    "Keywords": {},
+    "Comments": [
+      {
+        "user": "Blackout",
+        "text": "天品繼續漲嗎哈哈",
+        "time": "11/20 08:30"
+      }
+    ]
+  },
+  "南亞科 (2408)": {
+    "Keywords": {},
+    "Comments": [
+      {
+        "user": "Kobe5210",
+        "text": "南亞科XD",
+        "time": "11/20 08:32"
+      }
+    ]
+  },
+  "南亞 (1303)": {
+    "Keywords": {},
+    "Comments": [
+      {
+        "user": "Kobe5210",
+        "text": "南亞科XD",
+        "time": "11/20 08:32"
+      }
+    ]
+  },
+  "欣興 (3037)": {
+    "Keywords": {},
+    "Comments": [
+      {
+        "user": "aimgel",
+        "text": "欣興又要點燈啦",
+        "time": "11/20 08:35"
+      }
+    ]
+  },
+  "台塑 (1301)": {
+    "Keywords": {},
+    "Comments": [
+      {
+        "user": "asws0808",
+        "text": "台塑集團又亮燈了 死亡螺旋",
+        "time": "11/20 08:38"
+      }
+    ]
+  },
+  "台達電 (2308)": {
+    "Keywords": {},
+    "Comments": [
+      {
+        "user": "astrokid",
+        "text": "台達電回三位數",
+        "time": "11/20 08:42"
+      }
+    ]
+  },
+  "旺宏 (2337)": {
+    "Keywords": {},
+    "Comments": [
+      {
+        "user": "sssallen",
+        "text": "有看過30以下的旺宏嗎 哈哈",
+        "time": "11/20 08:46"
+      }
+    ]
+  },
+  "全家 (5903)": {
+    "Keywords": {},
+    "Comments": [
+      {
+        "user": "neetcat",
+        "text": "幹幹幹幹幹操你媽的小兒死全家",
+        "time": "11/20 09:44"
+      }
+    ]
+  },
+  "川湖 (2059)": {
+    "Keywords": {},
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 link4517",
+        "text": "川湖 一看嚇一跳...剩5千多了",
+        "time": "10:57"
+      }
+    ]
+  },
+  "意藍 (6925)": {
+    "Keywords": {},
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 Forcast",
+        "text": "意藍-1%",
+        "time": "10:56"
+      }
+    ]
+  },
+  "達新 (1315)": {
+    "Keywords": {},
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → spa41260",
+        "text": "輝達新雲的業務佔40%多，少了他提供信用擔保，基本",
+        "time": "10:54"
+      }
+    ]
+  },
+  "矽創 (8016)": {
+    "Keywords": {},
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 Forcast",
+        "text": "矽創1%",
+        "time": "10:53"
+      }
+    ]
+  },
+  "宣德 (5457)": {
+    "Keywords": {},
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 Forcast",
+        "text": "宣德3%",
+        "time": "10:52"
+      }
+    ]
+  },
+  "志聖 (2467)": {
+    "Keywords": {},
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → mcharuko",
+        "text": "-2467 35959 今日新低",
+        "time": "10:50"
+      }
+    ]
+  },
+  "中信金 (2891)": {
+    "Keywords": {},
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → Skycrane",
+        "text": "哪個傻子在認賠中信金",
+        "time": "10:42"
+      }
+    ]
+  },
+  "創新服務 (7828)": {
+    "Keywords": {},
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 madaoB",
+        "text": "創新服務是三小？",
+        "time": "10:41"
+      }
+    ]
+  },
+  "合一 (4743)": {
+    "Keywords": {},
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 chehao",
+        "text": "合一...",
+        "time": "10:41"
+      }
+    ]
+  },
+  "台亞 (2340)": {
+    "Keywords": {},
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 mcharuko",
+        "text": "-2340 完蛋完蛋完蛋完蛋完蛋",
+        "time": "10:40"
+      }
+    ]
+  },
+  "第一金 (2892)": {
+    "Keywords": {},
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → qscxz",
+        "text": "第一金-6% 傻眼",
+        "time": "10:36"
+      }
+    ]
+  },
+  "光寶科 (2301)": {
+    "Keywords": {},
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] ⚪ → mcharuko",
+        "text": "-2301",
+        "time": "10:35"
+      }
+    ]
+  },
+  "全科 (3209)": {
+    "Keywords": {
+      "跌": 1
+    },
+    "Comments": [
+      {
+        "user": "ravelson",
+        "text": "全科也可以搓跌停 好好笑",
+        "time": "11/20 08:35"
+      }
+    ]
+  },
+  "藥華藥 (6446)": {
+    "Keywords": {
+      "跌": 1
+    },
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 julian42",
+        "text": "連非Ai的藥華藥也跌停 已經恐荒了",
+        "time": "10:55"
+      }
+    ]
+  },
+  "毅嘉 (2402)": {
+    "Keywords": {
+      "賣": 1
+    },
+    "Comments": [
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 ksuenjjr",
+        "text": "禁止賣出啊⚪ → lokoo       ：gg終於放推了⚪ → mcharuko    ：-2402 幹你涼🟢 推 dick929     ：gg又見1字頭🟢 推 newstar13579：大屠殺囉 祥德壽司吧🟢 推 butt1106    ：2000破⚪ → ARMANI9527  ：GG破2000了🟢 推 manfree     ：什麼台gg硬撐⚪ → SYUAN0301   ：只會拉GG，其他股都去死🟢 推 a64186401   ：台股市值碰風成這樣 提個5兆也還行?y",
+        "time": "10:43"
+      }
+    ]
+  },
+  "統一 (1216)": {
+    "Keywords": {
+      "爛": 2,
+      "跌": 2
+    },
+    "Comments": [
+      {
+        "user": "s555666",
+        "text": "統一主動三雄跌爛了",
+        "time": "11/20 10:48"
+      },
+      {
+        "user": "📱 [ptt_stock_follow_chat] 🟢 推 s555666",
+        "text": "統一主動三雄跌爛了",
+        "time": "10:48"
       }
     ]
   }
