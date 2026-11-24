@@ -1,166 +1,4 @@
 {
-  "2026-11-13": {
-    "NVIDIA概念股": {
-      "Score": 825,
-      "Mentions": 260
-    },
-    "聯發科 (2454)": {
-      "Score": 331,
-      "Mentions": 77
-    },
-    "台積電 (2330)": {
-      "Score": 152,
-      "Mentions": 32
-    },
-    "上詮 (3363)": {
-      "Score": 65,
-      "Mentions": 16
-    },
-    "創意 (3443)": {
-      "Score": 45,
-      "Mentions": 9
-    },
-    "台玻 (1802)": {
-      "Score": 30,
-      "Mentions": 11
-    },
-    "友達 (2409)": {
-      "Score": 25,
-      "Mentions": 7
-    },
-    "大成鋼 (2027)": {
-      "Score": 20,
-      "Mentions": 4
-    },
-    "技嘉 (2376)": {
-      "Score": 17,
-      "Mentions": 3
-    },
-    "南亞 (1303)": {
-      "Score": 17,
-      "Mentions": 5
-    },
-    "冠西電 (2466)": {
-      "Score": 17,
-      "Mentions": 3
-    },
-    "華電 (1603)": {
-      "Score": 14,
-      "Mentions": 2
-    },
-    "中華電 (2412)": {
-      "Score": 14,
-      "Mentions": 2
-    },
-    "台達電 (2308)": {
-      "Score": 14,
-      "Mentions": 2
-    },
-    "大國鋼 (8415)": {
-      "Score": 14,
-      "Mentions": 3
-    },
-    "彰銀 (2801)": {
-      "Score": 13,
-      "Mentions": 3
-    },
-    "群聯 (8299)": {
-      "Score": 13,
-      "Mentions": 5
-    },
-    "聯一光 (3441)": {
-      "Score": 13,
-      "Mentions": 3
-    },
-    "穩懋 (3105)": {
-      "Score": 12,
-      "Mentions": 2
-    },
-    "精材 (3374)": {
-      "Score": 10,
-      "Mentions": 2
-    },
-    "聯茂 (6213)": {
-      "Score": 10,
-      "Mentions": 2
-    },
-    "廣達 (2382)": {
-      "Score": 10,
-      "Mentions": 2
-    },
-    "泰銘 (9927)": {
-      "Score": 10,
-      "Mentions": 2
-    },
-    "禾伸堂 (3026)": {
-      "Score": 8,
-      "Mentions": 2
-    },
-    "大立光 (3008)": {
-      "Score": 8,
-      "Mentions": 2
-    },
-    "萬在 (4543)": {
-      "Score": 7,
-      "Mentions": 1
-    },
-    "廣豐 (1416)": {
-      "Score": 7,
-      "Mentions": 2
-    },
-    "大毅 (2478)": {
-      "Score": 7,
-      "Mentions": 1
-    },
-    "旺矽 (6223)": {
-      "Score": 7,
-      "Mentions": 1
-    },
-    "楠梓電 (2316)": {
-      "Score": 7,
-      "Mentions": 1
-    },
-    "華新科 (2492)": {
-      "Score": 6,
-      "Mentions": 2
-    },
-    "華新 (1605)": {
-      "Score": 6,
-      "Mentions": 2
-    },
-    "和成 (1810)": {
-      "Score": 5,
-      "Mentions": 1
-    },
-    "信大 (1109)": {
-      "Score": 5,
-      "Mentions": 1
-    },
-    "愛山林 (2540)": {
-      "Score": 5,
-      "Mentions": 1
-    },
-    "力旺 (3529)": {
-      "Score": 5,
-      "Mentions": 1
-    },
-    "事欣科 (4916)": {
-      "Score": 5,
-      "Mentions": 1
-    },
-    "晶豪科 (3006)": {
-      "Score": 5,
-      "Mentions": 1
-    },
-    "敬鵬 (2355)": {
-      "Score": 5,
-      "Mentions": 1
-    },
-    "長榮 (2603)": {
-      "Score": 5,
-      "Mentions": 1
-    }
-  },
   "2026-11-16": {
     "NVIDIA概念股": {
       "Score": 522,
@@ -850,6 +688,96 @@
     },
     "華邦電 (2344)": {
       "Score": 3,
+      "Mentions": 1
+    }
+  },
+  "2026-11-24": {
+    "晶豪科 (3006)": {
+      "Score": 139,
+      "Mentions": 43
+    },
+    "NVIDIA概念股": {
+      "Score": 133,
+      "Mentions": 33
+    },
+    "台積電 (2330)": {
+      "Score": 32,
+      "Mentions": 7
+    },
+    "中磊 (5388)": {
+      "Score": 31,
+      "Mentions": 8
+    },
+    "鴻準 (2354)": {
+      "Score": 27,
+      "Mentions": 8
+    },
+    "亞光 (3019)": {
+      "Score": 26,
+      "Mentions": 8
+    },
+    "冠西電 (2466)": {
+      "Score": 22,
+      "Mentions": 4
+    },
+    "富采 (3714)": {
+      "Score": 19,
+      "Mentions": 5
+    },
+    "環球晶 (6488)": {
+      "Score": 15,
+      "Mentions": 3
+    },
+    "聯詠 (3034)": {
+      "Score": 10,
+      "Mentions": 2
+    },
+    "瑞昱 (2379)": {
+      "Score": 7,
+      "Mentions": 1
+    },
+    "全家 (5903)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "建大 (2106)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "中鼎 (9933)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "宏齊 (6168)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "易發 (6425)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "冠軍 (1806)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "中視 (9928)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "川寶 (1595)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "達能 (3686)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "長榮 (2603)": {
+      "Score": 3,
+      "Mentions": 1
+    },
+    "鴻海 (2317)": {
+      "Score": 1,
       "Mentions": 1
     }
   }
