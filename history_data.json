@@ -1,42 +1,4 @@
 {
-  "2026-11-18": {
-    "NVIDIA概念股": {
-      "Score": 190,
-      "Mentions": 45
-    },
-    "台積電 (2330)": {
-      "Score": 28,
-      "Mentions": 7
-    },
-    "聯合 (4129)": {
-      "Score": 12,
-      "Mentions": 1
-    },
-    "和大 (1536)": {
-      "Score": 5,
-      "Mentions": 1
-    },
-    "全家 (5903)": {
-      "Score": 5,
-      "Mentions": 1
-    },
-    "創業家 (8477)": {
-      "Score": 5,
-      "Mentions": 1
-    },
-    "光環 (3234)": {
-      "Score": 5,
-      "Mentions": 1
-    },
-    "川寶 (1595)": {
-      "Score": 5,
-      "Mentions": 1
-    },
-    "力士 (4923)": {
-      "Score": 1,
-      "Mentions": 1
-    }
-  },
   "2026-11-19": {
     "台積電 (2330)": {
       "Score": 52,
@@ -665,6 +627,168 @@
       "Mentions": 1
     },
     "永豐金 (2890)": {
+      "Score": 5,
+      "Mentions": 1
+    }
+  },
+  "2026-11-27": {
+    "台積電 (2330)": {
+      "Score": 388,
+      "Mentions": 97
+    },
+    "華通 (2313)": {
+      "Score": 45,
+      "Mentions": 11
+    },
+    "聯詠 (3034)": {
+      "Score": 25,
+      "Mentions": 5
+    },
+    "群聯 (8299)": {
+      "Score": 24,
+      "Mentions": 5
+    },
+    "台玻 (1802)": {
+      "Score": 21,
+      "Mentions": 5
+    },
+    "威剛 (3260)": {
+      "Score": 20,
+      "Mentions": 4
+    },
+    "緯穎 (6669)": {
+      "Score": 17,
+      "Mentions": 2
+    },
+    "華邦電 (2344)": {
+      "Score": 15,
+      "Mentions": 3
+    },
+    "聯發科 (2454)": {
+      "Score": 11,
+      "Mentions": 3
+    },
+    "南亞 (1303)": {
+      "Score": 11,
+      "Mentions": 3
+    },
+    "南亞科 (2408)": {
+      "Score": 11,
+      "Mentions": 3
+    },
+    "健策 (3653)": {
+      "Score": 10,
+      "Mentions": 2
+    },
+    "旺宏 (2337)": {
+      "Score": 10,
+      "Mentions": 2
+    },
+    "中華電 (2412)": {
+      "Score": 7,
+      "Mentions": 1
+    },
+    "華電 (1603)": {
+      "Score": 7,
+      "Mentions": 1
+    },
+    "鴻海 (2317)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "富喬 (1815)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "華新科 (2492)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "華新 (1605)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "大成 (1210)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "台揚 (2314)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "華東 (8110)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "第一金 (2892)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "金居 (8358)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "台光電 (2383)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "藍天 (2362)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "台塑化 (6505)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "台塑 (1301)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "全家 (5903)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "楠梓電 (2316)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "兆赫 (2485)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "聯電 (2303)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "聯合 (4129)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "嘉澤 (3533)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "台達電 (2308)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "穎崴 (6515)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "聯亞 (3081)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "大成鋼 (2027)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "是方 (6561)": {
+      "Score": 5,
+      "Mentions": 1
+    },
+    "中鋼 (2002)": {
       "Score": 5,
       "Mentions": 1
     }
