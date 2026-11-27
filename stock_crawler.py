@@ -522,7 +522,11 @@ def get_ai_market_summary(results, market_data, taiex_info):
         url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={api_key}"
         payload = {
             "contents": [{"parts": [{"text": prompt}]}],
-            "generationConfig": {"temperature": 0.3, "maxOutputTokens": 400}
+            "generationConfig": {
+                "temperature": 0.3,
+                "maxOutputTokens": 2048,
+                "thinkingConfig": {"thinkingBudget": 0}
+            }
         }
         res = requests.post(url, json=payload, timeout=10)
         if res.status_code == 200:

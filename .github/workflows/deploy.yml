@@ -3,10 +3,9 @@ name: PTT Stock War Room Auto Crawl & Deploy
 on:
   schedule:
     # 台灣時間 (UTC+8)：週一至週五
-    # 11/16-19 驗證 UTC 13:47 晚間高峰 → 延遲 8-9h 落隔日清晨，且清晨跑 PTT/TG 內容殘缺（11/18 僅 9 檔、11/19 僅 17 檔）
-    # 改為盤後 14:30 主抓（UTC 06:30 Actions 離峰窗、收盤 1h 鄉民正發酵），21:47 備援補充（dup_check 已做過會 skip）
-    - cron: '30 6 * * 1-5'    # 14:30 Taipei (主抓 - 盤後離峰窗)
-    - cron: '47 13 * * 1-5'   # 21:47 Taipei (備援 - 若主抓當日未成功則補跑)
+    # 11/27 驗收：14:30 主抓每次被 dup_check skip（前一晚 21:47 延遲到今日凌晨已 commit，LAST_DATE=TODAY）
+    # 砍除 14:30 主抓，只留 21:47 備援。實測延遲 ~5h 落隔日凌晨 02:xx，但資料完整（57 檔 vs 11/18 殘缺 9 檔）
+    - cron: '47 13 * * 1-5'   # 21:47 Taipei (實測延遲 ~5h 落隔日凌晨 02:xx)
   workflow_dispatch: # 支援在 Actions 頁面手動點擊執行
 
 permissions:
